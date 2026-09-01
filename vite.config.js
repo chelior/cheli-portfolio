@@ -4,8 +4,11 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  logLevel: 'error', // Suppress warnings, only show errors
   base: './',
+  server: {
+    port: 5173,
+    strictPort: false,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -13,5 +16,15 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    {
+      name: 'log-port',
+      configureServer(server) {
+        server.httpServer?.once('listening', () => {
+          const addr = server.httpServer.address();
+          const port = typeof addr === 'object' && addr !== null ? addr.port : 5173;
+          console.log(`\n  ➜  Dev server running on http://localhost:${port}/ (HMR enabled)\n`);
+        });
+      },
+    },
   ]
 });

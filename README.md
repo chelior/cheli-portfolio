@@ -5,15 +5,15 @@ A static portfolio site (migrated off Base44) built with React + Vite + Tailwind
 ## Run locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ## Build
 
 ```bash
-npm run build   # outputs to dist/
-npm run preview # serve the production build locally
+pnpm run build   # outputs to dist/
+pnpm run preview # serve the production build locally
 ```
 
 ## Deploy to GitHub Pages
