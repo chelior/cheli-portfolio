@@ -52,10 +52,10 @@ export default function ContactSection() {
               href={`mailto:${EMAIL}`}
               animate={{ x: pos.x, y: pos.y }}
               transition={{ type: "spring", stiffness: 150, damping: 15 }}
-              className="inline-flex items-center gap-3 font-heading font-semibold text-[#0A0F1D] text-2xl md:text-5xl lg:text-6xl tracking-[-0.04em] hover:text-[#6366F1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-4 rounded"
+              className="inline-flex items-center justify-center gap-2 md:gap-3 font-heading font-medium text-[#0A0F1D] text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] leading-none tracking-[-0.03em] hover:text-[#6366F1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-4 rounded whitespace-nowrap overflow-visible py-4"
             >
               {EMAIL}
-              <ArrowUpRight className="w-6 h-6 md:w-10 md:h-10" />
+              <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7 lg:w-9 lg:h-9 shrink-0" />
             </motion.a>
           </div>
 

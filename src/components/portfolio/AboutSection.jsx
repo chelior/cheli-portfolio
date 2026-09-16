@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 const INTERESTS = [
-  { image: "images/d436789e1_image.png", caption: "OUTDOOR LOVER" },
-  { image: "images/209c7f586_image.png", caption: "Always Reading" },
-  { image: "images/233f92a8c_image.png", caption: "Sunset Chaser" },
-  { image: "images/cfa292972_image.png", caption: "FOREVER STUDENT" },
+  { image: "images/shared/d436789e1_image.png", caption: "OUTDOOR LOVER" },
+  { image: "images/shared/209c7f586_image.png", caption: "Always Reading" },
+  { image: "images/shared/233f92a8c_image.png", caption: "Sunset Chaser" },
+  { image: "images/shared/cfa292972_image.png", caption: "FOREVER STUDENT" },
 ];
 
 const BIO = "I'm a product designer with over 4 years of experience. I enjoy untangling messy workflows and turning them into clean, structured, and intuitive solutions. Outside of design, you'll often find me reading and diving deep into topics that just feed my curiosity and soul. I love learning new things constantly, and having a full-stack developer partner means tech conversations never really stop at the office.";
@@ -41,7 +41,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 md:mb-16"
         >
-          <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
             About
           </h2>
         </motion.div>

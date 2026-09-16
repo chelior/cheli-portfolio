@@ -6,6 +6,7 @@ import CaseStudyUserCreation from '@/pages/CaseStudyUserCreation';
 import CaseStudyDevHub from '@/pages/CaseStudyDevHub';
 import CaseStudySdarim from '@/pages/CaseStudySdarim';
 import CaseStudyInSightec from '@/pages/CaseStudyInSightec';
+import DesignSystem from '@/pages/DesignSystem';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/case-study/dev-hub" element={<CaseStudyDevHub />} />
         <Route path="/case-study/sdarim" element={<CaseStudySdarim />} />
         <Route path="/case-study/insightec" element={<CaseStudyInSightec />} />
+        <Route path="/design-system" element={<DesignSystem />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>

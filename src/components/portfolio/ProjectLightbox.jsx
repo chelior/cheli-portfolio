@@ -65,7 +65,7 @@ export default function ProjectLightbox({ project, onClose }) {
                   <p className="font-mono text-xs text-white/40 tracking-wide uppercase mb-3">
                     {project.category} — {project.year}
                   </p>
-                  <h2 className="font-heading font-bold text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+                  <h2 className="font-heading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
                     {project.title}
                   </h2>
                 </div>

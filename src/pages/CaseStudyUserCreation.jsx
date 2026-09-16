@@ -4,10 +4,8 @@ import { ArrowLeft, Users, Zap, Eye, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
-import DesignGallery from "@/components/portfolio/DesignGallery";
-import BeforeAfterSection from "@/components/portfolio/BeforeAfterSection";
+import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import PrototypeSection from "@/components/portfolio/PrototypeSection";
-import HeroGif from "@/components/portfolio/HeroGif";
 import ContactModal from "@/components/portfolio/ContactModal";
 
 const fadeUp = {
@@ -35,18 +33,29 @@ const ITERATIONS = [
   {
     num: "01",
     label: "Full-Screen Page",
-    reason: "Broke platform consistency - primary actions happen in modals.",
+    tag: "Rejected",
+    reason: "Broke context switching; users lost immediate visibility into the underlying data table.",
+    image: "images/user-creation/4248f1bef_AddnewuserTM1.png",
+    alt: "Full-Screen Page — preview",
+    isWinner: false,
   },
   {
     num: "02",
-    label: "Accordion (Collapse/Expand)",
-    reason: "Felt bulky - expandable sections confused users.",
+    label: "Accordion (Inline Expansion)",
+    tag: "Rejected",
+    reason: "Excessive vertical page jumping and layout shifts when configuring dynamic, conditional roles.",
+    image: "images/user-creation/b1c2150d1_AddnewuserTM2.png",
+    alt: "Accordion inline expansion — preview",
+    isWinner: false,
   },
   {
     num: "03",
-    label: "Dynamic Modal",
+    label: "Dynamic Single-Screen Modal",
+    tag: "Selected Direction",
+    reason: "Kept users grounded in the workspace context, collapsed 4 friction-heavy steps into 1 progressive screen, and aligned with design system standards.",
+    image: "images/user-creation/202bc23cf_Addnewusercollapes.svg",
+    alt: "Dynamic single-screen modal — preview",
     isWinner: true,
-    reason: "Consistent, progressive disclosure, one frictionless screen.",
   },
 ];
 
@@ -69,22 +78,19 @@ const TAKEAWAYS = [
 ];
 
 const STARTING_POINT_IMAGES = [
-  { src: "images/4248f1bef_AddnewuserTM1.png", alt: "Step 1 - Profile" },
-  { src: "images/b1c2150d1_AddnewuserTM2.png", alt: "Step 2 - Roles" },
-  { src: "images/70542a368_AddnewuserTM3.png", alt: "Step 3 - Additional Info" },
-  { src: "images/0ea01fb79_AddnewuserTM4.png", alt: "Step 4 - Summary" },
+  { src: "images/user-creation/4248f1bef_AddnewuserTM1.png", alt: "Step 1 - Profile" },
+  { src: "images/user-creation/b1c2150d1_AddnewuserTM2.png", alt: "Step 2 - Roles" },
+  { src: "images/user-creation/70542a368_AddnewuserTM3.png", alt: "Step 3 - Additional Info" },
+  { src: "images/user-creation/0ea01fb79_AddnewuserTM4.png", alt: "Step 4 - Summary" },
 ];
 
 const USER_CREATION_SLIDES = [
-  { image: "images/3376557ec_1Level-CF.svg", caption: "Level - CF" },
-  { image: "images/f440b0df0_2Level-addlevel.svg", caption: "Level - Add Level" },
-  { image: "images/ce887cc86_3Level-input.svg", caption: "Level - Input" },
-  { image: "images/14bbb1548_4Level-levelc.svg", caption: "Level - Level C" },
-  { image: "images/1c6175cd8_5Level-levelcadded.svg", caption: "Level - Level C Added" },
-  { image: "images/9d671433c_6Level-levelc.svg", caption: "Level - Level C" },
-  { image: "images/634a2d640_Footertooltip.svg", caption: "Footer Tooltip" },
-  { image: "images/1532e9144_Adminrole.svg", caption: "Admin Role" },
-  { image: "images/553151d88_Maxcustomfields.svg", caption: "Max Custom Fields" },
+  { image: "images/user-creation/3376557ec_1Level-CF.svg", caption: "Level - CF" },
+  { image: "images/user-creation/1c6175cd8_5Level-levelcadded.svg", caption: "Level - Level C Added" },
+  { image: "images/user-creation/9d671433c_6Level-levelc.svg", caption: "Level - Level C" },
+  { image: "images/user-creation/634a2d640_Footertooltip.svg", caption: "Footer Tooltip" },
+  { image: "images/user-creation/1532e9144_Adminrole.svg", caption: "Admin Role" },
+  { image: "images/user-creation/553151d88_Maxcustomfields.svg", caption: "Max Custom Fields" },
 ];
 
 export default function CaseStudyUserCreation() {
@@ -111,7 +117,7 @@ export default function CaseStudyUserCreation() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
+            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
@@ -122,81 +128,111 @@ export default function CaseStudyUserCreation() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
-      <section className="relative pt-32 md:pt-44 pb-20 md:pb-32 px-6 md:px-12">
-        <HeroGif />
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            {...fadeUp}
-            className="font-mono text-xs text-[#6366F1] tracking-widest uppercase mb-6"
-          >
-            B2B SaaS - UX/UI Design - 2026
-          </motion.p>
+      {/* ── Hero — Editorial Contained Canvas ── */}
+      <div className="bg-gradient-to-b from-[#FED7AA] via-[#FFF1E8] to-white rounded-b-[48px] overflow-hidden relative pb-16 pt-12">
+        {/* Background Graphic Watermark — soft elegant texture */}
+        <div
+          aria-hidden="true"
+          className="text-[120px] font-black tracking-tighter text-slate-900/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+        >
+          USER CREATION
+        </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-heading font-extrabold text-[#0A0F1D] tracking-[-0.02em] text-[36px] md:text-[52px] leading-[1.15] max-w-[900px]"
-          >
-            How I Streamlined and Shortened the{" "}
-            <span className="text-[#6366F1]">User Creation</span> Process
-          </motion.h1>
+        <div className="relative max-w-6xl mx-auto px-6 pt-16 md:pt-20">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            {/* Left Column */}
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="font-mono text-xs tracking-widest uppercase mb-4"
+                style={{ color: "#F17E63" }}
+              >
+                B2B SAAS · UX/UI DESIGN · 2026
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10"
-          >
-            <p className="font-body text-[#4A5568] text-[16px] leading-[1.6] max-w-[560px]">
-              Transforming a bloated 4-step wizard into a single-screen dynamic
-              modal - reducing cognitive load and eliminating drop-offs.
-            </p>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-14 md:mt-20 grid grid-cols-3 gap-4 max-w-[640px]"
-          >
-            {[
-              { value: "1", label: "Single-screen flow" },
-              { value: "75%", label: "Reduction in wizard steps" },
-              { value: "0", label: "Redundant clicks" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                className="bg-[#F5F5F7] rounded-xl p-5 md:p-6"
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
               >
-                <p className="font-heading font-bold text-[#0A0F1D] text-3xl md:text-4xl tracking-[-0.04em]">
-                  {stat.value}
-                </p>
-                <p className="font-mono text-xs text-[#0A0F1D]/50 mt-3 uppercase">
-                  {stat.label}
-                </p>
+                <span className="text-slate-900">How I Streamlined and Shortened the</span>{" "}
+                <span className="text-[#F17E63]">User Creation</span>{" "}
+                <span className="text-slate-900">Process</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-slate-600 text-base leading-relaxed max-w-lg mb-8"
+              >
+                Transforming a bloated 4-step wizard into a single-screen dynamic modal, reducing cognitive load and eliminating drop-offs.
+              </motion.p>
+
+              {/* Metrics — clean white cards */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="grid grid-cols-3 gap-3 max-w-[560px]"
+              >
+                {[
+                  { value: "1", label: "Single-screen flow" },
+                  { value: "75%", label: "Reduction in wizard steps" },
+                  { value: "0", label: "Redundant clicks" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
+                    className="bg-white rounded-2xl p-4 shadow-sm border border-orange-100/60"
+                  >
+                    <p className="font-heading font-bold text-slate-900 text-2xl tracking-tight leading-none">
+                      {stat.value}
+                    </p>
+                    <p className="font-mono text-[11px] text-slate-500 mt-2 uppercase leading-tight">
+                      {stat.label}
+                    </p>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            </div>
+
+            {/* Right Column — clean product UI */}
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-center justify-center lg:justify-end"
+            >
+              <div className="w-full max-w-[560px]">
+                <img
+                  src="images/user-creation/TM mockup.png"
+                  alt="User Creation — single-screen dynamic modal"
+                  className="w-full h-auto object-contain block rounded-lg border border-border"
+                  loading="eager"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* ── Team ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               My Role & The Team
             </h2>
 
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-0">
             <motion.div {...fadeUp}>
               <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
                 The Team
@@ -248,61 +284,79 @@ export default function CaseStudyUserCreation() {
         </div>
       </section>
 
-      {/* ── Before / After ── */}
-      <BeforeAfterSection
-        before={{
-          src: "images/0ea01fb79_AddnewuserTM4.png",
-          alt: "Before - 4-step wizard user creation flow",
-          label: "4-Step Wizard",
-        }}
-        after={{
-          src: "images/202bc23cf_Addnewusercollapes.svg",
-          alt: "After - single-screen dynamic modal user creation flow",
-          label: "Dynamic Modal",
-        }}
-      />
+      {/* ── Before & After ── */}
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div {...fadeUp}>
+            <h2 className="font-heading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+              Before & After
+            </h2>
+            <p className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+              The transformation at a glance — drag to compare
+            </p>
+          </motion.div>
+          <motion.div {...fadeUp} className="mb-0">
+            <BeforeAfterSlider
+              beforeImage={{ src: "images/user-creation/0ea01fb79_AddnewuserTM4.png", alt: "Before — 4-Step Wizard user creation flow" }}
+              afterImage={{ src: "images/user-creation/202bc23cf_Addnewusercollapes.svg", alt: "After — single-screen dynamic modal" }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── The Starting Point ── */}
       <StartingPointSection images={STARTING_POINT_IMAGES} title="The Starting Point" subtitle="The original 4-step wizard flow" />
 
-      {/* ── The Challenge ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#0A0F1D] py-20 md:py-28">
+      {/* ── The Challenge Block 1 — Hero (Solid Brand Orange) ── */}
+      <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#F17E63]" style={{ backgroundColor: '#F17E63' }}>
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <motion.div {...fadeUp}>
+            <h2 className="font-subheading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
-            <span className="font-mono text-xs text-white/70 mt-2 block">
+            <p className="font-mono text-xs text-white/80 mb-12 block">
               A Frustrating 4-Step Flow
-            </span>
+            </p>
           </motion.div>
+          <motion.div {...fadeUp} className="w-full max-w-full mb-0">
+            <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
+              How might we transform a frustrating, drop-off-prone 4-step wizard into a seamless single-screen flow that feels effortless?
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+      {/* ── The Challenge Block 2 — Breakdown (Clean Light Canvas) ── */}
+      <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#FDFBF7]" style={{ backgroundColor: '#FDFBF7' }}>
+        <div className="max-w-[1100px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-white/80 text-[16px] leading-[1.6]">
+              <p className="font-body text-[#0A0F1D]/70 text-[16px] leading-[1.6]">
                 The original 4-step user creation modal suffered from heavy friction.
               </p>
 
-              <div className="mt-10 flex gap-0 overflow-hidden rounded-sm border border-white/10">
+              {/* 4-step — light-tinted pill cards */}
+              <div className="mt-8 grid grid-cols-2 gap-3">
                 {["Profile", "Roles", "Approver", "Summary"].map((step, i) => (
                   <div
                     key={step}
-                    className="flex-1 px-3 py-4 border-r border-white/10 last:border-r-0 text-center"
+                    className="bg-white rounded-2xl border border-orange-100/60 shadow-sm px-4 py-3.5 text-center"
                   >
-                    <p className="font-mono text-[10px] text-white/60 mb-1">
+                    <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "#F17E63" }}>
                       Step {i + 1}
                     </p>
-                    <p className="font-mono text-xs text-white/60">{step}</p>
+                    <p className="font-heading font-semibold text-slate-900 text-sm mt-1">{step}</p>
                   </div>
                 ))}
               </div>
-              <p className="font-mono text-xs text-[#6366F1] mt-3">
-                ↓ Flattened to a single dynamic screen
-              </p>
+              <div className="mt-4 inline-flex items-center gap-2 bg-white border border-orange-100/60 rounded-full px-3.5 py-1.5 shadow-sm">
+                <span className="text-[#F17E63] text-xs">↓</span>
+                <span className="font-mono text-xs text-slate-600">Flattened to a single dynamic screen</span>
+              </div>
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   {
                     title: "High Cognitive Load",
@@ -317,11 +371,16 @@ export default function CaseStudyUserCreation() {
                     body: "A frustrating flow caused task abandonment and support tickets.",
                   },
                 ].map((item, i) => (
-                  <div key={i} className="border-l-2 border-[#6366F1]/40 pl-5">
-                    <h4 className="font-heading font-medium text-white text-base mb-1">
+                  <div
+                    key={i}
+                    className="bg-white rounded-xl border border-orange-100/50 shadow-sm pl-5 pr-4 py-4"
+                    style={{ borderLeft: "3px solid #F17E63" }}
+                  >
+                    <h4 className="font-heading font-semibold text-slate-900 text-[15px] mb-1.5 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#F17E63" }} />
                       {item.title}
                     </h4>
-                    <p className="font-body text-white/75 text-sm leading-relaxed">
+                    <p className="font-body text-slate-600 text-sm leading-relaxed">
                       {item.body}
                     </p>
                   </div>
@@ -333,20 +392,20 @@ export default function CaseStudyUserCreation() {
       </section>
 
       {/* ── Research ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Inspiration
             </h2>
 
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mb-0">
             <motion.div {...fadeUp}>
               <p className="font-body text-[#4A5568] text-[16px] leading-[1.6] mb-8">
                 I analyzed industry benchmarks on{" "}
-                <span className="text-[#0A0F1D] font-medium">Mobbin</span> and
+                <span className="text-[#0A0F1D] font-normal">Mobbin</span> and
                 studied how top platforms handle
                 user setup at scale.
               </p>
@@ -363,7 +422,7 @@ export default function CaseStudyUserCreation() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
                     <div className="w-8 h-8 rounded-full bg-[#6366F1]/8 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="font-mono text-xs text-[#6366F1] font-medium">
+                      <span className="font-mono text-xs text-[#6366F1] font-normal">
                         {i + 1}
                       </span>
                     </div>
@@ -386,7 +445,7 @@ export default function CaseStudyUserCreation() {
                 onClick={() => setResearchLightbox(true)}
               >
                 <img
-                  src="images/9a5dc147b_generated_image.png"
+                  src="images/user-creation/9a5dc147b_generated_image.png"
                   alt="Design research for user creation flows"
                   className="w-full object-cover"
                 />
@@ -396,96 +455,99 @@ export default function CaseStudyUserCreation() {
         </div>
       </section>
 
-      {/* ── Exploration ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#E0E7FF] py-20 md:py-28">
+      {/* ── Exploration — Design Explorations & Trade-offs ── */}
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-4">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Key Solutions & Features
+          <motion.div {...fadeUp}>
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+              Design Explorations & Trade-offs
             </h2>
-
+            <p className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+              Evaluating 3 structural patterns against platform consistency, cognitive load, and edge-case scalability.
+            </p>
           </motion.div>
-          <motion.p {...fadeUp} className="font-body text-[#4A5568] text-[16px] leading-[1.6] max-w-[600px] mb-14">
-            I explored three potential design directions for the new flow,
-            each evaluated against platform consistency, cognitive load, and testing feedback.
-          </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6 mb-0">
             {ITERATIONS.map((iter, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40, scale: 0.92 }}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6 }}
-                className={`relative rounded-lg p-6 md:p-8 flex flex-col ${
+                whileHover={{ y: -4 }}
+                className={`bg-white rounded-xl overflow-hidden flex flex-col ${
                   iter.isWinner
-                    ? "bg-[#6366F1] text-white"
-                    : "bg-white border border-[#E5E7EB]"
+                    ? "border-2 border-[#F17E63] shadow-[0_8px_24px_rgba(241,126,99,0.12)]"
+                    : "border border-neutral-200/80 shadow-sm"
                 }`}
               >
-                <div className="w-12 h-12 mb-6 relative flex items-center justify-center">
-                  <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-dashed"
-                    style={{ borderColor: iter.isWinner ? "rgba(255,255,255,0.4)" : "rgba(10,15,29,0.2)" }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 15 + i * 4, repeat: Infinity, ease: "linear" }}
+                {/* Compact image preview — flat, no device mockup */}
+                <div className="h-36 md:h-40 w-full bg-neutral-50 border-b border-neutral-200/80 overflow-hidden">
+                  <img
+                    src={iter.image}
+                    alt={iter.alt}
+                    className="w-full h-full object-cover block"
+                    loading="lazy"
                   />
-                  <span className={`relative z-10 font-mono text-sm font-medium ${
-                    iter.isWinner ? "text-white" : "text-[#0A0F1D]/50"
-                  }`}>
-                    {iter.num}
-                  </span>
                 </div>
 
-                <h3 className={`font-heading font-semibold text-[20px] tracking-[-0.02em] mb-2 ${
-                  iter.isWinner ? "text-white" : "text-[#0A0F1D]"
-                }`}>
-                  {iter.label}
-                </h3>
+                <div className="p-6 md:p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="font-mono text-[11px] text-[#0A0F1D]/40 tracking-wide">{iter.num}</span>
+                    <span
+                      className={`inline-flex items-center text-[10px] font-mono uppercase tracking-wide px-2.5 py-1 rounded-full border ${
+                        iter.isWinner
+                          ? "bg-[#F17E63]/10 text-[#F17E63] border-[#F17E63]/20"
+                          : "bg-neutral-100 text-neutral-600 border-neutral-200"
+                      }`}
+                    >
+                      {iter.isWinner ? (
+                        <span className="inline-flex items-center gap-1">
+                          <Check size={10} /> {iter.tag}
+                        </span>
+                      ) : (
+                        iter.tag
+                      )}
+                    </span>
+                  </div>
 
-                <p className={`font-body text-sm leading-relaxed ${
-                  iter.isWinner ? "text-white/80" : "text-[#4A5568]"
-                }`}>
-                  {iter.reason}
-                </p>
+                  <h3 className="font-heading font-medium text-[#0A0F1D] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
+                    {iter.label}
+                  </h3>
 
-                {iter.isWinner && (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.4 + i * 0.12 }}
-                    className="mt-6 inline-flex items-center gap-1 bg-white/20 text-white text-[10px] font-mono uppercase px-3 py-1 rounded-full self-start"
-                  >
-                    <Check size={12} />
-                    Selected
-                  </motion.span>
-                )}
+                  <p className="font-body text-sm leading-relaxed text-[#4A5568] mb-0">
+                    {iter.reason}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Design Gallery ── */}
-      <DesignGallery slides={USER_CREATION_SLIDES} />
+      {/* ── Design Details — unified carousel gallery ── */}
+      <StartingPointSection
+        images={USER_CREATION_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
+        title="Design Details"
+        subtitle="Final screens & interactions"
+        showArchitecturalBlock
+      />
 
       {/* ── Prototype ── */}
       <PrototypeSection />
 
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-14">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Key Takeaways
             </h2>
 
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-0">
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}
@@ -498,7 +560,7 @@ export default function CaseStudyUserCreation() {
                 <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#6366F1] group-hover:bg-[#6366F1]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#6366F1]">
                   {item.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading font-medium text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#4A5568] text-base leading-[1.7]">
@@ -511,24 +573,24 @@ export default function CaseStudyUserCreation() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-[#E5E7EB]">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20 border-t border-[#E5E7EB]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
           <p className="font-mono text-xs text-[#0A0F1D]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in the full case study?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>
@@ -537,7 +599,7 @@ export default function CaseStudyUserCreation() {
       </section>
 
       <ImageLightbox
-        src="images/9a5dc147b_generated_image.png"
+        src="images/user-creation/9a5dc147b_generated_image.png"
         alt="Design research for user creation flows"
         isOpen={researchLightbox}
         onClose={() => setResearchLightbox(false)}

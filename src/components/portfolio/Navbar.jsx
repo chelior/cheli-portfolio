@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-heading font-semibold text-[#0A0F1D] tracking-[-0.04em] text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 rounded"
+            className="font-heading font-medium text-[#0A0F1D] tracking-[-0.04em] text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 rounded"
           >
             Cheli Gan Mor
           </button>
@@ -45,7 +45,7 @@ export default function Navbar() {
               <button
                 key={l.href}
                 onClick={() => scrollTo(l.href)}
-                className="font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#6366F1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 rounded"
+                className="font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#6366F1] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 rounded"
               >
                 {l.label}
               </button>
@@ -74,7 +74,7 @@ export default function Navbar() {
               <button
                 key={l.href}
                 onClick={() => scrollTo(l.href)}
-                className="font-heading text-4xl font-semibold text-[#0A0F1D] tracking-[-0.04em] hover:text-[#6366F1] transition-colors"
+                className="font-heading text-4xl font-normal text-[#0A0F1D] tracking-[-0.04em] hover:text-[#6366F1] transition-colors"
               >
                 {l.label}
               </button>

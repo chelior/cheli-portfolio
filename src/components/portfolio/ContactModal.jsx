@@ -39,7 +39,7 @@ export default function ContactModal({ isOpen, onClose }) {
             >
               <X size={22} />
             </button>
-            <h3 className="font-heading font-bold text-[#0A0F1D] text-2xl tracking-[-0.02em] mb-2">
+            <h3 className="font-heading font-medium text-[#0A0F1D] text-2xl tracking-[-0.02em] mb-2">
               Get in Touch
             </h3>
             <p className="font-body text-[#4A5568] text-sm mb-8">
@@ -54,7 +54,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">Email</p>
+                  <p className="font-heading font-medium text-[#0A0F1D] text-sm">Email</p>
                   <p className="font-mono text-xs text-[#0A0F1D]/60">cheliganmor@gmail.com</p>
                 </div>
               </a>
@@ -68,7 +68,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   <MessageCircle size={18} />
                 </div>
                 <div>
-                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">WhatsApp / Phone</p>
+                  <p className="font-heading font-medium text-[#0A0F1D] text-sm">WhatsApp / Phone</p>
                   <p className="font-mono text-xs text-[#0A0F1D]/60">+972 50-330-1290</p>
                 </div>
               </a>

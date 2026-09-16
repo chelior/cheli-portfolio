@@ -7,7 +7,7 @@ export default function HeroGif({ size = "default" }) {
     <div className="absolute inset-0 px-6 md:px-12 pointer-events-none">
       <div className="max-w-[1100px] mx-auto relative h-full">
         <motion.img
-          src="images/b6679ffe7_Sdarim-chaos-on-fire.gif"
+          src="images/sdarim/b6679ffe7_Sdarim-chaos-on-fire.gif"
           alt="Chaos on fire"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

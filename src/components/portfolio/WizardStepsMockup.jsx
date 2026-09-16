@@ -7,22 +7,22 @@ const STEPS = [
   {
     num: "01",
     name: "Profile",
-    image: "images/4248f1bef_AddnewuserTM1.png",
+    image: "images/user-creation/4248f1bef_AddnewuserTM1.png",
   },
   {
     num: "02",
     name: "Roles",
-    image: "images/b1c2150d1_AddnewuserTM2.png",
+    image: "images/user-creation/b1c2150d1_AddnewuserTM2.png",
   },
   {
     num: "03",
     name: "Additional Info",
-    image: "images/70542a368_AddnewuserTM3.png",
+    image: "images/user-creation/70542a368_AddnewuserTM3.png",
   },
   {
     num: "04",
     name: "Summary",
-    image: "images/0ea01fb79_AddnewuserTM4.png",
+    image: "images/user-creation/0ea01fb79_AddnewuserTM4.png",
   },
 ];
 
@@ -78,20 +78,18 @@ function StepCard({ step, index, className, onOpen }) {
       className={`flex flex-col ${className || ""}`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="font-mono text-xs text-[#6366F1] font-medium">{step.num}</span>
+        <span className="font-mono text-xs text-[#6366F1] font-normal">{step.num}</span>
         <span className="font-mono text-xs text-[#0A0F1D]/50 uppercase tracking-wide">{step.name}</span>
       </div>
       <div
         onClick={onOpen}
-        className="bg-[#1a1a24] rounded-xl p-1.5 shadow-lg cursor-pointer group relative transition-shadow hover:shadow-xl"
+        className="rounded-lg overflow-hidden border border-border bg-white cursor-pointer group relative"
       >
-        <div className="aspect-[16/9] rounded-md overflow-hidden bg-[#F5F5F7]">
-          <img
-            src={step.image}
-            alt={`Step ${step.num}: ${step.name}`}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-          />
-        </div>
+        <img
+          src={step.image}
+          alt={`Step ${step.num}: ${step.name}`}
+          className="w-full h-auto object-contain block rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
+        />
         <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Maximize2 size={14} className="text-[#0A0F1D]" />
         </div>

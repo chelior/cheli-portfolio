@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Split, TrendingDown, Layers, Compass, Users, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
-import HeroGif from "@/components/portfolio/HeroGif";
+import CaseStudyHero from "@/components/portfolio/CaseStudyHero";
+import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
+import StartingPointSection from "@/components/portfolio/StartingPointSection";
+import { CoreQuestionSpotlightDark } from "@/components/portfolio/CoreQuestionSpotlight";
 import ContactModal from "@/components/portfolio/ContactModal";
 
 const fadeUp = {
@@ -65,6 +68,13 @@ const SOLUTIONS = [
   },
 ];
 
+const DESIGN_DETAILS_SLIDES = [
+  { src: "images/insightec/UI Sales dashboard 2_2x.png", alt: "Executive dashboard — flat UI overview" },
+  { src: "images/shared/cfa292972_image.png", alt: "Investigation dashboard — flat UI detail" },
+  { src: "images/shared/d436789e1_image.png", alt: "Revenue leak visualization — flat UI" },
+  { src: "images/shared/209c7f586_image.png", alt: "Data grid — flat UI" },
+];
+
 const TAKEAWAYS = [
   {
     icon: <Users size={18} />,
@@ -101,7 +111,7 @@ export default function CaseStudyInSightec() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
+            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
@@ -112,75 +122,26 @@ export default function CaseStudyInSightec() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
-      <section className="relative pt-32 md:pt-44 pb-20 md:pb-32 px-6 md:px-12">
-        <HeroGif />
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            {...fadeUp}
-            className="font-mono text-xs text-[#6366F1] tracking-widest uppercase mb-6"
-          >
-            B2B/Enterprise SaaS • UX/UI & Data Visualization • 2022
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-heading font-extrabold text-[#0A0F1D] tracking-[-0.02em] text-[36px] md:text-[52px] leading-[1.15] max-w-[900px]"
-          >
-            InSightec: Uncovering <span className="text-[#6366F1]">Revenue Leaks</span> Through Data Visualization
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10"
-          >
-            <p className="font-body text-[#4A5568] text-[16px] leading-[1.6] max-w-[560px]">
-              Transforming a complex medical equipment sales and analytics platform
-              into a clean, intuitive system tailored for two entirely distinct user
-              groups: senior executives and financial analysts.
-            </p>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-14 md:mt-20 grid grid-cols-3 gap-4 max-w-[640px]"
-          >
-            {[
-              { value: "2022", label: "Project Year" },
-              { value: "2", label: "Core Audiences" },
-              { value: "QlikSense", label: "Dev Platform" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                className="bg-[#F5F5F7] rounded-xl p-5 md:p-6"
-              >
-                <p className="font-heading font-bold text-[#0A0F1D] text-2xl md:text-3xl tracking-[-0.04em]">
-                  {stat.value}
-                </p>
-                <p className="font-mono text-xs text-[#0A0F1D]/50 mt-3 uppercase">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <CaseStudyHero
+        accent="#B47AFF"
+        variant="insightec"
+        overline="B2B/Enterprise SaaS • UX/UI & Data Visualization • 2022"
+        title="InSightec: Uncovering Revenue Leaks Through Data Visualization"
+        titleAccent="Revenue Leaks"
+        description="Transforming a complex medical equipment sales and analytics platform into a clean, intuitive system tailored for two entirely distinct user groups: senior executives and financial analysts."
+        stats={[
+          { value: "2022", label: "Project Year" },
+          { value: "2", label: "Core Audiences" },
+          { value: "QlikSense", label: "Dev Platform" },
+        ]}
+        preview={{ src: "images/insightec/Insightech mockup.png", alt: "InSightec — dual-audience dashboard visualization" }}
+      />
 
       {/* ── My Role & Context ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               My Role & Context
             </h2>
           </motion.div>
@@ -190,7 +151,7 @@ export default function CaseStudyInSightec() {
               <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
                 My Role
               </h3>
-              <h4 className="font-heading font-semibold text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+              <h4 className="font-subheading font-medium text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                 Product Designer
               </h4>
               <p className="font-body text-[#4A5568] text-base leading-[1.7]">
@@ -203,7 +164,7 @@ export default function CaseStudyInSightec() {
               <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
                 The Context
               </h3>
-              <h4 className="font-heading font-semibold text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+              <h4 className="font-subheading font-medium text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                 Project Company for InSightec
               </h4>
               <p className="font-body text-[#4A5568] text-base leading-[1.7]">
@@ -216,17 +177,42 @@ export default function CaseStudyInSightec() {
         </div>
       </section>
 
+      {/* ── Before & After ── */}
+      <section className="px-6 md:px-12 mb-24 md:mb-36">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div {...fadeUp} className="mb-12">
+            <h2 className="font-heading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+              Before & After
+            </h2>
+            <span className="font-mono text-xs text-[#0A0F1D]/50 mt-2 block">
+              The transformation at a glance — drag to compare
+            </span>
+          </motion.div>
+          <motion.div {...fadeUp}>
+            <BeforeAfterSlider
+              beforeImage={{ src: "images/insightec/e970e184d_INSIGHTCHDESKTOPMOCKUP.png", alt: "Before — Legacy analytics dashboard" }}
+              afterImage={{ src: "images/insightec/05f6d6da5_insightechiphoneMOCKUP.png", alt: "After — Redesigned dual-audience dashboard" }}
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── The Starting Point & The Problem ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#0A0F1D] py-20 md:py-28">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <motion.div {...fadeUp} className="mb-6">
+            <h2 className="font-heading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
               The Starting Point & The Problem
             </h2>
             <span className="font-mono text-xs text-white/70 mt-2 block">
               Audience Mismatch, Hidden Revenue Leaks, Visual Clutter
             </span>
           </motion.div>
+
+          <CoreQuestionSpotlightDark
+            accent="#B47AFF"
+            question="How might we surface hidden revenue leaks and deliver instant executive clarity — while empowering analysts with deep exploratory power?"
+          />
 
           <motion.p {...fadeUp} className="font-body text-white/80 text-[16px] leading-[1.6] max-w-[600px] mb-12">
             The company had a functioning sales model with real data, but the existing
@@ -259,7 +245,7 @@ export default function CaseStudyInSightec() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
             </h2>
           </motion.div>
@@ -275,7 +261,7 @@ export default function CaseStudyInSightec() {
                 className="flex gap-5"
               >
                 <div className="w-8 h-8 rounded-full bg-[#6366F1]/8 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="font-mono text-xs text-[#6366F1] font-medium">
+                  <span className="font-mono text-xs text-[#6366F1] font-normal">
                     {i + 1}
                   </span>
                 </div>
@@ -297,7 +283,7 @@ export default function CaseStudyInSightec() {
       <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#E0E7FF] py-20 md:py-28">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
           </motion.div>
@@ -315,7 +301,7 @@ export default function CaseStudyInSightec() {
                 <div className="w-10 h-10 rounded-full border border-[#E5E7EB] flex items-center justify-center mb-5 text-[#0A0F1D]/60">
                   {solution.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-[#0A0F1D] text-[20px] tracking-[-0.02em] mb-2">
+                <h3 className="font-subheading font-medium text-[#0A0F1D] text-[20px] tracking-[-0.02em] mb-2">
                   {solution.title}
                 </h3>
                 <p className="font-body text-[#4A5568] text-sm leading-relaxed">
@@ -327,37 +313,18 @@ export default function CaseStudyInSightec() {
         </div>
       </section>
 
-      {/* ── Design Details ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Design Details
-            </h2>
-            <span className="font-mono text-xs text-[#0A0F1D]/50 mt-2 block">
-              Wireframes, Old vs. New comparison & final dashboard flows
-            </span>
-          </motion.div>
-          <motion.div
-            {...fadeUp}
-            className="border-2 border-dashed border-[#E5E7EB] rounded-lg p-12 md:p-20 text-center"
-          >
-            <p className="font-mono text-xs text-[#0A0F1D]/50 uppercase tracking-wide mb-4">
-              Coming Soon
-            </p>
-            <p className="font-body text-[#4A5568] text-base">
-              Wireframes, old vs. new comparison screens, and final dashboard flows
-              will be added here.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      {/* ── Design Details — unified carousel gallery ── */}
+      <StartingPointSection
+        images={DESIGN_DETAILS_SLIDES}
+        title="Design Details"
+        subtitle="Wireframes, Old vs. New comparison & final dashboard flows"
+      />
 
       {/* ── Key Takeaways ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-14">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -375,7 +342,7 @@ export default function CaseStudyInSightec() {
                 <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#6366F1] group-hover:bg-[#6366F1]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#6366F1]">
                   {item.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading font-medium text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#4A5568] text-base leading-[1.7]">
@@ -393,19 +360,19 @@ export default function CaseStudyInSightec() {
           <p className="font-mono text-xs text-[#0A0F1D]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in the full case study?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>

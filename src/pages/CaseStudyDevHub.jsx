@@ -3,10 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Rocket, Layers, UserCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
-import DesignGallery from "@/components/portfolio/DesignGallery";
-import BeforeAfterSection from "@/components/portfolio/BeforeAfterSection";
+import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import PrototypeSection from "@/components/portfolio/PrototypeSection";
-import HeroGif from "@/components/portfolio/HeroGif";
 import ContactModal from "@/components/portfolio/ContactModal";
 
 const fadeUp = {
@@ -95,21 +93,21 @@ const TAKEAWAYS = [
 ];
 
 const STARTING_POINT_IMAGES = [
-  { src: "images/f8a9b2071_Appdetails-Editmode52.png", alt: "App details - Edit mode" },
-  { src: "images/c5c287de2_Authorizationcodeflow.png", alt: "Authorization code flow - View mode" },
-  { src: "images/232ed612c_Createflow-clickonbackbutton381.png", alt: "Create application - Authorization code flow" },
-  { src: "images/2bc144b05_Createflow-clickonbackbutton38.png", alt: "Create application - Client credentials flow" },
+  { src: "images/devhub/f8a9b2071_Appdetails-Editmode52.png", alt: "App details - Edit mode" },
+  { src: "images/devhub/c5c287de2_Authorizationcodeflow.png", alt: "Authorization code flow - View mode" },
+  { src: "images/devhub/232ed612c_Createflow-clickonbackbutton381.png", alt: "Create application - Authorization code flow" },
+  { src: "images/devhub/2bc144b05_Createflow-clickonbackbutton38.png", alt: "Create application - Client credentials flow" },
 ];
 
 const DEVHUB_SLIDES = [
-  { image: "images/4814ef766_1intialscreen.svg", caption: "Initial Screen" },
-  { image: "images/9d97eb3bc_2createapppopup.svg", caption: "Create App Popup" },
-  { image: "images/ec633d710_4appname.svg", caption: "App Name" },
-  { image: "images/456679637_7scopesmultiselect.svg", caption: "Scopes Multiselect" },
-  { image: "images/b5b110993_8Scopesmultiselected.svg", caption: "Scopes Multi-Selected" },
-  { image: "images/f7b433f2b_9Createapp.svg", caption: "Create App" },
-  { image: "images/ef11ad2a1_10Applicationcreatedtoast.svg", caption: "Application Created Toast" },
-  { image: "images/96302926d_10Applicationcreatedtoast.svg", caption: "Application Created Toast" },
+  { image: "images/devhub/4814ef766_1intialscreen.svg", caption: "Initial Screen" },
+  { image: "images/devhub/9d97eb3bc_2createapppopup.svg", caption: "Create App Popup" },
+  { image: "images/devhub/ec633d710_4appname.svg", caption: "App Name" },
+  { image: "images/devhub/456679637_7scopesmultiselect.svg", caption: "Scopes Multiselect" },
+  { image: "images/devhub/b5b110993_8Scopesmultiselected.svg", caption: "Scopes Multi-Selected" },
+  { image: "images/devhub/f7b433f2b_9Createapp.svg", caption: "Create App" },
+  { image: "images/devhub/ef11ad2a1_10Applicationcreatedtoast.svg", caption: "Application Created Toast" },
+  { image: "images/devhub/96302926d_10Applicationcreatedtoast.svg", caption: "Application Created Toast" },
 ];
 
 export default function CaseStudyDevHub() {
@@ -135,7 +133,7 @@ export default function CaseStudyDevHub() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
+            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#FF4E7E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
@@ -146,83 +144,112 @@ export default function CaseStudyDevHub() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
-      <section className="relative pt-32 md:pt-44 pb-20 md:pb-32 px-6 md:px-12">
-        <HeroGif />
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            {...fadeUp}
-            className="font-mono text-xs text-[#6366F1] tracking-widest uppercase mb-6"
-          >
-            B2B SaaS - Developer Portal - 2025
-          </motion.p>
+      {/* ── Hero — Brand Tinted Gradient Canvas (DevHub pink) — mirrors User Creation ── */}
+      <div className="bg-gradient-to-b from-[#FFD6E7] via-[#FFF1F5] to-white rounded-b-[48px] overflow-hidden relative pb-16 pt-12">
+        {/* Background Watermark — DEVHUB */}
+        <div
+          aria-hidden="true"
+          className="text-[120px] font-black tracking-tighter text-slate-900/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+        >
+          DEVHUB
+        </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-heading font-extrabold text-[#0A0F1D] tracking-[-0.02em] text-[36px] md:text-[52px] leading-[1.15] max-w-[900px]"
-          >
-            Modernizing <span className="text-[#6366F1]">DevHub</span>: From a
-            Legacy Single-App Tool to a Flexible Developer Portal
-          </motion.h1>
+        <div className="relative max-w-6xl mx-auto px-6 pt-16 md:pt-20">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-end">
+            {/* Left Column */}
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="font-mono text-xs tracking-widest uppercase mb-4"
+                style={{ color: "#FF4E7E" }}
+              >
+                B2B SAAS · DEVELOPER PORTAL · 2025
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10"
-          >
-            <p className="font-body text-[#4A5568] text-[16px] leading-[1.6] max-w-[560px]">
-              Transforming Tipalti's legacy single-app, single-user tool into a
-              scalable multi-tenant developer portal with self-service API
-              testing.
-            </p>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-14 md:mt-20 grid grid-cols-3 gap-4 max-w-[640px]"
-          >
-            {[
-              { value: "27%", label: "Time-to-market savings" },
-              { value: "3", label: "Multi-tenant contexts" },
-              { value: "100%", label: "Design System aligned" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                className="bg-[#F5F5F7] rounded-xl p-5 md:p-6"
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
               >
-                <p className="font-heading font-bold text-[#0A0F1D] text-3xl md:text-4xl tracking-[-0.04em]">
-                  {stat.value}
-                </p>
-                <p className="font-mono text-xs text-[#0A0F1D]/50 mt-3 uppercase">
-                  {stat.label}
-                </p>
+                <span className="text-slate-900">Modernizing </span>
+                <span className="text-[#FF4E7E]">DevHub</span>
+                <span className="text-slate-900">: From a Legacy Single-App Tool to a Flexible Developer Portal</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-slate-600 text-base leading-relaxed max-w-lg mb-8"
+              >
+                Transforming Tipalti's legacy single-app, single-user tool into a scalable multi-tenant developer portal with self-service API testing.
+              </motion.p>
+
+              {/* Metrics — 3 white cards elevated with soft shadows (pink tint) */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="grid grid-cols-3 gap-3 max-w-[560px]"
+              >
+                {[
+                  { value: "27%", label: "Time-to-market savings" },
+                  { value: "3", label: "Multi-tenant contexts" },
+                  { value: "100%", label: "Design System aligned" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
+                    className="bg-white rounded-2xl p-4 shadow-sm border border-pink-100/60"
+                  >
+                    <p className="font-heading font-bold text-slate-900 text-2xl tracking-tight leading-none">
+                      {stat.value}
+                    </p>
+                    <p className="font-mono text-[11px] text-slate-500 mt-2 uppercase leading-tight">
+                      {stat.label}
+                    </p>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            </div>
+
+            {/* Right Column — flat raw UI preview (bottom-aligned with metric cards) */}
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-end justify-center lg:justify-end self-end"
+            >
+              <div className="w-full max-w-[560px]">
+                <img
+                  src="images/devhub/devhub - my apps.png"
+                  alt="DevHub — multi-tenant developer portal"
+                  className="w-full h-auto object-contain block rounded-lg border border-border"
+                  loading="eager"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* ── Team ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               My Role & The Team
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-0">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-6">
                 The Core Team
               </h3>
               <div className="space-y-0">
@@ -246,7 +273,7 @@ export default function CaseStudyDevHub() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-6">
                 Collaboration & Support
               </h3>
               <div className="space-y-0">
@@ -272,77 +299,87 @@ export default function CaseStudyDevHub() {
         </div>
       </section>
 
-      {/* ── Before / After ── */}
-      <BeforeAfterSection
-        before={{
-          src: "images/f8a9b2071_Appdetails-Editmode52.png",
-          alt: "Before - Legacy DevHub portal",
-          label: "Legacy Portal",
-        }}
-        after={{
-          src: "images/6afd1312c_Editapplication-editscopes.svg",
-          alt: "After - Modern DevHub portal",
-          label: "Modern Portal",
-        }}
-      />
+      {/* ── Before & After ── */}
+      <section className="px-6 md:px-12 mb-24 md:mb-36">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div {...fadeUp} className="mb-12">
+            <h2 className="font-heading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+              Before & After
+            </h2>
+            <span className="font-mono text-xs text-[#0A0F1D]/50 mt-2 block">
+              The transformation at a glance — drag to compare
+            </span>
+          </motion.div>
+          <motion.div {...fadeUp}>
+            <BeforeAfterSlider
+              beforeImage={{ src: "images/devhub/f8a9b2071_Appdetails-Editmode52.png", alt: "Before — Legacy DevHub portal" }}
+              afterImage={{ src: "images/devhub/devhub.after.mockup.svg", alt: "After — Modern DevHub" }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── The Starting Point ── */}
       <StartingPointSection images={STARTING_POINT_IMAGES} />
 
-      {/* ── The Challenge ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#0A0F1D] py-20 md:py-28">
+      {/* ── The Challenge — Top Hero (solid DevHub pink) ── */}
+      <section className="w-full my-0 px-6 md:px-12 py-28 md:py-32 bg-[#FF4E7E]" style={{ backgroundColor: "#FF4E7E" }}>
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-bold text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <motion.div {...fadeUp}>
+            <h2 className="font-subheading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
-            <span className="font-mono text-xs text-white/70 mt-2 block">
+            <p className="font-mono text-xs text-white/80 mb-12 block">
               A Rigid, Legacy Single-App & Single-User Tool
-            </span>
+            </p>
           </motion.div>
+          <motion.div {...fadeUp} className="w-full max-w-full mb-0">
+            <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
+              How might we evolve a rigid single-app, single-user tool into a scalable, multi-tenant developer portal without missing our tight MVP deadline?
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+      {/* ── The Challenge — Bottom Breakdown (light canvas, pink accents) ── */}
+      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#FFF1F5]" style={{ backgroundColor: "#FFF1F5" }}>
+        <div className="max-w-[1100px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-white/80 text-[16px] leading-[1.6]">
-                Tipalti's legacy DevHub was built for a simple, limited
-                "single-app, single-user" model. As the company and client base
-                scaled, this created severe operational bottlenecks.
+              <p className="font-body text-[#0A0F1D]/70 text-[16px] leading-[1.6]">
+                Tipalti's legacy DevHub was built for a simple, limited "single-app, single-user" model. As the company and client base scaled, this created severe operational bottlenecks.
               </p>
 
-              <div className="mt-10 flex items-center gap-3">
-                <div className="flex-1 rounded-sm border border-white/10 p-4 text-center">
-                  <p className="font-mono text-[10px] text-white/60 mb-1">
-                    Legacy
-                  </p>
-                  <p className="font-mono text-xs text-white/60">
-                    Single App / Single User
-                  </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="flex-1 rounded-xl border border-pink-100/60 bg-white shadow-sm p-4 text-center">
+                  <p className="font-mono text-[10px] tracking-widest uppercase text-[#0A0F1D]/50 mb-1">Legacy</p>
+                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">Single App / Single User</p>
                 </div>
-                <span className="text-[#6366F1] text-lg shrink-0">→</span>
-                <div className="flex-1 rounded-sm border border-[#6366F1]/30 p-4 text-center bg-[#6366F1]/10">
-                  <p className="font-mono text-[10px] text-[#6366F1] mb-1">
-                    Modern
-                  </p>
-                  <p className="font-mono text-xs text-white">
-                    Multi-App / Multi-User
-                  </p>
+                <span className="text-[#FF4E7E] text-lg shrink-0">→</span>
+                <div className="flex-1 rounded-xl border border-[#FF4E7E]/20 bg-white shadow-sm p-4 text-center">
+                  <p className="font-mono text-[10px] tracking-widest uppercase text-[#FF4E7E] mb-1">Modern</p>
+                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">Multi-App / Multi-User</p>
                 </div>
               </div>
-              <p className="font-mono text-xs text-[#6366F1] mt-3">
-                ↓ Rebuilt as a scalable, multi-tenant portal
-              </p>
+              <div className="mt-4 inline-flex items-center gap-2 bg-white border border-pink-100/60 rounded-full px-3.5 py-1.5 shadow-sm">
+                <span className="text-[#FF4E7E] text-xs">↓</span>
+                <span className="font-mono text-xs text-slate-600">Rebuilt as a scalable, multi-tenant portal</span>
+              </div>
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <div className="space-y-6">
+              <div className="space-y-4 mb-0">
                 {CHALLENGES.map((item, i) => (
-                  <div key={i} className="border-l-2 border-[#6366F1]/40 pl-5">
-                    <h4 className="font-heading font-medium text-white text-base mb-1">
+                  <div
+                    key={i}
+                    className="bg-white rounded-xl border border-pink-100/50 shadow-sm pl-5 pr-4 py-4 mb-0"
+                    style={{ borderLeft: "3px solid #FF4E7E" }}
+                  >
+                    <h4 className="font-heading font-semibold text-slate-900 text-[15px] mb-1.5 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#FF4E7E" }} />
                       {item.title}
                     </h4>
-                    <p className="font-body text-white/75 text-sm leading-relaxed">
-                      {item.body}
-                    </p>
+                    <p className="font-body text-slate-600 text-sm leading-relaxed">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -352,15 +389,15 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Research & Business ROI ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="w-full px-6 md:px-12 py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Business ROI
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mb-0">
             <motion.div {...fadeUp}>
               <div className="space-y-6">
                 {[
@@ -374,8 +411,8 @@ export default function CaseStudyDevHub() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
-                    <div className="w-8 h-8 rounded-full bg-[#6366F1]/8 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="font-mono text-xs text-[#6366F1] font-medium">
+                    <div className="w-8 h-8 rounded-full bg-[#FF4E7E]/8 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="font-mono text-xs text-[#FF4E7E] font-normal">
                         {i + 1}
                       </span>
                     </div>
@@ -393,11 +430,11 @@ export default function CaseStudyDevHub() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15 }}>
-              <div className="bg-[#6366F1] rounded-xl p-8 text-white">
+              <div className="bg-[#FF4E7E] rounded-xl p-8 text-white">
                 <p className="font-mono text-xs text-white/70 uppercase mb-4">
                   Quantifiable ROI
                 </p>
-                <p className="font-heading font-bold text-5xl tracking-[-0.04em]">
+                <p className="font-heading font-medium text-5xl tracking-[-0.04em]">
                   27%
                 </p>
                 <p className="font-body text-white/80 text-sm mt-2">
@@ -406,7 +443,7 @@ export default function CaseStudyDevHub() {
                 <div className="mt-6 pt-6 border-t border-white/20">
                   <p className="font-body text-white/80 text-sm leading-relaxed">
                     Saving{" "}
-                    <span className="text-white font-medium">35 dev days</span>{" "}
+                    <span className="text-white font-normal">35 dev days</span>{" "}
                     (from 168 down to 133) while delivering a superior user
                     experience.
                   </p>
@@ -421,7 +458,7 @@ export default function CaseStudyDevHub() {
       <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#E0E7FF] py-20 md:py-28">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-4">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Features
             </h2>
           </motion.div>
@@ -460,12 +497,12 @@ export default function CaseStudyDevHub() {
                       ease: "linear",
                     }}
                   />
-                  <span className="relative z-10 font-mono text-sm font-medium text-[#0A0F1D]/50">
+                  <span className="relative z-10 font-mono text-sm font-normal text-[#0A0F1D]/50">
                     {sol.num}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-semibold text-[20px] tracking-[-0.02em] mb-2 text-[#0A0F1D]">
+                <h3 className="font-heading font-medium text-[20px] tracking-[-0.02em] mb-2 text-[#0A0F1D]">
                   {sol.label}
                 </h3>
 
@@ -478,17 +515,25 @@ export default function CaseStudyDevHub() {
         </div>
       </section>
 
-      {/* ── Design Gallery ── */}
-      <DesignGallery slides={DEVHUB_SLIDES} />
+      {/* ── Design Details — unified carousel gallery ── */}
+      <StartingPointSection
+        images={DEVHUB_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
+        title="Design Details"
+        subtitle="Final screens & interactions"
+      />
 
-      {/* ── Prototype ── */}
-      <PrototypeSection />
+      {/* ── Live Prototype Experience ── */}
+      <PrototypeSection
+        title="Live Prototype Experience"
+        subtitle="Demo of the live, published interactive prototype"
+        videoSrc="images/devhub/Demo-DevHub.mp4"
+      />
 
       {/* ── Key Takeaways ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-14">
-            <h2 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -503,10 +548,10 @@ export default function CaseStudyDevHub() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#6366F1] group-hover:bg-[#6366F1]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#6366F1]">
+                <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#FF4E7E]">
                   {item.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-[#0A0F1D] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-heading font-medium text-[#0A0F1D] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#4A5568] text-base leading-[1.7]">
@@ -524,19 +569,19 @@ export default function CaseStudyDevHub() {
           <p className="font-mono text-xs text-[#0A0F1D]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-heading font-bold text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in the full case study?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-medium uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#FF4E7E] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>
