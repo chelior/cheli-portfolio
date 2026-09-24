@@ -53,10 +53,11 @@ const PROJECTS = [
     slug: "/case-study/insightec",
     category: "B2B/Enterprise SaaS - UX/UI & Data Visualization",
     year: "2022",
+    wip: true,
     image: "images/insightec/Insightech mockup.png",
     composite: {
-      desktop: "images/insightec/e970e184d_INSIGHTCHDESKTOPMOCKUP.png",
-      mobile: "images/insightec/05f6d6da5_insightechiphoneMOCKUP.png",
+      desktop: "images/insightec/desktop.png",
+      mobile: "images/insightec/mobile.png",
     },
     accent: "#B47AFF",
     problem: "A complex medical equipment sales analytics platform with audience mismatch, hidden revenue leaks, and visual clutter overwhelming non-analyst users.",
@@ -69,7 +70,7 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-[#090D16] min-h-screen">
       <Navbar />
       <HeroSection />
       <WorkSection

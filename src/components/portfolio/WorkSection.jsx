@@ -6,7 +6,7 @@ export default function WorkSection({ projects, onOpenProject }) {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <section id="work" className="relative px-6 md:px-12 py-16 md:py-20 bg-[#FFFFFF]">
+    <section id="work" className="relative px-6 md:px-12 py-16 md:py-20 bg-[#090D16]">
       <div className="max-w-[1100px] mx-auto">
         {/* Section header — aligned with project grid tracks */}
         <motion.div
@@ -16,7 +16,7 @@ export default function WorkSection({ projects, onOpenProject }) {
           transition={{ duration: 0.6 }}
           className="mb-8 md:mb-10"
         >
-          <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-subheading font-medium text-[#94A3B8] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Work
           </h2>
         </motion.div>

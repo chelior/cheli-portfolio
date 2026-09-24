@@ -30,7 +30,7 @@ export default function ContactModal({ isOpen, onClose }) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8"
+            className="relative bg-[#111827] rounded-2xl shadow-2xl max-w-md w-full p-8 border border-white/[0.08]"
           >
             <button
               onClick={onClose}
@@ -48,9 +48,9 @@ export default function ContactModal({ isOpen, onClose }) {
             <div className="space-y-3">
               <a
                 href="mailto:cheliganmor@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] hover:border-[#6366F1] hover:bg-[#6366F1]/5 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] hover:border-[#3B82F6] hover:bg-[#3B82F6]/5 border border-[#3B82F6]/20 transition-all group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#6366F1]/10 flex items-center justify-center text-[#6366F1] group-hover:bg-[#6366F1] group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center text-[#3B82F6] group-hover:bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] group-hover:text-white transition-all">
                   <Mail size={18} />
                 </div>
                 <div>

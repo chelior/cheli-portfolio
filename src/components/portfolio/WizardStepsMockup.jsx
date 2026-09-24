@@ -78,12 +78,12 @@ function StepCard({ step, index, className, onOpen }) {
       className={`flex flex-col ${className || ""}`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="font-mono text-xs text-[#6366F1] font-normal">{step.num}</span>
+        <span className="font-mono text-xs text-[#3B82F6] font-normal">{step.num}</span>
         <span className="font-mono text-xs text-[#0A0F1D]/50 uppercase tracking-wide">{step.name}</span>
       </div>
       <div
         onClick={onOpen}
-        className="rounded-lg overflow-hidden border border-border bg-white cursor-pointer group relative"
+        className="rounded-lg overflow-hidden border border-white/[0.08] bg-[#111827] cursor-pointer group relative shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
       >
         <img
           src={step.image}
@@ -113,7 +113,7 @@ function FlowArrow({ direction, delay, className }) {
         animate={{ scale: [1, 1.15, 1] }}
         transition={{ duration: 2, repeat: Infinity, delay: delay + 0.5 }}
       >
-        <Icon size={20} className="text-[#6366F1]" strokeWidth={2} />
+        <Icon size={20} className="text-[#3B82F6]" strokeWidth={2} />
       </motion.div>
     </motion.div>
   );

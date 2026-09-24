@@ -16,6 +16,7 @@ export default function StartingPointSection({
   subtitle = "The original interface before the redesign",
   noWrapper = false,
   showArchitecturalBlock = false,
+  compact = false,
 }) {
   const [index, setIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -53,40 +54,78 @@ export default function StartingPointSection({
     <>
         {title && (
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             {title}
           </h2>
-          <p className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+          <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
             {subtitle}
           </p>
         </motion.div>
       )}
 
       {showArchitecturalBlock && (
-        <motion.div {...fadeUp} className="bg-white border border-neutral-200/80 rounded-xl p-6 md:p-8 lg:p-10 mb-12 shadow-sm">
-          <div className="flex flex-col gap-8 md:gap-10">
-            <div>
-              <h3 className="font-heading font-medium text-[#0A0F1D] text-[18px] md:text-[19px] leading-[1.4] tracking-[-0.02em] mb-3">
-                Searchable Dropdowns and Density Optimization
-              </h3>
-              <p className="font-body text-[#4A5568] text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8]">
-                Integrating internal search directly inside dropdown selects dramatically reduced visual clutter on the canvas. Consolidating search and selection into unified fields eliminated sprawling lists, allowing what used to be multiple standalone steps to fit seamlessly into a single-screen dynamic modal.
-              </p>
+        <motion.div {...fadeUp} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-12">
+          {/* Column 1 — title outside card */}
+          <div>
+            <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
+              Searchable Dropdowns and Density Optimization
+            </h3>
+            <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
+              <ul className="space-y-2.5">
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    Integrated internal search directly inside dropdown selects to dramatically reduce visual clutter.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    Consolidated search and selection into unified fields, eliminating sprawling lists.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    Enabled multiple standalone steps to fit seamlessly into a single-screen dynamic modal.
+                  </span>
+                </li>
+              </ul>
             </div>
-            <div className="border-t border-neutral-200/60 pt-8 md:pt-10">
-              <h3 className="font-heading font-medium text-[#0A0F1D] text-[18px] md:text-[19px] leading-[1.4] tracking-[-0.02em] mb-3">
-                Dynamic Progressive Disclosure for Role Settings
-              </h3>
-              <p className="font-body text-[#4A5568] text-[15px] md:text-[16px] leading-[1.7] md:leading-[1.8]">
-                The "Additional Info" stage is no longer exposed as a permanent screen or default section. It utilizes conditional progressive disclosure: only when the user selects the Approver role does the dedicated approval permissions area dynamically expand. Users configuring standard roles never encounter irrelevant fields, eliminating unnecessary cognitive friction.
-              </p>
+          </div>
+          {/* Column 2 — title outside card */}
+          <div>
+            <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
+              Dynamic Progressive Disclosure for Role Settings
+            </h3>
+            <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
+              <ul className="space-y-2.5">
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    &ldquo;Additional Info&rdquo; hidden by default — no longer a permanent screen or section.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    Conditional expansion only when the Approver role is selected.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
+                  <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
+                    Standard roles never encounter irrelevant fields, eliminating unnecessary cognitive friction.
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </motion.div>
       )}
 
-        {/* Coverflow — How It Started: center-focused, peeking sides, fixed height, no layout shift */}
-        <motion.div {...fadeUp} className="relative" style={{ boxSizing: "border-box" }}>
+        {/* Coverflow — How It Started: center-focused, peeking sides, fixed height, no layout shift — constrained frame below header */}
+        <motion.div {...fadeUp} className="relative overflow-hidden rounded-xl" style={{ boxSizing: "border-box" }}>
           <div
             className="relative w-full h-[280px] sm:h-[340px] md:h-[420px] lg:h-[460px] overflow-visible select-none"
             style={{ boxSizing: "border-box" }}
@@ -102,15 +141,15 @@ export default function StartingPointSection({
                 const isNext = offset === 1;
                 const isVisible = Math.abs(offset) <= 1;
 
-                const translateX = offset * 52;
-                const scale = isActive ? 1.05 : 0.85;
-                const opacity = isActive ? 1 : isVisible ? 0.65 : 0;
-                const zIndex = isActive ? 10 : 1;
+                const translateX = offset * 44;
+                const scale = isActive ? 1 : 0.85;
+                const opacity = isActive ? 1 : isVisible ? 0.45 : 0;
+                const zIndex = isActive ? 20 : 10;
 
                 return (
                   <motion.div
                     key={i}
-                    className={`absolute w-[72%] md:w-[62%] lg:w-[58%] ${isActive ? "cursor-zoom-in" : "cursor-pointer"}`}
+                    className={`absolute w-[72%] md:w-[62%] lg:w-[58%] ${isActive ? "cursor-zoom-in scale-100" : "cursor-pointer -mx-10 scale-[0.85]"}`}
                     style={{
                       zIndex,
                       boxSizing: "border-box",
@@ -137,18 +176,21 @@ export default function StartingPointSection({
                     }}
                   >
                     <div
-                      className={`relative overflow-hidden bg-white flex flex-col rounded-lg border border-border ${
-                        isActive ? "shadow-sm cursor-zoom-in" : "opacity-90"
+                      className={`relative overflow-hidden bg-[#111827] flex flex-col border border-border h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] ${
+                        isActive
+                          ? "rounded-xl shadow-2xl cursor-zoom-in"
+                          : "rounded-xl shadow-md opacity-90 blur-[0.6px]"
                       }`}
                       style={{
                         willChange: "transform, opacity",
                         backfaceVisibility: "hidden",
+                        filter: isActive ? "none" : "blur(0.6px)",
                       }}
                     >
                       <img
                         src={img.src}
                         alt={img.alt}
-                        className="w-full h-auto object-contain block rounded-lg cursor-zoom-in"
+                        className="w-full h-full object-cover object-top block rounded-xl cursor-zoom-in"
                         loading="lazy"
                         draggable={false}
                       />
@@ -174,14 +216,14 @@ export default function StartingPointSection({
 
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white shadow-md border border-[#E5E7EB] hover:bg-[#0A0F1D] hover:text-white hover:border-[#0A0F1D] text-[#0A0F1D] flex items-center justify-center transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] z-30"
+            className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#111827] shadow-md border border-white/[0.08] hover:bg-[#0A0F1D] hover:text-white hover:border-[#0A0F1D] text-[#E2E8F0] flex items-center justify-center transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] z-30"
             aria-label="Previous"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={() => paginate(1)}
-            className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white shadow-md border border-[#E5E7EB] hover:bg-[#0A0F1D] hover:text-white hover:border-[#0A0F1D] text-[#0A0F1D] flex items-center justify-center transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] z-30"
+            className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#111827] shadow-md border border-white/[0.08] hover:bg-[#0A0F1D] hover:text-white hover:border-[#0A0F1D] text-[#E2E8F0] flex items-center justify-center transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] z-30"
             aria-label="Next"
           >
             <ChevronRight size={18} />
@@ -195,7 +237,7 @@ export default function StartingPointSection({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.25 }}
-            className="mt-6 font-mono text-[11px] text-[#0A0F1D]/60 tracking-wide text-center"
+            className="mt-6 font-mono text-[11px] text-[#F8FAFC]/60 tracking-wide text-center"
           >
             {images[index].alt} — {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
           </motion.p>
@@ -206,7 +248,7 @@ export default function StartingPointSection({
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-6 bg-[#6366F1]" : "w-1.5 bg-[#0A0F1D]/15 hover:bg-[#0A0F1D]/30"}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-6 bg-[#3B82F6]" : "w-1.5 bg-[#0A0F1D]/15 hover:bg-[#0A0F1D]/30"}`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -231,7 +273,7 @@ export default function StartingPointSection({
   }
 
   return (
-    <section className="w-full px-6 md:px-12 py-14 md:py-20" style={{ boxSizing: "border-box" }}>
+    <section className={`w-full px-6 md:px-12 ${compact ? "py-10 md:py-16" : "py-14 md:py-20"}`} style={{ boxSizing: "border-box" }}>
       <div className="max-w-[1100px] mx-auto">
         {innerContent}
       </div>

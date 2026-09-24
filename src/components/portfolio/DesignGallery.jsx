@@ -87,13 +87,13 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
             Design Details
           </h2>
           <span className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
-            Final screens & interactions
+            Final screens
           </span>
         </motion.div>
 
         {/* Carousel */}
         <motion.div {...fadeUp} className="relative">
-          <div className="relative overflow-hidden rounded-lg bg-[#F5F5F7] border border-[#E5E7EB]">
+          <div className="relative overflow-hidden rounded-lg bg-[#111827] border border-white/[0.08]">
             {/* Sizer — maintains container height to prevent layout shifts */}
             <img src={slides[index].image} alt="" aria-hidden="true" className="block w-full h-auto opacity-0" />
             {/* Animated slides — crossfade on top of sizer */}
@@ -121,14 +121,14 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
           {/* Navigation arrows */}
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white shadow-md flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+            className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white shadow-md flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             aria-label="Previous"
           >
             <ChevronLeft size={20} className="text-[#0A0F1D]" />
           </button>
           <button
             onClick={() => paginate(1)}
-            className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white shadow-md flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+            className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm hover:bg-white shadow-md flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             aria-label="Next"
           >
             <ChevronRight size={20} className="text-[#0A0F1D]" />
@@ -157,7 +157,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
                 key={i}
                 onClick={() => goTo(i)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index ? "w-6 bg-[#6366F1]" : "w-1.5 bg-[#0A0F1D]/15 hover:bg-[#0A0F1D]/30"
+                  i === index ? "w-6 bg-[#3B82F6]" : "w-1.5 bg-[#0A0F1D]/15 hover:bg-[#0A0F1D]/30"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />

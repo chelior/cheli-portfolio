@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 229 19% 22%;
-    --card: 0 0% 100%;
-    --card-foreground: 229 19% 22%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 229 19% 22%;
-    --primary: 239 84% 67%;
+    --background: 222 32% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 30% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 32% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 227 100% 94%;
-    --secondary-foreground: 220 21% 11%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 229 12% 45%;
-    --accent: 343 100% 65%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 239 84% 67%;
-    --chart-1: 239 84% 67%;
-    --chart-2: 343 100% 65%;
-    --chart-3: 227 100% 94%;
-    --chart-4: 220 21% 11%;
-    --chart-5: 229 19% 22%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 217 32% 17%;
+    --chart-4: 210 40% 98%;
+    --chart-5: 215 20% 65%;
     --radius: 0.5rem;
     --font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Google Sans Flex', 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-subheading: 'Google Sans Flex', 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 229 19% 22%;
-    --sidebar-primary: 220 21% 11%;
+    --sidebar-background: 222 32% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 227 100% 94%;
-    --sidebar-accent-foreground: 220 21% 11%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 239 84% 67%;
+    --sidebar-accent: 217 32% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 17%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -62,7 +62,7 @@
   }
 
   ::selection {
-    background: #6366F1;
+    background: #3B82F6;
     color: white;
   }
 }

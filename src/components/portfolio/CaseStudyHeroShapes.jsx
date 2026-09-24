@@ -10,32 +10,32 @@ const LAYOUTS = {
   // Large 46, Medium 34, Small 22
   "user-creation": [
     { type: "ring", color: "#FF4E7E", top: "6%", left: "8%", size: 46 },
-    { type: "zigzag", color: "#6366F1", top: "44%", left: "52%", size: 34 },
+    { type: "zigzag", color: "#3B82F6", top: "44%", left: "52%", size: 34 },
     { type: "diamond", color: "#FF4E7E", top: "70%", left: "28%", size: 22 },
   ],
   // Large 44, Medium 32, Small 20
   "dev-hub": [
-    { type: "square", color: "#6366F1", top: "8%", left: "62%", size: 44 },
+    { type: "square", color: "#3B82F6", top: "8%", left: "62%", size: 44 },
     { type: "ring", color: "#FF4E7E", top: "36%", left: "10%", size: 32 },
-    { type: "triangle", color: "#6366F1", top: "70%", left: "50%", size: 20 },
+    { type: "triangle", color: "#3B82F6", top: "70%", left: "50%", size: 20 },
   ],
   // Large 48, Medium 30, Small 24
   sdarim: [
     { type: "diamond", color: "#FF4E7E", top: "10%", left: "12%", size: 48 },
-    { type: "triangle", color: "#6366F1", top: "40%", left: "66%", size: 30 },
+    { type: "triangle", color: "#3B82F6", top: "40%", left: "66%", size: 30 },
     { type: "cross", color: "#FF4E7E", top: "72%", left: "30%", size: 24 },
   ],
   // Large 48, Medium 32, Small 22
   insightec: [
-    { type: "zigzag", color: "#6366F1", top: "8%", left: "38%", size: 48 },
-    { type: "square", color: "#6366F1", top: "50%", left: "8%", size: 32 },
+    { type: "zigzag", color: "#3B82F6", top: "8%", left: "38%", size: 48 },
+    { type: "square", color: "#3B82F6", top: "50%", left: "8%", size: 32 },
     { type: "ring", color: "#FF4E7E", top: "68%", left: "64%", size: 22 },
   ],
 };
 
 const DEFAULT_SHAPES = LAYOUTS["user-creation"];
 
-export default function CaseStudyHeroShapes({ variant, accent = "#6366F1" }) {
+export default function CaseStudyHeroShapes({ variant, accent = "#3B82F6" }) {
   const shapes = LAYOUTS[variant] || DEFAULT_SHAPES;
   return (
     <div className="absolute inset-0 px-6 md:px-12 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -43,7 +43,7 @@ export default function CaseStudyHeroShapes({ variant, accent = "#6366F1" }) {
         {/* Exactly 3 items scattered across bottom-right zone – no overflow, accent-driven */}
         <div className="hidden md:block absolute right-0 bottom-2 lg:bottom-4 w-[300px] h-[200px] lg:w-[420px] lg:h-[280px] overflow-hidden">
           {shapes.map((shape, i) => (
-            <CompactShape key={`${variant}-${i}`} shape={{ ...shape, color: shape.color === "#6366F1" ? accent : shape.color }} index={i} />
+            <CompactShape key={`${variant}-${i}`} shape={{ ...shape, color: shape.color === "#3B82F6" ? accent : shape.color }} index={i} />
           ))}
         </div>
       </div>

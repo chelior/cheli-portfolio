@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Rocket, Layers, UserCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
+import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import PrototypeSection from "@/components/portfolio/PrototypeSection";
 import ContactModal from "@/components/portfolio/ContactModal";
+import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -32,26 +34,53 @@ const SOLUTIONS = [
   {
     num: "01",
     label: "Multi-App to Multi-User",
+    subtitle: "Flexible IA for today and tomorrow's teams",
     reason:
       "Designed a flexible information architecture that seamlessly manages multiple apps today, with dedicated UI entry points reserved for permissions and team management in phase two.",
+    beforeLabel: "BEFORE (PAIN)",
+    beforeBody: "Locked to a single app + single user, blocking team collaboration.",
+    afterLabel: "AFTER (SOLUTION)",
+    afterBody: "Multi-app hub with clear entry points for future team permissions.",
+    image: "images/devhub/devhub - my apps.png",
+    bullets: [
+      "Holds multiple apps today without clutter",
+      "Future-proofed for permissions & teams",
+      "Clean, scalable navigation model",
+    ],
   },
   {
     num: "02",
-    label: "Global Context Switcher",
+    label: "Context Visibility & Scalable Navigation",
+    subtitle: "Clear environment context today, zero-friction expansion tomorrow",
     reason:
-      "Implemented a unified top-header context manager for effortless switching between applications, payer accounts, and user roles.",
+      "Engineered a persistent context anchor in the top navigation that grounds the user in their active payer environment while leaving a dedicated slot for upcoming multi-payer switching.",
+    beforeLabel: "BEFORE (PAIN)",
+    beforeBody: "Legacy navigation either lacked clear visibility of the active payer context or offered confusing controls that caused workflow errors.",
+    afterLabel: "AFTER (SOLUTION)",
+    afterBody: "Preserved explicit, persistent visibility of the active payer context in the top header while intentionally removing the dropdown chevron for MVP, preventing misleading affordances until multi-payer switching is introduced.",
+    image: "images/devhub/payersnamemockup2.svg",
+    bullets: [
+      "Clear visual indicator of the active payer account to ensure error-free configuration",
+      "Removed interactive chevron affordance to prevent user frustration during MVP",
+      "Modular header structure engineered to enable full switcher functionality in Phase 2 with zero redesign",
+    ],
   },
   {
     num: "03",
     label: "Performant Data Grids",
+    subtitle: "Audit logs at enterprise scale",
     reason:
       "Leveraged core Design System components to build fast, high-performance tables for Audit Logs and API Logs with robust filtering.",
-  },
-  {
-    num: "04",
-    label: "Self-Service Testing Framework",
-    reason:
-      "Integrated an in-app REST API testing interface directly within the portal, eliminating external dependencies on Tipalti support.",
+    beforeLabel: "BEFORE (PAIN)",
+    beforeBody: "Slow, unfiltered tables with poor scanability at scale.",
+    afterLabel: "AFTER (SOLUTION)",
+    afterBody: "Design System grids fast, filterable, audit-ready.",
+    image: "images/devhub/oldnew1.svg",
+    bullets: [
+      "High-performance virtualized tables",
+      "Robust multi-column filtering",
+      "Consistent Design System patterns",
+    ],
   },
 ];
 
@@ -113,6 +142,7 @@ const DEVHUB_SLIDES = [
 export default function CaseStudyDevHub() {
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -121,35 +151,35 @@ export default function CaseStudyDevHub() {
   }, []);
 
   return (
-    <main className="bg-[#FFFFFF] min-h-screen">
+    <main className="bg-[#090D16] min-h-screen">
       {/* Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E5E7EB]"
+            ? "bg-[#090D16]/80 backdrop-blur-md border-b border-white/[0.06]"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#FF4E7E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] rounded"
+            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#FF4E7E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
           </Link>
-          <span className="font-mono text-xs text-[#0A0F1D]/50 hidden md:block">
+          <span className="font-mono text-xs text-[#F8FAFC]/50 hidden md:block">
             Case Study · DevHub
           </span>
         </div>
       </nav>
 
-      {/* ── Hero — Brand Tinted Gradient Canvas (DevHub pink) — mirrors User Creation ── */}
-      <div className="bg-gradient-to-b from-[#FFD6E7] via-[#FFF1F5] to-white rounded-b-[48px] overflow-hidden relative pb-16 pt-12">
+      {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
+      <div className="bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(255,78,126,0.12) 0%, #090D16 75%)" }}>
         {/* Background Watermark — DEVHUB */}
         <div
           aria-hidden="true"
-          className="text-[120px] font-black tracking-tighter text-slate-900/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
         >
           DEVHUB
         </div>
@@ -174,16 +204,16 @@ export default function CaseStudyDevHub() {
                 transition={{ duration: 0.7, delay: 0.15 }}
                 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
               >
-                <span className="text-slate-900">Modernizing </span>
+                <span className="text-[#E2E8F0]">Modernizing </span>
                 <span className="text-[#FF4E7E]">DevHub</span>
-                <span className="text-slate-900">: From a Legacy Single-App Tool to a Flexible Developer Portal</span>
+                <span className="text-[#E2E8F0]">: From a Legacy Single-App Tool to a Flexible Developer Portal</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-slate-600 text-base leading-relaxed max-w-lg mb-8"
+                className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
                 Transforming Tipalti's legacy single-app, single-user tool into a scalable multi-tenant developer portal with self-service API testing.
               </motion.p>
@@ -205,12 +235,12 @@ export default function CaseStudyDevHub() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    className="bg-white rounded-2xl p-4 shadow-sm border border-pink-100/60"
+                    className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
                   >
-                    <p className="font-heading font-bold text-slate-900 text-2xl tracking-tight leading-none">
-                      {stat.value}
+                    <p className="font-heading font-bold text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
+                      <AnimatedCounter value={stat.value} duration={1350} />
                     </p>
-                    <p className="font-mono text-[11px] text-slate-500 mt-2 uppercase leading-tight">
+                    <p className="font-mono text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -242,7 +272,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               My Role & The Team
             </h2>
           </motion.div>
@@ -256,15 +286,15 @@ export default function CaseStudyDevHub() {
                 {TEAM.map((member, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 py-4 border-b border-[#E5E7EB]"
+                    className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#0A0F1D]/30 w-4">
+                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-body text-[#0A0F1D] text-base flex-1">
+                    <span className="font-body text-[#94A3B8] text-base flex-1">
                       {member.role}
                     </span>
-                    <span className="font-mono text-xs text-[#0A0F1D]/60">
+                    <span className="font-mono text-xs text-[#F8FAFC]/60">
                       {member.name}
                     </span>
                   </div>
@@ -280,15 +310,15 @@ export default function CaseStudyDevHub() {
                 {SUPPORTERS.map((s, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 py-4 border-b border-[#E5E7EB]"
+                    className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#0A0F1D]/30 w-4">
+                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-body text-[#0A0F1D] text-base flex-1">
+                    <span className="font-body text-[#94A3B8] text-base flex-1">
                       {s.role}
                     </span>
-                    <span className="font-mono text-xs text-[#0A0F1D]/60">
+                    <span className="font-mono text-xs text-[#F8FAFC]/60">
                       {s.name}
                     </span>
                   </div>
@@ -303,10 +333,10 @@ export default function CaseStudyDevHub() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-heading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
-            <span className="font-mono text-xs text-[#0A0F1D]/50 mt-2 block">
+            <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
               The transformation at a glance — drag to compare
             </span>
           </motion.div>
@@ -342,28 +372,28 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── The Challenge — Bottom Breakdown (light canvas, pink accents) ── */}
-      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#FFF1F5]" style={{ backgroundColor: "#FFF1F5" }}>
+      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#0F172A] border-y border-white/[0.06]" style={{ backgroundColor: "#0F172A" }}>
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-[#0A0F1D]/70 text-[16px] leading-[1.6]">
+              <p className="font-body text-[#F8FAFC]/70 text-[16px] leading-[1.6]">
                 Tipalti's legacy DevHub was built for a simple, limited "single-app, single-user" model. As the company and client base scaled, this created severe operational bottlenecks.
               </p>
 
               <div className="mt-8 flex items-center gap-3">
-                <div className="flex-1 rounded-xl border border-pink-100/60 bg-white shadow-sm p-4 text-center">
-                  <p className="font-mono text-[10px] tracking-widest uppercase text-[#0A0F1D]/50 mb-1">Legacy</p>
-                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">Single App / Single User</p>
+                <div className="flex-1 rounded-xl border border-white/[0.08] bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-4 text-center">
+                  <p className="font-mono text-[10px] tracking-widest uppercase text-[#F8FAFC]/50 mb-1">Legacy</p>
+                  <p className="font-heading font-semibold text-[#E2E8F0] text-sm">Single App / Single User</p>
                 </div>
                 <span className="text-[#FF4E7E] text-lg shrink-0">→</span>
-                <div className="flex-1 rounded-xl border border-[#FF4E7E]/20 bg-white shadow-sm p-4 text-center">
+                <div className="flex-1 rounded-xl border border-[#FF4E7E]/20 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-4 text-center">
                   <p className="font-mono text-[10px] tracking-widest uppercase text-[#FF4E7E] mb-1">Modern</p>
-                  <p className="font-heading font-semibold text-[#0A0F1D] text-sm">Multi-App / Multi-User</p>
+                  <p className="font-heading font-semibold text-[#E2E8F0] text-sm">Multi-App / Multi-User</p>
                 </div>
               </div>
-              <div className="mt-4 inline-flex items-center gap-2 bg-white border border-pink-100/60 rounded-full px-3.5 py-1.5 shadow-sm">
+              <div className="mt-4 inline-flex items-center gap-2 bg-[#111827] border border-white/[0.08] rounded-full px-3.5 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 <span className="text-[#FF4E7E] text-xs">↓</span>
-                <span className="font-mono text-xs text-slate-600">Rebuilt as a scalable, multi-tenant portal</span>
+                <span className="font-mono text-xs text-[#94A3B8]">Rebuilt as a scalable, multi-tenant portal</span>
               </div>
             </motion.div>
 
@@ -372,14 +402,14 @@ export default function CaseStudyDevHub() {
                 {CHALLENGES.map((item, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-xl border border-pink-100/50 shadow-sm pl-5 pr-4 py-4 mb-0"
+                    className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] pl-5 pr-4 py-4 mb-0"
                     style={{ borderLeft: "3px solid #FF4E7E" }}
                   >
-                    <h4 className="font-heading font-semibold text-slate-900 text-[15px] mb-1.5 flex items-center gap-2">
+                    <h4 className="font-heading font-semibold text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#FF4E7E" }} />
                       {item.title}
                     </h4>
-                    <p className="font-body text-slate-600 text-sm leading-relaxed">{item.body}</p>
+                    <p className="font-body text-[#94A3B8] text-sm leading-relaxed">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -392,7 +422,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full px-6 md:px-12 py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Business ROI
             </h2>
           </motion.div>
@@ -417,10 +447,10 @@ export default function CaseStudyDevHub() {
                       </span>
                     </div>
                     <div>
-                      <h4 className="font-heading font-medium text-[#0A0F1D] text-base mb-1">
+                      <h4 className="font-heading font-medium text-[#94A3B8] text-base mb-1">
                         {item.label}
                       </h4>
-                      <p className="font-body text-[#4A5568] text-sm leading-relaxed">
+                      <p className="font-body text-[#94A3B8] text-sm leading-relaxed">
                         {item.body}
                       </p>
                     </div>
@@ -434,8 +464,8 @@ export default function CaseStudyDevHub() {
                 <p className="font-mono text-xs text-white/70 uppercase mb-4">
                   Quantifiable ROI
                 </p>
-                <p className="font-heading font-medium text-5xl tracking-[-0.04em]">
-                  27%
+                <p className="font-heading font-medium text-5xl tracking-[-0.04em] tabular-nums">
+                  <AnimatedCounter value={27} suffix="%" duration={1350} />
                 </p>
                 <p className="font-body text-white/80 text-sm mt-2">
                   Engineering effort reduced
@@ -454,72 +484,115 @@ export default function CaseStudyDevHub() {
         </div>
       </section>
 
-      {/* ── Exploration & Solution ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#E0E7FF] py-20 md:py-28">
+      {/* ── Key Solutions & Features — rich alternating with mockups like Sdarim ── */}
+      <section className="px-6 md:px-12 mb-12 md:mb-16 bg-[#090D16] py-16 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-4">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <motion.div {...fadeUp} className="mb-4">
+            <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Features
             </h2>
           </motion.div>
           <motion.p
             {...fadeUp}
-            className="font-body text-[#4A5568] text-[16px] leading-[1.6] max-w-[600px] mb-14"
+            className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-16 md:mb-20"
           >
-            Four core solutions shaped the new developer portal, each addressing
+            Three core solutions shaped the new developer portal, each addressing
             a critical bottleneck from the legacy system while laying the
             groundwork for future scalability.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div className="space-y-20 md:space-y-28">
             {SOLUTIONS.map((sol, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40, scale: 0.92 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                whileHover={{ y: -6 }}
-                className="relative rounded-lg p-6 md:p-8 flex flex-col bg-white border border-[#E5E7EB]"
+                key={sol.num}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6 }}
               >
-                <div className="w-12 h-12 mb-6 relative flex items-center justify-center">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+                  {/* Content — text hierarchy like Sdarim */}
                   <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-dashed"
-                    style={{ borderColor: "rgba(10,15,29,0.2)" }}
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 15 + i * 4,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-                  <span className="relative z-10 font-mono text-sm font-normal text-[#0A0F1D]/50">
-                    {sol.num}
-                  </span>
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    className={`${i % 2 === 1 ? "md:order-2" : ""} self-center`}
+                  >
+                    <div>
+                      <span className="inline-flex items-center font-mono text-xs text-[#FF4E7E] bg-[#FF4E7E]/10 px-2.5 py-1 rounded-md border border-[#FF4E7E]/20 mb-3">
+                        {sol.num}
+                      </span>
+                      <h3 className="font-heading font-semibold text-[#F1F5F9] text-[22px] tracking-[-0.02em] mb-1">
+                        {sol.label}
+                      </h3>
+                      {sol.subtitle && <p className="text-sm text-[#94A3B8] mb-6">{sol.subtitle}</p>}
+
+                      <div className="grid grid-cols-2 gap-3 md:gap-4">
+                        <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-4">
+                          <p className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold mb-2">
+                            {sol.beforeLabel}
+                          </p>
+                          <p className="text-sm text-[#94A3B8] leading-relaxed">{sol.beforeBody}</p>
+                        </div>
+                        <div className="bg-[#FF4E7E]/10 backdrop-blur-sm border border-[#FF4E7E]/20 rounded-2xl p-4">
+                          <p className="text-[11px] font-mono uppercase tracking-wider text-[#FF4E7E] font-bold mb-2">
+                            {sol.afterLabel}
+                          </p>
+                          <p className="text-sm font-medium text-[#E2E8F0] leading-relaxed">{sol.afterBody}</p>
+                        </div>
+                      </div>
+
+                      {sol.bullets && (
+                        <ul className="mt-4 space-y-2">
+                          {sol.bullets.map((b) => (
+                            <li key={b} className="flex items-start gap-2.5">
+                              <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#FF4E7E] shrink-0" />
+                              <span className="font-body text-sm text-[#94A3B8] leading-relaxed">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <p className="font-body text-sm leading-relaxed text-[#94A3B8] mt-4">{sol.reason}</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Visual — mockup with dark translucent framing, contain, no cropping */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 28, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                    className={`${i % 2 === 1 ? "md:order-1" : ""} self-center w-full`}
+                  >
+                    <div
+                      className="rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer group hover:border-[#FF4E7E]/30 transition-colors duration-300"
+                      onClick={() => sol.image && setLightbox({ src: sol.image, alt: sol.label })}
+                    >
+                      <img
+                        src={sol.image}
+                        alt={sol.label}
+                        className="w-full h-auto object-contain rounded-xl block transition-transform duration-700 group-hover:scale-[1.01]"
+                        loading="lazy"
+                      />
+                    </div>
+                  </motion.div>
                 </div>
-
-                <h3 className="font-heading font-medium text-[20px] tracking-[-0.02em] mb-2 text-[#0A0F1D]">
-                  {sol.label}
-                </h3>
-
-                <p className="font-body text-sm leading-relaxed text-[#4A5568]">
-                  {sol.reason}
-                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      <ImageLightbox src={lightbox?.src} alt={lightbox?.alt || ""} isOpen={!!lightbox} onClose={() => setLightbox(null)} />
+
       {/* ── Design Details — unified carousel gallery ── */}
       <StartingPointSection
         images={DEVHUB_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
         title="Design Details"
-        subtitle="Final screens & interactions"
+        subtitle="Final screens"
+        compact
       />
 
       {/* ── Live Prototype Experience ── */}
@@ -533,7 +606,7 @@ export default function CaseStudyDevHub() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-14">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -548,13 +621,13 @@ export default function CaseStudyDevHub() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#FF4E7E]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/5 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#FF4E7E]">
                   {item.icon}
                 </div>
-                <h3 className="font-heading font-medium text-[#0A0F1D] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-heading font-medium text-[#E2E8F0] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
-                <p className="font-body text-[#4A5568] text-base leading-[1.7]">
+                <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
                   {item.body}
                 </p>
               </motion.div>
@@ -564,18 +637,18 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-[#E5E7EB]">
+      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
-          <p className="font-mono text-xs text-[#0A0F1D]/50 tracking-wide uppercase">
+          <p className="font-mono text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in the full case study?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E]"
+              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E]"
             >
               All projects
             </Link>

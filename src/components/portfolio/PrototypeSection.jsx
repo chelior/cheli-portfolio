@@ -12,19 +12,22 @@ export default function PrototypeSection({
   title = "Prototype",
   subtitle = "Interactive flow coming soon",
   videoSrc,
+  children,
 }) {
   return (
     <section className="w-full px-6 md:px-12 py-14 md:py-20">
       <div className="max-w-[1100px] mx-auto">
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             {title}
           </h2>
-          <span className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">{subtitle}</span>
+          <span className="font-mono text-xs text-[#94A3B8] mb-12 block">{subtitle}</span>
         </motion.div>
         <motion.div {...fadeUp} className="mb-0">
-          {videoSrc ? (
-            <div className="rounded-xl overflow-hidden shadow-lg border border-[#E5E7EB] bg-black">
+          {children ? (
+            <div className="rounded-xl overflow-hidden shadow-lg border border-white/[0.08] bg-[#111827]">{children}</div>
+          ) : videoSrc ? (
+            <div className="rounded-xl overflow-hidden shadow-lg border border-white/[0.08] bg-black">
               <video
                 src={videoSrc}
                 controls
@@ -37,8 +40,8 @@ export default function PrototypeSection({
               />
             </div>
           ) : (
-            <div className="rounded-lg border border-dashed border-[#E5E7EB] bg-[#F5F5F7] py-20 md:py-32 flex flex-col items-center justify-center gap-3">
-              <span className="font-mono text-xs text-[#0A0F1D]/40 uppercase tracking-wide">
+            <div className="rounded-lg border border-dashed border-white/[0.08] bg-[#111827] py-20 md:py-32 flex flex-col items-center justify-center gap-3">
+              <span className="font-mono text-xs text-[#64748B] uppercase tracking-wide">
                 Prototype in progress
               </span>
             </div>

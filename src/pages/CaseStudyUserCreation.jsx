@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowLeft, Users, Zap, Eye, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, Users, Zap, Eye, Check, Maximize2, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import PrototypeSection from "@/components/portfolio/PrototypeSection";
+import UserCreationPrototype from "@/components/portfolio/UserCreationPrototype";
 import ContactModal from "@/components/portfolio/ContactModal";
+import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -35,8 +37,8 @@ const ITERATIONS = [
     label: "Full-Screen Page",
     tag: "Rejected",
     reason: "Broke context switching; users lost immediate visibility into the underlying data table.",
-    image: "images/user-creation/4248f1bef_AddnewuserTM1.png",
-    alt: "Full-Screen Page — preview",
+    image: "images/user-creation/Design Explorations & Trade-offs /Full page 1.svg",
+    alt: "Full-Screen Page — hand-drawn sketch",
     isWinner: false,
   },
   {
@@ -44,8 +46,8 @@ const ITERATIONS = [
     label: "Accordion (Inline Expansion)",
     tag: "Rejected",
     reason: "Excessive vertical page jumping and layout shifts when configuring dynamic, conditional roles.",
-    image: "images/user-creation/b1c2150d1_AddnewuserTM2.png",
-    alt: "Accordion inline expansion — preview",
+    image: "images/user-creation/Design Explorations & Trade-offs /Accordeon 1.svg",
+    alt: "Accordion inline expansion — hand-drawn sketch",
     isWinner: false,
   },
   {
@@ -53,8 +55,8 @@ const ITERATIONS = [
     label: "Dynamic Single-Screen Modal",
     tag: "Selected Direction",
     reason: "Kept users grounded in the workspace context, collapsed 4 friction-heavy steps into 1 progressive screen, and aligned with design system standards.",
-    image: "images/user-creation/202bc23cf_Addnewusercollapes.svg",
-    alt: "Dynamic single-screen modal — preview",
+    image: "images/user-creation/Design Explorations & Trade-offs /Selected 1.svg",
+    alt: "Dynamic single-screen modal — hand-drawn sketch",
     isWinner: true,
   },
 ];
@@ -97,6 +99,7 @@ export default function CaseStudyUserCreation() {
   const [scrolled, setScrolled] = useState(false);
   const [researchLightbox, setResearchLightbox] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [prototypeFullscreen, setPrototypeFullscreen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -105,35 +108,35 @@ export default function CaseStudyUserCreation() {
   }, []);
 
   return (
-    <main className="bg-[#FFFFFF] min-h-screen">
+    <main className="bg-[#090D16] min-h-screen">
       {/* Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E5E7EB]"
+            ? "bg-[#090D16]/80 backdrop-blur-md border-b border-white/[0.06]"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/50 hover:text-[#6366F1] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
+            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
           </Link>
-          <span className="font-mono text-xs text-[#0A0F1D]/50 hidden md:block">
+          <span className="font-mono text-xs text-[#F8FAFC]/50 hidden md:block">
             Case Study · User Creation
           </span>
         </div>
       </nav>
 
-      {/* ── Hero — Editorial Contained Canvas ── */}
-      <div className="bg-gradient-to-b from-[#FED7AA] via-[#FFF1E8] to-white rounded-b-[48px] overflow-hidden relative pb-16 pt-12">
+      {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
+      <div className="bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(241,126,99,0.12) 0%, #090D16 75%)" }}>
         {/* Background Graphic Watermark — soft elegant texture */}
         <div
           aria-hidden="true"
-          className="text-[120px] font-black tracking-tighter text-slate-900/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
         >
           USER CREATION
         </div>
@@ -158,16 +161,16 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.7, delay: 0.15 }}
                 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
               >
-                <span className="text-slate-900">How I Streamlined and Shortened the</span>{" "}
+                <span className="text-[#E2E8F0]">How I Streamlined and Shortened the</span>{" "}
                 <span className="text-[#F17E63]">User Creation</span>{" "}
-                <span className="text-slate-900">Process</span>
+                <span className="text-[#E2E8F0]">Process</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-slate-600 text-base leading-relaxed max-w-lg mb-8"
+                className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
                 Transforming a bloated 4-step wizard into a single-screen dynamic modal, reducing cognitive load and eliminating drop-offs.
               </motion.p>
@@ -189,12 +192,12 @@ export default function CaseStudyUserCreation() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    className="bg-white rounded-2xl p-4 shadow-sm border border-orange-100/60"
+                    className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
                   >
-                    <p className="font-heading font-bold text-slate-900 text-2xl tracking-tight leading-none">
-                      {stat.value}
+                    <p className="font-heading font-bold text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
+                      <AnimatedCounter value={stat.value} duration={1350} />
                     </p>
-                    <p className="font-mono text-[11px] text-slate-500 mt-2 uppercase leading-tight">
+                    <p className="font-mono text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -226,7 +229,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               My Role & The Team
             </h2>
 
@@ -234,22 +237,22 @@ export default function CaseStudyUserCreation() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-0">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 The Team
               </h3>
               <div className="space-y-0">
                 {TEAM.map((member, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 py-4 border-b border-[#E5E7EB]"
+                    className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#0A0F1D]/30 w-4">
+                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-body text-[#0A0F1D] text-base flex-1">
+                    <span className="font-body text-[#94A3B8] text-base flex-1">
                       {member.role}
                     </span>
-                    <span className="font-mono text-xs text-[#0A0F1D]/60">
+                    <span className="font-mono text-xs text-[#F8FAFC]/60">
                       {member.name}
                     </span>
                   </div>
@@ -258,22 +261,22 @@ export default function CaseStudyUserCreation() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Collaboration & Support
               </h3>
               <div className="space-y-0">
                 {SUPPORTERS.map((s, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 py-4 border-b border-[#E5E7EB]"
+                    className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#0A0F1D]/30 w-4">
+                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-body text-[#0A0F1D] text-base flex-1">
+                    <span className="font-body text-[#94A3B8] text-base flex-1">
                       {s.role}
                     </span>
-                    <span className="font-mono text-xs text-[#0A0F1D]/60">
+                    <span className="font-mono text-xs text-[#F8FAFC]/60">
                       {s.name}
                     </span>
                   </div>
@@ -288,10 +291,10 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-heading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-heading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Before & After
             </h2>
-            <p className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+            <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
               The transformation at a glance — drag to compare
             </p>
           </motion.div>
@@ -327,11 +330,11 @@ export default function CaseStudyUserCreation() {
       </section>
 
       {/* ── The Challenge Block 2 — Breakdown (Clean Light Canvas) ── */}
-      <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#FDFBF7]" style={{ backgroundColor: '#FDFBF7' }}>
+      <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#0F172A] border-y border-white/[0.06]" style={{ backgroundColor: '#0F172A' }}>
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-[#0A0F1D]/70 text-[16px] leading-[1.6]">
+              <p className="font-body text-[#F8FAFC]/70 text-[16px] leading-[1.6]">
                 The original 4-step user creation modal suffered from heavy friction.
               </p>
 
@@ -340,18 +343,18 @@ export default function CaseStudyUserCreation() {
                 {["Profile", "Roles", "Approver", "Summary"].map((step, i) => (
                   <div
                     key={step}
-                    className="bg-white rounded-2xl border border-orange-100/60 shadow-sm px-4 py-3.5 text-center"
+                    className="bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] px-4 py-3.5 text-center"
                   >
                     <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "#F17E63" }}>
                       Step {i + 1}
                     </p>
-                    <p className="font-heading font-semibold text-slate-900 text-sm mt-1">{step}</p>
+                    <p className="font-heading font-semibold text-[#E2E8F0] text-sm mt-1">{step}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 inline-flex items-center gap-2 bg-white border border-orange-100/60 rounded-full px-3.5 py-1.5 shadow-sm">
+              <div className="mt-4 inline-flex items-center gap-2 bg-[#111827] border border-white/[0.08] rounded-full px-3.5 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 <span className="text-[#F17E63] text-xs">↓</span>
-                <span className="font-mono text-xs text-slate-600">Flattened to a single dynamic screen</span>
+                <span className="font-mono text-xs text-[#94A3B8]">Flattened to a single dynamic screen</span>
               </div>
             </motion.div>
 
@@ -373,14 +376,14 @@ export default function CaseStudyUserCreation() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-xl border border-orange-100/50 shadow-sm pl-5 pr-4 py-4"
+                    className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] pl-5 pr-4 py-4"
                     style={{ borderLeft: "3px solid #F17E63" }}
                   >
-                    <h4 className="font-heading font-semibold text-slate-900 text-[15px] mb-1.5 flex items-center gap-2">
+                    <h4 className="font-heading font-semibold text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#F17E63" }} />
                       {item.title}
                     </h4>
-                    <p className="font-body text-slate-600 text-sm leading-relaxed">
+                    <p className="font-body text-[#94A3B8] text-sm leading-relaxed">
                       {item.body}
                     </p>
                   </div>
@@ -395,7 +398,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Inspiration
             </h2>
 
@@ -403,9 +406,9 @@ export default function CaseStudyUserCreation() {
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-[#4A5568] text-[16px] leading-[1.6] mb-8">
+              <p className="font-body text-[#94A3B8] text-[16px] leading-[1.6] mb-8">
                 I analyzed industry benchmarks on{" "}
-                <span className="text-[#0A0F1D] font-normal">Mobbin</span> and
+                <span className="text-[#E2E8F0] font-normal">Mobbin</span> and
                 studied how top platforms handle
                 user setup at scale.
               </p>
@@ -421,16 +424,16 @@ export default function CaseStudyUserCreation() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
-                    <div className="w-8 h-8 rounded-full bg-[#6366F1]/8 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="font-mono text-xs text-[#6366F1] font-normal">
+                    <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="font-mono text-xs text-[#3B82F6] font-normal">
                         {i + 1}
                       </span>
                     </div>
                     <div>
-                      <h4 className="font-heading font-medium text-[#0A0F1D] text-base mb-1">
+                      <h4 className="font-heading font-medium text-[#94A3B8] text-base mb-1">
                         {item.label}
                       </h4>
-                      <p className="font-body text-[#4A5568] text-sm leading-relaxed">
+                      <p className="font-body text-[#94A3B8] text-sm leading-relaxed">
                         {item.body}
                       </p>
                     </div>
@@ -459,10 +462,10 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Design Explorations & Trade-offs
             </h2>
-            <p className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+            <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
               Evaluating 3 structural patterns against platform consistency, cognitive load, and edge-case scalability.
             </p>
           </motion.div>
@@ -476,25 +479,25 @@ export default function CaseStudyUserCreation() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -4 }}
-                className={`bg-white rounded-xl overflow-hidden flex flex-col ${
+                className={`bg-[#111827] rounded-xl overflow-hidden flex flex-col ${
                   iter.isWinner
                     ? "border-2 border-[#F17E63] shadow-[0_8px_24px_rgba(241,126,99,0.12)]"
-                    : "border border-neutral-200/80 shadow-sm"
+                    : "border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
                 }`}
               >
-                {/* Compact image preview — flat, no device mockup */}
-                <div className="h-36 md:h-40 w-full bg-neutral-50 border-b border-neutral-200/80 overflow-hidden">
+                {/* Hand-drawn sketch preview — fully visible, no cropping */}
+                <div className="w-full bg-[#111827] border-b border-white/[0.08] p-3 flex items-center justify-center">
                   <img
                     src={iter.image}
                     alt={iter.alt}
-                    className="w-full h-full object-cover block"
+                    className="w-full h-auto object-contain block"
                     loading="lazy"
                   />
                 </div>
 
                 <div className="p-6 md:p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="font-mono text-[11px] text-[#0A0F1D]/40 tracking-wide">{iter.num}</span>
+                    <span className="font-mono text-[11px] text-[#F8FAFC]/40 tracking-wide">{iter.num}</span>
                     <span
                       className={`inline-flex items-center text-[10px] font-mono uppercase tracking-wide px-2.5 py-1 rounded-full border ${
                         iter.isWinner
@@ -512,11 +515,11 @@ export default function CaseStudyUserCreation() {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-medium text-[#0A0F1D] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
+                  <h3 className="font-heading font-medium text-[#E2E8F0] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
                     {iter.label}
                   </h3>
 
-                  <p className="font-body text-sm leading-relaxed text-[#4A5568] mb-0">
+                  <p className="font-body text-sm leading-relaxed text-[#94A3B8] mb-0">
                     {iter.reason}
                   </p>
                 </div>
@@ -530,18 +533,69 @@ export default function CaseStudyUserCreation() {
       <StartingPointSection
         images={USER_CREATION_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
         title="Design Details"
-        subtitle="Final screens & interactions"
+        subtitle="Final screens"
         showArchitecturalBlock
       />
 
       {/* ── Prototype ── */}
-      <PrototypeSection />
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex items-center justify-between gap-6 mb-2">
+            <div>
+              <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
+              <span className="font-mono text-xs text-[#94A3B8] block">Interactive demo — add a user and see the single-screen flow</span>
+            </div>
+            {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
+            <button
+              onClick={() => setPrototypeFullscreen(true)}
+              className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] shrink-0 shadow-sm"
+              aria-label="Expand prototype fullscreen"
+            >
+              <Maximize2 size={14} className="text-[#0A0F1D]" />
+            </button>
+          </div>
+          <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-white/[0.08] bg-[#111827]">
+            <UserCreationPrototype />
+          </div>
+        </div>
+      </section>
+
+      {/* Fullscreen modal — reuses ImageLightbox view (fixed inset-0 z-[100] bg-black/80) */}
+      <AnimatePresence>
+        {prototypeFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPrototypeFullscreen(false)}
+            className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-2 md:p-4 lg:p-6"
+          >
+            <button
+              onClick={() => setPrototypeFullscreen(false)}
+              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-label="Close"
+            >
+              <X size={22} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-[1400px] max-h-[94vh] overflow-auto rounded-xl bg-white shadow-2xl"
+            >
+              <UserCreationPrototype />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ── Key Takeaways ── */}
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Key Takeaways
             </h2>
 
@@ -557,13 +611,13 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-[#E5E7EB] group-hover:border-[#6366F1] group-hover:bg-[#6366F1]/5 flex items-center justify-center mb-5 transition-all text-[#0A0F1D]/60 group-hover:text-[#6366F1]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading font-medium text-[#0A0F1D] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading font-medium text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
-                <p className="font-body text-[#4A5568] text-base leading-[1.7]">
+                <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
                   {item.body}
                 </p>
               </motion.div>
@@ -573,24 +627,24 @@ export default function CaseStudyUserCreation() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="w-full px-6 md:px-12 py-14 md:py-20 border-t border-[#E5E7EB]">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
-          <p className="font-mono text-xs text-[#0A0F1D]/50 tracking-wide uppercase">
+          <p className="font-mono text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in the full case study?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#0A0F1D]/60 hover:text-[#0A0F1D] hover:bg-[#F5F5F7] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#6366F1] hover:bg-[#0A0F1D] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>

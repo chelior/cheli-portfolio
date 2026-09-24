@@ -32,8 +32,8 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
   return (
     <div
       ref={containerRef}
-      className="relative w-full rounded-xl border border-[#E5E7EB] shadow-lg bg-white select-none group"
-      style={{ width: "100%", height: "auto", aspectRatio: "16 / 9", overflow: "visible", boxSizing: "border-box" }}
+      className="relative w-full max-w-[1024px] mx-auto rounded-xl border border-white/[0.08] shadow-lg bg-[#111827] select-none group overflow-hidden"
+      style={{ width: "100%", height: "auto", boxSizing: "border-box" }}
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onMouseDown={handleMouseDown}
@@ -47,18 +47,18 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
       aria-valuemax={100}
       aria-label="Before after comparison"
     >
-      {/* Before image — fully visible by default, bottom layer — entire image, no cropping */}
+      {/* Before image — natural aspect, fully visible, defines container height; contain prevents cropping */}
       <img
         src={typeof beforeImage === "string" ? beforeImage : beforeImage?.src}
         alt={typeof beforeImage === "string" ? beforeAlt : beforeImage?.alt || beforeAlt}
-        className="absolute inset-0 w-full h-full block"
-        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "white", boxSizing: "border-box" }}
+        className="w-full h-auto block"
+        style={{ width: "100%", height: "auto", objectFit: "contain", objectPosition: "center top", backgroundColor: "#111827", boxSizing: "border-box" }}
         draggable={false}
         loading="eager"
         decoding="async"
       />
 
-      {/* After image — on top, clipped — entire image, no cropping, clip based on container full dimensions */}
+      {/* After image — on top, clipped — same bounding box, contain ensures no header/sidebar/bottom cutoff */}
       <div
         className="absolute inset-0 w-full h-full"
         style={{ clipPath: `inset(0 ${100 - percentage}% 0 0)`, overflow: "hidden", boxSizing: "border-box" }}
@@ -67,14 +67,14 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
           src={typeof afterImage === "string" ? afterImage : afterImage?.src}
           alt={typeof afterImage === "string" ? afterAlt : afterImage?.alt || afterAlt}
           className="absolute inset-0 w-full h-full block"
-          style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", backgroundColor: "white", boxSizing: "border-box" }}
+          style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center top", backgroundColor: "#111827", boxSizing: "border-box" }}
           draggable={false}
           loading="eager"
           decoding="async"
         />
         {/* After pill clipped with After layer — only visible inside revealed area (Option A) */}
         <span
-          className="absolute bottom-3 right-3 bg-[#6366F1] text-white font-mono text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none shadow-md"
+          className="absolute bottom-3 right-3 bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-mono text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none shadow-md"
           style={{ opacity: percentage > 5 ? 1 : 0, transition: "opacity 150ms" }}
         >
           After
@@ -83,20 +83,20 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
 
       {/* Vertical divider line */}
       <div
-        className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.3)] pointer-events-none"
+        className="absolute top-0 bottom-0 w-0.5 bg-[#111827] shadow-[0_0_8px_rgba(0,0,0,0.3)] pointer-events-none"
         style={{ left: `${percentage}%` }}
       />
 
       {/* Circular drag indicator */}
       <div
-        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-lg border border-[#E5E7EB] flex items-center justify-center pointer-events-none transition-transform duration-100"
+        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#111827] shadow-lg border border-white/[0.08] flex items-center justify-center pointer-events-none transition-transform duration-100"
         style={{ left: `${percentage}%`, transform: `translate(-50%, -50%) ${isDragging ? "scale(1.1)" : "scale(1)"}` }}
       >
         <div className="flex items-center gap-1">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[#0A0F1D]/60">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[#F8FAFC]/60">
             <path d="M4 2 L0 6 L4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[#0A0F1D]/60">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[#F8FAFC]/60">
             <path d="M8 2 L12 6 L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>

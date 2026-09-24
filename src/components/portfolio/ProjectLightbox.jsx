@@ -31,7 +31,7 @@ export default function ProjectLightbox({ project, onClose }) {
           <div className="flex justify-end p-4 md:p-8">
             <button
               onClick={onClose}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
               aria-label="Close"
             >
               <X size={20} className="text-white" />
@@ -71,16 +71,16 @@ export default function ProjectLightbox({ project, onClose }) {
                 </div>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-2">The Problem</h4>
+                    <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Problem</h4>
                     <p className="text-white/70 text-base leading-relaxed">{project.problem}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-2">The Solution</h4>
+                    <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Solution</h4>
                     <p className="text-white/70 text-base leading-relaxed">{project.solution}</p>
                   </div>
                   {project.impact && (
                     <div>
-                      <h4 className="font-mono text-xs text-[#6366F1] tracking-wide uppercase mb-2">Impact</h4>
+                      <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">Impact</h4>
                       <p className="text-white/70 text-base leading-relaxed">{project.impact}</p>
                     </div>
                   )}

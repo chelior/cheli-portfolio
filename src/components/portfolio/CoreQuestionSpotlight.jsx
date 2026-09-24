@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function CoreQuestionSpotlight({ question, accent = "#6366F1", eyebrow = "Core Question" }) {
+export default function CoreQuestionSpotlight({ question, accent = "#3B82F6", eyebrow = "Core Question" }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,7 +12,7 @@ export default function CoreQuestionSpotlight({ question, accent = "#6366F1", ey
     >
       <div className="max-w-[860px] mx-auto">
         <div
-          className="relative rounded-2xl bg-white border px-6 md:px-10 py-8 md:py-10"
+          className="relative rounded-2xl bg-[#111827] border border-white/[0.08] px-6 md:px-10 py-8 md:py-10 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
           style={{ borderColor: `${accent}18`, boxShadow: `0 8px 32px -12px ${accent}18` }}
         >
           {/* accent top rule */}
@@ -30,7 +30,7 @@ export default function CoreQuestionSpotlight({ question, accent = "#6366F1", ey
 }
 
 // Dark variant for sections with bg-[#0A0F1D]
-export function CoreQuestionSpotlightDark({ question, accent = "#6366F1", eyebrow = "Core Question" }) {
+export function CoreQuestionSpotlightDark({ question, accent = "#3B82F6", eyebrow = "Core Question" }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

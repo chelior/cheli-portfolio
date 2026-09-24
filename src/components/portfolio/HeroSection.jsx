@@ -21,7 +21,7 @@ export default function HeroSection() {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 pt-28 md:pt-36 pb-28 md:pb-36 overflow-hidden bg-white"
+      className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 pt-28 md:pt-36 pb-28 md:pb-36 overflow-hidden bg-[#090D16]"
     >
       <FloatingShapes springX={springX} springY={springY} />
 
@@ -31,21 +31,21 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 bg-[#6366F1]/8 rounded-full px-4 py-2 mb-8"
+          className="inline-flex items-center gap-2 bg-[#3B82F6]/10 border border-[#3B82F6]/25 rounded-full px-4 py-2 mb-8"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6366F1] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6366F1]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3B82F6] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.5)]"></span>
           </span>
-          <span className="font-mono text-xs text-[#6366F1] uppercase tracking-wide">
+          <span className="font-mono text-xs text-blue-400 uppercase tracking-wide">
             Available for new challenges
           </span>
         </motion.div>
 
-        <h1 className="font-heading font-medium text-[#0A0F1D] tracking-[-0.04em] text-[72px] md:text-[112px] lg:text-[148px] leading-[0.85] max-w-[1400px]">
+        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[72px] md:text-[112px] lg:text-[148px] leading-[0.85] max-w-[1400px]">
           <Line delay={0.4}>Hi, I'm Cheli Gan Mor,</Line>{" "}
           <Line delay={0.55}>
-            <span className="text-[#6366F1]">product designer.</span>
+            <span className="text-[#3B82F6]">product designer.</span>
           </Line>
         </h1>
 
@@ -53,7 +53,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.3 }}
-          className="font-body font-normal text-[20px] md:text-[24px] leading-[1.5] text-[#0A0F1D]/70 max-w-[560px] mt-8"
+          className="font-body font-normal text-[20px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] mt-8"
         >
           Deep listener, relentless problem solver, figuring out the human side
           of complex tech.
@@ -73,7 +73,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 1.6 + i * 0.1 }}
               whileHover={{ y: -3 }}
-              className="font-mono text-xs text-[#0A0F1D]/60 uppercase tracking-wide border border-[#E5E7EB] rounded-full px-4 py-2 hover:border-[#6366F1] hover:text-[#6366F1] transition-colors cursor-default"
+              className="font-mono text-xs text-slate-300 uppercase tracking-wide bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-2 hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]/30 hover:text-[#3B82F6] transition-colors cursor-default"
             >
               {skill}
             </motion.span>
@@ -86,12 +86,12 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
         onClick={() => document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
+        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
         aria-label="Scroll to work"
       >
-        <span className="font-mono text-xs text-[#0A0F1D]/50 uppercase">Scroll</span>
+        <span className="font-mono text-xs text-[#F8FAFC]/50 uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ArrowDown size={16} className="text-[#0A0F1D]/50" />
+          <ArrowDown size={16} className="text-[#F8FAFC]/50" />
         </motion.div>
       </motion.button>
     </section>
@@ -112,14 +112,17 @@ function Line({ children, delay }) {
 }
 
 const SHAPES = [
-  { type: "ring", color: "#FF4E7E", top: "14%", left: "8%", size: 60, depth: 1.5 },
-  { type: "diamond", color: "#FF4E7E", top: "24%", left: "82%", size: 44, depth: 2 },
-  { type: "cross", color: "#FF4E7E", top: "68%", left: "14%", size: 40, depth: 1.2 },
-  { type: "zigzag", color: "#6366F1", top: "75%", left: "78%", size: 50, depth: 2.5 },
-  { type: "square", color: "#6366F1", top: "42%", left: "90%", size: 36, depth: 1.8 },
-  { type: "triangle", color: "#6366F1", top: "52%", left: "6%", size: 28, depth: 2.2 },
-  { type: "ring", color: "#FF4E7E", top: "85%", left: "40%", size: 24, depth: 1.5 },
-  { type: "diamond", color: "#FF4E7E", top: "10%", left: "48%", size: 28, depth: 2.8 },
+  // only in empty areas — never behind centered text (text occupies ~20-80% left, 30-68% top)
+  { type: "ring", color: "#FF4E7E", top: "12%", left: "8%", size: 60, depth: 1.5 }, // top-left corner
+  { type: "diamond", color: "#FF8C42", top: "12%", left: "32%", size: 28, depth: 2.8 }, // top, left of badge
+  { type: "diamond", color: "#FF4E7E", top: "12%", left: "82%", size: 44, depth: 2 }, // top-right corner
+  { type: "triangle", color: "#3B82F6", top: "42%", left: "8%", size: 28, depth: 2.2 }, // middle-left gutter
+  { type: "ring", color: "#FF8C42", top: "36%", left: "84%", size: 28, depth: 1.6 }, // side of small rect — above-left
+  { type: "square", color: "#3B82F6", top: "42%", left: "90%", size: 36, depth: 1.8 }, // small rectangle
+  { type: "cross", color: "#FF8C42", top: "49%", left: "93%", size: 30, depth: 1.7 }, // side of small rect — below-right
+  { type: "cross", color: "#FF4E7E", top: "72%", left: "14%", size: 40, depth: 1.2 }, // bottom-left
+  { type: "zigzag", color: "#3B82F6", top: "75%", left: "78%", size: 50, depth: 2.5 }, // bottom-right
+  { type: "ring", color: "#FF4E7E", top: "85%", left: "45%", size: 24, depth: 1.5 }, // bottom-center
 ];
 
 function FloatingShapes({ springX, springY }) {

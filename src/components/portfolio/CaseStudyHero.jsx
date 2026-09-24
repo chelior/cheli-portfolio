@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CaseStudyHeroShapes from "@/components/portfolio/CaseStudyHeroShapes";
+import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 function hexToRgba(hex, alpha = 1) {
   const h = hex.replace("#", "");
@@ -15,7 +16,7 @@ function hexToRgba(hex, alpha = 1) {
  * Dynamic project-themed hero
  * - Uses var(--project-accent) for theming
  * props:
- *  accent: hex string (e.g. "#6366F1")
+ *  accent: hex string (e.g. "#3B82F6")
  *  overline: string
  *  title: React node or string with highlighted accent word (pass titleAccent for colored span)
  *  titleNode: optional React node for full custom title (if provided, title/titleAccent ignored)
@@ -25,7 +26,7 @@ function hexToRgba(hex, alpha = 1) {
  *  variant: string for CaseStudyHeroShapes
  */
 export default function CaseStudyHero({
-  accent = "#6366F1",
+  accent = "#3B82F6",
   overline,
   title,
   titleAccent,
@@ -42,25 +43,12 @@ export default function CaseStudyHero({
 
   return (
     <section
-      style={{ "--project-accent": accent }}
-      className="relative pt-28 md:pt-36 pb-16 md:pb-20 px-6 md:px-12 overflow-hidden"
+      style={{
+        "--project-accent": accent,
+        background: `linear-gradient(to bottom, ${hexToRgba(accent, 0.12)} 0%, #090D16 75%)`,
+      }}
+      className="relative pt-28 md:pt-36 pb-16 md:pb-20 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
     >
-      {/* Atmospheric radial gradient — project tint into white */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20"
-        style={{
-          background: `radial-gradient(900px 600px at 38% 0%, ${tintSoft} 0%, ${tintMid} 38%, rgba(255,255,255,0.85) 58%, #ffffff 85%)`,
-        }}
-      />
-      {/* Subtle top linear fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-[420px] -z-10"
-        style={{
-          background: `linear-gradient(to bottom, ${hexToRgba(accent, 0.08)} 0%, transparent 100%)`,
-        }}
-      />
 
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 xl:gap-16 items-center">
         {/* ── Left ── */}
@@ -81,7 +69,7 @@ export default function CaseStudyHero({
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading font-medium text-[#0A0F1D] tracking-[-0.02em] text-[34px] md:text-[46px] lg:text-[48px] leading-[1.1] max-w-[640px]"
+            className="font-heading font-medium text-[#F8FAFC] tracking-[-0.02em] text-[34px] md:text-[46px] lg:text-[48px] leading-[1.1] max-w-[640px]"
           >
             {titleNode
               ? titleNode
@@ -104,7 +92,7 @@ export default function CaseStudyHero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="font-body text-[#4A5568] text-[16px] md:text-[17px] leading-[1.65] max-w-[560px] mt-6"
+              className="font-body text-[#94A3B8] text-[16px] md:text-[17px] leading-[1.65] max-w-[560px] mt-6"
             >
               {description}
             </motion.p>
@@ -125,24 +113,12 @@ export default function CaseStudyHero({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 + i * 0.08 }}
                   whileHover={{ y: -3 }}
-                  className="group relative bg-white/75 backdrop-blur-md rounded-xl p-4 md:p-5 transition-all duration-300 hover:shadow-lg"
-                  style={{
-                    border: `1px solid ${borderTint}`,
-                    boxShadow: `0 4px 24px -8px ${hexToRgba(accent, 0.18)}`,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 12px 36px -10px ${glow}, 0 4px 24px -8px ${hexToRgba(accent, 0.15)}`;
-                    e.currentTarget.style.borderColor = hexToRgba(accent, 0.28);
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = `0 4px 24px -8px ${hexToRgba(accent, 0.18)}`;
-                    e.currentTarget.style.borderColor = borderTint;
-                  }}
+                  className="group relative bg-[#111827] rounded-xl p-4 md:p-5 transition-all duration-300 border border-white/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
                 >
-                  <p className="font-heading font-medium text-[#0A0F1D] text-[22px] md:text-[28px] leading-none tracking-[-0.04em]">
-                    {stat.value}
+                  <p className="font-heading font-medium text-[#F8FAFC] text-[22px] md:text-[28px] leading-none tracking-[-0.04em] tabular-nums">
+                    <AnimatedCounter value={stat.value} duration={1350} />
                   </p>
-                  <p className="font-mono text-[11px] md:text-xs text-[#0A0F1D]/55 mt-2.5 uppercase leading-tight">
+                  <p className="font-mono text-[11px] md:text-xs text-[#F8FAFC]/55 mt-2.5 uppercase leading-tight">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -151,19 +127,13 @@ export default function CaseStudyHero({
           )}
         </div>
 
-        {/* ── Right — floating preview above ambient glow + shapes ── */}
+        {/* ── Right — floating preview — no localized glow, sits naturally over ambient gradient ── */}
         <motion.div
           initial={{ opacity: 0, y: 28, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="relative lg:pl-4 flex items-center justify-center"
         >
-          {/* Ambient glow behind mockup */}
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[82%] rounded-[28px] blur-2xl opacity-60 pointer-events-none"
-            style={{ background: `radial-gradient(ellipse at center, ${hexToRgba(accent, 0.22)} 0%, ${hexToRgba(accent, 0.08)} 45%, transparent 72%)` }}
-          />
           {/* Geometric shapes tinted with project accent — placed behind mockup */}
           <div className="absolute inset-0 -z-10 opacity-90">
             <CaseStudyHeroShapes variant={variant} accent={accent} />
