@@ -8,7 +8,7 @@ const INTERESTS = [
   { image: "images/shared/cfa292972_image.png", caption: "FOREVER STUDENT" },
 ];
 
-const BIO = "I'm a product designer with over 4 years of experience. I enjoy untangling messy workflows and turning them into clean, structured, and intuitive solutions. Outside of design, you'll often find me reading and diving deep into topics that just feed my curiosity and soul. I love learning new things constantly, and having a full-stack developer partner means tech conversations never really stop at the office.";
+const BIO = "I'm a product designer with over 4 years of experience. I enjoy untangling messy workflows and turning them into clean, structured, and intuitive solutions. Outside of design, you'll often find me reading and getting lost in topics that feed my curiosity and soul. I love learning new things, and having a full-stack developer partner means tech conversations never stop at the office.";
 
 const currentThinking = [
   "Where will my next workplace be?",

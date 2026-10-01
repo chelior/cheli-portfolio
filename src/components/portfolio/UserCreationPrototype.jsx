@@ -247,7 +247,7 @@ function InfoTooltip() {
       {v && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 z-50 pointer-events-none">
           <div className="relative rounded-[6px] px-3 py-2.5 text-white text-[12px] leading-[16px] w-[272px] bg-[#021D2D] shadow-[0_4px_16px_rgba(2,29,45,0.22)]" style={{ fontFamily: "Lato, system-ui, sans-serif" }}>
-            Users who are sent an email invitation will receive a link to access Tipalti Hub and set up their login credentials.
+            Users you invite get an email with a link to access Tipalti Hub and set up their login credentials.
             <span className="absolute left-1/2 top-full -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#021D2D]" />
           </div>
         </div>
@@ -322,7 +322,7 @@ function AddNewUserModal({ onClose, onAdd }) {
             <div className="border-t border-[#D6D6D6] pt-4 space-y-4">
               <p className="font-bold text-[16px] text-[#021D2D]" style={{ fontFamily: "Lato, system-ui, sans-serif" }}>Roles & entities</p>
               <div>
-                <p className="pb-2 font-bold text-[12px] text-[#021D2D]" style={{ fontFamily: "Lato, system-ui, sans-serif" }}>Assign one or multiple roles</p>
+                <p className="pb-2 font-bold text-[12px] text-[#021D2D]" style={{ fontFamily: "Lato, system-ui, sans-serif" }}>Assign one or more roles</p>
                 <MultiSelectDropdown placeholder="Search and select roles" options={ROLES_OPTIONS} value={roles} onChange={setRoles} />
               </div>
               <div>

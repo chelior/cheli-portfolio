@@ -22,7 +22,7 @@ const CHALLENGES = [
   },
   {
     title: "Hidden Power Features",
-    body: "Advanced tools were buried under heavy navigation and overcrowded pages filled with ambiguous icons.",
+    body: "Heavy navigation and overcrowded pages of ambiguous icons made advanced tools hard to find.",
   },
   {
     title: "Non-Tech Audience & Rigid Flows",
@@ -37,7 +37,7 @@ const RESEARCH = [
   },
   {
     label: "User Survey",
-    body: "Deployed a concise user survey to capture real usage habits from managers and administrative staff.",
+    body: "Sent a concise user survey to capture usage habits from managers and administrative staff.",
   },
   {
     label: "Key Personas",
@@ -112,7 +112,7 @@ const SOLUTIONS = [
   {
     icon: <Type size={18} />,
     title: "Text-First Navigation & Decluttering",
-    subtitle: "Streamlining navigation from icon clutter to clear text filters.",
+    subtitle: "Replacing icon clutter with clear text filters.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Navigation relied on redundant tabs and ambiguous icons that hid core actions and created visual noise.",
     afterLabel: "AFTER (SOLUTION)",
@@ -125,14 +125,14 @@ const SOLUTIONS = [
   {
     icon: <Split size={18} />,
     title: "Dual-Path Onboarding",
-    subtitle: "Redesigning the intake pipeline to match operational pace.",
+    subtitle: "Redesigning the intake flow to match the pace of daily work.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Monolithic wizard forced 14 required fields before saving a draft.",
     afterLabel: "AFTER (SOLUTION)",
-    afterBody: "Lightweight modal captures essentials instantly, deferring the rest.",
+    afterBody: "A small modal captures the essentials and defers the rest.",
     // keep legacy fields for fallback
     painPoint: "Monolithic wizard forced 14 required fields before saving a draft.",
-    body: "Lightweight modal captures essentials instantly, deferring the rest.",
+    body: "A small modal captures the essentials and defers the rest.",
     image: "images/sdarim/Dual-Path Onboarding/DD.svg",
     processMap: "images/sdarim/Dual-Path Onboarding/UpdatedFlow.png",
     prototypeUrl:
@@ -142,25 +142,25 @@ const SOLUTIONS = [
   {
     icon: <Columns size={18} />,
     title: "Avrech Profile Architecture",
-    subtitle: "Transforming an overloaded profile into a focused three-tab system.",
+    subtitle: "Condensing an overloaded profile into a focused three-tab system.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "The legacy profile exposed too many fields and tabs at once, making it confusing and overwhelming to navigate.",
     afterLabel: "AFTER (SOLUTION)",
-    afterBody: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Integrated collapsible accordion sections within each tab to significantly reduce cognitive load and make retrieving specific information fast and effortless.",
+    afterBody: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Collapsible accordion sections within each tab cut cognitive load and make specific information quick to find.",
     painPoint: "The legacy profile exposed too many fields and tabs at once, making it confusing and overwhelming to navigate.",
-    body: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Integrated collapsible accordion sections within each tab to significantly reduce cognitive load and make retrieving specific information fast and effortless.",
+    body: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Collapsible accordion sections within each tab cut cognitive load and make specific information quick to find.",
     image: "images/sdarim/2.6.2 Avrechim List - Edit Avrech t Tab1@1x.png",
   },
   {
     icon: <Palette size={18} />,
     title: "Homepage Redesign",
-    subtitle: "Turning a cluttered dashboard into a customizable command center.",
+    subtitle: "Turning a cluttered dashboard into a home screen users can customize.",
     beforeLabel: "BEFORE (PAIN)",
-    beforeBody: "The legacy homepage was heavily cluttered with bulky graphs, and attendance reports were hidden under several tabs making them difficult to access quickly.",
+    beforeBody: "The legacy homepage was crowded with bulky graphs, and attendance reports sat behind several tabs, which made them hard to access.",
     afterLabel: "AFTER (SOLUTION)",
-    afterBody: "Consolidated the pie charts into a single interactive chart with a toggle. Integrated quick access to attendance reports and a customizable shortcut area, allowing users to pin their most frequently used features for instant navigation.",
-    painPoint: "The legacy homepage was heavily cluttered with bulky graphs, and attendance reports were hidden under several tabs making them difficult to access quickly.",
-    body: "Consolidated the pie charts into a single interactive chart with a toggle. Integrated quick access to attendance reports and a customizable shortcut area, allowing users to pin their most frequently used features for instant navigation.",
+    afterBody: "Consolidated the pie charts into one interactive chart with a toggle. Added quick access to attendance reports and a customizable shortcut area, so users can pin the features they use most and reach them from the home screen.",
+    painPoint: "The legacy homepage was crowded with bulky graphs, and attendance reports sat behind several tabs, which made them hard to access.",
+    body: "Consolidated the pie charts into one interactive chart with a toggle. Added quick access to attendance reports and a customizable shortcut area, so users can pin the features they use most and reach them from the home screen.",
     image: "images/sdarim/1.4.2 Home page - Shortcut added_1x.png",
     prototypeUrl:
       "https://www.figma.com/proto/Wa7MyQVZa55sZ6DlO1Qsbd/Sdarim---New?node-id=43-12912&t=YSVNA9KN6vnLo1jW-1&scaling=scale-down&content-scaling=fixed&page-id=43%3A12911",
@@ -179,12 +179,12 @@ const TAKEAWAYS = [
   {
     icon: <Eye size={18} />,
     title: "Clarity Beats Minimalism",
-    body: "For non-tech enterprise users, clear text labels and explicit hierarchy outperform cryptic icons and hidden minimalism.",
+    body: "For non-tech enterprise users, clear text labels and explicit hierarchy outperform cryptic icons and minimalism that hides what things do.",
   },
   {
     icon: <Scale size={18} />,
     title: "Managing Constraints",
-    body: "Balancing rigid feature-retention demands and tight development timelines while protecting user experience.",
+    body: "I balanced rigid feature-retention demands and tight development timelines while protecting the user experience.",
   },
 ];
 
@@ -323,7 +323,7 @@ export default function CaseStudySdarim() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
-                Transforming a cluttered, uncharacterized 4-year-old enterprise platform into an intuitive system for non-tech-savvy users, reducing cognitive load and uncovering hidden features.
+                I turned a cluttered, uncharacterized 4-year-old enterprise platform into an intuitive system for non-tech-savvy users, reducing cognitive load and uncovering hidden features.
               </motion.p>
 
               {/* Metrics — 3 white cards elevated with soft shadows (blue tint) */}
@@ -406,9 +406,9 @@ export default function CaseStudySdarim() {
                 Project Company Environment
               </h4>
               <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                Executed within a project company, collaborating with an external software
-                team that built the system organically over 4 years for multiple Kollelim
-                across Israel.
+                I worked through a project company, collaborating with an external
+                software team that built the system organically over 4 years for multiple
+                Kollelim across Israel.
               </p>
             </motion.div>
           </div>
@@ -423,7 +423,7 @@ export default function CaseStudySdarim() {
               Before & After
             </h2>
             <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
-              The transformation at a glance — drag to compare
+              Drag to compare before and after
             </span>
           </motion.div>
 
@@ -556,7 +556,7 @@ export default function CaseStudySdarim() {
                 {
                   num: "01",
                   title: "Research & Discovery",
-                  desc: "10 stakeholders sessions + surveys, mapped workflows & pain points, made a Competitive research and inspiration board.",
+                  desc: "Ran 10 stakeholder sessions and surveys, mapped workflows and pain points, and built a competitive research and inspiration board.",
                   Icon: Search,
                   color: "#FF4D7F",
                   badgeBg: "bg-[#FF4D7F]/10 border border-[#FF4D7F]/20",
@@ -586,7 +586,7 @@ export default function CaseStudySdarim() {
                 {
                   num: "04",
                   title: "Delivery & Handoff",
-                  desc: "Usability testing, prototyping feedback loops.",
+                  desc: "Ran usability testing and prototyping feedback loops.",
                   Icon: Rocket,
                   color: "#0EA5E9",
                   badgeBg: "bg-[#0EA5E9]/10 border border-[#0EA5E9]/20",
@@ -944,7 +944,7 @@ export default function CaseStudySdarim() {
               <div>
                 <p className="font-mono text-xs font-medium tracking-wider text-blue-400 mb-2">KEY INSIGHT</p>
                 <p className="text-base md:text-lg font-medium text-[#E2E8F0] leading-[1.6]">
-                  Competitors focus on function, but lack clear and user-friendly design.
+                  Competitors focus on function and skip clear, user-friendly design.
                 </p>
               </div>
             </motion.div>
@@ -1180,8 +1180,8 @@ export default function CaseStudySdarim() {
           </motion.div>
 
           <motion.p {...fadeUp} className="font-body text-[#94A3B8] text-[16px] leading-[1.7] max-w-[640px] mb-16">
-            The company lacks a specific branding language. The design guidelines emphasized
-            a modern and clean look, with maintaining the logo as the only strict requirement.
+            The company has no specific branding language. The design guidelines ask for
+            a modern, clean look, with one strict requirement: keep the logo.
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -1316,7 +1316,7 @@ export default function CaseStudySdarim() {
       <StartingPointSection
         images={DESIGN_DETAILS_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
         title="Design Details"
-        subtitle="Final screens — strictly in numerical order, deduplicated"
+        subtitle="Final screens in numerical order, duplicates removed"
       />
       {/* ── Key Takeaways ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36">

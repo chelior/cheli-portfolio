@@ -36,7 +36,7 @@ const ITERATIONS = [
     num: "01",
     label: "Full-Screen Page",
     tag: "Rejected",
-    reason: "Broke context switching; users lost immediate visibility into the underlying data table.",
+    reason: "The full-screen page broke context switching; users lost immediate visibility into the underlying data table.",
     image: "images/user-creation/Design Explorations & Trade-offs /Full page 1.svg",
     alt: "Full-Screen Page — hand-drawn sketch",
     isWinner: false,
@@ -45,7 +45,7 @@ const ITERATIONS = [
     num: "02",
     label: "Accordion (Inline Expansion)",
     tag: "Rejected",
-    reason: "Excessive vertical page jumping and layout shifts when configuring dynamic, conditional roles.",
+    reason: "Configuring dynamic, conditional roles caused excessive page jumping and layout shifts.",
     image: "images/user-creation/Design Explorations & Trade-offs /Accordeon 1.svg",
     alt: "Accordion inline expansion — hand-drawn sketch",
     isWinner: false,
@@ -65,17 +65,17 @@ const TAKEAWAYS = [
   {
     icon: <Zap size={18} />,
     title: "Respect System Patterns",
-    body: "Sticking to the platform's established UX patterns (like modals) is crucial for keeping the experience cohesive across the product.",
+    body: "Sticking to the platform's established UX patterns, like modals, keeps the experience cohesive across the product.",
   },
   {
     icon: <Eye size={18} />,
     title: "Use Progressive Disclosure",
-    body: "Revealing advanced fields only when needed drastically reduces cognitive load and keeps the UI clean and approachable.",
+    body: "Revealing advanced fields only when needed reduces cognitive load and keeps the UI clean and approachable.",
   },
   {
     icon: <Users size={18} />,
     title: "Test Early",
-    body: "Reviewing concepts with the design team early on saved valuable time by quickly eliminating flawed directions before dev investment.",
+    body: "Reviewing concepts with the design team saved time by eliminating flawed directions before dev investment.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
-                Transforming a bloated 4-step wizard into a single-screen dynamic modal, reducing cognitive load and eliminating drop-offs.
+                I replaced a bloated 4-step wizard with a single-screen dynamic modal, reducing cognitive load and eliminating drop-offs.
               </motion.p>
 
               {/* Metrics — clean white cards */}
@@ -295,7 +295,7 @@ export default function CaseStudyUserCreation() {
               Before & After
             </h2>
             <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
-              The transformation at a glance — drag to compare
+              Drag to compare before and after
             </p>
           </motion.div>
           <motion.div {...fadeUp} className="mb-0">
@@ -323,7 +323,7 @@ export default function CaseStudyUserCreation() {
           </motion.div>
           <motion.div {...fadeUp} className="w-full max-w-full mb-0">
             <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
-              How might we transform a frustrating, drop-off-prone 4-step wizard into a seamless single-screen flow that feels effortless?
+              How might we turn a frustrating, drop-off-prone 4-step wizard into a single-screen flow that feels effortless?
             </p>
           </motion.div>
         </div>
@@ -466,7 +466,7 @@ export default function CaseStudyUserCreation() {
               Design Explorations & Trade-offs
             </h2>
             <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
-              Evaluating 3 structural patterns against platform consistency, cognitive load, and edge-case scalability.
+              I evaluated 3 structural patterns against platform consistency, cognitive load, and edge-case scalability.
             </p>
           </motion.div>
 
@@ -543,7 +543,7 @@ export default function CaseStudyUserCreation() {
           <div className="flex items-center justify-between gap-6 mb-2">
             <div>
               <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
-              <span className="font-mono text-xs text-[#94A3B8] block">Interactive demo — add a user and see the single-screen flow</span>
+              <span className="font-mono text-xs text-[#94A3B8] block">Interactive demo: add a user and see the single-screen flow</span>
             </div>
             {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
             <button

@@ -33,7 +33,7 @@ const EXPERIENCE = [
       "Owned the end-to-end design of the Administration domain within an enterprise fintech platform.",
       "Designed complex configuration and permission-based workflows for multi-role environments.",
       "Translated technical and business requirements into scalable, system-level UX solutions.",
-      "Collaborated closely with PMs and global R&D teams across sites.",
+      "Collaborated with PMs and global R&D teams across sites.",
       "Worked within and contributed to a cross-product design system.",
       "Delivered wireframes, interactive prototypes, and full developer handoff.",
     ],
@@ -171,9 +171,9 @@ export default function Resume() {
 
               <p className="font-body text-[#94A3B8] text-[15px] md:text-[16px] leading-[1.7] mt-6 max-w-[640px]">
                 I&apos;m a UX/UI designer with 4+ years of experience creating intuitive, engaging digital products.
-                I specialize in turning complex ideas into clean, impactful designs that users love. Driven by
-                curiosity, I actively leverage AI to streamline my research and rapid sketching, constantly evolving
-                my process to deliver better results through innovation and collaboration.
+                I turn complex ideas into clean, impactful designs that users love. Curiosity drives me: I use AI
+                to speed up my research and rapid sketching, then keep refining my process alongside the teams I
+                work with.
               </p>
 
               {/* Unified contact row — cohesive understated pills */}
@@ -226,7 +226,7 @@ export default function Resume() {
                 Download PDF
               </a>
               <p className="no-print font-body text-xs text-slate-400 text-center leading-relaxed">
-                Or print via <span className="text-slate-500">⌘ + P</span> — optimized for A4
+                Or print via <span className="text-slate-500">⌘ + P</span>, optimized for A4
               </p>
 
               {/* At a glance — sans-serif, muted */}

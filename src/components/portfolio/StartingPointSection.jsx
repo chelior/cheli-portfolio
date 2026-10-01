@@ -75,7 +75,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    Integrated internal search directly inside dropdown selects to dramatically reduce visual clutter.
+                    Integrated internal search into dropdown selects to reduce visual clutter.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -87,7 +87,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    Enabled multiple standalone steps to fit seamlessly into a single-screen dynamic modal.
+                    Enabled multiple standalone steps to fit into a single-screen dynamic modal.
                   </span>
                 </li>
               </ul>
@@ -103,7 +103,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    &ldquo;Additional Info&rdquo; hidden by default — no longer a permanent screen or section.
+                    &ldquo;Additional Info&rdquo; no longer has its own permanent screen; it stays hidden by default.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -115,7 +115,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    Standard roles never encounter irrelevant fields, eliminating unnecessary cognitive friction.
+                    Standard roles never see irrelevant fields, cutting cognitive friction.
                   </span>
                 </li>
               </ul>
@@ -200,18 +200,6 @@ export default function StartingPointSection({
               })}
             </div>
 
-            <motion.div
-              className="absolute inset-0 z-20"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(_, info) => {
-                const threshold = 40;
-                if (info.offset.x < -threshold) paginate(1);
-                else if (info.offset.x > threshold) paginate(-1);
-              }}
-              style={{ cursor: "grab" }}
-            />
           </div>
 
           <button

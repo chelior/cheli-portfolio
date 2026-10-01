@@ -173,7 +173,7 @@ export default function DesignSystem() {
           <div className="mt-8 p-4 rounded-xl bg-[#E0E7FF] border border-[#3B82F6]/10">
             <p className="font-heading font-medium text-[#F8FAFC] text-sm mb-1">How to use</p>
             <p className="font-body text-xs text-[#94A3B8] leading-relaxed">
-              This is a living gallery. Copy a class with <Code>click</Code> on swatches, compare button variants side-by-side, and check the audit at the bottom for inconsistencies.
+              A living gallery: <Code>click</Code> a swatch to copy its class, compare button variants side by side, and check the audit at the bottom for inconsistencies.
             </p>
           </div>
         </aside>
@@ -187,7 +187,7 @@ export default function DesignSystem() {
               Design System <span className="text-[#3B82F6]">Gallery</span>
             </h1>
             <p className="font-body text-[#94A3B8] text-[16px] md:text-[18px] leading-[1.6] mt-4 max-w-[760px]">
-              Every button, card, badge and motion pattern actually in use — rendered live so you can see if it all hangs together. No mocked tokens — these are the real Tailwind classes from the codebase.
+              Every button, card, badge and motion pattern in use, rendered live so you can see how it all holds together. Each one uses the real Tailwind classes from the codebase.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-2 font-mono text-xs bg-[#111827] border border-white/[0.08] rounded-full px-3 py-2">
@@ -212,7 +212,7 @@ export default function DesignSystem() {
             id="colors"
             kicker="01 · Foundations"
             title="Colors"
-            desc="Core portfolio brand is intentionally small — indigo primary, soft neutrals, and the Sdarim extended system underneath for case-study richness. Click a swatch to copy hex."
+            desc="The core portfolio brand stays small on purpose: indigo primary, soft neutrals, and the Sdarim extended system underneath for case-study richness. Click a swatch to copy its hex."
           >
             <SubHeading>Brand · Portfolio</SubHeading>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
@@ -268,7 +268,7 @@ export default function DesignSystem() {
             id="typography"
             kicker="02 · Foundations"
             title="Typography"
-            desc="Three families: Inter for headings/display, Google Sans Flex/Inter for body/subheading, JetBrains Mono for labels. Mono is forced to 500 weight + 0.12em tracking globally."
+            desc="Three families: Inter for headings/display, Google Sans Flex/Inter for body/subheading, JetBrains Mono for labels. Global styles set mono to 500 weight + 0.12em tracking."
           >
             <div className="rounded-2xl border border-white/[0.08] bg-[#111827] overflow-hidden">
               <div className="grid md:grid-cols-[220px_1fr] divide-y md:divide-y-0 md:divide-x divide-[#E5E7EB]">
@@ -330,7 +330,7 @@ export default function DesignSystem() {
                 <Eye size={14} />
               </span>
               <p className="font-body text-sm text-amber-900/80">
-                <span className="font-medium">Type scale audit:</span> Hero uses 72/112/148, case-study H1 uses 36/52, section H2 is 32 across the board. Consider unifying to a 4-step scale (display / h1 / h2 / h3 = 72→32) and documenting it here.
+                <span className="font-medium">Type scale audit:</span> Hero uses 72/112/148, case-study H1 uses 36/52, section H2 is 32. Consider unifying to a 4-step scale (display / h1 / h2 / h3 = 72→32) and documenting it here.
               </p>
             </div>
           </Section>
@@ -340,7 +340,7 @@ export default function DesignSystem() {
             id="buttons"
             kicker="03 · Components"
             title="Buttons"
-            desc="Every button style found in the app, rendered live. The white pill is the new standard for 'View Prototype' — all three instances now match."
+            desc="Every button style in the app, rendered live. The white pill is now the standard for 'View Prototype'; all three instances match."
           >
             <div className="space-y-8">
               {/* Primary */}
@@ -453,7 +453,7 @@ export default function DesignSystem() {
                 >
                   cheliganmor@gmail.com <ArrowUpRight className="w-6 h-6" />
                 </a>
-                <p className="font-mono text-xs text-white/50 mt-3">Framer Motion spring: stiffness 150, damping 15 — see ContactSection</p>
+                <p className="font-mono text-xs text-white/50 mt-3">Framer Motion spring: stiffness 150, damping 15. See ContactSection</p>
               </div>
             </div>
           </Section>
@@ -463,7 +463,7 @@ export default function DesignSystem() {
             id="badges"
             kicker="04 · Components"
             title="Badges & Pills"
-            desc="Mono labels, category pills, status badges and numbered steps — the small pieces that carry a lot of information hierarchy."
+            desc="Mono labels, category pills, status badges and numbered steps: the small pieces that carry the information hierarchy."
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6">
@@ -569,7 +569,7 @@ export default function DesignSystem() {
             id="cards"
             kicker="05 · Components"
             title="Cards"
-            desc="Card is the core container — from project tiles to solution comps. Borders are almost always #E5E7EB on white, with rounded-xl/2xl and subtle shadows."
+            desc="Card is the core container, from project tiles to solution comps. Borders are almost always #E5E7EB on white, with rounded-xl/2xl and subtle shadows."
           >
             <div className="grid md:grid-cols-2 gap-6">
               {/* Stat */}
@@ -601,7 +601,7 @@ export default function DesignSystem() {
                     <span className="relative font-mono text-sm text-[#F8FAFC]/50">01</span>
                   </div>
                   <h3 className="font-heading font-medium text-[18px] tracking-[-0.02em] text-[#F8FAFC]">Global Context Switcher</h3>
-                  <p className="font-body text-sm text-[#94A3B8] mt-2">Implemented a unified top-header context manager for effortless switching.</p>
+                  <p className="font-body text-sm text-[#94A3B8] mt-2">Implemented a unified top-header context manager for easy switching.</p>
                 </div>
                 <div className="mt-3">
                   <Code>rounded-lg border p-6 + dashed circle</Code>
@@ -792,7 +792,7 @@ export default function DesignSystem() {
             id="interactive"
             kicker="07 · Behavior"
             title="Interactive"
-            desc="Carousels, sliders and micro-interactions — shown as static specs plus a mini live carousel."
+            desc="Carousels, sliders and micro-interactions, shown as static specs plus a mini live carousel."
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6">
@@ -979,7 +979,7 @@ export default function DesignSystem() {
             id="audit"
             kicker="09 · Review"
             title="Does it all make sense?"
-            desc="Quick audit from scanning the live codebase — what’s consistent, what to tighten up next."
+            desc="Findings from a scan of the live codebase: what holds up, and what to tighten next."
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6">
@@ -987,11 +987,11 @@ export default function DesignSystem() {
                   <Check size={16} className="text-emerald-600" /> What’s solid
                 </h3>
                 <ul className="space-y-2 font-body text-sm text-emerald-900/80">
-                  <li>• 1 primary indigo (#3B82F6) used everywhere for CTAs + links — very consistent.</li>
+                  <li>• 1 primary indigo (#3B82F6) for CTAs + links across the site.</li>
                   <li>• Mono labels are uniform: JetBrains Mono 500, 0.12em tracking, uppercase.</li>
                   <li>• Card system is coherent: white + #E5E7EB border + rounded-xl/2xl.</li>
                   <li>• Motion language is consistent: fadeUp (0.6–0.7s) + viewport once.</li>
-                  <li>• White pill prototype button now unified (was 3 variants, now 1).</li>
+                  <li>• White pill prototype button now uses 1 variant (was 3).</li>
                 </ul>
               </div>
 
@@ -999,22 +999,22 @@ export default function DesignSystem() {
                 <h3 className="font-heading font-medium text-amber-900 mb-3">Tighten up next</h3>
                 <ul className="space-y-2 font-body text-sm text-amber-900/80">
                   <li>
-                    • <span className="font-medium">Two gray borders:</span> #E5E7EB vs slate-200/80 — pick one token.
+                    • <span className="font-medium">Two gray borders:</span> #E5E7EB vs slate-200/80. Pick one token.
                   </li>
                   <li>
-                    • <span className="font-medium">Two accent pinks:</span> #FF4E7E vs #FF4D7F — normalize.
+                    • <span className="font-medium">Two accent pinks:</span> #FF4E7E vs #FF4D7F. Normalize.
                   </li>
                   <li>
-                    • <span className="font-medium">Radius ramp:</span> 5 values (sm → full) — document when to use which.
+                    • <span className="font-medium">Radius ramp:</span> 5 values (sm → full). Document when to use which.
                   </li>
                   <li>
-                    • <span className="font-medium">Button radii split:</span> CTAs are sm (square), pills are full — intentional but worth noting.
+                    • <span className="font-medium">Button radii split:</span> CTAs are sm (square), pills are full; the split is intentional, so document it.
                   </li>
                   <li>
-                    • <span className="font-medium">Dark vs light challenge cards:</span> same content, two treatments — consider one.
+                    • <span className="font-medium">Dark vs light challenge cards:</span> same content, two treatments. Consider picking one.
                   </li>
                   <li>
-                    • <span className="font-medium">Type scale:</span> hero 72→148, H1 36→52, H2 32 — could be 4 explicit steps.
+                    • <span className="font-medium">Type scale:</span> hero 72→148, H1 36→52, H2 32. These could be 4 explicit steps.
                   </li>
                 </ul>
               </div>
@@ -1023,7 +1023,7 @@ export default function DesignSystem() {
             <div className="mt-6 rounded-2xl border border-white/[0.08] bg-[#111827] p-6 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
               <div>
                 <p className="font-heading font-medium text-[#F8FAFC]">Want this as a real system?</p>
-                <p className="font-body text-sm text-[#94A3B8]">Next step would be extracting tokens to Tailwind config + a Button component with variants (primary / ghost / pill).</p>
+                <p className="font-body text-sm text-[#94A3B8]">Next step: extract tokens to Tailwind config + a Button component with variants (primary / ghost / pill).</p>
               </div>
               <Link
                 to="/"

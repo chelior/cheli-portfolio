@@ -20,7 +20,7 @@ export default function PageNotFound({}) {
                             Page Not Found
                         </h2>
                         <p className="text-slate-600 leading-relaxed">
-                            The page <span className="font-normal text-slate-700">"{pageName}"</span> could not be found in this application.
+                            This site doesn't have a page called <span className="font-normal text-slate-700">"{pageName}"</span>.
                         </p>
                     </div>
                     

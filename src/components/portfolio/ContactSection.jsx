@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Copy, Check } from "lucide-react";
+import { ArrowUpRight, Copy, Check, MessageCircle } from "lucide-react";
 
 const EMAIL = "cheliganmor@gmail.com";
 
@@ -38,7 +38,7 @@ export default function ContactSection() {
           className="text-center"
         >
           <p className="font-mono text-sm text-[#F8FAFC]/60 tracking-wide mb-6 md:mb-8">
-            Looking for my next role - let's connect.
+            Looking for my next role. Let's connect.
           </p>
 
           {/* Magnetic email button */}
@@ -60,7 +60,7 @@ export default function ContactSection() {
           </div>
 
           {/* Copy button */}
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
             <button
               onClick={copyEmail}
               className="inline-flex items-center gap-2 font-mono text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded px-2 py-1"
@@ -68,6 +68,15 @@ export default function ContactSection() {
               {copied ? <Check size={14} /> : <Copy size={14} />}
               {copied ? "Copied!" : "Copy email"}
             </button>
+            <a
+              href="https://wa.me/972503301290"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-xs text-[#F8FAFC]/50 hover:text-[#25D366] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] rounded px-2 py-1"
+            >
+              <MessageCircle size={14} />
+              Send on WhatsApp
+            </a>
           </div>
         </motion.div>
 

@@ -6,6 +6,7 @@ import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import PrototypeSection from "@/components/portfolio/PrototypeSection";
+import DevHubPrototype from "@/components/portfolio/DevHubPrototype";
 import ContactModal from "@/components/portfolio/ContactModal";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
@@ -36,7 +37,7 @@ const SOLUTIONS = [
     label: "Multi-App to Multi-User",
     subtitle: "Flexible IA for today and tomorrow's teams",
     reason:
-      "Designed a flexible information architecture that seamlessly manages multiple apps today, with dedicated UI entry points reserved for permissions and team management in phase two.",
+      "Designed a flexible information architecture that manages multiple apps today, with dedicated UI entry points reserved for permissions and team management in phase two.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Locked to a single app + single user, blocking team collaboration.",
     afterLabel: "AFTER (SOLUTION)",
@@ -51,14 +52,14 @@ const SOLUTIONS = [
   {
     num: "02",
     label: "Context Visibility & Scalable Navigation",
-    subtitle: "Clear environment context today, zero-friction expansion tomorrow",
+    subtitle: "Clear environment context today, easy expansion tomorrow",
     reason:
-      "Engineered a persistent context anchor in the top navigation that grounds the user in their active payer environment while leaving a dedicated slot for upcoming multi-payer switching.",
+      "Added a persistent context anchor in the top navigation that grounds the user in their active payer environment while leaving a dedicated slot for upcoming multi-payer switching.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Legacy navigation either lacked clear visibility of the active payer context or offered confusing controls that caused workflow errors.",
     afterLabel: "AFTER (SOLUTION)",
-    afterBody: "Preserved explicit, persistent visibility of the active payer context in the top header while intentionally removing the dropdown chevron for MVP, preventing misleading affordances until multi-payer switching is introduced.",
-    image: "images/devhub/payersnamemockup2.svg",
+    afterBody: "Kept the active payer context visible in the top header and removed the dropdown chevron for the MVP, so users aren't misled before multi-payer switching arrives.",
+    image: "images/devhub/prototype/payersnamemockup2.svg",
     bullets: [
       "Clear visual indicator of the active payer account to ensure error-free configuration",
       "Removed interactive chevron affordance to prevent user frustration during MVP",
@@ -70,15 +71,15 @@ const SOLUTIONS = [
     label: "Performant Data Grids",
     subtitle: "Audit logs at enterprise scale",
     reason:
-      "Leveraged core Design System components to build fast, high-performance tables for Audit Logs and API Logs with robust filtering.",
+      "Used core Design System components to build fast, high-performance tables for Audit Logs and API Logs with strong filtering.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Slow, unfiltered tables with poor scanability at scale.",
     afterLabel: "AFTER (SOLUTION)",
-    afterBody: "Design System grids fast, filterable, audit-ready.",
-    image: "images/devhub/oldnew1.svg",
+    afterBody: "Design System grids that are fast, filterable, and ready for audits.",
+    image: "images/devhub/prototype/oldnew1.svg",
     bullets: [
       "High-performance virtualized tables",
-      "Robust multi-column filtering",
+      "Strong multi-column filtering",
       "Consistent Design System patterns",
     ],
   },
@@ -87,19 +88,19 @@ const SOLUTIONS = [
 const CHALLENGES = [
   {
     title: "No Multi-Tenant Support",
-    body: "Users were limited to a single app and user context, blocking multi-app management and team collaboration.",
+    body: "The platform limited users to a single app and user context, blocking multi-app management and team collaboration.",
   },
   {
     title: "Tight MVP Deadline",
-    body: "High business urgency to ship quickly required a strict, phased scope.",
+    body: "High business urgency required a strict, phased scope.",
   },
   {
     title: "Scalable Architecture",
-    body: "Built for Multi-App at launch while embedding UI foundations for future Multi-User integration.",
+    body: "I designed for Multi-App at launch while embedding UI foundations for future Multi-User integration.",
   },
   {
     title: "High Support Overhead",
-    body: "External developers depended heavily on internal teams for API testing and troubleshooting.",
+    body: "External developers depended on internal teams for API testing and troubleshooting.",
   },
 ];
 
@@ -107,17 +108,17 @@ const TAKEAWAYS = [
   {
     icon: <Rocket size={18} />,
     title: "MVP as a Finished Experience",
-    body: "An MVP isn't a half-baked solution, but a focused, complete product. I learned to deliver a polished end-to-end experience from day one while preparing the architecture for future scale.",
+    body: "I learned to treat an MVP as a focused, complete product: a polished end-to-end experience from day one, with the architecture prepared for future scale.",
   },
   {
     icon: <Layers size={18} />,
     title: "Design System = Business ROI",
-    body: "Aligning complex enterprise products with a unified Design System doesn't just improve usability, it drastically cuts engineering effort and enables tight deadlines to be met.",
+    body: "Aligning complex enterprise products with a unified Design System improves usability and cuts engineering effort, which makes tight deadlines possible.",
   },
   {
     icon: <UserCheck size={18} />,
     title: "Reducing Support Overhead",
-    body: "Providing external developers with independent testing tools removes friction and slashes internal support overhead.",
+    body: "Providing external developers with independent testing tools removes friction and cuts internal support overhead.",
   },
 ];
 
@@ -215,7 +216,7 @@ export default function CaseStudyDevHub() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
-                Transforming Tipalti's legacy single-app, single-user tool into a scalable multi-tenant developer portal with self-service API testing.
+                I turned Tipalti's legacy single-app, single-user tool into a scalable multi-tenant developer portal with self-service API testing.
               </motion.p>
 
               {/* Metrics — 3 white cards elevated with soft shadows (pink tint) */}
@@ -337,7 +338,7 @@ export default function CaseStudyDevHub() {
               Before & After
             </h2>
             <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
-              The transformation at a glance — drag to compare
+              Drag to compare before and after
             </span>
           </motion.div>
           <motion.div {...fadeUp}>
@@ -377,7 +378,7 @@ export default function CaseStudyDevHub() {
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
               <p className="font-body text-[#F8FAFC]/70 text-[16px] leading-[1.6]">
-                Tipalti's legacy DevHub was built for a simple, limited "single-app, single-user" model. As the company and client base scaled, this created severe operational bottlenecks.
+                Tipalti built its legacy DevHub for a simple, limited "single-app, single-user" model. As the company and client base scaled, this created severe operational bottlenecks.
               </p>
 
               <div className="mt-8 flex items-center gap-3">
@@ -468,11 +469,11 @@ export default function CaseStudyDevHub() {
                   <AnimatedCounter value={27} suffix="%" duration={1350} />
                 </p>
                 <p className="font-body text-white/80 text-sm mt-2">
-                  Engineering effort reduced
+                  Reduction in engineering effort
                 </p>
                 <div className="mt-6 pt-6 border-t border-white/20">
                   <p className="font-body text-white/80 text-sm leading-relaxed">
-                    Saving{" "}
+                    We saved{" "}
                     <span className="text-white font-normal">35 dev days</span>{" "}
                     (from 168 down to 133) while delivering a superior user
                     experience.
@@ -496,9 +497,9 @@ export default function CaseStudyDevHub() {
             {...fadeUp}
             className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-16 md:mb-20"
           >
-            Three core solutions shaped the new developer portal, each addressing
-            a critical bottleneck from the legacy system while laying the
-            groundwork for future scalability.
+            I built the new developer portal around three core solutions, each
+            addressing a critical bottleneck from the legacy system and preparing
+            it for future scale.
           </motion.p>
 
           <div className="space-y-20 md:space-y-28">
@@ -598,9 +599,11 @@ export default function CaseStudyDevHub() {
       {/* ── Live Prototype Experience ── */}
       <PrototypeSection
         title="Live Prototype Experience"
-        subtitle="Demo of the live, published interactive prototype"
-        videoSrc="images/devhub/Demo-DevHub.mp4"
-      />
+        subtitle="Interactive flow: create an app, edit its details, or delete it"
+        expandable
+      >
+        <DevHubPrototype />
+      </PrototypeSection>
 
       {/* ── Key Takeaways ── */}
       <section className="px-6 md:px-12 mb-24 md:mb-36">

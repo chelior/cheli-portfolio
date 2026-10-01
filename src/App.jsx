@@ -72,7 +72,7 @@ function PasswordGate({ children }) {
             autoFocus
             className="w-full bg-white/[0.06] border border-white/[0.08] rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all"
           />
-          {error && <p className="font-mono text-xs text-[#FF4E7E]">Incorrect password — try again.</p>}
+          {error && <p className="font-mono text-xs text-[#FF4E7E]">Incorrect password. Try again.</p>}
           <button
             type="submit"
             className="w-full inline-flex items-center justify-center bg-[#3B82F6] hover:bg-[#2563EB] text-white font-heading text-[13px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-xl transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"

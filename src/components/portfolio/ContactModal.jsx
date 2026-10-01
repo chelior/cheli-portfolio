@@ -34,15 +34,15 @@ export default function ContactModal({ isOpen, onClose }) {
           >
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 text-[#0A0F1D]/40 hover:text-[#0A0F1D] transition-colors"
+              className="absolute top-5 right-5 text-[#F8FAFC]/40 hover:text-[#F8FAFC] transition-colors"
               aria-label="Close"
             >
               <X size={22} />
             </button>
-            <h3 className="font-heading font-medium text-[#0A0F1D] text-2xl tracking-[-0.02em] mb-2">
+            <h3 className="font-heading font-medium text-[#F8FAFC] text-2xl tracking-[-0.02em] mb-2">
               Get in Touch
             </h3>
-            <p className="font-body text-[#4A5568] text-sm mb-8">
+            <p className="font-body text-[#94A3B8] text-sm mb-8">
               Choose how you'd like to reach me.
             </p>
             <div className="space-y-3">
@@ -54,8 +54,8 @@ export default function ContactModal({ isOpen, onClose }) {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="font-heading font-medium text-[#0A0F1D] text-sm">Email</p>
-                  <p className="font-mono text-xs text-[#0A0F1D]/60">cheliganmor@gmail.com</p>
+                  <p className="font-heading font-medium text-[#F8FAFC] text-sm">Email</p>
+                  <p className="font-mono text-xs text-[#F8FAFC]/60">cheliganmor@gmail.com</p>
                 </div>
               </a>
               <a
@@ -64,12 +64,12 @@ export default function ContactModal({ isOpen, onClose }) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] hover:border-[#25D366] hover:bg-[#25D366]/5 transition-all group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.25)] group-hover:text-white transition-all">
                   <MessageCircle size={18} />
                 </div>
                 <div>
-                  <p className="font-heading font-medium text-[#0A0F1D] text-sm">WhatsApp / Phone</p>
-                  <p className="font-mono text-xs text-[#0A0F1D]/60">+972 50-330-1290</p>
+                  <p className="font-heading font-medium text-[#F8FAFC] text-sm">WhatsApp / Phone</p>
+                  <p className="font-mono text-xs text-[#F8FAFC]/60">+972 50-330-1290</p>
                 </div>
               </a>
             </div>

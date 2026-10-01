@@ -42,7 +42,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[72px] md:text-[112px] lg:text-[148px] leading-[0.85] max-w-[1400px]">
+        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[52px] sm:text-[64px] md:text-[112px] lg:text-[148px] leading-[1.05] md:leading-[0.85] max-w-[1400px]">
           <Line delay={0.4}>Hi, I'm Cheli Gan Mor,</Line>{" "}
           <Line delay={0.55}>
             <span className="text-[#3B82F6]">product designer.</span>
@@ -53,7 +53,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.3 }}
-          className="font-body font-normal text-[20px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] mt-8"
+          className="font-body font-normal text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] mt-8"
         >
           Deep listener, relentless problem solver, figuring out the human side
           of complex tech.
@@ -112,17 +112,20 @@ function Line({ children, delay }) {
 }
 
 const SHAPES = [
-  // only in empty areas — never behind centered text (text occupies ~20-80% left, 30-68% top)
-  { type: "ring", color: "#FF4E7E", top: "12%", left: "8%", size: 60, depth: 1.5 }, // top-left corner
-  { type: "diamond", color: "#FF8C42", top: "12%", left: "32%", size: 28, depth: 2.8 }, // top, left of badge
-  { type: "diamond", color: "#FF4E7E", top: "12%", left: "82%", size: 44, depth: 2 }, // top-right corner
-  { type: "triangle", color: "#3B82F6", top: "42%", left: "8%", size: 28, depth: 2.2 }, // middle-left gutter
-  { type: "ring", color: "#FF8C42", top: "36%", left: "84%", size: 28, depth: 1.6 }, // side of small rect — above-left
-  { type: "square", color: "#3B82F6", top: "42%", left: "90%", size: 36, depth: 1.8 }, // small rectangle
-  { type: "cross", color: "#FF8C42", top: "49%", left: "93%", size: 30, depth: 1.7 }, // side of small rect — below-right
-  { type: "cross", color: "#FF4E7E", top: "72%", left: "14%", size: 40, depth: 1.2 }, // bottom-left
-  { type: "zigzag", color: "#3B82F6", top: "75%", left: "78%", size: 50, depth: 2.5 }, // bottom-right
-  { type: "ring", color: "#FF4E7E", top: "85%", left: "45%", size: 24, depth: 1.5 }, // bottom-center
+  // Evenly spaced around the perimeter, always clear of the centered text block.
+  // Top band — clear above the text on every breakpoint
+  { type: "ring", color: "#FF4E7E", top: "9%", left: "8%", size: 52, depth: 1.5, mobile: true },
+  { type: "diamond", color: "#FF8C42", top: "11%", left: "30%", size: 28, depth: 2.4, mobile: true },
+  { type: "diamond", color: "#3B82F6", top: "11%", left: "70%", size: 28, depth: 2.2, mobile: true },
+  { type: "cross", color: "#FF4E7E", top: "9%", left: "88%", size: 32, depth: 1.6, mobile: true },
+  // Side gutters — desktop only (text spans the full width on mobile)
+  { type: "triangle", color: "#3B82F6", top: "44%", left: "6%", size: 30, depth: 2.2 },
+  { type: "square", color: "#FF8C42", top: "44%", left: "90%", size: 34, depth: 1.8 },
+  // Bottom band — below the text block
+  { type: "cross", color: "#FF8C42", top: "88%", left: "8%", size: 30, depth: 1.4, mobile: true },
+  { type: "zigzag", color: "#3B82F6", top: "86%", left: "30%", size: 44, depth: 2.5 },
+  { type: "ring", color: "#FF4E7E", top: "86%", left: "70%", size: 26, depth: 1.7 },
+  { type: "diamond", color: "#FF8C42", top: "88%", left: "88%", size: 36, depth: 2, mobile: true },
 ];
 
 function FloatingShapes({ springX, springY }) {
@@ -143,7 +146,7 @@ function FloatingShape({ shape, index, springX, springY }) {
   const style = { x: tx, y: ty, rotate: rot, position: "absolute", top: shape.top, left: shape.left };
 
   return (
-    <motion.div style={style} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.5 + index * 0.08 }}>
+    <motion.div style={style} className={shape.mobile ? "" : "hidden md:block"} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.5 + index * 0.08 }}>
       <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 3 + index * 0.3, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}>
         <ShapeSVG shape={shape} />
       </motion.div>

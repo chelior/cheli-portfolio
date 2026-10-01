@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
           className={`${CARD_OUTER} ${showAccent ? "border-white/[0.12] shadow-[0_0_28px_rgba(59,130,246,0.18),0_16px_40px_rgba(0,0,0,0.5)] -translate-y-1" : "shadow-[0_8px_24px_rgba(0,0,0,0.35)]"} transition-colors duration-300 ease-in-out`}
           style={{
             backgroundColor: showAccent ? accent : "#161B26",
-            borderColor: showAccent ? `${accent}60` : "rgba(255,255,255,0.08)",
+            borderColor: showAccent ? `${accent}` : `${accent}73`,
             boxShadow: showAccent ? `0 0 28px ${accent}30, 0 16px 40px rgba(0,0,0,0.5)` : "0 8px 24px rgba(0,0,0,0.35)",
           }}
         >
@@ -62,7 +62,7 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
                 <img
                   src={project.composite.mobile}
                   alt=""
-                  className={`absolute right-0 bottom-0 md:right-1 md:bottom-1 w-[34%] md:w-[36%] h-auto object-contain block transition-transform duration-700 ease-out ${
+                  className={`absolute right-0 bottom-0 md:right-1 md:bottom-1 w-[40%] md:w-[36%] h-auto object-contain block transition-transform duration-700 ease-out ${
                     showAccent ? "scale-105" : "scale-100"
                   }`}
                   style={{ filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.32))" }}

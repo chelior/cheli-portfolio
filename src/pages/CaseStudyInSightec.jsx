@@ -18,15 +18,15 @@ const fadeUp = {
 const CHALLENGES = [
   {
     title: "Audience Mismatch",
-    body: "The system failed to differentiate between executive needs (high-level, clean overview with zero filter fatigue) and analyst needs (deep-dive trend investigation).",
+    body: "One screen had to serve executives, who wanted a clean, high-level overview without filter fatigue, and analysts, who needed to investigate trends in depth.",
   },
   {
     title: "Hidden \u201CRevenue Leaks\u201D",
-    body: "A massive portion of profitability comes from service and treatment contracts during the transitional window between device sales and installation. The legacy dashboard completely failed to highlight this critical gap.",
+    body: "A large share of profitability comes from service and treatment contracts during the transitional window between device sales and installation. The legacy dashboard did not surface this gap.",
   },
   {
     title: "Visual Clutter & Platform Limits",
-    body: "Overloaded graphs (such as Utilization metrics) and complex shifting dimensions overwhelmed users who were not advanced data analysts.",
+    body: "Overloaded graphs (such as Utilization metrics) and complex shifting dimensions overwhelmed users without a data analysis background.",
   },
 ];
 
@@ -41,7 +41,7 @@ const RESEARCH = [
   },
   {
     label: "Financial Analysts",
-    body: "Heavy platform users accustomed to QlikSense, requiring an advanced investigation screen with deep filtering, period comparisons, and trend analysis.",
+    body: "Heavy platform users accustomed to QlikSense, requiring an advanced investigation screen with detailed filtering, period comparisons, and trend analysis.",
   },
 ];
 
@@ -49,22 +49,22 @@ const SOLUTIONS = [
   {
     icon: <Split size={18} />,
     title: "Dual-Audience Screen Separation",
-    body: "Divided the experience into two dedicated environments: a clean, high-level executive dashboard and a robust, data-dense investigation dashboard for analysts.",
+    body: "Divided the experience into two dedicated environments: a clean, high-level executive dashboard and a data-dense investigation dashboard for analysts.",
   },
   {
     icon: <TrendingDown size={18} />,
     title: "Visualizing Revenue Leaks",
-    body: "Introduced a clear comparative visualization mapping sold systems versus installed systems, surfacing unrealized service and treatment revenue streams for executive oversight.",
+    body: "Added a side-by-side comparison of sold systems versus installed systems, so executives could see the service and treatment revenue that went unrealized.",
   },
   {
     icon: <Layers size={18} />,
     title: "Optimizing Complex Data",
-    body: "Utilized UI containers to handle shifting data dimensions intuitively, and engineered a multi-dimensional summary graph to unify metrics measured in vastly different units.",
+    body: "Used UI containers to handle shifting data dimensions, and built a multi-dimensional summary graph that unifies metrics measured in different units.",
   },
   {
     icon: <Compass size={18} />,
-    title: "Navigating Technical & Platform Constraints",
-    body: "Handled strict rigidity in platform behavior (such as fixed mobile card ordering) by creatively balancing system limitations with user workflow requirements.",
+    title: "Working Within Technical & Platform Constraints",
+    body: "Worked within strict platform behavior (such as fixed mobile card ordering) and balanced system limits against what user workflows required.",
   },
 ];
 
@@ -79,12 +79,12 @@ const TAKEAWAYS = [
   {
     icon: <Users size={18} />,
     title: "Persona-Driven Dashboards",
-    body: "Designing for data-heavy systems requires a strict separation of concerns \u2014 giving executives immediate clarity while empowering analysts with deep exploratory tools.",
+    body: "Designing for data-heavy systems requires a strict separation of concerns: executives get immediate clarity, analysts get exploratory tools.",
   },
   {
     icon: <Wrench size={18} />,
     title: "Bridging Design and Constraints",
-    body: "Working within agency and legacy platform environments builds strong mental flexibility, proving that great UX can be achieved even when technical boundaries push back.",
+    body: "Working within agency and legacy platform environments sharpened my thinking. I delivered great UX even when technical boundaries were tight.",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function CaseStudyInSightec() {
         overline="B2B/Enterprise SaaS • UX/UI & Data Visualization • 2022"
         title="InSightec: Uncovering Revenue Leaks Through Data Visualization"
         titleAccent="Revenue Leaks"
-        description="Transforming a complex medical equipment sales and analytics platform into a clean, intuitive system tailored for two entirely distinct user groups: senior executives and financial analysts."
+        description="I turned a complex medical equipment sales and analytics platform into a clean, intuitive system tailored for two very different user groups: senior executives and financial analysts."
         stats={[
           { value: "2022", label: "Project Year" },
           { value: "2", label: "Core Audiences" },
@@ -168,9 +168,9 @@ export default function CaseStudyInSightec() {
                 Project Company for InSightec
               </h4>
               <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                Executed within a project company for InSightec, a leading medical
-                device company developing ultrasound technology for treating essential
-                tremors and Parkinson\u2019s disease.
+                I worked through a project company for InSightec, a leading medical
+                device company that develops ultrasound technology for treating essential
+                tremors and Parkinson's disease.
               </p>
             </motion.div>
           </div>
@@ -185,7 +185,7 @@ export default function CaseStudyInSightec() {
               Before & After
             </h2>
             <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
-              The transformation at a glance — drag to compare
+              Drag to compare before and after
             </span>
           </motion.div>
           <motion.div {...fadeUp}>
@@ -211,12 +211,12 @@ export default function CaseStudyInSightec() {
 
           <CoreQuestionSpotlightDark
             accent="#B47AFF"
-            question="How might we surface hidden revenue leaks and deliver instant executive clarity — while empowering analysts with deep exploratory power?"
+            question="How might we surface hidden revenue leaks, give executives instant clarity, and give analysts the tools to explore in depth?"
           />
 
           <motion.p {...fadeUp} className="font-body text-white/80 text-[16px] leading-[1.6] max-w-[600px] mb-12">
-            The company had a functioning sales model with real data, but the existing
-            dashboard suffered from several critical bottlenecks.
+            The company had a working sales model with real data, but the existing
+            dashboard had several bottlenecks.
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
