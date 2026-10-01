@@ -20,6 +20,7 @@ const PHONE_TEL = "+972503301290";
 const LOCATION = "Ramat Gan";
 const PDF_HREF = "images/CV/Cheli Gan Mor - CV 2026.pdf";
 const LINKEDIN_HREF = "https://www.linkedin.com/in/cheliganmor95836b215";
+const PORTFOLIO_HREF = "https://chelisportfolio.com";
 
 const BRAND = "#3B82F6";
 
@@ -205,13 +206,15 @@ export default function Resume() {
                   <Linkedin size={14} className="text-[#64748B]" />
                   LinkedIn
                 </a>
-                <Link
-                  to="/"
+                <a
+                  href={PORTFOLIO_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 bg-white/[0.06] border border-white/[0.08] rounded-full px-3.5 py-2 font-body text-sm text-[#94A3B8] hover:border-[#3B82F6]/30 hover:text-[#3B82F6] hover:bg-white/[0.08] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                 >
                   <Globe size={14} className="text-[#64748B]" />
-                  Portfolio
-                </Link>
+                  chelisportfolio.com
+                </a>
               </div>
             </div>
 
