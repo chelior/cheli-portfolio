@@ -278,9 +278,9 @@ export default function CaseStudyDevHub() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-0">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-0">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-3">
                 The Core Team
               </h3>
               <div className="space-y-0">
@@ -304,7 +304,7 @@ export default function CaseStudyDevHub() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#FF4E7E] tracking-wide uppercase mb-3">
                 Collaboration & Support
               </h3>
               <div className="space-y-0">

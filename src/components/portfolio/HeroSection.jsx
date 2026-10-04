@@ -55,8 +55,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 1.3 }}
           className="font-body font-normal text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] mt-8"
         >
-          Deep listener, relentless problem solver, figuring out the human side
-          of complex tech.
+          Untangling complex tech into clear, human experiences
         </motion.p>
 
         {/* Skill tags */}

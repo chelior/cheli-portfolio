@@ -35,7 +35,7 @@ const ITERATIONS = [
   {
     num: "01",
     label: "Full-Screen Page",
-    tag: "Rejected",
+    tag: "Considered",
     reason: "The full-screen page broke context switching; users lost immediate visibility into the underlying data table.",
     image: "images/user-creation/Design Explorations & Trade-offs /Full page 1.svg",
     alt: "Full-Screen Page — hand-drawn sketch",
@@ -44,7 +44,7 @@ const ITERATIONS = [
   {
     num: "02",
     label: "Accordion (Inline Expansion)",
-    tag: "Rejected",
+    tag: "Considered",
     reason: "Configuring dynamic, conditional roles caused excessive page jumping and layout shifts.",
     image: "images/user-creation/Design Explorations & Trade-offs /Accordeon 1.svg",
     alt: "Accordion inline expansion — hand-drawn sketch",
@@ -235,9 +235,9 @@ export default function CaseStudyUserCreation() {
 
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-0">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-0">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
                 The Team
               </h3>
               <div className="space-y-0">
@@ -261,7 +261,7 @@ export default function CaseStudyUserCreation() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
                 Collaboration & Support
               </h3>
               <div className="space-y-0">
@@ -334,8 +334,8 @@ export default function CaseStudyUserCreation() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-[#F8FAFC]/70 text-[16px] leading-[1.6]">
-                The original 4-step user creation modal suffered from heavy friction.
+              <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium">
+                The original 4-step user creation modal suffered from heavy friction:
               </p>
 
               {/* 4-step — light-tinted pill cards */}
@@ -359,6 +359,9 @@ export default function CaseStudyUserCreation() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+              <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">
+                The Problems We Faced:
+              </p>
               <div className="space-y-4">
                 {[
                   {
