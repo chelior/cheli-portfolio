@@ -12,14 +12,47 @@ import DesignSystem from '@/pages/DesignSystem';
 import Resume from '@/pages/Resume';
 
 const SITE_PASSWORD = "StepInside2026";
+const MAGIC_LINK_TOKEN = "OpenUp2026";
+
+function getAccessToken() {
+  try {
+    const fromSearch = new URLSearchParams(window.location.search).get("access");
+    if (fromSearch) return fromSearch;
+    const hashQuery = window.location.hash.split("?")[1];
+    return hashQuery ? new URLSearchParams(hashQuery).get("access") : null;
+  } catch {
+    return null;
+  }
+}
+
+function stripAccessToken() {
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("access");
+    const qi = url.hash.indexOf("?");
+    if (qi !== -1) {
+      const params = new URLSearchParams(url.hash.slice(qi + 1));
+      params.delete("access");
+      const rest = params.toString();
+      url.hash = url.hash.slice(0, qi) + (rest ? `?${rest}` : "");
+    }
+    window.history.replaceState(null, "", url.toString());
+  } catch {}
+}
 
 function PasswordGate({ children }) {
   const [authed, setAuthed] = useState(() => {
     try {
-      return sessionStorage.getItem("siteAuthed") === "true";
-    } catch {
-      return false;
+      if (sessionStorage.getItem("siteAuthed") === "true") return true;
+    } catch {}
+    if (getAccessToken() === MAGIC_LINK_TOKEN) {
+      try {
+        sessionStorage.setItem("siteAuthed", "true");
+      } catch {}
+      stripAccessToken();
+      return true;
     }
+    return false;
   });
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
