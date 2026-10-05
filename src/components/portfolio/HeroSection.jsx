@@ -37,12 +37,12 @@ export default function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3B82F6] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.5)]"></span>
           </span>
-          <span className="font-mono text-xs text-blue-400 uppercase tracking-wide">
+          <span className="font-label text-xs text-blue-400 uppercase tracking-wide">
             Available for new challenges
           </span>
         </motion.div>
 
-        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[9vw] sm:text-[64px] md:text-[112px] lg:text-[148px] leading-[1.05] md:leading-[0.85] max-w-[1400px]">
+        <h1 className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[9vw] sm:text-[64px] md:text-[112px] lg:text-[148px] leading-[1.05] md:leading-[0.95] max-w-[1400px]">
           <Line delay={0.4}>Hi, I'm Cheli Gan Mor,</Line>{" "}
           <Line delay={0.55}>
             <span className="text-[#3B82F6]">product designer.</span>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 1.6 + i * 0.1 }}
               whileHover={{ y: -3 }}
-              className="font-mono text-xs text-slate-300 uppercase tracking-wide bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-2 hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]/30 hover:text-[#3B82F6] transition-colors cursor-default"
+              className="font-label text-xs text-slate-300 uppercase tracking-wide bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-2 hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]/30 hover:text-[#3B82F6] transition-colors cursor-default"
             >
               {skill}
             </motion.span>
@@ -88,7 +88,7 @@ export default function HeroSection() {
         className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
         aria-label="Scroll to work"
       >
-        <span className="font-mono text-xs text-[#F8FAFC]/50 uppercase">Scroll</span>
+        <span className="font-label text-xs text-[#F8FAFC]/50 uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
           <ArrowDown size={16} className="text-[#F8FAFC]/50" />
         </motion.div>

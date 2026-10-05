@@ -77,7 +77,7 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
                   <div className="w-12 h-12 mx-auto mb-3 rounded-full border-2 border-[#3B82F6]/30 flex items-center justify-center">
                     <div className="w-5 h-5 rounded-full border-2 border-[#3B82F6] border-t-transparent animate-spin" />
                   </div>
-                  <span className="font-mono text-xs text-[#3B82F6] uppercase tracking-wide">Work in Progress</span>
+                  <span className="font-label text-xs text-[#3B82F6] uppercase tracking-wide">Work in Progress</span>
                 </div>
               </div>
             ) : project.id === 6 ? (
@@ -104,17 +104,20 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
           {/* WIP overlay — noticeable but image remains visible */}
           {isWip && (
             <div className="absolute inset-0 bg-[#090D16]/45 backdrop-blur-[1px] flex flex-col items-center justify-center gap-2.5 z-20 rounded-[20px]">
-              <span className="inline-flex items-center gap-2 bg-[#3B82F6] text-white font-mono text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-[0_4px_16px_rgba(59,130,246,0.4)] border border-white/20">
+              <span
+                className="inline-flex items-center gap-2 text-white font-label text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-white/20"
+                style={{ backgroundColor: accent, boxShadow: `0 4px 16px ${accent}66` }}
+              >
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 In Progress
               </span>
-              <span className="font-mono text-[11px] text-white/70 uppercase tracking-wide">Coming soon</span>
+              <span className="font-label text-[11px] text-white/70 uppercase tracking-wide">Coming soon</span>
             </div>
           )}
           {/* Hover teaser — hidden for WIP, directly beneath mockup */}
           {!isWip && (
             <div className="absolute bottom-6 left-6 right-6 md:bottom-7 md:left-8 md:right-8 z-10 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out flex justify-center">
-              <p className="font-heading font-medium text-white text-center text-[13px] md:text-[14px] leading-[1.4] tracking-[-0.01em] max-w-[90%] drop-shadow-sm">
+              <p className="font-body font-medium text-white text-center text-[13px] md:text-[14px] leading-[1.4] tracking-[-0.01em] max-w-[90%] drop-shadow-sm">
                 {project.title}
               </p>
             </div>
@@ -124,15 +127,15 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
         {/* Meta — muted gray headers as requested */}
         <div className="mt-4 h-[64px] flex items-start justify-between gap-4 w-full">
           <div className="flex-1 min-w-0">
-            <h3 className="font-subheading font-medium text-[#CBD5E1] text-[20px] md:text-[22px] leading-[1.2] tracking-[-0.02em] truncate">
+            <h3 className="font-subheading text-[#CBD5E1] text-[20px] md:text-[22px] leading-[1.2] tracking-[-0.02em] truncate">
               {project.shortTitle || project.title}
             </h3>
-            <p className="font-mono text-[11px] md:text-xs text-[#94A3B8] mt-1 tracking-wide uppercase">
+            <p className="font-label text-[11px] md:text-xs text-[#94A3B8] mt-1 tracking-wide uppercase">
               {project.category}
             </p>
           </div>
           {!isWip && (
-            <span className="font-mono text-xs font-normal text-[#94A3B8] shrink-0 mt-1 ml-auto text-right">
+            <span className="font-label text-xs font-normal text-[#94A3B8] shrink-0 mt-1 ml-auto text-right">
               {project.year}
             </span>
           )}

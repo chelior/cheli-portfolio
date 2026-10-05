@@ -209,8 +209,8 @@ function ImagePlaceholder({ alt, className = "" }) {
   return (
     <div className={`aspect-[4/3] rounded-lg border-2 border-dashed border-white/[0.08] flex items-center justify-center bg-[#F5F5F7] ${className}`}>
       <div className="text-center px-4">
-        <span className="font-mono text-xs text-[#F8FAFC]/40 uppercase block">{alt}</span>
-        <span className="font-mono text-[10px] text-[#F8FAFC]/30 uppercase block mt-1">Image coming soon</span>
+        <span className="font-label text-xs text-[#F8FAFC]/40 uppercase block">{alt}</span>
+        <span className="font-label text-[10px] text-[#F8FAFC]/30 uppercase block mt-1">Image coming soon</span>
       </div>
     </div>
   );
@@ -272,12 +272,12 @@ export default function CaseStudySdarim() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
+            className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
           </Link>
-          <span className="font-mono text-xs text-[#F8FAFC]/50 hidden md:block">
+          <span className="font-label text-xs text-[#F8FAFC]/50 hidden md:block">
             Case Study · Sdarim
           </span>
         </div>
@@ -301,7 +301,7 @@ export default function CaseStudySdarim() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="font-mono text-xs tracking-widest uppercase mb-4"
+                className="font-label text-xs tracking-widest uppercase mb-4"
                 style={{ color: "#0077FF" }}
               >
                 B2B/ENTERPRISE SAAS · UX/UI DESIGN · 2023
@@ -345,10 +345,10 @@ export default function CaseStudySdarim() {
                     transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
                     className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
                   >
-                    <p className="font-heading font-bold text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
+                    <p className="font-heading text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
                       <AnimatedCounter value={stat.value} duration={1350} />
                     </p>
-                    <p className="font-mono text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
+                    <p className="font-label text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -380,17 +380,17 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               My Role & Context
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 My Role
               </h3>
-              <h4 className="font-subheading font-medium text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                 Product Designer
               </h4>
               <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -399,10 +399,10 @@ export default function CaseStudySdarim() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Context
               </h3>
-              <h4 className="font-subheading font-medium text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                 Project Company Environment
               </h4>
               <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -419,10 +419,10 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
-            <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
+            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
               Drag to compare before and after
             </span>
           </motion.div>
@@ -440,10 +440,10 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 py-8 md:py-10 mb-12 md:mb-16 overflow-hidden" style={{ boxSizing: "border-box" }}>
         <div className="max-w-[1100px] mx-auto overflow-hidden">
           <motion.div {...fadeUp} className="mb-10 md:mb-12 relative z-10">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               How It Started
             </h2>
-            <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
+            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
               The original system before the redesign
             </span>
           </motion.div>
@@ -458,10 +458,10 @@ export default function CaseStudySdarim() {
       <section className="w-full my-0 px-6 md:px-12 py-28 md:py-32 bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
-            <p className="font-mono text-xs text-white/80 mb-12 block">
+            <p className="font-label text-xs text-white/80 mb-12 block">
               Feature Bloat, Hidden Features, Rigid Flows
             </p>
           </motion.div>
@@ -478,7 +478,7 @@ export default function CaseStudySdarim() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-8">
             <motion.div {...fadeUp}>
-              <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">Specific goals</h3>
+              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-4">Specific goals:</h3>
               <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
                 <ul className="space-y-2.5">
                   {[
@@ -497,7 +497,7 @@ export default function CaseStudySdarim() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">Key metrics</h3>
+              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-4">Key metrics:</h3>
               <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
                 <ul className="space-y-2.5">
                   {[
@@ -516,6 +516,10 @@ export default function CaseStudySdarim() {
             </motion.div>
           </div>
 
+          <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">
+            The Problems We Faced:
+          </p>
+
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-0">
             {CHALLENGES.map((challenge, i) => (
               <motion.div
@@ -527,7 +531,7 @@ export default function CaseStudySdarim() {
                 className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] pl-5 pr-4 py-4"
                 style={{ borderLeft: "3px solid #0077FF" }}
               >
-                <h4 className="font-heading font-semibold text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
+                <h4 className="font-heading text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#0077FF" }} />
                   {challenge.title}
                 </h4>
@@ -542,7 +546,7 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Design Process
             </h2>
           </motion.div>
@@ -610,12 +614,12 @@ export default function CaseStudySdarim() {
                         className="bg-[#111827] border border-white/[0.08] rounded-xl p-5 md:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.35)] group-hover:shadow-md group-hover:-translate-y-0.5 transition-all duration-200"
                       >
                         <span
-                          className={`inline-flex font-mono text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 ${phase.badgeBg}`}
+                          className={`inline-flex font-label text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 ${phase.badgeBg}`}
                           style={{ color: phase.color }}
                         >
                           {phase.num}
                         </span>
-                        <h4 className="font-heading font-medium text-[#94A3B8] text-[16px] leading-[1.3]">
+                        <h4 className="font-heading text-[#94A3B8] text-[16px] leading-[1.3]">
                           {phase.title}
                         </h4>
                         <p className="font-body text-[#94A3B8] text-[13px] leading-[1.6] mt-2">{phase.desc}</p>
@@ -660,7 +664,7 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 py-16 md:py-20 lg:py-24 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-14 md:mb-16">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
             </h2>
           </motion.div>
@@ -676,12 +680,12 @@ export default function CaseStudySdarim() {
                 className="flex gap-5"
               >
                 <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="font-mono text-xs text-[#3B82F6] font-normal">
+                  <span className="font-label text-xs text-[#3B82F6] font-normal">
                     {i + 1}
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-heading font-medium text-[#94A3B8] text-base mb-2 leading-[1.4]">
+                  <h4 className="font-heading text-[#94A3B8] text-base mb-2 leading-[1.4]">
                     {item.label}
                   </h4>
                   <p className="font-body text-[#94A3B8] text-sm leading-[1.7] mt-1">
@@ -703,8 +707,8 @@ export default function CaseStudySdarim() {
             }}
           >
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">User Survey - Pain Points</span>
-              <span className="font-mono text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
+              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">User Survey - Pain Points</span>
+              <span className="font-label text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
@@ -761,7 +765,7 @@ export default function CaseStudySdarim() {
                       />
 
                       {/* Category — subtle muted pill, not saturated */}
-                      <span className="inline-flex self-start text-xs font-mono uppercase tracking-wider text-black/60 bg-black/5 px-2.5 py-1 rounded-full mt-2 mb-3">
+                      <span className="inline-flex self-start text-xs font-label uppercase tracking-wider text-black/60 bg-black/5 px-2.5 py-1 rounded-full mt-2 mb-3">
                         {screen.category}
                       </span>
 
@@ -777,7 +781,7 @@ export default function CaseStudySdarim() {
 
                       {/* English Takeaway — subtle, no divider */}
                       <div className="mt-auto pt-2">
-                        <p className="font-mono text-xs text-[#94A3B8] leading-relaxed">{screen.translation}</p>
+                        <p className="font-label text-xs text-[#94A3B8] leading-relaxed">{screen.translation}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -789,10 +793,10 @@ export default function CaseStudySdarim() {
           {/* Quantitative research findings — metric visualization */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">
+              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                 Quantitative Findings
               </span>
-              <span className="font-mono text-xs text-[#F8FAFC]/50">Survey results — pain-point prevalence</span>
+              <span className="font-label text-xs text-[#F8FAFC]/50">Survey results — pain-point prevalence</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
               {[
@@ -834,7 +838,7 @@ export default function CaseStudySdarim() {
                   }}
                 >
                   <span
-                    className={`inline-block font-mono text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 ${item.badgeClass}`}
+                    className={`inline-block font-label text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 ${item.badgeClass}`}
                   >
                     {item.badge}
                   </span>
@@ -864,16 +868,16 @@ export default function CaseStudySdarim() {
                 </motion.div>
               ))}
             </div>
-            <p className="font-mono text-xs text-[#64748B] mt-8 text-left leading-relaxed">Based on the user survey</p>
+            <p className="font-label text-xs text-[#64748B] mt-8 text-left leading-relaxed">Based on the user survey</p>
           </motion.div>
 
           {/* Competitive Research */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">
+              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                 Competitive Research
               </span>
-              <span className="font-mono text-xs text-[#F8FAFC]/50">Inspiration board — competitor breakdown</span>
+              <span className="font-label text-xs text-[#F8FAFC]/50">Inspiration board — competitor breakdown</span>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -942,7 +946,7 @@ export default function CaseStudySdarim() {
                 <Sparkles size={16} className="text-blue-400" />
               </div>
               <div>
-                <p className="font-mono text-xs font-medium tracking-wider text-blue-400 mb-2">KEY INSIGHT</p>
+                <p className="font-label text-xs font-medium tracking-wider text-blue-400 mb-2">KEY INSIGHT</p>
                 <p className="text-base md:text-lg font-medium text-[#E2E8F0] leading-[1.6]">
                   Competitors focus on function and skip UX.
                 </p>
@@ -956,10 +960,10 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="w-full max-w-6xl mx-auto">
           <motion.div {...fadeUp} className="mb-8">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Old System Mapping
             </h2>
-            <span className="font-mono text-xs text-[#F8FAFC]/50 mt-2 block">
+            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
               Legacy information architecture — full system site map
             </span>
           </motion.div>
@@ -982,7 +986,7 @@ export default function CaseStudySdarim() {
               alt="Old System Mapping — Information Architecture site tree of the legacy system"
               className="w-full h-auto object-contain rounded-xl block"
             />
-            <span className="absolute bottom-6 left-6 z-20 text-xs font-mono font-medium tracking-wide text-[#94A3B8] bg-white/80 backdrop-blur-md border border-white/[0.08] px-3.5 py-1.5 rounded-full shadow-xs cursor-pointer transition-all duration-200 ease-out hover:bg-[#3B82F6]/10 hover:border-transparent hover:text-blue-400 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:bg-[#3B82F6]/15 active:border-transparent active:translate-y-0 active:scale-95">
+            <span className="absolute bottom-6 left-6 z-20 text-xs font-label font-medium tracking-wide text-[#94A3B8] bg-white/80 backdrop-blur-md border border-white/[0.08] px-3.5 py-1.5 rounded-full shadow-xs cursor-pointer transition-all duration-200 ease-out hover:bg-[#3B82F6]/10 hover:border-transparent hover:text-blue-400 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:bg-[#3B82F6]/15 active:border-transparent active:translate-y-0 active:scale-95">
               🔍 Expand
             </span>
           </motion.div>
@@ -993,14 +997,14 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#111827] border-y border-white/[0.06] py-20 md:py-28">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-4">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
           </motion.div>
 
           <motion.div {...fadeUp} className="mb-16 md:mb-20">
             <div className="inline-flex items-center gap-2 bg-[#111827] rounded-full px-4 py-2 border border-white/[0.08]">
-              <span className="font-mono text-xs text-[#3B82F6] uppercase tracking-wide">
+              <span className="font-label text-xs text-[#3B82F6] uppercase tracking-wide">
                 Client Constraint
               </span>
               <span className="font-body text-sm text-[#E2E8F0]">
@@ -1041,7 +1045,7 @@ export default function CaseStudySdarim() {
                       <div className="relative">
                         <div className="grid grid-cols-2 gap-3 md:gap-4 items-stretch">
                           <div className="bg-[#111827]/80 backdrop-blur-sm border border-white/[0.08] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                            <p className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] font-semibold mb-2">
+                            <p className="text-[11px] font-label uppercase tracking-wider text-[#64748B] font-semibold mb-2">
                               {solution.beforeLabel || "BEFORE (PAIN)"}
                             </p>
                             <p className="text-sm text-[#94A3B8] leading-relaxed">
@@ -1049,7 +1053,7 @@ export default function CaseStudySdarim() {
                             </p>
                           </div>
                           <div className="bg-[#3B82F6]/10 backdrop-blur-sm border border-[#3B82F6]/20 rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                            <p className="text-[11px] font-mono uppercase tracking-wider text-blue-400 font-bold mb-2">
+                            <p className="text-[11px] font-label uppercase tracking-wider text-blue-400 font-bold mb-2">
                               {solution.afterLabel || "AFTER (SOLUTION)"}
                             </p>
                             <p className="text-sm font-medium text-[#E2E8F0] leading-relaxed">
@@ -1102,7 +1106,7 @@ export default function CaseStudySdarim() {
                         <div className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-6 md:gap-8 items-start">
                           {/* UI TRIGGER — offset to sit beside Start area, not jammed top-left */}
                           <div className="flex flex-col md:pt-10">
-                            <span className="font-mono text-[10px] text-blue-400 font-semibold uppercase tracking-wider mb-2">
+                            <span className="font-label text-[10px] text-blue-400 font-semibold uppercase tracking-wider mb-2">
                               [ UI TRIGGER ]
                             </span>
                             <div
@@ -1111,7 +1115,7 @@ export default function CaseStudySdarim() {
                             >
                               <img src={solution.image} alt="DD - UI Trigger" className="w-full h-auto block" />
                             </div>
-                            <p className="font-mono text-[10px] text-[#64748B] mt-2 leading-relaxed">Dropdown entry → initiates flow</p>
+                            <p className="font-label text-[10px] text-[#64748B] mt-2 leading-relaxed">Dropdown entry → initiates flow</p>
                           </div>
                           {/* Process Flowchart — transparent PNG blends seamlessly into card canvas */}
                           <div
@@ -1127,7 +1131,7 @@ export default function CaseStudySdarim() {
                             />
                           </div>
                         </div>
-                        <p className="font-mono text-[11px] text-[#94A3B8] mt-5 text-center">
+                        <p className="font-label text-[11px] text-[#94A3B8] mt-5 text-center">
                           Process Map — Short vs Long form flow
                         </p>
                       </div>
@@ -1153,7 +1157,7 @@ export default function CaseStudySdarim() {
                               alt={`${solution.title} process map`}
                               className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.01]"
                             />
-                            <p className="font-mono text-[11px] text-[#F8FAFC]/60 px-4 py-3 border-t border-white/[0.08] bg-[#F5F5F7]">
+                            <p className="font-label text-[11px] text-[#F8FAFC]/60 px-4 py-3 border-t border-white/[0.08] bg-[#F5F5F7]">
                               Process Map — Short vs Long form flow
                             </p>
                           </div>
@@ -1174,7 +1178,7 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Visual Language
             </h2>
           </motion.div>
@@ -1186,11 +1190,11 @@ export default function CaseStudySdarim() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Typography
               </h3>
               <div className="rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                <p className="font-mono text-xs text-[#F8FAFC]/50 mb-6">Assistant — אבגד 1234</p>
+                <p className="font-label text-xs text-[#F8FAFC]/50 mb-6">Assistant — אבגד 1234</p>
                 <div className="divide-y divide-[#E5E7EB]/60">
                   {[
                     { label: "H1", size: "24px", weight: "Bold 700", sample: "Heading One — אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "24px", fontWeight: 700, lineHeight: "1.3" } },
@@ -1202,13 +1206,13 @@ export default function CaseStudySdarim() {
                   ].map((item) => (
                     <div key={item.label} className="py-5 first:pt-0 last:pb-0">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="font-mono text-[11px] font-normal text-[#3B82F6] uppercase tracking-wide">
+                        <span className="font-label text-[11px] font-normal text-[#3B82F6] uppercase tracking-wide">
                           {item.label}
                         </span>
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/30">•</span>
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/50">{item.size}</span>
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/30">•</span>
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/50">{item.weight}</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/30">•</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/50">{item.size}</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/30">•</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/50">{item.weight}</span>
                       </div>
                       <div style={item.style} className="text-[#E2E8F0] antialiased">
                         {item.sample}
@@ -1220,13 +1224,13 @@ export default function CaseStudySdarim() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Color Palette
               </h3>
               <div className="rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 {/* Primary & Core Neutrals */}
                 <div className="mb-8">
-                  <p className="font-mono text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
+                  <p className="font-label text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
                     Primary & Core Neutrals
                   </p>
                   <div className="flex flex-wrap gap-5 md:gap-6">
@@ -1243,7 +1247,7 @@ export default function CaseStudySdarim() {
                           style={{ backgroundColor: c.hex }}
                           aria-label={c.label}
                         />
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/70">{c.hex}</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/70">{c.hex}</span>
                       </div>
                     ))}
                   </div>
@@ -1251,7 +1255,7 @@ export default function CaseStudySdarim() {
 
                 {/* Secondary & Accent Colors */}
                 <div className="mb-8">
-                  <p className="font-mono text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
+                  <p className="font-label text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
                     Secondary & Accent Colors
                   </p>
                   <div className="flex flex-wrap gap-5 md:gap-6">
@@ -1268,7 +1272,7 @@ export default function CaseStudySdarim() {
                           style={{ backgroundColor: c.hex }}
                           aria-label={c.label}
                         />
-                        <span className="font-mono text-[11px] text-[#F8FAFC]/70">{c.hex}</span>
+                        <span className="font-label text-[11px] text-[#F8FAFC]/70">{c.hex}</span>
                       </div>
                     ))}
                   </div>
@@ -1276,7 +1280,7 @@ export default function CaseStudySdarim() {
 
                 {/* System / Feedback */}
                 <div className="mb-8">
-                  <p className="font-mono text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
+                  <p className="font-label text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
                     System / Feedback
                   </p>
                   <div className="flex flex-wrap gap-5 md:gap-6">
@@ -1286,15 +1290,15 @@ export default function CaseStudySdarim() {
                         style={{ backgroundColor: "#E91103" }}
                         aria-label="Error Red"
                       />
-                      <span className="font-mono text-[11px] text-[#F8FAFC]/70">#E91103</span>
-                      <span className="font-mono text-[10px] text-[#F8FAFC]/40 -mt-1">Error</span>
+                      <span className="font-label text-[11px] text-[#F8FAFC]/70">#E91103</span>
+                      <span className="font-label text-[10px] text-[#F8FAFC]/40 -mt-1">Error</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Gradient */}
                 <div className="pt-6 border-t border-white/[0.08]">
-                  <p className="font-mono text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
+                  <p className="font-label text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
                     Gradient
                   </p>
                   <div className="flex flex-col items-center gap-2 w-fit">
@@ -1303,7 +1307,7 @@ export default function CaseStudySdarim() {
                       style={{ background: "linear-gradient(135deg, #C1DFFF 0%, #E4F1FF 100%)" }}
                       aria-label="Gradient C1DFFF to E4F1FF"
                     />
-                    <span className="font-mono text-[11px] text-[#F8FAFC]/70">#C1DFFF → #E4F1FF</span>
+                    <span className="font-label text-[11px] text-[#F8FAFC]/70">#C1DFFF → #E4F1FF</span>
                   </div>
                 </div>
               </div>
@@ -1322,7 +1326,7 @@ export default function CaseStudySdarim() {
       <section className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-14">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -1340,7 +1344,7 @@ export default function CaseStudySdarim() {
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading font-medium text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -1355,22 +1359,22 @@ export default function CaseStudySdarim() {
       {/* ── Footer CTA ── */}
       <section className="px-6 md:px-12 py-20 md:py-28 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
-          <p className="font-mono text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
+          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>

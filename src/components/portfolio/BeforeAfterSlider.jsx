@@ -74,7 +74,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
         />
         {/* After pill clipped with After layer — only visible inside revealed area (Option A) */}
         <span
-          className="absolute bottom-3 right-3 bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-mono text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none shadow-md"
+          className="absolute bottom-3 right-3 bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-label text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none shadow-md"
           style={{ opacity: percentage > 5 ? 1 : 0, transition: "opacity 150ms" }}
         >
           After
@@ -103,7 +103,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, beforeAlt =
       </div>
 
       {/* Pill tags — synchronized with reveal (Option A + B): clipped with layers + fade */}
-      <div className="absolute bottom-3 left-3 bg-[#0A0F1D]/80 backdrop-blur-sm text-white font-mono text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none transition-opacity duration-150" style={{ opacity: percentage < 95 ? 1 : 0 }}>
+      <div className="absolute bottom-3 left-3 bg-[#0A0F1D]/80 backdrop-blur-sm text-white font-label text-[11px] tracking-wide uppercase px-3 py-1 rounded-full pointer-events-none transition-opacity duration-150" style={{ opacity: percentage < 95 ? 1 : 0 }}>
         Before
       </div>
       {/* After pill is already inside After layer above with clip + opacity; keep a fallback here for <5% hide is handled inside After layer */}

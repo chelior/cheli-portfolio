@@ -120,12 +120,12 @@ export default function CaseStudyUserCreation() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/#work"
-            className="flex items-center gap-2 font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
+            className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
           </Link>
-          <span className="font-mono text-xs text-[#F8FAFC]/50 hidden md:block">
+          <span className="font-label text-xs text-[#F8FAFC]/50 hidden md:block">
             Case Study · User Creation
           </span>
         </div>
@@ -149,7 +149,7 @@ export default function CaseStudyUserCreation() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="font-mono text-xs tracking-widest uppercase mb-4"
+                className="font-label text-xs tracking-widest uppercase mb-4"
                 style={{ color: "#F17E63" }}
               >
                 B2B SAAS · UX/UI DESIGN · 2026
@@ -194,10 +194,10 @@ export default function CaseStudyUserCreation() {
                     transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
                     className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
                   >
-                    <p className="font-heading font-bold text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
+                    <p className="font-heading text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
                       <AnimatedCounter value={stat.value} duration={1350} />
                     </p>
-                    <p className="font-mono text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
+                    <p className="font-label text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -229,7 +229,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               My Role & The Team
             </h2>
 
@@ -237,7 +237,7 @@ export default function CaseStudyUserCreation() {
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-0">
             <motion.div {...fadeUp}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
                 The Team
               </h3>
               <div className="space-y-0">
@@ -246,13 +246,13 @@ export default function CaseStudyUserCreation() {
                     key={i}
                     className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
+                    <span className="font-label text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-body text-[#94A3B8] text-base flex-1">
                       {member.role}
                     </span>
-                    <span className="font-mono text-xs text-[#F8FAFC]/60">
+                    <span className="font-label text-xs text-[#F8FAFC]/60">
                       {member.name}
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export default function CaseStudyUserCreation() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
+              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
                 Collaboration & Support
               </h3>
               <div className="space-y-0">
@@ -270,13 +270,13 @@ export default function CaseStudyUserCreation() {
                     key={i}
                     className="flex items-center gap-4 py-4 border-b border-white/[0.08]"
                   >
-                    <span className="font-mono text-xs text-[#F8FAFC]/30 w-4">
+                    <span className="font-label text-xs text-[#F8FAFC]/30 w-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-body text-[#94A3B8] text-base flex-1">
                       {s.role}
                     </span>
-                    <span className="font-mono text-xs text-[#F8FAFC]/60">
+                    <span className="font-label text-xs text-[#F8FAFC]/60">
                       {s.name}
                     </span>
                   </div>
@@ -291,10 +291,10 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-heading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Before & After
             </h2>
-            <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
+            <p className="font-label text-xs text-[#F8FAFC]/50 mb-12 block">
               Drag to compare before and after
             </p>
           </motion.div>
@@ -314,10 +314,10 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#F17E63]" style={{ backgroundColor: '#F17E63' }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
-            <p className="font-mono text-xs text-white/80 mb-12 block">
+            <p className="font-label text-xs text-white/80 mb-12 block">
               A Frustrating 4-Step Flow
             </p>
           </motion.div>
@@ -345,16 +345,16 @@ export default function CaseStudyUserCreation() {
                     key={step}
                     className="bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] px-4 py-3.5 text-center"
                   >
-                    <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "#F17E63" }}>
+                    <p className="font-label text-[10px] tracking-widest uppercase" style={{ color: "#F17E63" }}>
                       Step {i + 1}
                     </p>
-                    <p className="font-heading font-semibold text-[#E2E8F0] text-sm mt-1">{step}</p>
+                    <p className="font-body font-semibold text-[#E2E8F0] text-sm mt-1">{step}</p>
                   </div>
                 ))}
               </div>
               <div className="mt-4 inline-flex items-center gap-2 bg-[#111827] border border-white/[0.08] rounded-full px-3.5 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 <span className="text-[#F17E63] text-xs">↓</span>
-                <span className="font-mono text-xs text-[#94A3B8]">Flattened to a single dynamic screen</span>
+                <span className="font-label text-xs text-[#94A3B8]">Flattened to a single dynamic screen</span>
               </div>
             </motion.div>
 
@@ -382,7 +382,7 @@ export default function CaseStudyUserCreation() {
                     className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] pl-5 pr-4 py-4"
                     style={{ borderLeft: "3px solid #F17E63" }}
                   >
-                    <h4 className="font-heading font-semibold text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
+                    <h4 className="font-heading text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#F17E63" }} />
                       {item.title}
                     </h4>
@@ -401,7 +401,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Inspiration
             </h2>
 
@@ -428,12 +428,12 @@ export default function CaseStudyUserCreation() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
                     <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="font-mono text-xs text-[#3B82F6] font-normal">
+                      <span className="font-label text-xs text-[#3B82F6] font-normal">
                         {i + 1}
                       </span>
                     </div>
                     <div>
-                      <h4 className="font-heading font-medium text-[#94A3B8] text-base mb-1">
+                      <h4 className="font-heading text-[#94A3B8] text-base mb-1">
                         {item.label}
                       </h4>
                       <p className="font-body text-[#94A3B8] text-sm leading-relaxed">
@@ -465,10 +465,10 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Design Explorations & Trade-offs
             </h2>
-            <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
+            <p className="font-label text-xs text-[#F8FAFC]/50 mb-12 block">
               I evaluated 3 structural patterns for platform consistency, cognitive load, and edge cases.
             </p>
           </motion.div>
@@ -500,9 +500,9 @@ export default function CaseStudyUserCreation() {
 
                 <div className="p-6 md:p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="font-mono text-[11px] text-[#F8FAFC]/40 tracking-wide">{iter.num}</span>
+                    <span className="font-label text-[11px] text-[#F8FAFC]/40 tracking-wide">{iter.num}</span>
                     <span
-                      className={`inline-flex items-center text-[10px] font-mono uppercase tracking-wide px-2.5 py-1 rounded-full border ${
+                      className={`inline-flex items-center text-[10px] font-label uppercase tracking-wide px-2.5 py-1 rounded-full border ${
                         iter.isWinner
                           ? "bg-[#F17E63]/10 text-[#F17E63] border-[#F17E63]/20"
                           : "bg-neutral-100 text-neutral-600 border-neutral-200"
@@ -518,7 +518,7 @@ export default function CaseStudyUserCreation() {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-medium text-[#E2E8F0] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
+                  <h3 className="font-heading text-[#E2E8F0] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
                     {iter.label}
                   </h3>
 
@@ -545,8 +545,8 @@ export default function CaseStudyUserCreation() {
         <div className="max-w-[1100px] mx-auto">
           <div className="flex items-center justify-between gap-6 mb-2">
             <div>
-              <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
-              <span className="font-mono text-xs text-[#94A3B8] block">Click Add user, then Add users manually, to open the single-screen flow</span>
+              <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
+              <span className="font-label text-xs text-[#94A3B8] block">Click Add user, then Add users manually, to open the single-screen flow</span>
             </div>
             {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
             <button
@@ -598,7 +598,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Key Takeaways
             </h2>
 
@@ -617,7 +617,7 @@ export default function CaseStudyUserCreation() {
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading font-medium text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -632,22 +632,22 @@ export default function CaseStudyUserCreation() {
       {/* ── Footer CTA ── */}
       <section className="w-full px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
-          <p className="font-mono text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
+          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>
-          <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link
               to="/#work"
-              className="inline-flex items-center font-heading text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             >
               All projects
             </Link>
             <button
               onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-heading text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
+              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
             >
               Get in touch
             </button>

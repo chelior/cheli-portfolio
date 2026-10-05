@@ -54,10 +54,10 @@ export default function StartingPointSection({
     <>
         {title && (
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             {title}
           </h2>
-          <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
+          <p className="font-label text-xs text-[#F8FAFC]/50 mb-12 block">
             {subtitle}
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export default function StartingPointSection({
         <motion.div {...fadeUp} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-12">
           {/* Column 1 — title outside card */}
           <div>
-            <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
+            <h3 className="font-heading text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
               Searchable Dropdowns and Density Optimization
             </h3>
             <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
@@ -95,7 +95,7 @@ export default function StartingPointSection({
           </div>
           {/* Column 2 — title outside card */}
           <div>
-            <h3 className="font-heading font-semibold text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
+            <h3 className="font-heading text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
               Dynamic Progressive Disclosure for Role Settings
             </h3>
             <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
@@ -225,7 +225,7 @@ export default function StartingPointSection({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.25 }}
-            className="mt-6 font-mono text-[11px] text-[#F8FAFC]/60 tracking-wide text-center"
+            className="mt-6 font-label text-[11px] text-[#F8FAFC]/60 tracking-wide text-center"
           >
             {images[index].alt} — {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
           </motion.p>

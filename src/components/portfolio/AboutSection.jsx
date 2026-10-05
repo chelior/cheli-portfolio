@@ -35,7 +35,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-8 md:mb-10"
         >
-          <h2 className="font-subheading font-medium text-[#F8FAFC] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-subheading text-[#F8FAFC] text-[32px] leading-[1.2] tracking-[-0.02em]">
             About
           </h2>
         </motion.div>
@@ -61,7 +61,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mb-6 md:mb-8"
         >
-          <h3 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
+          <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
             Beyond the Screen
           </h3>
           <p className="font-body text-[#94A3B8] text-base leading-relaxed max-w-[500px] md:max-w-none md:whitespace-nowrap">
@@ -111,7 +111,7 @@ export default function AboutSection() {
         >
           <div className="flex items-center gap-3 mb-5">
             <span className="w-2 h-2 rounded-full bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.35)] animate-pulse" />
-            <span className="font-mono text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
+            <span className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
               Currently Thinking About
             </span>
           </div>

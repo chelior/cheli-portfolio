@@ -62,25 +62,25 @@ export default function ProjectLightbox({ project, onClose }) {
               {/* Details */}
               <div className="mt-10 md:mt-16 grid md:grid-cols-[1fr_1fr] gap-10 md:gap-20">
                 <div>
-                  <p className="font-mono text-xs text-white/40 tracking-wide uppercase mb-3">
+                  <p className="font-label text-xs text-white/40 tracking-wide uppercase mb-3">
                     {project.category} — {project.year}
                   </p>
-                  <h2 className="font-heading font-medium text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+                  <h2 className="font-heading text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
                     {project.title}
                   </h2>
                 </div>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Problem</h4>
+                    <h4 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Problem</h4>
                     <p className="text-white/70 text-base leading-relaxed">{project.problem}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Solution</h4>
+                    <h4 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-2">The Solution</h4>
                     <p className="text-white/70 text-base leading-relaxed">{project.solution}</p>
                   </div>
                   {project.impact && (
                     <div>
-                      <h4 className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase mb-2">Impact</h4>
+                      <h4 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-2">Impact</h4>
                       <p className="text-white/70 text-base leading-relaxed">{project.impact}</p>
                     </div>
                   )}

@@ -17,10 +17,10 @@ export default function CoreQuestionSpotlight({ question, accent = "#3B82F6", ey
         >
           {/* accent top rule */}
           <div className="absolute top-0 left-6 right-6 h-1 rounded-full" style={{ background: accent, opacity: 0.9 }} />
-          <p className="font-mono text-xs tracking-widest uppercase mb-4" style={{ color: accent }}>
+          <p className="font-label text-xs tracking-widest uppercase mb-4" style={{ color: accent }}>
             {eyebrow}
           </p>
-          <blockquote className="font-display font-semibold text-slate-900 text-2xl md:text-3xl lg:text-[32px] leading-[1.25] tracking-tight">
+          <blockquote className="font-display text-slate-900 text-2xl md:text-3xl lg:text-[32px] leading-[1.25] tracking-tight">
             “{question}”
           </blockquote>
         </div>
@@ -42,10 +42,10 @@ export function CoreQuestionSpotlightDark({ question, accent = "#3B82F6", eyebro
       <div className="max-w-[860px] mx-auto">
         <div className="relative rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/10 px-6 md:px-10 py-8 md:py-10">
           <div className="absolute top-0 left-6 right-6 h-1 rounded-full" style={{ background: accent }} />
-          <p className="font-mono text-xs tracking-widest uppercase mb-4" style={{ color: accent }}>
+          <p className="font-label text-xs tracking-widest uppercase mb-4" style={{ color: accent }}>
             {eyebrow}
           </p>
-          <blockquote className="font-display font-semibold text-white text-2xl md:text-3xl lg:text-[32px] leading-[1.25] tracking-tight">
+          <blockquote className="font-display text-white text-2xl md:text-3xl lg:text-[32px] leading-[1.25] tracking-tight">
             “{question}”
           </blockquote>
           <div className="mt-4 h-px w-full" style={{ background: `${accent}30` }} />

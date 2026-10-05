@@ -16,7 +16,7 @@ export default function WorkSection({ projects, onOpenProject }) {
           transition={{ duration: 0.6 }}
           className="mb-8 md:mb-10"
         >
-          <h2 className="font-subheading font-medium text-[#F8FAFC] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-subheading text-[#F8FAFC] text-[32px] leading-[1.2] tracking-[-0.02em]">
             Work
           </h2>
         </motion.div>

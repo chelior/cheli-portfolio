@@ -20,10 +20,10 @@ export default function BeforeAfterSection({ before, after }) {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">
+                <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                   Before
                 </span>
-                <span className="font-mono text-xs text-[#0A0F1D]/50">
+                <span className="font-label text-xs text-[#0A0F1D]/50">
                   {before.label}
                 </span>
               </div>
@@ -37,10 +37,10 @@ export default function BeforeAfterSection({ before, after }) {
             </div>
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">
+                <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                   After
                 </span>
-                <span className="font-mono text-xs text-[#0A0F1D]/50">
+                <span className="font-label text-xs text-[#0A0F1D]/50">
                   {after.label}
                 </span>
               </div>

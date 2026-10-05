@@ -58,7 +58,7 @@ export default function CaseStudyHero({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-mono text-xs tracking-widest uppercase mb-5"
+              className="font-label text-xs tracking-widest uppercase mb-5"
               style={{ color: accent }}
             >
               {overline}
@@ -69,7 +69,7 @@ export default function CaseStudyHero({
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading font-medium text-[#F8FAFC] tracking-[-0.02em] text-[34px] md:text-[46px] lg:text-[48px] leading-[1.1] max-w-[640px]"
+            className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[34px] md:text-[46px] lg:text-[48px] leading-[1.1] max-w-[640px]"
           >
             {titleNode
               ? titleNode
@@ -115,10 +115,10 @@ export default function CaseStudyHero({
                   whileHover={{ y: -3 }}
                   className="group relative bg-[#111827] rounded-xl p-4 md:p-5 transition-all duration-300 border border-white/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
                 >
-                  <p className="font-heading font-medium text-[#F8FAFC] text-[22px] md:text-[28px] leading-none tracking-[-0.04em] tabular-nums">
+                  <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[28px] leading-none tracking-[-0.01em] tabular-nums">
                     <AnimatedCounter value={stat.value} duration={1350} />
                   </p>
-                  <p className="font-mono text-[11px] md:text-xs text-[#F8FAFC]/55 mt-2.5 uppercase leading-tight">
+                  <p className="font-label text-[11px] md:text-xs text-[#F8FAFC]/55 mt-2.5 uppercase leading-tight">
                     {stat.label}
                   </p>
                 </motion.div>

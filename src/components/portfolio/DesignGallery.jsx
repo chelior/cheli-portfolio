@@ -83,10 +83,10 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading font-medium text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             Design Details
           </h2>
-          <span className="font-mono text-xs text-[#0A0F1D]/50 mb-12 block">
+          <span className="font-label text-xs text-[#0A0F1D]/50 mb-12 block">
             Final screens
           </span>
         </motion.div>
@@ -163,7 +163,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
               />
             ))}
           </div>
-          <span className="font-mono text-xs text-[#0A0F1D]/40">
+          <span className="font-label text-xs text-[#0A0F1D]/40">
             {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </span>
         </div>

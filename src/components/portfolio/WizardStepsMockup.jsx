@@ -78,8 +78,8 @@ function StepCard({ step, index, className, onOpen }) {
       className={`flex flex-col ${className || ""}`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="font-mono text-xs text-[#3B82F6] font-normal">{step.num}</span>
-        <span className="font-mono text-xs text-[#0A0F1D]/50 uppercase tracking-wide">{step.name}</span>
+        <span className="font-label text-xs text-[#3B82F6] font-normal">{step.num}</span>
+        <span className="font-label text-xs text-[#0A0F1D]/50 uppercase tracking-wide">{step.name}</span>
       </div>
       <div
         onClick={onOpen}

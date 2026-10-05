@@ -94,7 +94,7 @@ function PasswordGate({ children }) {
         ))}
       </div>
       <form onSubmit={handleSubmit} className="w-full max-w-sm bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-8 relative z-10">
-        <h1 className="font-heading font-medium text-[#F8FAFC] text-xl tracking-[-0.02em] mb-2">Protected Portfolio</h1>
+        <h1 className="font-heading text-[#F8FAFC] text-xl tracking-[-0.02em] mb-2">Protected Portfolio</h1>
         <p className="font-body text-sm text-[#94A3B8] leading-relaxed mb-6">This portfolio is locked. Enter the password to continue.</p>
         <div className="space-y-4">
           <input
@@ -105,10 +105,10 @@ function PasswordGate({ children }) {
             autoFocus
             className="w-full bg-white/[0.06] border border-white/[0.08] rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all"
           />
-          {error && <p className="font-mono text-xs text-[#FF4E7E]">Incorrect password. Try again.</p>}
+          {error && <p className="font-label text-xs text-[#FF4E7E]">Incorrect password. Try again.</p>}
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center bg-[#3B82F6] hover:bg-[#2563EB] text-white font-heading text-[13px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-xl transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+            className="w-full inline-flex items-center justify-center bg-[#3B82F6] hover:bg-[#2563EB] text-white font-body text-[13px] font-medium uppercase tracking-[0.06em] px-6 py-3 rounded-xl transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
           >
             Enter
           </button>

@@ -133,7 +133,7 @@ export default function Resume() {
         <div className="max-w-[1100px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 font-heading text-[13px] font-normal uppercase tracking-[0.06em] text-[#94A3B8] hover:text-[#F8FAFC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
+            className="inline-flex items-center gap-2 font-body text-[13px] font-normal uppercase tracking-[0.06em] text-[#94A3B8] hover:text-[#F8FAFC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
             Back to portfolio
@@ -142,7 +142,7 @@ export default function Resume() {
           <a
             href={PDF_HREF}
             download="Cheli Gan Mor - CV 2026.pdf"
-            className="hidden md:inline-flex items-center gap-2 bg-slate-900 hover:bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-heading text-[13px] font-medium tracking-[0.04em] uppercase px-5 py-2.5 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
+            className="hidden md:inline-flex items-center gap-2 bg-slate-900 hover:bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-body text-[13px] font-medium tracking-[0.04em] uppercase px-5 py-2.5 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
           >
             <Download size={14} />
             Download PDF
@@ -163,7 +163,7 @@ export default function Resume() {
               <p className="font-body text-sm text-[#64748B] mb-3 tracking-wide">
                 UX/UI & Product Designer · B2B SaaS · Fintech
               </p>
-              <h1 className="font-heading font-semibold text-[#F8FAFC] tracking-[-0.03em] text-[40px] md:text-[52px] leading-[0.95]">
+              <h1 className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[40px] md:text-[52px] leading-[0.95]">
                 Cheli Gan Mor
               </h1>
               <p className="font-body font-normal text-[#94A3B8] text-[17px] md:text-[19px] leading-[1.4] mt-2.5">
@@ -222,7 +222,7 @@ export default function Resume() {
               <a
                 href={PDF_HREF}
                 download="Cheli Gan Mor - CV 2026.pdf"
-                className="no-print inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-xl px-6 py-4 shadow-[0_0_20px_rgba(59,130,246,0.25)] font-heading text-[13px] font-medium uppercase tracking-[0.06em] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 shadow-sm"
+                className="no-print inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-xl px-6 py-4 shadow-[0_0_20px_rgba(59,130,246,0.25)] font-body text-[13px] font-medium uppercase tracking-[0.06em] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 shadow-sm"
               >
                 <Download size={16} />
                 Download PDF
@@ -257,7 +257,7 @@ export default function Resume() {
           <a
             href={PDF_HREF}
             download="Cheli Gan Mor - CV 2026.pdf"
-            className="no-print mt-6 flex md:hidden w-full items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white rounded-xl px-6 py-4 font-heading text-[13px] font-medium uppercase tracking-[0.06em] transition-colors"
+            className="no-print mt-6 flex md:hidden w-full items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white rounded-xl px-6 py-4 font-body text-[13px] font-medium uppercase tracking-[0.06em] transition-colors"
           >
             <Download size={16} />
             Download PDF
@@ -269,7 +269,7 @@ export default function Resume() {
           <div className="w-8 h-8 rounded-full bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] flex items-center justify-center text-white shadow-[0_0_12px_rgba(59,130,246,0.3)]">
             <Briefcase size={14} />
           </div>
-          <h2 className="font-heading font-medium text-[#F8FAFC] text-[20px] tracking-[-0.02em]">Work Experience</h2>
+          <h2 className="font-heading text-[#F8FAFC] text-[20px] tracking-[-0.02em]">Work Experience</h2>
           <div className="flex-1 h-px bg-white/[0.08] ml-2 hidden md:block" />
           <span className="font-body text-sm text-[#64748B] hidden md:block">4+ Years</span>
         </motion.div>
@@ -290,7 +290,7 @@ export default function Resume() {
               >
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
                   <div>
-                    <h3 className="font-heading font-semibold text-[#F8FAFC] text-[18px] tracking-[-0.02em]">
+                    <h3 className="font-heading text-[#F8FAFC] text-[18px] tracking-[-0.02em]">
                       {job.role}
                     </h3>
                     <p className="font-body text-[#94A3B8] text-sm mt-0.5">
@@ -370,7 +370,7 @@ function SkillsCard() {
         <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-[#94A3B8]">
           <Sparkles size={14} />
         </div>
-        <h2 className="font-heading font-medium text-[#F8FAFC] text-[16px] tracking-[-0.02em]">Skills & Tools</h2>
+        <h2 className="font-heading text-[#F8FAFC] text-[16px] tracking-[-0.02em]">Skills & Tools</h2>
       </div>
       <div className="flex flex-wrap gap-1.5">
         {SKILLS.map((s) => (
@@ -398,7 +398,7 @@ function EducationCard() {
         <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-[#94A3B8]">
           <GraduationCap size={14} />
         </div>
-        <h2 className="font-heading font-medium text-[#F8FAFC] text-[16px] tracking-[-0.02em]">Education & Certifications</h2>
+        <h2 className="font-heading text-[#F8FAFC] text-[16px] tracking-[-0.02em]">Education & Certifications</h2>
         <span className="ml-auto hidden xl:inline-flex items-center bg-white/[0.06] border border-white/[0.08] rounded-full px-2.5 py-1 font-body text-[11px] text-[#64748B] shrink-0">
           Continuous learning
         </span>
