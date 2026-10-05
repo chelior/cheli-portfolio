@@ -18,7 +18,7 @@ const fadeUp = {
 const CHALLENGES = [
   {
     title: "Zero Prior Characterization",
-    body: "4 years of organic, developer-driven growth led to severe feature bloat and a confusing structure.",
+    body: "4 years of organic, developer-driven growth led to feature bloat and a confusing structure.",
   },
   {
     title: "Hidden Power Features",
@@ -33,11 +33,11 @@ const CHALLENGES = [
 const RESEARCH = [
   {
     label: "System Auditing",
-    body: "Conducted 10 intensive working sessions with the client to audit every page and map friction points.",
+    body: "Conducted 10 working sessions with the client to audit every page and map friction points.",
   },
   {
     label: "User Survey",
-    body: "Sent a concise user survey to capture usage habits from managers and administrative staff.",
+    body: "Sent a user survey to capture usage habits from managers and administrative staff.",
   },
   {
     label: "Key Personas",
@@ -114,18 +114,18 @@ const SOLUTIONS = [
     title: "Text-First Navigation & Decluttering",
     subtitle: "Replacing icon clutter with clear text filters.",
     beforeLabel: "BEFORE (PAIN)",
-    beforeBody: "Navigation relied on redundant tabs and ambiguous icons that hid core actions and created visual noise.",
+    beforeBody: "Navigation relied on redundant tabs and ambiguous icons that hid core actions.",
     afterLabel: "AFTER (SOLUTION)",
     afterBody: "Replaced redundant tabs with contextual filters and swapped ambiguous icons for clear text labels.",
     // legacy fallback
-    painPoint: "Navigation relied on redundant tabs and ambiguous icons that hid core actions and created visual noise.",
+    painPoint: "Navigation relied on redundant tabs and ambiguous icons that hid core actions.",
     body: "Replaced redundant tabs with contextual filters and swapped ambiguous icons for clear text labels.",
     image: "images/sdarim/Text-First Navigation & Decluttering - filters@1x.svg",
   },
   {
     icon: <Split size={18} />,
     title: "Dual-Path Onboarding",
-    subtitle: "Redesigning the intake flow to match the pace of daily work.",
+    subtitle: "Redesigning the intake flow to fit daily work.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Monolithic wizard forced 14 required fields before saving a draft.",
     afterLabel: "AFTER (SOLUTION)",
@@ -144,10 +144,10 @@ const SOLUTIONS = [
     title: "Avrech Profile Architecture",
     subtitle: "Condensing an overloaded profile into a focused three-tab system.",
     beforeLabel: "BEFORE (PAIN)",
-    beforeBody: "The legacy profile exposed too many fields and tabs at once, making it confusing and overwhelming to navigate.",
+    beforeBody: "The legacy profile exposed too many fields and tabs at once, making it hard to navigate.",
     afterLabel: "AFTER (SOLUTION)",
     afterBody: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Collapsible accordion sections within each tab cut cognitive load and make specific information quick to find.",
-    painPoint: "The legacy profile exposed too many fields and tabs at once, making it confusing and overwhelming to navigate.",
+    painPoint: "The legacy profile exposed too many fields and tabs at once, making it hard to navigate.",
     body: "Replaced the cluttered legacy profile view with a clean 3 tab structure. Collapsible accordion sections within each tab cut cognitive load and make specific information quick to find.",
     image: "images/sdarim/2.6.2 Avrechim List - Edit Avrech t Tab1@1x.png",
   },
@@ -178,8 +178,8 @@ const STARTING_POINT_IMAGES = [
 const TAKEAWAYS = [
   {
     icon: <Eye size={18} />,
-    title: "Clarity Beats Minimalism",
-    body: "For non-tech enterprise users, clear text labels and explicit hierarchy outperform cryptic icons and minimalism that hides what things do.",
+    title: "Clarity for Non-Tech Users",
+    body: "Clear text labels and explicit hierarchy outperform cryptic icons and minimalism that hides what things do.",
   },
   {
     icon: <Scale size={18} />,
@@ -323,7 +323,7 @@ export default function CaseStudySdarim() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
-                I turned a cluttered, uncharacterized 4-year-old enterprise platform into an intuitive system for non-tech-savvy users, reducing cognitive load and uncovering hidden features.
+                I turned a cluttered, uncharacterized 4-year-old enterprise platform into a system non-tech-savvy users could navigate, reducing cognitive load and uncovering hidden features.
               </motion.p>
 
               {/* Metrics — 3 white cards elevated with soft shadows (blue tint) */}
@@ -502,7 +502,7 @@ export default function CaseStudySdarim() {
                 <ul className="space-y-2.5">
                   {[
                     "Increased feature adoption & system utilization",
-                    "Higher users engagement & satisfaction",
+                    "Higher user engagement & satisfaction",
                     "Improved productivity & task efficiency",
                     "Reduced errors & support overhead",
                   ].map((item) => (
@@ -704,7 +704,7 @@ export default function CaseStudySdarim() {
           >
             <div className="flex items-center gap-3 mb-8">
               <span className="font-mono text-xs text-[#3B82F6] tracking-wide uppercase">User Survey - Pain Points</span>
-              <span className="font-mono text-xs text-[#F8FAFC]/50">Real feedback from the field</span>
+              <span className="font-mono text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
@@ -944,7 +944,7 @@ export default function CaseStudySdarim() {
               <div>
                 <p className="font-mono text-xs font-medium tracking-wider text-blue-400 mb-2">KEY INSIGHT</p>
                 <p className="text-base md:text-lg font-medium text-[#E2E8F0] leading-[1.6]">
-                  Competitors focus on function and skip clear, user-friendly design.
+                  Competitors focus on function and skip UX.
                 </p>
               </div>
             </motion.div>
@@ -1359,7 +1359,7 @@ export default function CaseStudySdarim() {
             Next steps
           </p>
           <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in the full case study?
+            Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link

@@ -173,7 +173,7 @@ export default function DesignSystem() {
           <div className="mt-8 p-4 rounded-xl bg-[#E0E7FF] border border-[#3B82F6]/10">
             <p className="font-heading font-medium text-[#F8FAFC] text-sm mb-1">How to use</p>
             <p className="font-body text-xs text-[#94A3B8] leading-relaxed">
-              A living gallery: <Code>click</Code> a swatch to copy its class, compare button variants side by side, and check the audit at the bottom for inconsistencies.
+              <Code>click</Code> a swatch to copy its class, compare button variants side by side, and check the audit at the bottom for inconsistencies.
             </p>
           </div>
         </aside>
@@ -187,7 +187,7 @@ export default function DesignSystem() {
               Design System <span className="text-[#3B82F6]">Gallery</span>
             </h1>
             <p className="font-body text-[#94A3B8] text-[16px] md:text-[18px] leading-[1.6] mt-4 max-w-[760px]">
-              Every button, card, badge and motion pattern in use, rendered live so you can see how it all holds together. Each one uses the real Tailwind classes from the codebase.
+              Every button, card, badge and motion pattern in use, rendered live. Each one uses the real Tailwind classes from the codebase.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-2 font-mono text-xs bg-[#111827] border border-white/[0.08] rounded-full px-3 py-2">
@@ -212,7 +212,7 @@ export default function DesignSystem() {
             id="colors"
             kicker="01 · Foundations"
             title="Colors"
-            desc="The core portfolio brand stays small on purpose: indigo primary, soft neutrals, and the Sdarim extended system underneath for case-study richness. Click a swatch to copy its hex."
+            desc="The core portfolio brand stays small on purpose: indigo primary, soft neutrals, and the Sdarim extended system underneath for case studies. Click a swatch to copy its hex."
           >
             <SubHeading>Brand · Portfolio</SubHeading>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
@@ -778,7 +778,7 @@ export default function DesignSystem() {
               </div>
 
               <div className="pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
-                <p className="font-mono text-xs text-[#F8FAFC]/50">© 2026 — Designed & Built with intention</p>
+                <p className="font-mono text-xs text-[#F8FAFC]/50">© 2026 — Designed & built by me</p>
                 <div className="flex gap-6">
                   <a href="https://www.linkedin.com/in/cheliganmor95836b215" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded">LinkedIn</a>
                   <span className="font-mono text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] cursor-pointer">Read.cv</span>
@@ -978,7 +978,7 @@ export default function DesignSystem() {
           <Section
             id="audit"
             kicker="09 · Review"
-            title="Does it all make sense?"
+            title="Audit Notes"
             desc="Findings from a scan of the live codebase: what holds up, and what to tighten next."
           >
             <div className="grid md:grid-cols-2 gap-6">

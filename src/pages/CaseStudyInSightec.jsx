@@ -84,7 +84,7 @@ const TAKEAWAYS = [
   {
     icon: <Wrench size={18} />,
     title: "Bridging Design and Constraints",
-    body: "Working within agency and legacy platform environments sharpened my thinking. I delivered great UX even when technical boundaries were tight.",
+    body: "Working within agency and legacy platform environments sharpened my thinking. I delivered both dashboards even when technical boundaries were tight.",
   },
 ];
 
@@ -361,7 +361,7 @@ export default function CaseStudyInSightec() {
             Next steps
           </p>
           <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in the full case study?
+            Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link

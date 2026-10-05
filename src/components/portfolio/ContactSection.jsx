@@ -84,7 +84,7 @@ export default function ContactSection() {
         {/* Footer */}
         <div className="mt-24 md:mt-32 pt-8 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-mono text-xs text-[#F8FAFC]/50">
-            © {new Date().getFullYear()} - Designed & Built with intention
+            © {new Date().getFullYear()} - Designed & built by me
           </p>
           <div className="flex items-center gap-8">
             <a

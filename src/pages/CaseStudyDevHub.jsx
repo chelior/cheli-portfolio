@@ -71,7 +71,7 @@ const SOLUTIONS = [
     label: "Performant Data Grids",
     subtitle: "Audit logs at enterprise scale",
     reason:
-      "Used core Design System components to build fast, high-performance tables for Audit Logs and API Logs with strong filtering.",
+      "Used core Design System components to build high-performance tables for Audit Logs and API Logs with strong filtering.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Slow, unfiltered tables with poor scanability at scale.",
     afterLabel: "AFTER (SOLUTION)",
@@ -108,7 +108,7 @@ const TAKEAWAYS = [
   {
     icon: <Rocket size={18} />,
     title: "MVP as a Finished Experience",
-    body: "I learned to treat an MVP as a focused, complete product: a polished end-to-end experience from day one, with the architecture prepared for future scale.",
+    body: "I learned to treat an MVP as a finished product: polished end-to-end from day one, with the architecture ready for future scale.",
   },
   {
     icon: <Layers size={18} />,
@@ -118,7 +118,7 @@ const TAKEAWAYS = [
   {
     icon: <UserCheck size={18} />,
     title: "Reducing Support Overhead",
-    body: "Providing external developers with independent testing tools removes friction and cuts internal support overhead.",
+    body: "External developers test on their own, so internal teams spend less time on support.",
   },
 ];
 
@@ -377,8 +377,8 @@ export default function CaseStudyDevHub() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-0">
             <motion.div {...fadeUp}>
-              <p className="font-body text-[#F8FAFC]/70 text-[16px] leading-[1.6]">
-                Tipalti built its legacy DevHub for a simple, limited "single-app, single-user" model. As the company and client base scaled, this created severe operational bottlenecks.
+              <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium">
+                Tipalti built its legacy DevHub around a limited "single-app, single-user" model. As the company and client base scaled, those limits created operational bottlenecks:
               </p>
 
               <div className="mt-8 flex items-center gap-3">
@@ -399,6 +399,9 @@ export default function CaseStudyDevHub() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+              <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">
+                The Problems We Faced:
+              </p>
               <div className="space-y-4 mb-0">
                 {CHALLENGES.map((item, i) => (
                   <div
@@ -438,7 +441,7 @@ export default function CaseStudyDevHub() {
                   },
                   {
                     label: "Design System Alignment",
-                    body: "Led a strategic move to Tipalti's modern Design System instead of patching legacy code, ensuring consistency and component reusability.",
+                    body: "Led the move to Tipalti's modern Design System instead of patching legacy code, so components stay consistent and reusable.",
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
@@ -475,8 +478,7 @@ export default function CaseStudyDevHub() {
                   <p className="font-body text-white/80 text-sm leading-relaxed">
                     We saved{" "}
                     <span className="text-white font-normal">35 dev days</span>{" "}
-                    (from 168 down to 133) while delivering a superior user
-                    experience.
+                    (from 168 down to 133).
                   </p>
                 </div>
               </div>
@@ -497,9 +499,9 @@ export default function CaseStudyDevHub() {
             {...fadeUp}
             className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-16 md:mb-20"
           >
-            I built the new developer portal around three core solutions, each
-            addressing a critical bottleneck from the legacy system and preparing
-            it for future scale.
+            I built the new developer portal around three solutions, each
+            addressing a bottleneck from the legacy system and preparing it for
+            future scale.
           </motion.p>
 
           <div className="space-y-20 md:space-y-28">
@@ -646,7 +648,7 @@ export default function CaseStudyDevHub() {
             Next steps
           </p>
           <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in the full case study?
+            Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link

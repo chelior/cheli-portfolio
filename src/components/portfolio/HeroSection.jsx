@@ -65,7 +65,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 1.5 }}
           className="flex flex-wrap items-center justify-center gap-3 mt-12"
         >
-          {["AI Tools", "Workflows", "Solutions", "Architecture", "User Research"].map((skill, i) => (
+          {["4+ Years", "End-to-End Design", "Data-Informed", "User Research", "AI Tools", "Cross-Functional Teams"].map((skill, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}

@@ -16,9 +16,9 @@ const PROJECTS = [
     year: "2026",
     image: "images/user-creation/TM mockup.png",
     accent: "#F17E63",
-    problem: "A bloated 4-step wizard modal causing drop-offs and high cognitive load.",
+    problem: "A 4-step wizard modal where admins gave up partway.",
     solution: "A single-screen dynamic modal with progressive disclosure that flattens 4 steps into 1 flow.",
-    impact: "Eliminated drop-offs, improved consistency with platform patterns, and reduced cognitive load for admins.",
+    impact: "Drop-offs disappeared, the flow matched the platform's patterns, and admins filled in one screen instead of four.",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const PROJECTS = [
     accent: "#FF4E7E",
     problem: "A rigid, legacy single-app, single-user tool that couldn't scale with Tipalti's growing client base.",
     solution: "Rebuilt DevHub on Tipalti's modern Design System with multi-tenant support, a global context switcher, and self-service API testing.",
-    impact: "27% time-to-market savings, cutting development effort by 35 dev days (from 168 to 133) while delivering a better UX.",
+    impact: "27% time-to-market savings, cutting development effort by 35 dev days (from 168 to 133).",
   },
   {
     id: 5,
@@ -42,9 +42,9 @@ const PROJECTS = [
     year: "2023",
     image: "images/sdarim/1.1 Home Page_1x.png",
     accent: "#0077FF",
-    problem: "A cluttered, uncharacterized 4-year-old enterprise platform with severe feature bloat and hidden power features.",
+    problem: "A cluttered, uncharacterized 4-year-old enterprise platform with feature bloat and hidden power features.",
     solution: "Redesigned with text-first navigation, dual-path onboarding, master-details model, and a modern aesthetic while keeping all existing functionality.",
-    impact: "Reduced cognitive load for non-tech-savvy users, uncovered hidden features, and made a confusing system intuitive to use.",
+    impact: "Reduced cognitive load for non-tech-savvy users, uncovered hidden features, and gave the system a structure people could follow.",
   },
   {
     id: 6,
@@ -61,8 +61,8 @@ const PROJECTS = [
     },
     accent: "#B47AFF",
     problem: "A complex medical equipment sales analytics platform with audience mismatch, hidden revenue leaks, and visual clutter overwhelming non-analyst users.",
-    solution: "Separated the experience into dual-audience dashboards, visualized revenue leaks with gap analysis, and optimized complex multi-dimensional data within platform constraints.",
-    impact: "Revealed unrealized service revenue streams and gave executives a clear view alongside analyst-level investigation tools.",
+    solution: "Separated the experience into dual-audience dashboards, visualized revenue leaks with gap analysis, and reworked the multi-dimensional data views within platform constraints.",
+    impact: "Revealed unrealized service revenue streams and gave executives their own view of the numbers alongside analyst-level tools.",
   },
 ];
 

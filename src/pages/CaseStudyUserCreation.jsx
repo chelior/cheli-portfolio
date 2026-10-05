@@ -36,7 +36,7 @@ const ITERATIONS = [
     num: "01",
     label: "Full-Screen Page",
     tag: "Considered",
-    reason: "The full-screen page broke context switching; users lost immediate visibility into the underlying data table.",
+    reason: "The full-screen page hid the data table, so users lost their place.",
     image: "images/user-creation/Design Explorations & Trade-offs /Full page 1.svg",
     alt: "Full-Screen Page — hand-drawn sketch",
     isWinner: false,
@@ -45,7 +45,7 @@ const ITERATIONS = [
     num: "02",
     label: "Accordion (Inline Expansion)",
     tag: "Considered",
-    reason: "Configuring dynamic, conditional roles caused excessive page jumping and layout shifts.",
+    reason: "Configuring dynamic, conditional roles caused page jumping and layout shifts.",
     image: "images/user-creation/Design Explorations & Trade-offs /Accordeon 1.svg",
     alt: "Accordion inline expansion — hand-drawn sketch",
     isWinner: false,
@@ -54,7 +54,7 @@ const ITERATIONS = [
     num: "03",
     label: "Dynamic Single-Screen Modal",
     tag: "Selected Direction",
-    reason: "Kept users grounded in the workspace context, collapsed 4 friction-heavy steps into 1 progressive screen, and aligned with design system standards.",
+    reason: "Kept users in their workspace, collapsed 4 steps into 1 screen, and matched the design system.",
     image: "images/user-creation/Design Explorations & Trade-offs /Selected 1.svg",
     alt: "Dynamic single-screen modal — hand-drawn sketch",
     isWinner: true,
@@ -65,17 +65,17 @@ const TAKEAWAYS = [
   {
     icon: <Zap size={18} />,
     title: "Respect System Patterns",
-    body: "Sticking to the platform's established UX patterns, like modals, keeps the experience cohesive across the product.",
+    body: "Sticking to the platform's established patterns, like modals, keeps the whole product feeling like one thing.",
   },
   {
     icon: <Eye size={18} />,
     title: "Use Progressive Disclosure",
-    body: "Revealing advanced fields only when needed reduces cognitive load and keeps the UI clean and approachable.",
+    body: "Revealing advanced fields only when needed keeps the UI uncluttered.",
   },
   {
     icon: <Users size={18} />,
     title: "Test Early",
-    body: "Reviewing concepts with the design team saved time by eliminating flawed directions before dev investment.",
+    body: "Reviewing concepts with the design team saved time by dropping flawed directions before development started.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
               >
-                I replaced a bloated 4-step wizard with a single-screen dynamic modal, reducing cognitive load and eliminating drop-offs.
+                I replaced a 4-step wizard with a single-screen dynamic modal: admins fill in one screen instead of four.
               </motion.p>
 
               {/* Metrics — clean white cards */}
@@ -469,7 +469,7 @@ export default function CaseStudyUserCreation() {
               Design Explorations & Trade-offs
             </h2>
             <p className="font-mono text-xs text-[#F8FAFC]/50 mb-12 block">
-              I evaluated 3 structural patterns against platform consistency, cognitive load, and edge-case scalability.
+              I evaluated 3 structural patterns for platform consistency, cognitive load, and edge cases.
             </p>
           </motion.div>
 
@@ -546,7 +546,7 @@ export default function CaseStudyUserCreation() {
           <div className="flex items-center justify-between gap-6 mb-2">
             <div>
               <h2 className="font-subheading font-medium text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
-              <span className="font-mono text-xs text-[#94A3B8] block">Interactive demo: add a user and see the single-screen flow</span>
+              <span className="font-mono text-xs text-[#94A3B8] block">Click Add user, then Add users manually, to open the single-screen flow</span>
             </div>
             {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
             <button
@@ -636,7 +636,7 @@ export default function CaseStudyUserCreation() {
             Next steps
           </p>
           <h3 className="font-subheading font-medium text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in the full case study?
+            Interested in working together?
           </h3>
           <div className="flex items-center gap-5 mt-2">
             <Link

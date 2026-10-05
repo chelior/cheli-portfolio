@@ -87,7 +87,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    Enabled multiple standalone steps to fit into a single-screen dynamic modal.
+                    Fit multiple standalone steps into a single-screen modal.
                   </span>
                 </li>
               </ul>
@@ -115,7 +115,7 @@ export default function StartingPointSection({
                 <li className="flex items-start gap-3">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
                   <span className="font-body text-[#94A3B8] text-[14px] leading-[1.6]">
-                    Standard roles never see irrelevant fields, cutting cognitive friction.
+                    Standard roles never see irrelevant fields.
                   </span>
                 </li>
               </ul>

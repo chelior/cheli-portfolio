@@ -171,10 +171,9 @@ export default function Resume() {
               </p>
 
               <p className="font-body text-[#94A3B8] text-[15px] md:text-[16px] leading-[1.7] mt-6 max-w-[640px]">
-                I&apos;m a UX/UI designer with 4+ years of experience creating intuitive, engaging digital products.
-                I turn complex ideas into clean, impactful designs that users love. Curiosity drives me: I use AI
-                to speed up my research and rapid sketching, then keep refining my process alongside the teams I
-                work with.
+                I&apos;m a UX/UI designer with 4+ years of experience creating digital products. I turn complex
+                ideas into clean, intuitive designs. I use AI to speed up my research and rapid sketching, then
+                keep refining my process alongside the teams I work with.
               </p>
 
               {/* Unified contact row — cohesive understated pills */}
@@ -331,7 +330,7 @@ export default function Resume() {
 
         <footer className="no-print mt-12 md:mt-16 pt-8 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-sm text-[#64748B] text-center md:text-left">
-            © {new Date().getFullYear()} Cheli Gan Mor — Designed & built with intention ·{" "}
+            © {new Date().getFullYear()} Cheli Gan Mor · Designed & built by me ·{" "}
             <a href={PDF_HREF} download className="underline decoration-dotted hover:text-[#3B82F6] text-[#64748B]">
               Download PDF
             </a>
