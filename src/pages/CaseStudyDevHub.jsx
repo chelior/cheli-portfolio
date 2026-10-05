@@ -176,7 +176,7 @@ export default function CaseStudyDevHub() {
       </nav>
 
       {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(255,78,126,0.12) 0%, #090D16 75%)" }}>
+      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(255,78,126,0.12) 0%, #090D16 75%)" }}>
         {/* Background Watermark — DEVHUB */}
         <div
           aria-hidden="true"
@@ -331,7 +331,7 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Before & After ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -354,7 +354,7 @@ export default function CaseStudyDevHub() {
       <StartingPointSection images={STARTING_POINT_IMAGES} />
 
       {/* ── The Challenge — Top Hero (solid DevHub pink) ── */}
-      <section className="w-full my-0 px-6 md:px-12 py-28 md:py-32 bg-[#FF4E7E]" style={{ backgroundColor: "#FF4E7E" }}>
+      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#FF4E7E]" style={{ backgroundColor: "#FF4E7E" }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
             <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
@@ -423,7 +423,7 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Research & Business ROI ── */}
-      <section className="w-full px-6 md:px-12 py-20">
+      <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
@@ -433,7 +433,7 @@ export default function CaseStudyDevHub() {
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mb-0">
             <motion.div {...fadeUp}>
-              <div className="space-y-6">
+              <div className="space-y-6 max-w-[450px]">
                 {[
                   {
                     label: "Competitive Benchmarking",
@@ -445,7 +445,7 @@ export default function CaseStudyDevHub() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
-                    <div className="w-8 h-8 rounded-full bg-[#FF4E7E]/8 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-full bg-[#FF4E7E]/8 border border-[#FF4E7E]/20 flex items-center justify-center shrink-0 mt-0.5">
                       <span className="font-label text-xs text-[#FF4E7E] font-normal">
                         {i + 1}
                       </span>
@@ -488,9 +488,9 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Key Solutions & Features — rich alternating with mockups like Sdarim ── */}
-      <section className="px-6 md:px-12 mb-12 md:mb-16 bg-[#090D16] py-16 md:py-20">
+      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#090D16]">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-4">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Features
             </h2>
@@ -531,20 +531,26 @@ export default function CaseStudyDevHub() {
                       </h3>
                       {sol.subtitle && <p className="text-sm text-[#94A3B8] mb-6">{sol.subtitle}</p>}
 
-                      <div className="grid grid-cols-2 gap-3 md:gap-4">
-                        <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-4">
-                          <p className="text-[11px] font-label uppercase tracking-wider text-[#64748B] font-semibold mb-2">
-                            {sol.beforeLabel}
-                          </p>
-                          <p className="text-sm text-[#94A3B8] leading-relaxed">{sol.beforeBody}</p>
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-3 md:gap-4">
+                          <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-4">
+                            <p className="text-[11px] font-label uppercase tracking-wider text-[#64748B] font-semibold mb-2">
+                              {sol.beforeLabel}
+                            </p>
+                            <p className="text-sm text-[#94A3B8] leading-relaxed">{sol.beforeBody}</p>
+                          </div>
+                          <div className="bg-[#FF4E7E]/10 backdrop-blur-sm border border-[#FF4E7E]/20 rounded-2xl p-4">
+                            <p className="text-[11px] font-label uppercase tracking-wider text-[#FF4E7E] font-bold mb-2">
+                              {sol.afterLabel}
+                            </p>
+                            <p className="text-sm font-medium text-[#E2E8F0] leading-relaxed">{sol.afterBody}</p>
+                          </div>
                         </div>
-                        <div className="bg-[#FF4E7E]/10 backdrop-blur-sm border border-[#FF4E7E]/20 rounded-2xl p-4">
-                          <p className="text-[11px] font-label uppercase tracking-wider text-[#FF4E7E] font-bold mb-2">
-                            {sol.afterLabel}
-                          </p>
-                          <p className="text-sm font-medium text-[#E2E8F0] leading-relaxed">{sol.afterBody}</p>
+                        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-[#111827] border border-slate-200 shadow-[0_8px_32px_rgba(0,0,0,0.35)] items-center justify-center text-white/20 text-sm leading-none">
+                          →
                         </div>
                       </div>
+                      <div className="flex md:hidden justify-center mt-3 text-white/20 text-sm leading-none">→</div>
 
                       {sol.bullets && (
                         <ul className="mt-4 space-y-2">
@@ -608,9 +614,9 @@ export default function CaseStudyDevHub() {
       </PrototypeSection>
 
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-14">
+          <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -642,7 +648,7 @@ export default function CaseStudyDevHub() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-white/[0.08]">
+      <section className="px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
           <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps

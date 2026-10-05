@@ -28,7 +28,7 @@ const EXPERIENCE = [
   {
     company: "Tipalti",
     role: "Product Designer",
-    period: "2025 — 2026",
+    period: "2025–2026",
     location: "Enterprise Fintech Platform",
     bullets: [
       "Owned the end-to-end design of the Administration domain within an enterprise fintech platform.",
@@ -42,7 +42,7 @@ const EXPERIENCE = [
   {
     company: "One BI",
     role: "UX/UI Designer",
-    period: "2021 — 2025",
+    period: "2021–2025",
     location: "B2B Data & BI Platforms",
     bullets: [
       "Led design for complex B2B platforms focused on data visualization, including mashups, web applications, and internal tools.",
@@ -89,12 +89,12 @@ const EDUCATION = [
   {
     school: "The Open University",
     program: "Humanities and Social Sciences",
-    year: "2016 — 2021",
+    year: "2016–2021",
   },
   {
     school: "Minshar for Art",
     program: "Visual Communication",
-    year: "2014 — 2018",
+    year: "2014–2018",
   },
 ];
 

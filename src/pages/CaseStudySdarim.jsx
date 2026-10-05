@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Type, Split, Columns, Palette, Eye, Scale, ChevronLeft, ChevronRight, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard } from "lucide-react";
+import { ArrowLeft, Type, Split, Columns, Palette, Eye, Scale, ChevronLeft, ChevronRight, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
@@ -284,7 +284,7 @@ export default function CaseStudySdarim() {
       </nav>
 
       {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(0,119,255,0.12) 0%, #090D16 75%)" }}>
+      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(0,119,255,0.12) 0%, #090D16 75%)" }}>
         {/* Background Watermark — SDARIM */}
         <div
           aria-hidden="true"
@@ -377,7 +377,7 @@ export default function CaseStudySdarim() {
       </div>
 
       {/* ── My Role & Context ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-14 md:pt-20">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -416,7 +416,7 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Before & After ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -437,9 +437,9 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── How It Started — now carousel */}
-      <section className="px-6 md:px-12 py-8 md:py-10 mb-12 md:mb-16 overflow-hidden" style={{ boxSizing: "border-box" }}>
+      <section className="px-6 md:px-12 py-14 md:py-20 overflow-hidden" style={{ boxSizing: "border-box" }}>
         <div className="max-w-[1100px] mx-auto overflow-hidden">
-          <motion.div {...fadeUp} className="mb-10 md:mb-12 relative z-10">
+          <motion.div {...fadeUp} className="mb-12 relative z-10">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               How It Started
             </h2>
@@ -455,7 +455,7 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── The Challenge — Top Hero (solid Sdarim blue) ── */}
-      <section className="w-full my-0 px-6 md:px-12 py-28 md:py-32 bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
+      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp}>
             <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
@@ -478,7 +478,7 @@ export default function CaseStudySdarim() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-8">
             <motion.div {...fadeUp}>
-              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-4">Specific goals:</h3>
+              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">Specific goals:</h3>
               <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
                 <ul className="space-y-2.5">
                   {[
@@ -497,7 +497,7 @@ export default function CaseStudySdarim() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-4">Key metrics:</h3>
+              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">Key metrics:</h3>
               <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
                 <ul className="space-y-2.5">
                   {[
@@ -543,7 +543,7 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Design Process — Alternating Timeline ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -661,15 +661,15 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Research & Discovery ── */}
-      <section className="px-6 md:px-12 py-16 md:py-20 lg:py-24 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-14 md:mb-16">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-10 lg:gap-10 mb-20 md:mb-24">
+          <div className="space-y-6 max-w-[450px] mb-20 md:mb-24">
             {RESEARCH.map((item, i) => (
               <motion.div
                 key={i}
@@ -679,8 +679,8 @@ export default function CaseStudySdarim() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="flex gap-5"
               >
-                <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="font-label text-xs text-[#3B82F6] font-normal">
+                <div className="w-8 h-8 rounded-full bg-[#0077FF]/15 border border-[#0077FF]/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="font-label text-xs text-[#0077FF] font-normal">
                     {i + 1}
                   </span>
                 </div>
@@ -796,7 +796,7 @@ export default function CaseStudySdarim() {
               <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                 Quantitative Findings
               </span>
-              <span className="font-label text-xs text-[#F8FAFC]/50">Survey results — pain-point prevalence</span>
+              <span className="font-label text-xs text-[#F8FAFC]/50">Survey results, pain-point prevalence</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
               {[
@@ -877,7 +877,7 @@ export default function CaseStudySdarim() {
               <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
                 Competitive Research
               </span>
-              <span className="font-label text-xs text-[#F8FAFC]/50">Inspiration board — competitor breakdown</span>
+              <span className="font-label text-xs text-[#F8FAFC]/50">Inspiration board, competitor breakdown</span>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -957,15 +957,25 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Old System Mapping ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="w-full max-w-6xl mx-auto">
-          <motion.div {...fadeUp} className="mb-8">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Old System Mapping
-            </h2>
-            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
-              Legacy information architecture — full system site map
-            </span>
+          <motion.div {...fadeUp} className="flex items-start justify-between gap-6 mb-12">
+            <div>
+              <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+                Old System Mapping
+              </h2>
+              <span className="font-label text-xs text-[#F8FAFC]/50 block">
+                Legacy information architecture, full system site map
+              </span>
+            </div>
+            {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
+            <button
+              onClick={() => setSurveyLightbox({ src: "images/sdarim/old system mapping2.svg", alt: "Old System Mapping" })}
+              className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] shrink-0 shadow-sm"
+              aria-label="Expand Old System Mapping diagram"
+            >
+              <Maximize2 size={14} className="text-[#0A0F1D]" />
+            </button>
           </motion.div>
           <motion.div
             {...fadeUp}
@@ -986,17 +996,14 @@ export default function CaseStudySdarim() {
               alt="Old System Mapping — Information Architecture site tree of the legacy system"
               className="w-full h-auto object-contain rounded-xl block"
             />
-            <span className="absolute bottom-6 left-6 z-20 text-xs font-label font-medium tracking-wide text-[#94A3B8] bg-white/80 backdrop-blur-md border border-white/[0.08] px-3.5 py-1.5 rounded-full shadow-xs cursor-pointer transition-all duration-200 ease-out hover:bg-[#3B82F6]/10 hover:border-transparent hover:text-blue-400 hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:bg-[#3B82F6]/15 active:border-transparent active:translate-y-0 active:scale-95">
-              🔍 Expand
-            </span>
           </motion.div>
         </div>
       </section>
 
       {/* ── Key Solutions & Design Decisions ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#111827] border-y border-white/[0.06] py-20 md:py-28">
+      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-4">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
@@ -1033,7 +1040,10 @@ export default function CaseStudySdarim() {
                     className={`${i % 2 === 1 ? "md:order-2" : ""} self-center`}
                   >
                     <div>
-                      <h3 className="text-2xl font-bold text-[#E2E8F0] mb-1">
+                      <span className="inline-flex items-center font-label text-xs text-[#0077FF] bg-[#0077FF]/10 px-2.5 py-1 rounded-md border border-[#0077FF]/20 mb-3">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-heading text-[#E2E8F0] text-[22px] tracking-[-0.02em] mb-1">
                         {solution.title}
                       </h3>
                       {solution.subtitle && (
@@ -1132,7 +1142,7 @@ export default function CaseStudySdarim() {
                           </div>
                         </div>
                         <p className="font-label text-[11px] text-[#94A3B8] mt-5 text-center">
-                          Process Map — Short vs Long form flow
+                          Process Map, Short vs Long form flow
                         </p>
                       </div>
                     ) : solution.image ? (
@@ -1158,7 +1168,7 @@ export default function CaseStudySdarim() {
                               className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.01]"
                             />
                             <p className="font-label text-[11px] text-[#F8FAFC]/60 px-4 py-3 border-t border-white/[0.08] bg-[#F5F5F7]">
-                              Process Map — Short vs Long form flow
+                              Process Map, Short vs Long form flow
                             </p>
                           </div>
                         )}
@@ -1175,7 +1185,7 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Visual Language ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -1194,15 +1204,15 @@ export default function CaseStudySdarim() {
                 Typography
               </h3>
               <div className="rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                <p className="font-label text-xs text-[#F8FAFC]/50 mb-6">Assistant — אבגד 1234</p>
+                <p className="font-label text-xs text-[#F8FAFC]/50 mb-6">Assistant, אבגד 1234</p>
                 <div className="divide-y divide-[#E5E7EB]/60">
                   {[
-                    { label: "H1", size: "24px", weight: "Bold 700", sample: "Heading One — אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "24px", fontWeight: 700, lineHeight: "1.3" } },
-                    { label: "H2", size: "20px", weight: "Bold 700", sample: "Heading Two — אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "20px", fontWeight: 700, lineHeight: "1.4" } },
-                    { label: "H3", size: "18px", weight: "SemiBold 600", sample: "Heading Three — אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "18px", fontWeight: 600, lineHeight: "1.4" } },
-                    { label: "H4", size: "16px", weight: "SemiBold 600", sample: "Heading Four — אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "16px", fontWeight: 600, lineHeight: "1.5" } },
+                    { label: "H1", size: "24px", weight: "Bold 700", sample: "Heading One, אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "24px", fontWeight: 700, lineHeight: "1.3" } },
+                    { label: "H2", size: "20px", weight: "Bold 700", sample: "Heading Two, אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "20px", fontWeight: 700, lineHeight: "1.4" } },
+                    { label: "H3", size: "18px", weight: "SemiBold 600", sample: "Heading Three, אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "18px", fontWeight: 600, lineHeight: "1.4" } },
+                    { label: "H4", size: "16px", weight: "SemiBold 600", sample: "Heading Four, אבגד", style: { fontFamily: "'Assistant', sans-serif", fontSize: "16px", fontWeight: 600, lineHeight: "1.5" } },
                     { label: "Paragraph", size: "14px", weight: "Regular 400", sample: "The quick brown fox jumps over the lazy dog. אבגד הוזחטי", style: { fontFamily: "'Assistant', sans-serif", fontSize: "14px", fontWeight: 400, lineHeight: "1.7" } },
-                    { label: "Small Text", size: "12px", weight: "Regular 400", sample: "Small descriptive text — טקסט קטן", style: { fontFamily: "'Assistant', sans-serif", fontSize: "12px", fontWeight: 400, lineHeight: "1.6" } },
+                    { label: "Small Text", size: "12px", weight: "Regular 400", sample: "Small descriptive text, טקסט קטן", style: { fontFamily: "'Assistant', sans-serif", fontSize: "12px", fontWeight: 400, lineHeight: "1.6" } },
                   ].map((item) => (
                     <div key={item.label} className="py-5 first:pt-0 last:pb-0">
                       <div className="flex items-center gap-2 mb-3">
@@ -1323,9 +1333,9 @@ export default function CaseStudySdarim() {
         subtitle="Final screens in numerical order, duplicates removed"
       />
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-14">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -1357,7 +1367,7 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-white/[0.08]">
+      <section className="px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
           <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps

@@ -138,7 +138,7 @@ export default function CaseStudyInSightec() {
       />
 
       {/* ── My Role & Context ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -178,7 +178,7 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Before & After ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -198,9 +198,9 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── The Starting Point & The Problem ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#0A0F1D] py-20 md:py-28">
+      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#0A0F1D]">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-6">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-heading text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
               The Starting Point & The Problem
             </h2>
@@ -242,7 +242,7 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Research & Discovery ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -250,7 +250,7 @@ export default function CaseStudyInSightec() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          <div className="space-y-6 max-w-[450px]">
             {RESEARCH.map((item, i) => (
               <motion.div
                 key={i}
@@ -280,7 +280,7 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Key Solutions & Design Decisions ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 bg-[#111827] border-y border-white/[0.06] py-20 md:py-28">
+      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
@@ -321,9 +321,9 @@ export default function CaseStudyInSightec() {
       />
 
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36">
+      <section className="px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-14">
+          <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -355,7 +355,7 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-20 md:py-28 border-t border-white/[0.08]">
+      <section className="px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
           <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps

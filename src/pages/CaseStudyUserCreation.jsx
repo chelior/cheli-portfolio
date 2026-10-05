@@ -132,7 +132,7 @@ export default function CaseStudyUserCreation() {
       </nav>
 
       {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(241,126,99,0.12) 0%, #090D16 75%)" }}>
+      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(241,126,99,0.12) 0%, #090D16 75%)" }}>
         {/* Background Graphic Watermark — soft elegant texture */}
         <div
           aria-hidden="true"
@@ -415,7 +415,7 @@ export default function CaseStudyUserCreation() {
                 studied how top platforms handle
                 user setup at scale.
               </p>
-              <div className="space-y-6">
+              <div className="space-y-6 max-w-[450px]">
                 {[
                   {
                     label: "Dynamic Fields",
@@ -427,8 +427,8 @@ export default function CaseStudyUserCreation() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
-                    <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="font-label text-xs text-[#3B82F6] font-normal">
+                    <div className="w-8 h-8 rounded-full bg-[#F17E63]/15 border border-[#F17E63]/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="font-label text-xs text-[#F17E63] font-normal">
                         {i + 1}
                       </span>
                     </div>
@@ -543,7 +543,7 @@ export default function CaseStudyUserCreation() {
       {/* ── Prototype ── */}
       <section className="w-full px-6 md:px-12 py-14 md:py-20">
         <div className="max-w-[1100px] mx-auto">
-          <div className="flex items-center justify-between gap-6 mb-2">
+          <div className="flex items-center justify-between gap-6 mb-12">
             <div>
               <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">Prototype</h2>
               <span className="font-label text-xs text-[#94A3B8] block">Click Add user, then Add users manually, to open the single-screen flow</span>

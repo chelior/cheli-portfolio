@@ -227,7 +227,7 @@ export default function StartingPointSection({
             transition={{ duration: 0.25 }}
             className="mt-6 font-label text-[11px] text-[#F8FAFC]/60 tracking-wide text-center"
           >
-            {images[index].alt} — {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            {images[index].alt} · {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
           </motion.p>
         </AnimatePresence>
 

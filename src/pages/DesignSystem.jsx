@@ -345,7 +345,7 @@ export default function DesignSystem() {
             <div className="space-y-8">
               {/* Primary */}
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6 md:p-8">
-                <SubHeading>Primary CTA — Get in touch</SubHeading>
+                <SubHeading>Primary CTA: Get in touch</SubHeading>
                 <div className="flex flex-wrap gap-4 items-center">
                   <button className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2">
                     Get in touch
@@ -362,7 +362,7 @@ export default function DesignSystem() {
 
               {/* White pill + Ghost */}
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6 md:p-8">
-                <SubHeading>White pill — View Interactive Prototype (new standard)</SubHeading>
+                <SubHeading>White pill: View Interactive Prototype (new standard)</SubHeading>
                 <div className="flex flex-wrap gap-4 items-center">
                   <a
                     href="#"
@@ -433,7 +433,7 @@ export default function DesignSystem() {
 
               {/* Expand pill */}
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6 md:p-8">
-                <SubHeading>Utility pill — Expand</SubHeading>
+                <SubHeading>Utility pill: Expand</SubHeading>
                 <div className="flex flex-wrap gap-4 items-center">
                   <span className="text-xs font-label font-medium tracking-wide text-[#94A3B8] bg-white/80 backdrop-blur-md border border-white/[0.08] px-3.5 py-1.5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                     🔍 Expand
@@ -445,7 +445,7 @@ export default function DesignSystem() {
               {/* Magnetic / Email */}
               <div className="rounded-2xl border border-white/[0.08] bg-[#0A0F1D] p-6 md:p-8">
                 <SubHeading>
-                  <span className="text-white/60">Emphasis — Magnetic email (dark bg)</span>
+                  <span className="text-white/60">Emphasis: Magnetic email (dark bg)</span>
                 </SubHeading>
                 <a
                   href="mailto:cheliganmor@gmail.com"
@@ -594,7 +594,7 @@ export default function DesignSystem() {
 
               {/* Solution */}
               <div>
-                <SubHeading>Solution card — DevHub</SubHeading>
+                <SubHeading>Solution card: DevHub</SubHeading>
                 <div className="bg-[#111827] border border-white/[0.08] rounded-lg p-6 flex flex-col">
                   <div className="w-12 h-12 mb-4 relative flex items-center justify-center">
                     <div className="absolute inset-0 rounded-full border-2 border-dashed border-black/20" />
@@ -611,7 +611,7 @@ export default function DesignSystem() {
               {/* Challenge dark */}
               <div className="bg-[#0A0F1D] rounded-xl p-6">
                 <SubHeading>
-                  <span className="text-white/60">Challenge — dark variant</span>
+                  <span className="text-white/60">Challenge: dark variant</span>
                 </SubHeading>
                 <div className="border-l-2 border-[#3B82F6]/40 pl-5">
                   <h4 className="font-heading text-white text-base mb-1">Hidden Power Features</h4>
@@ -620,7 +620,7 @@ export default function DesignSystem() {
               </div>
 
               <div className="bg-[#111827] border border-white/[0.08] rounded-xl p-6">
-                <SubHeading>Challenge — light variant</SubHeading>
+                <SubHeading>Challenge: light variant</SubHeading>
                 <div className="border-l-2 border-[#3B82F6]/40 pl-5">
                   <h4 className="font-heading text-[#F8FAFC] text-base mb-1">Hidden Power Features</h4>
                   <p className="font-body text-[#94A3B8] text-sm">Advanced tools buried under heavy navigation and overcrowded pages.</p>
@@ -778,7 +778,7 @@ export default function DesignSystem() {
               </div>
 
               <div className="pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
-                <p className="font-label text-xs text-[#F8FAFC]/50">© 2026 — Designed & built by me</p>
+                <p className="font-label text-xs text-[#F8FAFC]/50">© 2026 · Designed & built by me</p>
                 <div className="flex gap-6">
                   <a href="https://www.linkedin.com/in/cheliganmor95836b215" target="_blank" rel="noopener noreferrer" className="font-label text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded">LinkedIn</a>
                   <span className="font-label text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] cursor-pointer">Read.cv</span>
@@ -964,7 +964,7 @@ export default function DesignSystem() {
               <div className="rounded-2xl border border-white/[0.08] bg-[#111827] p-6">
                 <SubHeading>Lightbox</SubHeading>
                 <div className="h-32 rounded-xl bg-[#0A0F1D] flex items-center justify-center relative overflow-hidden">
-                  <span className="font-label text-xs text-white/60">ImageLightbox — fullscreen overlay</span>
+                  <span className="font-label text-xs text-white/60">ImageLightbox: fullscreen overlay</span>
                   <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white">
                     <X size={14} />
                   </span>

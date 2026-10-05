@@ -47,7 +47,7 @@ export default function CaseStudyHero({
         "--project-accent": accent,
         background: `linear-gradient(to bottom, ${hexToRgba(accent, 0.12)} 0%, #090D16 75%)`,
       }}
-      className="relative pt-28 md:pt-36 pb-16 md:pb-20 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
+      className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] relative pt-28 md:pt-32 pb-16 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
     >
 
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 xl:gap-16 items-center">

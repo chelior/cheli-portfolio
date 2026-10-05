@@ -63,7 +63,7 @@ export default function ProjectLightbox({ project, onClose }) {
               <div className="mt-10 md:mt-16 grid md:grid-cols-[1fr_1fr] gap-10 md:gap-20">
                 <div>
                   <p className="font-label text-xs text-white/40 tracking-wide uppercase mb-3">
-                    {project.category} — {project.year}
+                    {project.category} · {project.year}
                   </p>
                   <h2 className="font-heading text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
                     {project.title}
