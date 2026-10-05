@@ -377,7 +377,7 @@ export default function CaseStudySdarim() {
       </div>
 
       {/* ── My Role & Context ── */}
-      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-32 md:pt-48">
+      <section className="px-6 md:px-12 mb-24 md:mb-36 pt-14 md:pt-20">
         <div className="max-w-[1100px] mx-auto">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">

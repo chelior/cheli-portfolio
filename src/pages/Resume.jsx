@@ -57,6 +57,7 @@ const SKILLS = [
   "Figma",
   "Adobe Creative Suite",
   "AI for UX / Product Design",
+  "Vibe Coding",
   "Design Systems",
   "Data Visualization",
   "Responsive Design",
@@ -69,6 +70,12 @@ const SKILLS = [
 ];
 
 const EDUCATION = [
+  {
+    school: "Technion Continuing Education",
+    program: "User Research in the Era of AI",
+    year: "soon",
+    soon: true,
+  },
   {
     school: "Figma Masterclass",
     program: "Advanced Design Masterclass Codesigner",
@@ -399,9 +406,6 @@ function EducationCard() {
           <GraduationCap size={14} />
         </div>
         <h2 className="font-heading text-[#F8FAFC] text-[16px] tracking-[-0.02em]">Education & Certifications</h2>
-        <span className="ml-auto hidden xl:inline-flex items-center bg-white/[0.06] border border-white/[0.08] rounded-full px-2.5 py-1 font-body text-[11px] text-[#64748B] shrink-0">
-          Continuous learning
-        </span>
       </div>
 
       <div className="space-y-0">
@@ -412,7 +416,10 @@ function EducationCard() {
               <span className="text-white/20 mx-1.5">·</span>
               <span className="text-[#94A3B8] text-xs">{e.program}</span>
             </p>
-            <span className="inline-flex items-center bg-white/[0.06] border border-white/[0.08] rounded-full px-2 py-0.5 font-body text-[11px] text-[#64748B] shrink-0 mt-0.5">
+            <span
+              className="inline-flex items-center bg-white/[0.06] border border-white/[0.08] rounded-full px-2 py-0.5 font-body text-[11px] shrink-0 mt-0.5"
+              style={{ color: e.soon ? BRAND : "#64748B", borderColor: e.soon ? BRAND : undefined }}
+            >
               {e.year}
             </span>
           </div>
