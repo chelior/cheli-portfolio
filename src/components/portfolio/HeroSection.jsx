@@ -42,7 +42,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[52px] sm:text-[64px] md:text-[112px] lg:text-[148px] leading-[1.05] md:leading-[0.85] max-w-[1400px]">
+        <h1 className="font-heading font-medium text-[#F8FAFC] tracking-[-0.04em] text-[9vw] sm:text-[64px] md:text-[112px] lg:text-[148px] leading-[1.05] md:leading-[0.85] max-w-[1400px]">
           <Line delay={0.4}>Hi, I'm Cheli Gan Mor,</Line>{" "}
           <Line delay={0.55}>
             <span className="text-[#3B82F6]">product designer.</span>
@@ -53,7 +53,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.3 }}
-          className="font-body font-normal text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] mt-8"
+          className="font-body font-normal text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] md:max-w-none mt-8"
         >
           Untangling complex tech into clear, human experiences
         </motion.p>

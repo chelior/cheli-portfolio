@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Copy, Check, MessageCircle } from "lucide-react";
 
 const EMAIL = "cheliganmor@gmail.com";
@@ -94,12 +95,12 @@ export default function ContactSection() {
             >
               LinkedIn
             </a>
-            <a
-              href="#"
+            <Link
+              to="/cv"
               className="font-mono text-xs text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
             >
               Read.cv
-            </a>
+            </Link>
           </div>
         </div>
       </div>

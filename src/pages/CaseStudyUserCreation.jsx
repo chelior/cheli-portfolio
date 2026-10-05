@@ -447,7 +447,7 @@ export default function CaseStudyUserCreation() {
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15 }}>
               <div
-                className="rounded-sm overflow-hidden bg-[#F0F0EC] max-w-[300px] ml-auto cursor-pointer"
+                className="rounded-sm overflow-hidden bg-[#F0F0EC] max-w-[300px] mx-auto md:ml-auto md:mr-0 cursor-pointer"
                 onClick={() => setResearchLightbox(true)}
               >
                 <img
