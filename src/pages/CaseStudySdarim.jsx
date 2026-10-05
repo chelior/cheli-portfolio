@@ -605,7 +605,7 @@ export default function CaseStudySdarim() {
                     className={`relative flex items-center group ${isLeft ? "md:flex-row" : "md:flex-row-reverse"} flex-row`}
                   >
                     {/* Card side */}
-                    <div className={`flex-1 ml-[64px] md:ml-0 ${isLeft ? "md:mr-[56px]" : "md:ml-[56px]"}`}>
+                    <div className={`flex-1 ml-[54px] md:ml-0 ${isLeft ? "md:mr-[64px]" : "md:ml-[64px]"}`}>
                       <motion.div
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -627,15 +627,12 @@ export default function CaseStudySdarim() {
                     </div>
 
                     {/* Horizontal connector — mobile: from node to card */}
-                    <div className="absolute left-[44px] top-1/2 -translate-y-1/2 w-[20px] h-0.5 bg-slate-200 group-hover:bg-slate-300 transition-colors md:hidden" />
+                    <div className="absolute left-[44px] top-1/2 -translate-y-1/2 w-[10px] h-0.5 bg-slate-200 group-hover:bg-slate-300 transition-colors md:hidden" />
                     {/* Horizontal connector — desktop: from center spine to card */}
                     <div
-                      className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-0.5 w-8 bg-slate-200 group-hover:bg-slate-300 transition-colors ${
+                      className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-0.5 w-2.5 bg-slate-200 group-hover:bg-slate-300 transition-colors ${
                         isLeft ? "right-1/2 mr-[22px]" : "left-1/2 ml-[22px]"
                       }`}
-                      style={{
-                        backgroundColor: undefined,
-                      }}
                     />
 
                     {/* Center icon node — 44px */}
@@ -1199,11 +1196,11 @@ export default function CaseStudySdarim() {
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <motion.div {...fadeUp}>
+            <motion.div {...fadeUp} className="flex flex-col">
               <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Typography
               </h3>
-              <div className="rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+              <div className="flex-1 rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 <p className="font-label text-xs text-[#F8FAFC]/50 mb-6">Assistant, אבגד 1234</p>
                 <div className="divide-y divide-[#E5E7EB]/60">
                   {[
@@ -1233,11 +1230,11 @@ export default function CaseStudySdarim() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col">
               <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Color Palette
               </h3>
-              <div className="rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+              <div className="flex-1 rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
                 {/* Primary & Core Neutrals */}
                 <div className="mb-8">
                   <p className="font-label text-[11px] text-[#F8FAFC]/50 uppercase tracking-wide mb-4">
