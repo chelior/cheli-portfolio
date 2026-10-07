@@ -8,7 +8,6 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Globe,
   GraduationCap,
   Briefcase,
   Sparkles,
@@ -20,7 +19,6 @@ const PHONE_TEL = "+972503301290";
 const LOCATION = "Ramat Gan";
 const PDF_HREF = "images/CV/Cheli Gan Mor - CV 2026.pdf";
 const LINKEDIN_HREF = "https://www.linkedin.com/in/cheliganmor95836b215";
-const PORTFOLIO_HREF = "https://chelisportfolio.com";
 
 const BRAND = "#3B82F6";
 
@@ -41,7 +39,7 @@ const EXPERIENCE = [
   },
   {
     company: "One BI",
-    role: "UX/UI Designer",
+    role: "Product Designer",
     period: "2021–2025",
     location: "B2B Data & BI Platforms",
     bullets: [
@@ -166,17 +164,17 @@ export default function Resume() {
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
             <div className="flex-1 min-w-0">
               <p className="font-body text-sm text-[#64748B] mb-3 tracking-wide">
-                UX/UI & Product Designer · B2B SaaS · Fintech
+                Product Designer · B2B SaaS · Fintech
               </p>
               <h1 className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[40px] md:text-[52px] leading-[0.95]">
                 Cheli Gan Mor
               </h1>
               <p className="font-body font-normal text-[#94A3B8] text-[17px] md:text-[19px] leading-[1.4] mt-2.5">
-                UX/UI Designer <span className="text-white/20 mx-1">·</span> Product Designer
+                Product Designer
               </p>
 
               <p className="font-body text-[#94A3B8] text-[15px] md:text-[16px] leading-[1.7] mt-6 max-w-[640px]">
-                I&apos;m a UX/UI designer with 4+ years of experience creating digital products. I turn complex
+                I&apos;m a product designer with 4+ years of experience creating digital products. I turn complex
                 ideas into clean, intuitive designs. I use AI to speed up my research and rapid sketching, then
                 keep refining my process alongside the teams I work with.
               </p>
@@ -209,15 +207,6 @@ export default function Resume() {
                 >
                   <Linkedin size={14} className="text-[#64748B]" />
                   LinkedIn
-                </a>
-                <a
-                  href={PORTFOLIO_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-white/[0.06] border border-white/[0.08] rounded-full px-3.5 py-2 font-body text-sm text-[#94A3B8] hover:border-[#3B82F6]/30 hover:text-[#3B82F6] hover:bg-white/[0.08] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-                >
-                  <Globe size={14} className="text-[#64748B]" />
-                  chelisportfolio.com
                 </a>
               </div>
             </div>
