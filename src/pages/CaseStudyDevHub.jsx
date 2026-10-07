@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Rocket, Layers, UserCheck } from "lucide-react";
+import { ArrowLeft, Rocket, TrendingUp, LifeBuoy } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
@@ -111,12 +111,12 @@ const TAKEAWAYS = [
     body: "I learned to treat an MVP as a finished product: polished end-to-end from day one, with the architecture ready for future scale.",
   },
   {
-    icon: <Layers size={18} />,
+    icon: <TrendingUp size={18} />,
     title: "Design System = Business ROI",
     body: "Aligning complex enterprise products with a unified Design System improves usability and cuts engineering effort, which makes tight deadlines possible.",
   },
   {
-    icon: <UserCheck size={18} />,
+    icon: <LifeBuoy size={18} />,
     title: "Reducing Support Overhead",
     body: "External developers test on their own, so internal teams spend less time on support.",
   },

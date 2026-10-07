@@ -71,14 +71,21 @@ const SKILLS = [
 
 const EDUCATION = [
   {
+    school: "ux.ui.dan",
+    program: "AI Product Design Masterclass",
+    year: "currently",
+    soon: true,
+  },
+  {
     school: "Technion Continuing Education",
     program: "User Research in the Era of AI",
     year: "soon",
     soon: true,
+    nowrap: true,
   },
   {
-    school: "Figma Masterclass",
-    program: "Advanced Design Masterclass Codesigner",
+    school: "ux.ui.dan",
+    program: "Live Figma Masterclass",
     year: "2025",
   },
   {
@@ -145,15 +152,6 @@ export default function Resume() {
             <ArrowLeft size={15} />
             Back to portfolio
           </Link>
-
-          <a
-            href={PDF_HREF}
-            download="Cheli Gan Mor - CV 2026.pdf"
-            className="hidden md:inline-flex items-center gap-2 bg-slate-900 hover:bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white font-body text-[13px] font-medium tracking-[0.04em] uppercase px-5 py-2.5 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
-          >
-            <Download size={14} />
-            Download PDF
-          </a>
         </div>
       </nav>
 
@@ -229,14 +227,11 @@ export default function Resume() {
               <a
                 href={PDF_HREF}
                 download="Cheli Gan Mor - CV 2026.pdf"
-                className="no-print inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-xl px-6 py-4 shadow-[0_0_20px_rgba(59,130,246,0.25)] font-body text-[13px] font-medium uppercase tracking-[0.06em] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 shadow-sm"
+                className="no-print inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
               >
                 <Download size={16} />
                 Download PDF
               </a>
-              <p className="no-print font-body text-xs text-slate-400 text-center leading-relaxed">
-                Or print via <span className="text-slate-500">⌘ + P</span>, optimized for A4
-              </p>
 
               {/* At a glance — sans-serif, muted */}
               <div className="hidden lg:block bg-white/[0.04] border border-white/[0.08] rounded-xl p-5 print-card">
@@ -264,7 +259,7 @@ export default function Resume() {
           <a
             href={PDF_HREF}
             download="Cheli Gan Mor - CV 2026.pdf"
-            className="no-print mt-6 flex md:hidden w-full items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] text-white rounded-xl px-6 py-4 font-body text-[13px] font-medium uppercase tracking-[0.06em] transition-colors"
+            className="no-print mt-6 flex md:hidden w-full items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
           >
             <Download size={16} />
             Download PDF
@@ -410,11 +405,11 @@ function EducationCard() {
 
       <div className="space-y-0">
         {EDUCATION.map((e) => (
-          <div key={e.school} className="flex items-start justify-between gap-2 py-1.5">
+          <div key={`${e.school}-${e.program}`} className="flex items-start justify-between gap-2 py-1.5">
             <p className="font-body text-[13px] leading-snug min-w-0 flex-1 pr-2">
-              <span className="font-medium text-[#F8FAFC]">{e.school}</span>
+              <span className={`font-medium text-[#F8FAFC] ${e.nowrap ? "whitespace-nowrap" : ""}`}>{e.program}</span>
               <span className="text-white/20 mx-1.5">·</span>
-              <span className="text-[#94A3B8] text-xs">{e.program}</span>
+              <span className="text-[#94A3B8] text-xs">{e.school}</span>
             </p>
             <span
               className="inline-flex items-center bg-white/[0.06] border border-white/[0.08] rounded-full px-2 py-0.5 font-body text-[11px] shrink-0 mt-0.5"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Users, Zap, Eye, Check, Maximize2, X } from "lucide-react";
+import { ArrowLeft, Users, LayoutGrid, Eye, Check, Maximize2, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
@@ -63,7 +63,7 @@ const ITERATIONS = [
 
 const TAKEAWAYS = [
   {
-    icon: <Zap size={18} />,
+    icon: <LayoutGrid size={18} />,
     title: "Respect System Patterns",
     body: "Sticking to the platform's established patterns, like modals, keeps the whole product feeling like one thing.",
   },

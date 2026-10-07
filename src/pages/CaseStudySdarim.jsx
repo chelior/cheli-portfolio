@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Type, Split, Columns, Palette, Eye, Scale, ChevronLeft, ChevronRight, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
+import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ChevronLeft, ChevronRight, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
@@ -177,7 +177,7 @@ const STARTING_POINT_IMAGES = [
 
 const TAKEAWAYS = [
   {
-    icon: <Eye size={18} />,
+    icon: <Lightbulb size={18} />,
     title: "Clarity for Non-Tech Users",
     body: "Clear text labels and explicit hierarchy outperform cryptic icons and minimalism that hides what things do.",
   },
