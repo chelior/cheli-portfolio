@@ -312,10 +312,7 @@ export default function Resume() {
 
         <footer className="no-print mt-12 md:mt-16 pt-8 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-sm text-[#64748B] text-center md:text-left">
-            © {new Date().getFullYear()} Cheli Gan Mor · Designed & built by me ·{" "}
-            <a href={PDF_HREF} download className="underline decoration-dotted hover:text-[#3B82F6] text-[#64748B]">
-              Download PDF
-            </a>
+            © {new Date().getFullYear()} Cheli Gan Mor · Designed &amp; built by me
           </p>
           <div className="flex items-center gap-3">
             <a
