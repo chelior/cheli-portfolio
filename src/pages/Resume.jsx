@@ -244,15 +244,6 @@ export default function Resume() {
               </div>
             </div>
           </div>
-
-          <a
-            href={PDF_HREF}
-            download="Cheli Gan Mor - CV 2026.pdf"
-            className="no-print mt-6 flex md:hidden w-full items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
-          >
-            <Download size={16} />
-            Download PDF
-          </a>
         </motion.section>
 
         {/* ── Section header — outside grid so cards align flush ── */}

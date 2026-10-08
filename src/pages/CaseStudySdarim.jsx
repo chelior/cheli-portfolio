@@ -1326,7 +1326,7 @@ export default function CaseStudySdarim() {
       {/* ── Design Details — unified carousel gallery ── */}
       <StartingPointSection
         images={DESIGN_DETAILS_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
-        title="Design Details"
+        title="Detailed Design"
         subtitle="Final screens in numerical order, duplicates removed"
       />
       {/* ── Key Takeaways ── */}

@@ -316,7 +316,7 @@ export default function CaseStudyInSightec() {
       {/* ── Design Details — unified carousel gallery ── */}
       <StartingPointSection
         images={DESIGN_DETAILS_SLIDES}
-        title="Design Details"
+        title="Detailed Design"
         subtitle="Wireframes, Old vs. New comparison & final dashboard flows"
       />
 

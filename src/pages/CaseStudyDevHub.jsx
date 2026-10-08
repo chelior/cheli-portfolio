@@ -599,7 +599,7 @@ export default function CaseStudyDevHub() {
       {/* ── Design Details — unified carousel gallery ── */}
       <StartingPointSection
         images={DEVHUB_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
-        title="Design Details"
+        title="Detailed Design"
         subtitle="Final screens"
         compact
       />

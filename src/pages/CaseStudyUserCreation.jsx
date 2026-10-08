@@ -535,7 +535,7 @@ export default function CaseStudyUserCreation() {
       {/* ── Design Details — unified carousel gallery ── */}
       <StartingPointSection
         images={USER_CREATION_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
-        title="Design Details"
+        title="Detailed Design"
         subtitle="Final screens"
         showArchitecturalBlock
       />

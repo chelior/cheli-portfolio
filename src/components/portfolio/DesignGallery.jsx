@@ -84,7 +84,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
         {/* Header */}
         <motion.div {...fadeUp}>
           <h2 className="font-subheading text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
-            Design Details
+            Detailed Design
           </h2>
           <span className="font-label text-xs text-[#0A0F1D]/50 mb-12 block">
             Final screens
