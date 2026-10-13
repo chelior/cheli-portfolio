@@ -9,8 +9,7 @@ import ProjectLightbox from "@/components/portfolio/ProjectLightbox";
 const PROJECTS = [
   {
     id: 1,
-    title: "How I Streamlined and Shortened the User Creation Process",
-    shortTitle: "User Creation",
+    title: "Redesigning Enterprise User Management: From a Clunky 4-Step Wizard to a Seamless Flow",
     slug: "/case-study/user-creation",
     category: "B2B SaaS - UX/UI Design",
     year: "2026",
@@ -23,7 +22,6 @@ const PROJECTS = [
   {
     id: 2,
     title: "Modernizing DevHub: From a Legacy Single-App Tool to a Flexible Developer Portal",
-    shortTitle: "DevHub",
     slug: "/case-study/dev-hub",
     category: "B2B SaaS - Developer Portal",
     year: "2025",
@@ -36,7 +34,6 @@ const PROJECTS = [
   {
     id: 5,
     title: "Sdarim: From Feature Bloat to Intuitive Workflow",
-    shortTitle: "Sdarim",
     slug: "/case-study/sdarim",
     category: "B2B/Enterprise SaaS - UX/UI Design",
     year: "2023",
@@ -49,7 +46,6 @@ const PROJECTS = [
   {
     id: 6,
     title: "InSightec: Uncovering Revenue Leaks Through Data Visualization",
-    shortTitle: "InSightec",
     slug: "/case-study/insightec",
     category: "B2B/Enterprise SaaS - UX/UI & Data Visualization",
     year: "2022",

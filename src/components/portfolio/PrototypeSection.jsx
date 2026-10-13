@@ -21,7 +21,7 @@ export default function PrototypeSection({
 
   return (
     <section className="w-full px-6 md:px-12 py-14 md:py-20">
-      <div className="max-w-[1100px] mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <motion.div {...fadeUp} className={expandableContent ? "flex items-start justify-between gap-6" : ""}>
           <div>
             <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">

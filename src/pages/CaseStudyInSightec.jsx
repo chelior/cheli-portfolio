@@ -7,6 +7,7 @@ import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import { CoreQuestionSpotlightDark } from "@/components/portfolio/CoreQuestionSpotlight";
 import ContactModal from "@/components/portfolio/ContactModal";
+import MoreProjects from "@/components/portfolio/MoreProjects";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -137,49 +138,9 @@ export default function CaseStudyInSightec() {
         preview={{ src: "images/insightec/Insightech mockup.png", alt: "InSightec — dual-audience dashboard visualization" }}
       />
 
-      {/* ── My Role & Context ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              My Role & Context
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-            <motion.div {...fadeUp}>
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
-                My Role
-              </h3>
-              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
-                Product Designer
-              </h4>
-              <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                End-to-end product definition and design: research, client interviews,
-                wireframes, UI design, and final mockups.
-              </p>
-            </motion.div>
-
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
-                The Context
-              </h3>
-              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
-                Project Company for InSightec
-              </h4>
-              <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                I worked through a project company for InSightec, a leading medical
-                device company that develops ultrasound technology for treating essential
-                tremors and Parkinson's disease.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Before & After ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
@@ -198,8 +159,8 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── The Starting Point & The Problem ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#0A0F1D]">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20 bg-[#0A0F1D]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-heading text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
               The Starting Point & The Problem
@@ -242,8 +203,8 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Research & Discovery ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
@@ -280,8 +241,8 @@ export default function CaseStudyInSightec() {
       </section>
 
       {/* ── Key Solutions & Design Decisions ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
@@ -321,8 +282,8 @@ export default function CaseStudyInSightec() {
       />
 
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
@@ -354,9 +315,11 @@ export default function CaseStudyInSightec() {
         </div>
       </section>
 
+      <MoreProjects currentSlug="/case-study/insightec" />
+
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
+      <section className="py-14 md:py-20 border-t border-white/[0.08]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
           <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>

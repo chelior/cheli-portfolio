@@ -5,7 +5,7 @@ export default function HeroGif({ size = "default" }) {
   const sizeClass = size === "large" ? "w-48 lg:w-64" : "w-36 lg:w-48";
   return (
     <div className="absolute inset-0 px-6 md:px-12 pointer-events-none">
-      <div className="max-w-[1100px] mx-auto relative h-full">
+      <div className="max-w-[1400px] mx-auto relative h-full">
         <motion.img
           src="images/sdarim/b6679ffe7_Sdarim-chaos-on-fire.gif"
           alt="Chaos on fire"

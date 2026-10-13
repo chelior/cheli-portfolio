@@ -39,7 +39,7 @@ export default function CaseStudyHeroShapes({ variant, accent = "#3B82F6" }) {
   const shapes = LAYOUTS[variant] || DEFAULT_SHAPES;
   return (
     <div className="absolute inset-0 px-6 md:px-12 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div className="max-w-[1100px] mx-auto relative h-full">
+      <div className="max-w-[1400px] mx-auto relative h-full">
         {/* Exactly 3 items scattered across bottom-right zone – no overflow, accent-driven */}
         <div className="hidden md:block absolute right-0 bottom-2 lg:bottom-4 w-[300px] h-[200px] lg:w-[420px] lg:h-[280px] overflow-hidden">
           {shapes.map((shape, i) => (

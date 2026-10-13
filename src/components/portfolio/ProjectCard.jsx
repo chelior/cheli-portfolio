@@ -114,10 +114,10 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
               <span className="font-label text-[11px] text-white/70 uppercase tracking-wide">Coming soon</span>
             </div>
           )}
-          {/* Hover teaser — hidden for WIP, directly beneath mockup */}
+          {/* Title — always visible inside the card, header-style type */}
           {!isWip && (
-            <div className="absolute bottom-6 left-6 right-6 md:bottom-7 md:left-8 md:right-8 z-10 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out flex justify-center">
-              <p className="font-body font-medium text-white text-center text-[13px] md:text-[14px] leading-[1.4] tracking-[-0.01em] max-w-[90%] drop-shadow-sm">
+            <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 bg-gradient-to-t from-black/85 via-black/45 to-transparent">
+              <p className="font-subheading text-white text-[17px] md:text-[19px] lg:text-[21px] leading-[1.25] tracking-[-0.02em]">
                 {project.title}
               </p>
             </div>
@@ -125,17 +125,12 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
         </div>
 
         {/* Meta — muted gray headers as requested */}
-        <div className="mt-4 h-[64px] flex items-start justify-between gap-4 w-full">
-          <div className="flex-1 min-w-0">
-            <h3 className="font-subheading text-[#CBD5E1] text-[20px] md:text-[22px] leading-[1.2] tracking-[-0.02em] truncate">
-              {project.shortTitle || project.title}
-            </h3>
-            <p className="font-label text-[11px] md:text-xs text-[#94A3B8] mt-1 tracking-wide uppercase">
-              {project.category}
-            </p>
-          </div>
+        <div className="mt-4 min-h-[20px] flex items-start justify-between gap-4 w-full">
+          <p className="font-label text-[11px] md:text-xs text-[#94A3B8] tracking-wide uppercase flex-1 min-w-0">
+            {project.category}
+          </p>
           {!isWip && (
-            <span className="font-label text-xs font-normal text-[#94A3B8] shrink-0 mt-1 ml-auto text-right">
+            <span className="font-label text-xs font-normal text-[#94A3B8] shrink-0 text-right">
               {project.year}
             </span>
           )}

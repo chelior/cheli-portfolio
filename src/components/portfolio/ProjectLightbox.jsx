@@ -48,7 +48,7 @@ export default function ProjectLightbox({ project, onClose }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="max-w-[1100px] mx-auto"
+              className="max-w-[1400px] mx-auto"
             >
               {/* Image */}
               <div className="rounded-sm overflow-hidden">

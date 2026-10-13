@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-export default function ImageLightbox({ src, alt, isOpen, onClose, onPrev, onNext }) {
+export default function ImageLightbox({ src, alt, isOpen, onClose, onPrev, onNext, solid }) {
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
@@ -27,7 +27,7 @@ export default function ImageLightbox({ src, alt, isOpen, onClose, onPrev, onNex
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-2 md:p-4 lg:p-6"
+          className={`fixed inset-0 z-[100] flex items-center justify-center p-4 ${solid ? "bg-black/90 backdrop-blur-md" : "bg-black/80"}`}
         >
           <button
             onClick={onClose}
@@ -68,7 +68,7 @@ export default function ImageLightbox({ src, alt, isOpen, onClose, onPrev, onNex
             src={src}
             alt={alt}
             onClick={(e) => e.stopPropagation()}
-            className="w-auto h-auto max-w-[96vw] max-h-[94vh] object-contain rounded-lg md:rounded-xl shadow-2xl"
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
             style={{ imageRendering: "auto" }}
           />
         </motion.div>

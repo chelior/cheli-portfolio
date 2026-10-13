@@ -262,7 +262,7 @@ export default function StartingPointSection({
 
   return (
     <section className={`w-full px-6 md:px-12 ${compact ? "py-10 md:py-16" : "py-14 md:py-20"}`} style={{ boxSizing: "border-box" }}>
-      <div className="max-w-[1100px] mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         {innerContent}
       </div>
       <ImageLightbox

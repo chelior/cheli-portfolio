@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
+import ZoomableImage from "@/components/portfolio/ZoomableImage";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ChevronLeft, ChevronRight, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
+import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
-import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ContactModal from "@/components/portfolio/ContactModal";
+import MoreProjects from "@/components/portfolio/MoreProjects";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const fadeUp = {
@@ -68,8 +69,8 @@ const SURVEY_SCREENS = [
   },
   {
     src: "images/sdarim/ce784e0a4_formss3.png",
-    alt: "Survey - Need parallel view of active students",
-    translation: "Need a parallel view of active students",
+    alt: "Survey - Need parallel view of active Avrechim",
+    translation: "Need a parallel view of active Avrechim",
     category: "Bulk Management",
     hebrew: "לראות במקביל ובאופן פשוט את כל האברכים שכעת פעילים, או שהיו פעילים היום. בנוסף, השינוי של תעריף לשעה וכו', נעשה כיום באופן מסורבל מאד.",
     bg: "bg-[#DCFCE7]/60",
@@ -170,7 +171,7 @@ const SOLUTIONS = [
 
 const STARTING_POINT_IMAGES = [
   { src: "images/sdarim/7bee2c0c1_Oldsystem-HomePage.png", alt: "Old system - Main dashboard" },
-  { src: "images/sdarim/70d5f602e_Oldsystem2.png", alt: "Old system - Student list" },
+  { src: "images/sdarim/70d5f602e_Oldsystem2.png", alt: "Old system - Avrechim list" },
   { src: "images/sdarim/a47b4b146_Oldsystem3.png", alt: "Old system - Report form" },
   { src: "images/sdarim/cbde4d24c_Oldsystem5.png", alt: "Old system - Monthly report" },
 ];
@@ -186,23 +187,6 @@ const TAKEAWAYS = [
     title: "Managing Constraints",
     body: "I balanced rigid feature-retention demands and tight development timelines while protecting the user experience.",
   },
-];
-
-const DESIGN_DETAILS_SLIDES = [
-  { image: "images/sdarim/1.1 Home Page_1x.png", caption: "1.1 Home Page_1x" },
-  { image: "images/sdarim/2.2.1 Abrechim List - Default@1x (3).png", caption: "2.2.1 Abrechim List - Default@1x" },
-  { image: "images/sdarim/2.2.3 Avrehim list - Avrech Popup 1@1x (3).png", caption: "2.2.3 Avrehim list - Avrech Popup 1@1x" },
-  { image: "images/sdarim/2.2.4 Avrehim list - Avrech Popup 2@1x (1).png", caption: "2.2.4 Avrehim list - Avrech Popup 2@1x" },
-  { image: "images/sdarim/2.2.5 Avrehim list - Avrech Popup 3@1x.png", caption: "2.2.5 Avrehim list - Avrech Popup 3@1x" },
-  { image: "images/sdarim/2.3.1 Avrechim List - Edit Avrech t Tab1@1x (4).png", caption: "2.3.1 Avrechim List - Edit Avrech t Tab1@1x" },
-  { image: "images/sdarim/2.3.3 Avrechim List - Edit Avrech Tab 2@1x (1).png", caption: "2.3.3 Avrechim List - Edit Avrech Tab 2@1x" },
-  { image: "images/sdarim/2.3.5 Avrechim List - Edit Avrech Tab 3@1x (1).png", caption: "2.3.5 Avrechim List - Edit Avrech Tab 3@1x" },
-  { image: "images/sdarim/4.1.1 Saved searches - List@1x (2).png", caption: "4.1.1 Saved searches - List@1x" },
-  { image: "images/sdarim/4.1.2 Saved searches - New@1x (3).png", caption: "4.1.2 Saved searches - New@1x" },
-  { image: "images/sdarim/15.1.1 Payment Report  - Empty@1x.png", caption: "15.1.1 Payment Report - Empty@1x" },
-  { image: "images/sdarim/15.1.2 Payment Report - Add Info@1x (2).png", caption: "15.1.2 Payment Report - Add Info@1x" },
-  { image: "images/sdarim/15.1.4 Payment Report - History Popup@1x.png", caption: "15.1.4 Payment Report - History Popup@1x" },
-  { image: "images/sdarim/15.1.7.1 Payment Report - Edit Popup x2@1x (1).png", caption: "15.1.7.1 Payment Report - Edit Popup x2@1x" },
 ];
 
 function ImagePlaceholder({ alt, className = "" }) {
@@ -226,38 +210,6 @@ export default function CaseStudySdarim() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const [designIndex, setDesignIndex] = useState(0);
-  const [designDirection, setDesignDirection] = useState(0);
-  const [designLightbox, setDesignLightbox] = useState(false);
-
-  const paginateDesign = useCallback((newDir) => {
-    setDesignDirection(newDir);
-    setDesignIndex((prev) => (prev + newDir + DESIGN_DETAILS_SLIDES.length) % DESIGN_DETAILS_SLIDES.length);
-  }, []);
-
-  const goToDesign = useCallback(
-    (i) => {
-      setDesignDirection(i > designIndex ? 1 : -1);
-      setDesignIndex(i);
-    },
-    [designIndex]
-  );
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "ArrowRight") paginateDesign(1);
-      if (e.key === "ArrowLeft") paginateDesign(-1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [paginateDesign]);
-
-  const designVariants = {
-    enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
-  };
 
   return (
     <main className="bg-[#090D16] min-h-screen">
@@ -293,7 +245,7 @@ export default function CaseStudySdarim() {
           SDARIM
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 pt-16 md:pt-20">
+        <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-end">
             {/* Left Column */}
             <div>
@@ -363,82 +315,39 @@ export default function CaseStudySdarim() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative flex items-end justify-center lg:justify-end self-end"
             >
-              <div className="w-full max-w-[560px]">
-                <img
-                  src="images/sdarim/1.1 Home Page_1x.png"
-                  alt="Sdarim — redesigned home page"
-                  className="w-full h-auto object-contain block rounded-lg border border-border"
+              <div className="w-full max-w-[420px]">
+                <ZoomableImage
+                  src="images/sdarim/Mockup.sdarim.png"
+                  alt="Sdarim redesigned home page"
+                  imgClassName="w-full h-auto object-contain block"
                   loading="eager"
                 />
               </div>
             </motion.div>
           </div>
+
+          {/* Elevated UI showcase — raw interface, no device frames */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 md:mt-14 mb-4"
+          >
+            <div className="mx-auto">
+              <ZoomableImage
+                src="images/sdarim/Herolargemockupsdarim.svg?v=2"
+                alt="Sdarim finalized redesigned flow"
+                imgClassName="w-full h-auto object-contain block"
+                loading="eager"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* ── My Role & Context ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              My Role & Context
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-            <motion.div {...fadeUp}>
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
-                My Role
-              </h3>
-              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
-                Product Designer
-              </h4>
-              <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                End-to-end product redefinition: research, client meetings, wireframes, and UI.
-              </p>
-            </motion.div>
-
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
-                Context
-              </h3>
-              <h4 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
-                Project Company Environment
-              </h4>
-              <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                I worked through a project company, collaborating with an external
-                software team that built the system organically over 4 years for multiple
-                Kollelim across Israel.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Before & After ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Before & After
-            </h2>
-            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
-              Drag to compare before and after
-            </span>
-          </motion.div>
-
-          <motion.div {...fadeUp}>
-            <BeforeAfterSlider
-              beforeImage={{ src: "images/sdarim/771c2c716_Oldsystem-HomePage.png", alt: "Before — Old System Home Page" }}
-              afterImage={{ src: "images/sdarim/3d0fd9abf_11HomePage_1x.png", alt: "After — Redesigned Home Page" }}
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── How It Started — now carousel */}
-      <section className="px-6 md:px-12 py-14 md:py-20 overflow-hidden" style={{ boxSizing: "border-box" }}>
-        <div className="max-w-[1100px] mx-auto overflow-hidden">
+      {/* ── How It Started — narrative legacy-state block ── */}
+      <section className="py-14 md:py-20 overflow-hidden" style={{ boxSizing: "border-box" }}>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 overflow-hidden">
           <motion.div {...fadeUp} className="mb-12 relative z-10">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               How It Started
@@ -448,15 +357,82 @@ export default function CaseStudySdarim() {
             </span>
           </motion.div>
 
-          <div className="relative overflow-hidden rounded-xl">
-            <StartingPointSection images={STARTING_POINT_IMAGES} title="" subtitle="" noWrapper />
+          <motion.div {...fadeUp} className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div>
+              <h3 className="font-heading text-[#E2E8F0] text-[26px] md:text-[30px] leading-[1.25] tracking-[-0.02em] mb-5">
+                The Legacy State: 4 Years of Organic Tech Debt
+              </h3>
+              <p className="font-body text-[#94A3B8] text-base leading-[1.75]">
+                For four years, the platform grew organically through pure engineering. Without dedicated product design, every new capability was bolted onto the interface. The result was a fragmented dashboard loaded with decorative pie charts and cryptic tables that overwhelmed non-technical administrators.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-[#111827] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.55)]">
+              <img
+                src="images/sdarim/7bee2c0c1_Oldsystem-HomePage.png"
+                alt="Legacy Sdarim dashboard — crowded with decorative pie charts and dense tables"
+                className="w-full h-auto block"
+                loading="lazy"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── The Problem: pure editorial, no cards ── */}
+      <section className="w-full my-0 py-16 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <motion.div {...fadeUp} className="lg:col-span-7">
+              <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
+                The Problem
+              </span>
+              <h3 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
+                Bridging the Gap for Non-Technical Educators
+              </h3>
+              <p className="font-body text-[#94A3B8] text-base leading-relaxed">
+                The primary users are not digital natives; they are school administrators and educators managing hundreds of Avrechim. They did not need a complex analytics dashboard. They needed clear, dependable answers to daily operational tasks.
+              </p>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="lg:col-span-5">
+              <div className="divide-y divide-white/10">
+                {[
+                  {
+                    title: "Action-First, Not Data-Dumps",
+                    body: "Replaced decorative charts and unactionable widgets with instant daily workflows and live Avrechim status.",
+                  },
+                  {
+                    title: "Calm, Jargon-Free UX",
+                    body: "Restructured dense multi-level navigation into plain language and predictable paths that feel intuitive from day one.",
+                  },
+                  {
+                    title: "Safe Workflows",
+                    body: "Prevented costly data entry mistakes during Avrechim onboarding through guided progressive disclosure.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+                    className="py-7 first:pt-0 last:pb-0"
+                  >
+                    <h4 className="font-heading text-[#E2E8F0] text-[17px] leading-[1.3] tracking-[-0.01em] mb-2.5">
+                      {item.title}
+                    </h4>
+                    <p className="font-body text-[#94A3B8] text-sm leading-relaxed">{item.body}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── The Challenge — Top Hero (solid Sdarim blue) ── */}
-      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
-        <div className="max-w-[1100px] mx-auto">
+      <section className="w-full my-0 py-20 md:py-28 min-h-[50vh] flex flex-col justify-center bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
             <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
@@ -467,84 +443,15 @@ export default function CaseStudySdarim() {
           </motion.div>
           <motion.div {...fadeUp} className="w-full max-w-full mb-0">
             <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
-              How can we simplify a complex, crowded system so non-tech oriented users can manage their students clearly and efficiently?
+              How might we simplify a dense, developer-built system so non-technical educators can manage<br />Avrechim operations effortlessly?
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── The Challenge — Bottom Breakdown (light canvas, blue accents) ── */}
-      <section className="w-full my-0 px-6 md:px-12 py-14 md:py-20 bg-[#0F172A] border-y border-white/[0.06]" style={{ backgroundColor: "#0F172A" }}>
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-8">
-            <motion.div {...fadeUp}>
-              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">Specific goals:</h3>
-              <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
-                <ul className="space-y-2.5">
-                  {[
-                    "Simplify navigation and workflows",
-                    "Prioritize critical features for daily use",
-                    "Establish a consistent, clear design",
-                    "Optimize workflows to boost productivity",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
-                      <span className="font-body text-[#F8FAFC]/70 text-[14px] leading-[1.6]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
-              <h3 className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">Key metrics:</h3>
-              <div className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-5">
-                <ul className="space-y-2.5">
-                  {[
-                    "Increased feature adoption & system utilization",
-                    "Higher user engagement & satisfaction",
-                    "Improved productivity & task efficiency",
-                    "Reduced errors & support overhead",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0077FF] shrink-0" />
-                      <span className="font-body text-[#F8FAFC]/70 text-[14px] leading-[1.6]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-
-          <p className="font-body text-[#F8FAFC] text-[16px] leading-[1.6] font-medium mb-8">
-            The Problems We Faced:
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-0">
-            {CHALLENGES.map((challenge, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-[#111827] rounded-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] pl-5 pr-4 py-4"
-                style={{ borderLeft: "3px solid #0077FF" }}
-              >
-                <h4 className="font-heading text-[#94A3B8] text-[15px] mb-1.5 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#0077FF" }} />
-                  {challenge.title}
-                </h4>
-                <p className="font-body text-[#94A3B8] text-sm leading-relaxed">{challenge.body}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Design Process — Alternating Timeline ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Design Process
@@ -658,15 +565,17 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Research & Discovery ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Research & Discovery
-            </h2>
-          </motion.div>
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="lg:col-span-6">
+              <motion.div {...fadeUp}>
+                <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+                  Research & Discovery
+                </h2>
+              </motion.div>
 
-          <div className="space-y-6 max-w-[450px] mb-20 md:mb-24">
+              <div className="space-y-6 max-w-[450px] mt-8">
             {RESEARCH.map((item, i) => (
               <motion.div
                 key={i}
@@ -691,24 +600,25 @@ export default function CaseStudySdarim() {
                 </div>
               </motion.div>
             ))}
-          </div>
+              </div>
+            </div>
 
-          {/* Research Synthesis / Affinity Board — interactive sticky notes */}
-          <motion.div
-            {...fadeUp}
-            className="rounded-2xl border border-white/[0.08] p-8 md:p-10"
+            {/* Research Synthesis / Affinity Board — interactive sticky notes */}
+            <motion.div
+              {...fadeUp}
+              className="lg:col-span-6 rounded-2xl border border-white/[0.08] p-4 md:p-5"
             style={{
               backgroundColor: "#fcfcfd",
               backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)",
               backgroundSize: "20px 20px",
             }}
           >
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
               <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">User Survey - Pain Points</span>
               <span className="font-label text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {SURVEY_SCREENS.map((screen, i) => {
                 const rotations = [-2.5, 1.8, -1.5, 2.2, -2, 1.5];
                 return (
@@ -724,7 +634,7 @@ export default function CaseStudySdarim() {
                     onClick={() => setSurveyLightbox({ src: screen.src, alt: screen.alt })}
                   >
                     <div
-                      className={`relative h-full min-h-[260px] aspect-square flex flex-col p-6 ${screen.bg}`}
+                      className={`relative h-full min-h-[175px] flex flex-col p-3 ${screen.bg}`}
                       style={{
                         borderRadius: "2px",
                         boxShadow: "2px 8px 16px -2px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04)",
@@ -739,8 +649,8 @@ export default function CaseStudySdarim() {
                           top: "-10px",
                           left: "50%",
                           transform: "translateX(-50%)",
-                          width: "70px",
-                          height: "22px",
+                          width: "56px",
+                          height: "18px",
                           background: "rgba(255, 255, 255, 0.6)",
                           backdropFilter: "blur(2px)",
                           borderRadius: "2px",
@@ -752,8 +662,8 @@ export default function CaseStudySdarim() {
                       <div
                         className="absolute bottom-0 right-0"
                         style={{
-                          width: "18px",
-                          height: "18px",
+                          width: "14px",
+                          height: "14px",
                           background: "linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.06) 50%)",
                           filter: "drop-shadow(-2px -2px 2px rgba(0,0,0,0.06))",
                           clipPath: "polygon(100% 0, 0 100%, 100% 100%)",
@@ -762,14 +672,14 @@ export default function CaseStudySdarim() {
                       />
 
                       {/* Category — subtle muted pill, not saturated */}
-                      <span className="inline-flex self-start text-xs font-label uppercase tracking-wider text-black/60 bg-black/5 px-2.5 py-1 rounded-full mt-2 mb-3">
+                      <span className="inline-flex self-start text-[10px] font-label uppercase tracking-wider text-black/60 bg-black/5 px-2 py-0.5 rounded-full mt-1 mb-2">
                         {screen.category}
                       </span>
 
                       {/* Hebrew — centered, 16px, 1.6, #1e293b */}
-                      <div className="flex-1 flex flex-col justify-center py-2">
+                      <div className="flex-1 flex flex-col justify-center py-1">
                         <p
-                          className="text-[16px] leading-[1.6]"
+                          className="text-[12px] leading-[1.45]"
                           style={{ direction: "rtl", textAlign: "right", fontFamily: "'Assistant', 'Heebo', sans-serif", color: "#1e293b" }}
                         >
                           {screen.hebrew}
@@ -778,14 +688,15 @@ export default function CaseStudySdarim() {
 
                       {/* English Takeaway — subtle, no divider */}
                       <div className="mt-auto pt-2">
-                        <p className="font-label text-xs text-[#94A3B8] leading-relaxed">{screen.translation}</p>
+                        <p className="font-label text-[10px] text-[#94A3B8] leading-snug">{screen.translation}</p>
                       </div>
                     </div>
                   </motion.div>
                 );
               })}
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Quantitative research findings — metric visualization */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
@@ -954,8 +865,8 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Old System Mapping ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="w-full max-w-6xl mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="flex items-start justify-between gap-6 mb-12">
             <div>
               <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
@@ -998,8 +909,8 @@ export default function CaseStudySdarim() {
       </section>
 
       {/* ── Key Solutions & Design Decisions ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
@@ -1181,21 +1092,63 @@ export default function CaseStudySdarim() {
         </div>
       </section>
 
-      {/* ── Visual Language ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Visual Language
+      {/* ── Visual Architecture ── */}
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp} className="mb-10">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
+              Visual Architecture: Clarity Over Decoration
             </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[1040px]">
+              <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
+                Operating with minimal existing brand guidelines and a single hard constraint of preserving the legacy logo, the visual refresh focused purely on clarity over decoration.
+              </p>
+              <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
+                We introduced a disciplined, blue-anchored palette to build visual trust while reserving high-contrast accents strictly for primary actions. Coupled with generous white space, standardized typography, and simplified iconography, the interface lowers visual friction and guides non-technical users naturally through dense workflows.
+              </p>
+            </div>
           </motion.div>
 
-          <motion.p {...fadeUp} className="font-body text-[#94A3B8] text-[16px] leading-[1.7] max-w-[640px] mb-16">
-            The company has no specific branding language. The design guidelines ask for
-            a modern, clean look, with one strict requirement: keep the logo.
-          </motion.p>
+          {/* Primary screen — full-width anchor */}
+          <motion.div {...fadeUp} className="mt-14 md:mt-16">
+            <div className="w-full rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+              <ZoomableImage
+                src="images/sdarim/1.1 Home Page_1x.png"
+                alt="Sdarim primary overview home page"
+                imgClassName="w-full h-auto block"
+                loading="eager"
+              />
+            </div>
+            <p className="mt-4 font-label text-[11px] tracking-widest uppercase text-[#F8FAFC]/45">
+              Primary Overview: High-level Avrechim activity &amp; quick actions
+            </p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+          {/* Secondary workflows — 2-column grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            {[
+              { src: "images/sdarim/2.2.1 Abrechim List - Default@1x (3).png", alt: "Avrechim management deep list view", caption: "Avrechim Management: deep list view with inline search & filters" },
+              { src: "images/sdarim/2.3.1 Avrechim List - Edit Avrech t Tab1@1x (4).png", alt: "Avrechim onboarding detail form", caption: "Avrechim Onboarding: guided step-by-step form with progressive disclosure" },
+            ].map((screen, i) => (
+              <motion.figure
+                key={screen.src}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col"
+              >
+                <div className="rounded-xl border border-white/10 shadow-xl overflow-hidden bg-[#111827]">
+                  <ZoomableImage src={screen.src} alt={screen.alt} imgClassName="w-full h-auto block" />
+                </div>
+                <figcaption className="mt-3 font-label text-[11px] tracking-widest uppercase text-[#F8FAFC]/45">
+                  {screen.caption}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-20">
             <motion.div {...fadeUp} className="flex flex-col">
               <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Typography
@@ -1323,15 +1276,30 @@ export default function CaseStudySdarim() {
         </div>
       </section>
 
-      {/* ── Design Details — unified carousel gallery ── */}
-      <StartingPointSection
-        images={DESIGN_DETAILS_SLIDES.map((s) => ({ src: s.image, alt: s.caption }))}
-        title="Detailed Design"
-        subtitle="Final screens in numerical order, duplicates removed"
-      />
+      {/* ── Before & After ── */}
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp} className="mb-12">
+            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+              Before & After
+            </h2>
+            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
+              Drag to compare before and after
+            </span>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <BeforeAfterSlider
+              beforeImage={{ src: "images/sdarim/771c2c716_Oldsystem-HomePage.png", alt: "Before — Old System Home Page" }}
+              afterImage={{ src: "images/sdarim/3d0fd9abf_11HomePage_1x.png", alt: "After — Redesigned Home Page" }}
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── Key Takeaways ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
@@ -1363,9 +1331,11 @@ export default function CaseStudySdarim() {
         </div>
       </section>
 
+      <MoreProjects currentSlug="/case-study/sdarim" />
+
       {/* ── Footer CTA ── */}
-      <section className="px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center gap-6">
+      <section className="py-14 md:py-20 border-t border-white/[0.08]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
           <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
             Next steps
           </p>
@@ -1394,6 +1364,7 @@ export default function CaseStudySdarim() {
         alt={surveyLightbox?.alt}
         isOpen={!!surveyLightbox}
         onClose={() => setSurveyLightbox(null)}
+        solid
       />
     </main>
   );
