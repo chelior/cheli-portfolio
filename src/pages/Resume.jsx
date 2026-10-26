@@ -69,13 +69,6 @@ const SKILLS = [
 
 const EDUCATION = [
   {
-    school: "Technion Continuing Education",
-    program: "User Research in the Era of AI",
-    year: "soon",
-    soon: true,
-    nowrap: true,
-  },
-  {
     school: "ux.ui.dan",
     program: "AI Product Design Masterclass",
     year: "currently",
