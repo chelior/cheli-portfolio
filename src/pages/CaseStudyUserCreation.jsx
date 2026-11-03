@@ -520,8 +520,8 @@ export default function CaseStudyUserCreation() {
             <p className="font-heading text-white/80 text-[22px] md:text-[24px] tracking-[-0.02em] mt-0 mb-6">
               The Challenge
             </p>
-            <p className="font-sans text-3xl md:text-4xl lg:text-[42px] font-medium text-white tracking-tight leading-[1.15] max-w-[1100px]">
-              How might we turn a frustrating, <span className="whitespace-nowrap">drop-off-prone</span> <span className="whitespace-nowrap">4-step</span> wizard into <span className="whitespace-nowrap">a single-screen</span> flow<br />that feels effortless?
+            <p className="font-sans text-3xl md:text-4xl lg:text-[42px] font-medium text-white tracking-tight leading-[1.15] max-w-[1100px] text-balance">
+              How might we turn a frustrating, <span className="whitespace-nowrap">drop-off-prone</span> <span className="whitespace-nowrap">4-step</span> wizard into <span className="whitespace-nowrap">a single-screen</span> flow that feels effortless?
             </p>
           </motion.div>
         </div>
