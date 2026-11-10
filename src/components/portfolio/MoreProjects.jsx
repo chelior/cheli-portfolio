@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ALL_PROJECTS = [
   {
-    title: "Redesigning Enterprise User Management: From a Clunky 4-Step Wizard to a Seamless Flow",
+    title: "Simplifying User Management: Turning a Rigid Wizard into a Frictionless Flow",
     platform: "B2B SaaS Platform",
     slug: "/case-study/user-creation",
     image: "images/user-creation/TM mockup.png",
@@ -41,7 +41,7 @@ export default function MoreProjects({ currentSlug }) {
   const projects = ALL_PROJECTS.filter((p) => p.slug !== currentSlug).slice(0, 2);
 
   return (
-    <section className="w-full px-6 md:px-12 py-14 md:py-20 border-t border-white/[0.08]">
+    <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#0F172A] border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export default function MoreProjects({ currentSlug }) {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 md:mb-10"
         >
-          <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             More Projects
           </h2>
           <p className="font-body text-[#94A3B8] text-[15px] md:text-[16px] leading-relaxed max-w-[640px]">

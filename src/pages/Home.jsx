@@ -3,13 +3,13 @@ import Navbar from "@/components/portfolio/Navbar";
 import HeroSection from "@/components/portfolio/HeroSection";
 import WorkSection from "@/components/portfolio/WorkSection";
 import AboutSection from "@/components/portfolio/AboutSection";
-import ContactSection from "@/components/portfolio/ContactSection";
+import SiteFooter from "@/components/portfolio/SiteFooter";
 import ProjectLightbox from "@/components/portfolio/ProjectLightbox";
 
 const PROJECTS = [
   {
     id: 1,
-    title: "Redesigning Enterprise User Management: From a Clunky 4-Step Wizard to a Seamless Flow",
+    title: "Simplifying User Management: Turning a Rigid Wizard into a Frictionless Flow",
     slug: "/case-study/user-creation",
     category: "B2B SaaS - UX/UI Design",
     year: "2026",
@@ -74,7 +74,7 @@ export default function Home() {
         onOpenProject={setSelectedProject}
       />
       <AboutSection />
-      <ContactSection />
+      <SiteFooter />
       <ProjectLightbox
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

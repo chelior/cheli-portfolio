@@ -47,7 +47,7 @@ export default function CaseStudyHero({
         "--project-accent": accent,
         background: `linear-gradient(to bottom, ${hexToRgba(accent, 0.12)} 0%, #090D16 75%)`,
       }}
-      className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] relative pt-28 md:pt-32 pb-16 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
+      className="lg:min-h-[743px] xl:min-h-[647px] relative pt-28 md:pt-32 pb-16 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
     >
 
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 xl:gap-16 items-center">
@@ -69,7 +69,7 @@ export default function CaseStudyHero({
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[34px] md:text-[46px] lg:text-[48px] leading-[1.1] max-w-[640px]"
+            className="font-heading text-[#F8FAFC] tracking-[-0.02em] text-[32px] sm:text-[42px] lg:text-[56px] leading-[1.1] max-w-[680px]"
           >
             {titleNode
               ? titleNode
@@ -92,7 +92,7 @@ export default function CaseStudyHero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="font-body text-[#94A3B8] text-[16px] md:text-[17px] leading-[1.65] max-w-[560px] mt-6"
+              className="font-body text-[#94A3B8] text-[17px] md:text-[20px] leading-[1.65] max-w-[600px] mt-6"
             >
               {description}
             </motion.p>

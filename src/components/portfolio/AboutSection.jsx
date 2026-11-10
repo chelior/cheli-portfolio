@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const INTERESTS = [
+  { image: "images/shared/cfa292972_image.png", caption: "Forever student" },
   { image: "images/shared/d436789e1_image.png", caption: "Outdoor lover" },
   { image: "images/shared/209c7f586_image.png", caption: "Always reading" },
   { image: "images/shared/233f92a8c_image.png", caption: "Sunset chaser" },
-  { image: "images/shared/cfa292972_image.png", caption: "Forever student" },
 ];
 
-const BIO = "I'm a product designer with over 4 years of experience. I enjoy untangling messy workflows and turning them into something that works. Outside of design, you'll often find me reading or down some rabbit hole. I love learning new things, and having a full-stack developer partner means tech conversations never stop at the office.";
+const BIO = "I'm a product designer with over 4 years of experience. I enjoy untangling messy workflows and turning them into clear, human experiences. Outside of design, you'll often find me reading or down some rabbit hole. I love learning new things, and having a full-stack developer partner means tech conversations never stop at the office.";
 
 const currentThinking = [
   "Where will my next workplace be?",
@@ -25,7 +25,7 @@ const IMAGE_FILTER = "contrast(1.08) saturate(0.85)";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative px-6 md:px-12 py-24 md:py-32 bg-[#0F172A] border-y border-white/[0.06]">
+    <section id="about" className="relative px-6 md:px-12 py-24 md:py-32 bg-[#0F172A] border-t border-white/[0.06]">
       <div className="max-w-[1000px] mx-auto">
         {/* Section header */}
         <motion.div
@@ -35,7 +35,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-8 md:mb-10"
         >
-          <h2 className="font-subheading text-[#F8FAFC] text-[32px] leading-[1.2] tracking-[-0.02em]">
+          <h2 className="font-subheading text-[#F8FAFC] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
             About
           </h2>
         </motion.div>
@@ -46,26 +46,10 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-14"
         >
           <p style={{ textWrap: "balance" }} className="font-body text-[#F8FAFC]/90 text-[18px] md:text-[20px] leading-[1.6] max-w-[744px]">
             {BIO}
-          </p>
-        </motion.div>
-
-        {/* Intro text above images */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-6 md:mb-8"
-        >
-          <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-3">
-            Beyond the Screen
-          </h3>
-          <p className="font-body text-[#94A3B8] text-base leading-relaxed max-w-[500px] md:max-w-none md:whitespace-nowrap">
-            The little things that keep me curious and calm when I'm away from my desk.
           </p>
         </motion.div>
 

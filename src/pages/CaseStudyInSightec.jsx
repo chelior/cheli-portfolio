@@ -8,6 +8,7 @@ import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import { CoreQuestionSpotlightDark } from "@/components/portfolio/CoreQuestionSpotlight";
 import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
+import SiteFooter from "@/components/portfolio/SiteFooter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -130,11 +131,6 @@ export default function CaseStudyInSightec() {
         title="InSightec: Uncovering Revenue Leaks Through Data Visualization"
         titleAccent="Revenue Leaks"
         description="I turned a complex medical equipment sales and analytics platform into a clean, intuitive system tailored for two very different user groups: senior executives and financial analysts."
-        stats={[
-          { value: "2022", label: "Project Year" },
-          { value: "2", label: "Core Audiences" },
-          { value: "QlikSense", label: "Dev Platform" },
-        ]}
         preview={{ src: "images/insightec/Insightech mockup.png", alt: "InSightec — dual-audience dashboard visualization" }}
       />
 
@@ -142,7 +138,7 @@ export default function CaseStudyInSightec() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
             <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
@@ -162,7 +158,7 @@ export default function CaseStudyInSightec() {
       <section className="py-14 md:py-20 bg-[#0A0F1D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading text-white text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-heading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               The Starting Point & The Problem
             </h2>
             <span className="font-label text-xs text-white/70 mt-2 block">
@@ -206,7 +202,7 @@ export default function CaseStudyInSightec() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
             </h2>
           </motion.div>
@@ -244,7 +240,7 @@ export default function CaseStudyInSightec() {
       <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
           </motion.div>
@@ -285,7 +281,7 @@ export default function CaseStudyInSightec() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -300,10 +296,10 @@ export default function CaseStudyInSightec() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#B47AFF] group-hover:bg-[#B47AFF]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#B47AFF]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3 transition-colors duration-300 group-hover:text-[#B47AFF]">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -317,31 +313,7 @@ export default function CaseStudyInSightec() {
 
       <MoreProjects currentSlug="/case-study/insightec" />
 
-      {/* ── Footer CTA ── */}
-      <section className="py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
-          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
-            Next steps
-          </p>
-          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in working together?
-          </h3>
-          <div className="flex items-center gap-5 mt-2">
-            <Link
-              to="/#work"
-              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-            >
-              All projects
-            </Link>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
-            >
-              Get in touch
-            </button>
-          </div>
-        </div>
-      </section>
+      <SiteFooter />
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </main>
   );

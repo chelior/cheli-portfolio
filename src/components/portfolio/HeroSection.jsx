@@ -53,7 +53,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.3 }}
-          className="font-body font-normal text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] md:max-w-none mt-8"
+          className="font-body font-normal text-[18px] sm:text-[21px] md:text-[24px] leading-[1.5] text-[#F8FAFC]/70 max-w-[560px] md:max-w-none mt-8"
         >
           Untangling complex tech into clear, human experiences
         </motion.p>
@@ -65,7 +65,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 1.5 }}
           className="flex flex-wrap items-center justify-center gap-3 mt-12"
         >
-          {["4+ Years", "End-to-End Design", "Data-Informed", "User Research", "AI Tools", "Cross-Functional Teams"].map((skill, i) => (
+          {["4+ Years Experience", "End-to-End Design", "Data-Informed", "User Research", "AI Tools", "Cross-Functional Teams"].map((skill, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}

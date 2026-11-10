@@ -7,6 +7,7 @@ import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
+import SiteFooter from "@/components/portfolio/SiteFooter";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const fadeUp = {
@@ -236,7 +237,7 @@ export default function CaseStudySdarim() {
       </nav>
 
       {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(0,119,255,0.12) 0%, #090D16 75%)" }}>
+      <div className="lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(0,119,255,0.12) 0%, #090D16 75%)" }}>
         {/* Background Watermark — SDARIM */}
         <div
           aria-hidden="true"
@@ -246,7 +247,7 @@ export default function CaseStudySdarim() {
         </div>
 
         <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-end">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Left Column */}
             <div>
               <motion.p
@@ -263,7 +264,7 @@ export default function CaseStudySdarim() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
-                className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                className="text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold tracking-tight leading-[1.1] mb-5"
               >
                 <span className="text-[#E2E8F0]">Sdarim: From Feature Bloat to </span>
                 <span className="text-[#0077FF]">Intuitive Workflow</span>
@@ -273,39 +274,10 @@ export default function CaseStudySdarim() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
+                className="text-[#94A3B8] text-[17px] md:text-[20px] leading-relaxed max-w-xl mb-8"
               >
                 I turned a cluttered, uncharacterized 4-year-old enterprise platform into a system non-tech-savvy users could navigate, reducing cognitive load and uncovering hidden features.
               </motion.p>
-
-              {/* Metrics — 3 white cards elevated with soft shadows (blue tint) */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="grid grid-cols-3 gap-3 max-w-[560px]"
-              >
-                {[
-                  { value: "11", label: "System Processes Mapped" },
-                  { value: "10", label: "Discovery Sessions" },
-                  { value: "3", label: "Core Personas" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
-                  >
-                    <p className="font-heading text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
-                      <AnimatedCounter value={stat.value} duration={1350} />
-                    </p>
-                    <p className="font-label text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
             </div>
 
             {/* Right Column — flat raw UI preview */}
@@ -313,7 +285,7 @@ export default function CaseStudySdarim() {
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex items-end justify-center lg:justify-end self-end"
+              className="relative flex items-center justify-center lg:justify-end"
             >
               <div className="w-full max-w-[420px]">
                 <ZoomableImage
@@ -349,7 +321,7 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20 overflow-hidden" style={{ boxSizing: "border-box" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 overflow-hidden">
           <motion.div {...fadeUp} className="mb-12 relative z-10">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               How It Started
             </h2>
             <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
@@ -363,7 +335,7 @@ export default function CaseStudySdarim() {
                 The Legacy State: 4 Years of Organic Tech Debt
               </h3>
               <p className="font-body text-[#94A3B8] text-base leading-[1.75]">
-                For four years, the platform grew organically through pure engineering. Without dedicated product design, every new capability was bolted onto the interface. The result was a fragmented dashboard loaded with decorative pie charts and cryptic tables that overwhelmed non-technical administrators.
+                Built without dedicated design for four years, features were just added as they came. The result was a messy dashboard with cluttered charts and confusing tables that overwhelmed admins.
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-[#111827] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.55)]">
@@ -386,7 +358,7 @@ export default function CaseStudySdarim() {
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
-              <h3 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
+              <h3 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
                 Bridging the Gap for Non-Technical Educators
               </h3>
               <p className="font-body text-[#94A3B8] text-base leading-relaxed">
@@ -434,7 +406,7 @@ export default function CaseStudySdarim() {
       <section className="w-full my-0 py-20 md:py-28 min-h-[50vh] flex flex-col justify-center bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
             <p className="font-label text-xs text-white/80 mb-12 block">
@@ -442,8 +414,8 @@ export default function CaseStudySdarim() {
             </p>
           </motion.div>
           <motion.div {...fadeUp} className="w-full max-w-full mb-0">
-            <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
-              How might we simplify a dense, developer-built system so non-technical educators can manage<br />Avrechim operations effortlessly?
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
+              How might we make a complex admin system intuitive for non-technical users?
             </p>
           </motion.div>
         </div>
@@ -453,7 +425,7 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Design Process
             </h2>
           </motion.div>
@@ -570,7 +542,7 @@ export default function CaseStudySdarim() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             <div className="lg:col-span-6">
               <motion.div {...fadeUp}>
-                <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+                <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
                   Research & Discovery
                 </h2>
               </motion.div>
@@ -869,7 +841,7 @@ export default function CaseStudySdarim() {
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="flex items-start justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+              <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
                 Old System Mapping
               </h2>
               <span className="font-label text-xs text-[#F8FAFC]/50 block">
@@ -912,7 +884,7 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
           </motion.div>
@@ -1096,15 +1068,15 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-10">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
-              Visual Architecture: Clarity Over Decoration
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
+              Clarity Over Decoration
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[1040px]">
               <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
-                Operating with minimal existing brand guidelines and a single hard constraint of preserving the legacy logo, the visual refresh focused purely on clarity over decoration.
+                With almost no existing brand guidelines and a requirement to keep the old logo, the focus was purely on functional clarity.
               </p>
               <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
-                We introduced a disciplined, blue-anchored palette to build visual trust while reserving high-contrast accents strictly for primary actions. Coupled with generous white space, standardized typography, and simplified iconography, the interface lowers visual friction and guides non-technical users naturally through dense workflows.
+                We relied on a simple blue palette, clean typography, and plenty of whitespace to make dense screens easy to read and keep key actions obvious.
               </p>
             </div>
           </motion.div>
@@ -1280,7 +1252,7 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
             <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
@@ -1301,7 +1273,7 @@ export default function CaseStudySdarim() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -1316,10 +1288,10 @@ export default function CaseStudySdarim() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#0077FF] group-hover:bg-[#0077FF]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#0077FF]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3 transition-colors duration-300 group-hover:text-[#0077FF]">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -1333,31 +1305,7 @@ export default function CaseStudySdarim() {
 
       <MoreProjects currentSlug="/case-study/sdarim" />
 
-      {/* ── Footer CTA ── */}
-      <section className="py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
-          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
-            Next steps
-          </p>
-          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in working together?
-          </h3>
-          <div className="flex items-center gap-5 mt-2">
-            <Link
-              to="/#work"
-              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-            >
-              All projects
-            </Link>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
-            >
-              Get in touch
-            </button>
-          </div>
-        </div>
-      </section>
+      <SiteFooter />
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       <ImageLightbox
         src={surveyLightbox?.src}

@@ -72,7 +72,7 @@ function Section({ id, kicker, title, desc, children }) {
         {kicker && (
           <p className="font-label text-xs text-[#3B82F6] tracking-widest uppercase mb-2">{kicker}</p>
         )}
-        <h2 className="font-heading text-[#F8FAFC] text-[28px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
+        <h2 className="font-heading text-[#F8FAFC] text-[28px] md:text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
           {title}
         </h2>
         {desc && <p className="font-body text-[#94A3B8] text-[15px] leading-[1.6] mt-3 max-w-[720px]">{desc}</p>}
@@ -303,7 +303,7 @@ export default function DesignSystem() {
                   </div>
                   <div>
                     <p className="font-label text-[11px] text-[#F8FAFC]/40 uppercase tracking-wide mb-2">H1 · 36–52px · -0.02em · 1.15</p>
-                    <p className="font-heading text-[#F8FAFC] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em]">
+                    <p className="font-heading text-[#F8FAFC] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em]">
                       Modernizing DevHub: From a Legacy Tool to a Flexible Portal
                     </p>
                   </div>

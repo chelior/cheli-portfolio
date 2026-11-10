@@ -10,6 +10,7 @@ import PrototypeSection from "@/components/portfolio/PrototypeSection";
 import DevHubPrototype from "@/components/portfolio/DevHubPrototype";
 import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
+import SiteFooter from "@/components/portfolio/SiteFooter";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const fadeUp = {
@@ -119,7 +120,7 @@ export default function CaseStudyDevHub() {
       </nav>
 
       {/* ── Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(255,78,126,0.12) 0%, #090D16 75%)" }}>
+      <div className="lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(255,78,126,0.12) 0%, #090D16 75%)" }}>
         {/* Background Watermark — DEVHUB */}
         <div
           aria-hidden="true"
@@ -129,7 +130,7 @@ export default function CaseStudyDevHub() {
         </div>
 
         <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-end">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Left Column */}
             <div>
               <motion.p
@@ -146,7 +147,7 @@ export default function CaseStudyDevHub() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
-                className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                className="text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold tracking-tight leading-[1.1] mb-5"
               >
                 <span className="text-[#E2E8F0]">Modernizing </span>
                 <span className="text-[#FF4E7E]">DevHub</span>
@@ -157,47 +158,18 @@ export default function CaseStudyDevHub() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
+                className="text-[#94A3B8] text-[17px] md:text-[20px] leading-relaxed max-w-xl mb-8"
               >
                 I turned Tipalti's legacy single-app, single-user tool into a scalable multi-tenant developer portal with self-service API testing.
               </motion.p>
-
-              {/* Metrics — 3 white cards elevated with soft shadows (pink tint) */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="grid grid-cols-3 gap-3 max-w-[560px]"
-              >
-                {[
-                  { value: "27%", label: "Time-to-market savings" },
-                  { value: "3", label: "Multi-tenant contexts" },
-                  { value: "100%", label: "Design System aligned" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
-                  >
-                    <p className="font-heading text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
-                      <AnimatedCounter value={stat.value} duration={1350} />
-                    </p>
-                    <p className="font-label text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
             </div>
 
-            {/* Right Column — flat raw UI preview (bottom-aligned with metric cards) */}
+            {/* Right Column — flat raw UI preview, vertically centred on the text */}
             <motion.div
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex items-end justify-center lg:justify-end self-end"
+              className="relative flex items-center justify-center lg:justify-end"
             >
               <div className="w-full max-w-[560px]">
                 <img
@@ -240,7 +212,7 @@ export default function CaseStudyDevHub() {
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
-              <h3 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
+              <h3 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
                 Scaling Beyond Single-Developer Limits
               </h3>
               <p className="font-body text-[#94A3B8] text-base leading-relaxed mb-6">
@@ -291,7 +263,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full my-0 py-20 md:py-28 min-h-[50vh] flex flex-col justify-center bg-[#FF4E7E]" style={{ backgroundColor: "#FF4E7E" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading text-white text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
             <p className="font-label text-xs text-white/80 mb-12 block">
@@ -299,8 +271,8 @@ export default function CaseStudyDevHub() {
             </p>
           </motion.div>
           <motion.div {...fadeUp} className="w-full max-w-full mb-0">
-            <p className="font-sans text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
-              How might we evolve a rigid single-app, single-user tool into a scalable, multi-tenant<br />developer portal without missing our tight MVP deadline?
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
+              How might we evolve a rigid single-app, single-user tool into a scalable, multi-tenant<br className="hidden md:block" />developer portal without missing our tight MVP deadline?
             </p>
           </motion.div>
         </div>
@@ -309,7 +281,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Research & Business ROI
             </h2>
           </motion.div>
@@ -364,7 +336,7 @@ export default function CaseStudyDevHub() {
       <section className="py-14 md:py-20 bg-[#090D16]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#F1F5F9] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Features
             </h2>
           </motion.div>
@@ -495,7 +467,7 @@ export default function CaseStudyDevHub() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
             <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
@@ -518,7 +490,7 @@ export default function CaseStudyDevHub() {
             <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
               Component Craft &amp; Edge Cases
             </span>
-            <h3 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-5">
+            <h3 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-5">
               Detailed Design
             </h3>
             <p className="font-body text-[#94A3B8] text-base leading-relaxed max-w-[720px]">
@@ -590,7 +562,7 @@ export default function CaseStudyDevHub() {
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
           </motion.div>
@@ -605,10 +577,10 @@ export default function CaseStudyDevHub() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/5 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#FF4E7E]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#FF4E7E]">
                   {item.icon}
                 </div>
-                <h3 className="font-heading text-[#E2E8F0] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-heading text-[#E2E8F0] text-[22px] leading-[1.3] tracking-[-0.02em] mb-3 transition-colors duration-300 group-hover:text-[#FF4E7E]">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -622,31 +594,7 @@ export default function CaseStudyDevHub() {
 
       <MoreProjects currentSlug="/case-study/dev-hub" />
 
-      {/* ── Footer CTA ── */}
-      <section className="py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
-          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
-            Next steps
-          </p>
-          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in working together?
-          </h3>
-          <div className="flex items-center gap-5 mt-2">
-            <Link
-              to="/#work"
-              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E]"
-            >
-              All projects
-            </Link>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#FF4E7E] hover:bg-[#0A0F1D] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] focus-visible:ring-offset-2"
-            >
-              Get in touch
-            </button>
-          </div>
-        </div>
-      </section>
+      <SiteFooter />
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </main>
   );

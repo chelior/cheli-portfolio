@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ChevronRight, Users, LayoutGrid, Eye, Check, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ChevronRight, ChevronDown, Users, LayoutGrid, Eye, Check, Maximize2, X } from "lucide-react";
+import ddUserPlusUrl from "@/assets/dd-menu/user-round-plus.svg";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
 import UserCreationPrototype from "@/components/portfolio/UserCreationPrototype";
 import ContactModal from "@/components/portfolio/ContactModal";
-import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 import MoreProjects from "@/components/portfolio/MoreProjects";
+import SiteFooter from "@/components/portfolio/SiteFooter";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -110,12 +111,12 @@ const TAKEAWAYS = [
   {
     icon: <LayoutGrid size={18} />,
     title: "Respect System Patterns",
-    body: "Sticking to the platform's established patterns, like modals, keeps the whole product feeling like one thing.",
+    body: "Using existing patterns, like modals, helped engineering build and iterate much faster.",
   },
   {
     icon: <Eye size={18} />,
     title: "Use Progressive Disclosure",
-    body: "Revealing advanced fields only when needed keeps the UI uncluttered.",
+    body: "It is not just about hiding fields. Knowing exactly when to reveal advanced settings is what keeps the screen clean.",
   },
   {
     icon: <Users size={18} />,
@@ -293,7 +294,7 @@ export default function CaseStudyUserCreation() {
       </nav>
 
       {/* ── 1. Hero — vertical ambient gradient from accent tint to dark canvas ── */}
-      <div className="min-h-[970px] sm:min-h-[952px] md:min-h-[1025px] lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(241,126,99,0.12) 0%, #090D16 75%)" }}>
+      <div className="lg:min-h-[743px] xl:min-h-[647px] bg-gradient-to-b overflow-hidden relative pb-16 pt-12" style={{ background: "linear-gradient(to bottom, rgba(241,126,99,0.12) 0%, #090D16 75%)" }}>
         {/* Background Graphic Watermark — soft elegant texture */}
         <div
           aria-hidden="true"
@@ -320,49 +321,20 @@ export default function CaseStudyUserCreation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
-                className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                className="text-[32px] sm:text-[42px] lg:text-[56px] font-extrabold tracking-tight leading-[1.1] mb-5"
               >
-                <span className="text-[#E2E8F0]">Redesigning Enterprise User Management: From a Clunky 4-Step Wizard to a</span>{" "}
-                <span className="text-[#F17E63]">Seamless Flow</span>
+                <span className="text-[#E2E8F0]">Simplifying User Management: Turning a Rigid Wizard into a</span>{" "}
+                <span className="text-[#F17E63]">Frictionless Flow</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-[#94A3B8] text-base leading-relaxed max-w-lg mb-8"
+                className="text-[#94A3B8] text-[17px] md:text-[20px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] leading-relaxed max-w-[660px] mb-8"
               >
                 How simplifying complex role assignments and permissions reduced onboarding time and eliminated admin drop-offs at Tipalti.
               </motion.p>
-
-              {/* Metrics — clean white cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="grid grid-cols-3 gap-3 max-w-[560px]"
-              >
-                {[
-                  { value: "1", label: "Single-screen flow" },
-                  { value: "75%", label: "Reduction in wizard steps" },
-                  { value: "0", label: "Redundant clicks" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    className="bg-[#111827] rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)] border border-white/[0.08]"
-                  >
-                    <p className="font-heading text-[#E2E8F0] text-2xl tracking-tight leading-none tabular-nums">
-                      <AnimatedCounter value={stat.value} duration={1350} />
-                    </p>
-                    <p className="font-label text-[11px] text-[#94A3B8] mt-2 uppercase leading-tight">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
             </div>
 
             {/* Right Column — clean product UI */}
@@ -466,14 +438,11 @@ export default function CaseStudyUserCreation() {
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
-              <h3 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
-                An Over-Engineered Flow for a Routine Task
+              <h3 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
+                A Slow Flow for a Simple Task
               </h3>
-              <p className="font-body text-[#94A3B8] text-base leading-relaxed mb-6">
-                Adding a team member should take under a minute. Instead, administrators were forced through a rigid 4-step wizard that treated simple provisioning like complex system setup.
-              </p>
               <p className="font-body text-[#94A3B8] text-base leading-relaxed">
-                Users encountered disabled screens, scrolled through unending role checklists, and had to click through a redundant review step. What should have been a quick task turned into a friction point that drove task abandonment and daily frustration.
+                Adding a user should take under a minute. Instead, admins faced a 4-step wizard with disabled screens, long checklists, and empty steps, driving high drop-offs.
               </p>
             </motion.div>
 
@@ -481,16 +450,16 @@ export default function CaseStudyUserCreation() {
               <div className="divide-y divide-white/10">
                 {[
                   {
-                    title: "Artificial Wizard Friction",
-                    body: "Forcing linear steps created artificial barriers for admins who already knew what they wanted to input.",
+                    title: "Too Many Steps",
+                    body: "Admins had to click through screens in a fixed order instead of just filling out what they needed.",
                   },
                   {
-                    title: "Dead Ends & Redundant Screens",
-                    body: "Non-approver roles were guided to a disabled Step 3 followed by a passive summary step that added clicks without utility.",
+                    title: "Dead Ends",
+                    body: "Certain roles led to disabled steps and review pages that added zero value.",
                   },
                   {
-                    title: "List Bloat & Cognitive Drag",
-                    body: "Unfiltered, fully exposed role checklists required excessive vertical scrolling just to configure standard permissions.",
+                    title: "Long Lists",
+                    body: "Unfiltered permission lists meant endless scrolling to set basic access.",
                   },
                 ].map((item, i) => (
                   <motion.div
@@ -520,18 +489,18 @@ export default function CaseStudyUserCreation() {
             <p className="font-heading text-white/80 text-[22px] md:text-[24px] tracking-[-0.02em] mt-0 mb-6">
               The Challenge
             </p>
-            <p className="font-sans text-3xl md:text-4xl lg:text-[42px] font-medium text-white tracking-tight leading-[1.15] max-w-[1100px] text-balance">
-              How might we turn a frustrating, <span className="whitespace-nowrap">drop-off-prone</span> <span className="whitespace-nowrap">4-step</span> wizard into <span className="whitespace-nowrap">a single-screen</span> flow that feels effortless?
+            <p className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-medium text-white tracking-tight leading-[1.15] max-w-[1100px] text-balance">
+              How might we simplify a complex <span className="whitespace-nowrap">4-step</span> wizard into a seamless user flow?
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* ── 4. Design Explorations & Trade-offs ── */}
-      <section className="w-full py-14 md:py-20">
+      <section className="w-full py-14 md:py-20 overflow-x-clip">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Design Explorations & Trade-offs
             </h2>
             <p className="font-body text-[#94A3B8] text-[16px] leading-relaxed mb-12 md:mb-16">
@@ -539,7 +508,7 @@ export default function CaseStudyUserCreation() {
             </p>
           </motion.div>
 
-          <div ref={spreadRef} className="grid md:grid-cols-3 gap-5 md:gap-6 mb-0 items-stretch">
+          <div ref={spreadRef} className="grid md:grid-cols-3 gap-8 md:gap-6 mb-0 items-stretch pr-5 md:pr-0">
             {ITERATIONS.map((iter, i) => {
               const simpleMotion = isMobile || reducedMotion;
               const spreadHidden = simpleMotion
@@ -572,9 +541,9 @@ export default function CaseStudyUserCreation() {
                   variants={{ hidden: spreadHidden, visible: spreadVisible }}
                 >
                   <motion.div
-                    className={`relative bg-[#111827] rounded-xl overflow-hidden flex flex-col h-full ${
+                    className={`relative bg-[#111827] rounded-xl flex flex-col h-full ${
                       iter.isWinner
-                        ? "border-2 border-[#F17E63] shadow-[0_8px_24px_rgba(241,126,99,0.12)]"
+                        ? "border-2 border-[#22C55E] shadow-[0_8px_24px_rgba(34,197,94,0.12)]"
                         : "border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
                     }`}
                     initial="rest"
@@ -591,7 +560,7 @@ export default function CaseStudyUserCreation() {
                           }
                     }
                   >
-                    {/* Winner — animated gradient border beam sweeping along the orange border */}
+                    {/* Winner — animated gradient border beam sweeping along the green border */}
                     {iter.isWinner && (
                       <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none" aria-hidden>
                         {!reducedMotion && spreadInView && (
@@ -599,7 +568,7 @@ export default function CaseStudyUserCreation() {
                             className="absolute left-1/2 top-1/2 w-[220%] aspect-square -translate-x-1/2 -translate-y-1/2"
                             style={{
                               background:
-                                "conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(251,191,36,0.85) 285deg, rgba(241,126,99,1) 315deg, transparent 345deg)",
+                                "conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(134,239,172,0.85) 285deg, rgba(34,197,94,1) 315deg, transparent 345deg)",
                             }}
                             animate={{ rotate: 360 }}
                             transition={{ repeat: Infinity, ease: "linear", duration: 3.5 }}
@@ -614,7 +583,7 @@ export default function CaseStudyUserCreation() {
                     {iter.isWinner && (
                       <motion.div
                         aria-hidden
-                        className="absolute -inset-2 rounded-2xl bg-[#F17E63]/25 blur-xl pointer-events-none -z-10"
+                        className="absolute -inset-2 rounded-2xl bg-[#22C55E]/25 blur-xl pointer-events-none -z-10"
                         variants={{
                           rest: { opacity: 0.35, scale: 1 },
                           hover: { opacity: 0.6, scale: 1.04, transition: { duration: 0.35, ease: "easeOut" } },
@@ -624,7 +593,7 @@ export default function CaseStudyUserCreation() {
 
                     <div className="relative z-[1] flex flex-col flex-1">
                       {/* Hand-drawn sketch preview — fully visible, no cropping */}
-                      <div className="w-full bg-[#111827] border-b border-white/[0.08] p-3 flex items-center justify-center">
+                      <div className="w-full bg-[#111827] border-b border-white/[0.08] p-3 flex items-center justify-center rounded-t-[10px] overflow-hidden">
                         <img
                           src={iter.image}
                           alt={iter.alt}
@@ -636,21 +605,6 @@ export default function CaseStudyUserCreation() {
                       <div className="p-6 md:p-6 flex flex-col flex-1">
                         <div className="flex items-center gap-2 mb-3">
                           <span className="font-label text-[11px] text-[#F8FAFC]/40 tracking-wide">{iter.num}</span>
-                          <span
-                            className={`inline-flex items-center text-[10px] font-label uppercase tracking-wide px-2.5 py-1 rounded-full border ${
-                              iter.isWinner
-                                ? "bg-[#F17E63]/10 text-[#F17E63] border-[#F17E63]/20"
-                                : "bg-neutral-100 text-neutral-600 border-neutral-200"
-                            }`}
-                          >
-                            {iter.isWinner ? (
-                              <span className="inline-flex items-center gap-1">
-                                <Check size={10} /> {iter.tag}
-                              </span>
-                            ) : (
-                              iter.tag
-                            )}
-                          </span>
                         </div>
 
                         <h3 className="font-heading text-[#E2E8F0] text-[18px] leading-[1.3] tracking-[-0.02em] mb-2">
@@ -662,6 +616,13 @@ export default function CaseStudyUserCreation() {
                         </p>
                       </div>
                     </div>
+
+                    {/* Selected badge — centred on the card's top-right corner, half inside, half outside */}
+                    {iter.isWinner && (
+                      <span className="absolute top-0 right-0 z-20 translate-x-1/2 -translate-y-1/2 inline-flex items-center gap-1 whitespace-nowrap text-[10px] font-label uppercase tracking-wide px-3 py-1.5 rounded-full bg-[#22C55E] text-[#052E16] shadow-[0_4px_12px_rgba(0,0,0,0.35)]">
+                        <Check size={10} /> {iter.tag}
+                      </span>
+                    )}
 
                     {/* Trade-off badge — revealed on hover for considered directions */}
                     {!iter.isWinner && (
@@ -691,7 +652,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full py-14 md:py-20 bg-[#0F172A] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Key Solutions & Features
             </h2>
             <p className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-12 md:mb-16">
@@ -836,36 +797,64 @@ export default function CaseStudyUserCreation() {
                 <span className="font-label text-[11px] tracking-widest uppercase text-[#F8FAFC]/45">
                   Final Experience
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#F17E63]/30 bg-[#F17E63]/10 px-3 py-1">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#3B82F6]/10 px-3 py-1">
                   <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F17E63] opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F17E63]" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3B82F6] opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
                   </span>
-                  <span className="font-label text-[10px] tracking-widest uppercase text-[#F17E63]">
+                  <span className="font-label text-[10px] tracking-widest uppercase text-blue-400">
                     Live Prototype
                   </span>
                 </span>
               </div>
-              <h2 className="font-subheading text-[#E2E8F0] text-[28px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-6">
+              <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-6">
                 The Unified Flow: Designed for Speed and Certainty
               </h2>
             </div>
-            <button
-              onClick={() => setPrototypeFullscreen(true)}
-              className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] shrink-0 shadow-sm mt-1"
-              aria-label="Expand prototype fullscreen"
-            >
-              <Maximize2 size={14} className="text-[#0A0F1D]" />
-            </button>
           </motion.div>
 
           <motion.p {...fadeUp} className="font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] mb-5">
             Rather than forcing administrators through an artificial linear wizard, the redesigned experience unifies profile setup, permissions, and organizational rules into a single continuous view. By leveraging inline search with dismissible chips, vertical footprint dropped by 60%, while progressive disclosure ensures advanced approver controls surface only when needed. The result is a calm, resilient interface that turns a multi-minute administrative hurdle into a confident 30-second workflow.
           </motion.p>
 
-          <motion.p {...fadeUp} className="font-body text-sm text-[#94A3B8] leading-relaxed max-w-[760px] mb-10">
-            <span className="text-[#E2E8F0]">Try it yourself.</span> This is a fully interactive prototype: click the <span className="text-[#E2E8F0]">Add user</span> button in the toolbar, then select <span className="text-[#E2E8F0]">Add users manually</span> to open the single-screen flow below.
-          </motion.p>
+          <motion.div {...fadeUp} className="max-w-[760px] mb-6">
+            <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[26px] leading-tight tracking-[-0.02em] mb-2">
+              Try it yourself.
+            </p>
+            <p className="font-body text-sm text-[#94A3B8] leading-[2.1]">
+              This is a fully interactive prototype: click the{" "}
+              {/* Visual replica of the prototype's yellow "Add user" button */}
+              <span
+                aria-label="Add user button"
+                className="inline-flex items-center gap-1 h-7 px-3 mx-0.5 align-middle rounded-[4px] bg-[#FFBC00] text-[13px] text-[#021D2D] leading-none whitespace-nowrap"
+                style={{ fontFamily: "Lato, system-ui, sans-serif" }}
+              >
+                Add user <ChevronDown size={13} />
+              </span>{" "}
+              button in the toolbar, then select{" "}
+              {/* Visual replica of the dropdown's "Add users manually" menu item */}
+              <span
+                aria-label="Add users manually menu item"
+                className="inline-flex items-center gap-2 h-8 px-2.5 mx-0.5 align-middle rounded-[4px] bg-white border border-[#E1E7EA] shadow-[0px_1px_6px_rgba(0,0,0,0.1)] text-[14px] text-[#021D2D] leading-none whitespace-nowrap"
+                style={{ fontFamily: "Lato, system-ui, sans-serif" }}
+              >
+                <img src={ddUserPlusUrl} alt="" width={16} height={16} className="block w-4 h-4" />
+                Add users manually
+              </span>{" "}
+              to open the single-screen flow below.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp} className="flex justify-end mb-3">
+            <button
+              onClick={() => setPrototypeFullscreen(true)}
+              className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-label text-sm text-[#0A0F1D] shadow-sm hover:bg-white/85 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
+              aria-label="Expand prototype to fullscreen"
+            >
+              <Maximize2 size={16} />
+              Expand prototype
+            </button>
+          </motion.div>
 
           <motion.div {...fadeUp} className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
             <UserCreationPrototype />
@@ -908,7 +897,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp}>
-            <h2 className="font-heading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Before & After
             </h2>
             <p className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-12 md:mb-16">
@@ -938,7 +927,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
+            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Key Takeaways
             </h2>
 
@@ -954,10 +943,10 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#3B82F6] group-hover:bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-5 transition-all text-[#F8FAFC]/60 group-hover:text-[#3B82F6]">
+                <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#F17E63] group-hover:bg-[#F17E63]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#F17E63]">
                   {item.icon}
                 </div>
-                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3">
+                <h3 className="font-subheading text-[#E2E8F0] text-[24px] leading-[1.3] tracking-[-0.02em] mb-3 transition-colors duration-300 group-hover:text-[#F17E63]">
                   {item.title}
                 </h3>
                 <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
@@ -971,31 +960,7 @@ export default function CaseStudyUserCreation() {
 
       <MoreProjects currentSlug="/case-study/user-creation" />
 
-      {/* ── Footer CTA ── */}
-      <section className="w-full py-14 md:py-20 border-t border-white/[0.08]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center gap-6">
-          <p className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">
-            Next steps
-          </p>
-          <h3 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em]">
-            Interested in working together?
-          </h3>
-          <div className="flex items-center gap-5 mt-2">
-            <Link
-              to="/#work"
-              className="inline-flex items-center font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/60 hover:text-[#E2E8F0] hover:bg-white/[0.08] transition-colors px-6 py-3 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-            >
-              All projects
-            </Link>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="inline-flex items-center bg-[#3B82F6] hover:bg-[#2563EB] shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_28px_rgba(59,130,246,0.35)] text-white font-body text-[14px] font-normal uppercase tracking-[0.06em] px-6 py-3 rounded-sm transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
-            >
-              Get in touch
-            </button>
-          </div>
-        </div>
-      </section>
+      <SiteFooter />
 
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </main>

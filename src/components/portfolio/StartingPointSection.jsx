@@ -54,7 +54,7 @@ export default function StartingPointSection({
     <>
         {title && (
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading text-[#E2E8F0] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             {title}
           </h2>
           <p className="font-label text-xs text-[#F8FAFC]/50 mb-12 block">

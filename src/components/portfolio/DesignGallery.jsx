@@ -83,7 +83,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <motion.div {...fadeUp}>
-          <h2 className="font-subheading text-[#0A0F1D] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+          <h2 className="font-subheading text-[#0A0F1D] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             Detailed Design
           </h2>
           <span className="font-label text-xs text-[#0A0F1D]/50 mb-12 block">

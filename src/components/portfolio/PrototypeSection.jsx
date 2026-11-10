@@ -24,7 +24,7 @@ export default function PrototypeSection({
       <div className="max-w-[1400px] mx-auto">
         <motion.div {...fadeUp} className={expandableContent ? "flex items-start justify-between gap-6" : ""}>
           <div>
-            <h2 className="font-subheading text-[#F1F5F9] text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
+            <h2 className="font-subheading text-[#F1F5F9] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               {title}
             </h2>
             <span className={`font-label text-xs text-[#94A3B8] block ${expandableContent ? "" : "mb-12"}`}>
