@@ -814,7 +814,7 @@ export default function CaseStudyUserCreation() {
           </motion.div>
 
           <motion.p {...fadeUp} className="font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] mb-5">
-            Rather than forcing administrators through an artificial linear wizard, the redesigned experience unifies profile setup, permissions, and organizational rules into a single continuous view. By leveraging inline search with dismissible chips, vertical footprint dropped by 60%, while progressive disclosure ensures advanced approver controls surface only when needed. The result is a calm, resilient interface that turns a multi-minute administrative hurdle into a confident 30-second workflow.
+            We combined the entire setup into one continuous screen instead of a rigid wizard. Complex settings only appear when relevant, cutting admin setup time down to 30 seconds.
           </motion.p>
 
           <motion.div {...fadeUp} className="max-w-[760px] mb-6">
