@@ -103,12 +103,12 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
           </div>
           {/* WIP overlay — noticeable but image remains visible */}
           {isWip && (
-            <div className="absolute inset-0 bg-[#090D16]/45 backdrop-blur-[1px] flex flex-col items-center justify-center gap-2.5 z-20 rounded-[20px]">
+            <div className="absolute inset-0 bg-[#090D16]/70 backdrop-blur-[1px] flex flex-col items-center justify-center gap-2.5 z-20 rounded-[20px]">
               <span
-                className="inline-flex items-center gap-2 text-white font-label text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-white/20"
-                style={{ backgroundColor: accent, boxShadow: `0 4px 16px ${accent}66` }}
+                className="inline-flex items-center gap-2 text-white font-label text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full border"
+                style={{ backgroundColor: "#0A0F1D", borderColor: `${accent}66`, boxShadow: `0 4px 16px ${accent}40` }}
               >
-                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: accent }} />
                 In Progress
               </span>
               <span className="font-label text-[11px] text-white/70 uppercase tracking-wide">Coming soon</span>
@@ -116,7 +116,7 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
           )}
           {/* Title — always visible inside the card, header-style type */}
           {!isWip && (
-            <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 bg-gradient-to-t from-black/85 via-black/45 to-transparent">
+            <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6 bg-gradient-to-t from-black/95 via-black/80 to-black/50">
               <p className="font-subheading text-white text-[17px] md:text-[19px] lg:text-[21px] leading-[1.25] tracking-[-0.02em]">
                 {project.title}
               </p>

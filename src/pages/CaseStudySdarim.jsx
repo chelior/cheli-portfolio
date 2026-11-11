@@ -52,7 +52,7 @@ const RESEARCH = [
   },
   {
     label: "Key Personas",
-    body: "Comprehensive Managers (dual-screen operators tracking attendance and approvals), Admin Employees (daily operators), and Observers.",
+    body: "Managers (dual-screen operators tracking attendance and approvals), Admin Employees (daily operators), and Observers.",
   },
 ];
 

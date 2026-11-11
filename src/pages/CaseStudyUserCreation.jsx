@@ -125,7 +125,7 @@ const TAKEAWAYS = [
   {
     icon: <Eye size={18} />,
     title: "Use Progressive Disclosure",
-    body: "It's not just hiding fields. Knowing when to reveal advanced settings keeps the screen clean.",
+    body: "Knowing when to reveal advanced settings keeps the screen clean.",
   },
   {
     icon: <Users size={18} />,

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Rocket, TrendingUp, LifeBuoy } from "lucide-react";
 import { Link } from "react-router-dom";
-import StartingPointSection from "@/components/portfolio/StartingPointSection";
 import ZoomableImage from "@/components/portfolio/ZoomableImage";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
@@ -59,7 +58,7 @@ const SOLUTIONS = [
     label: "Performant Data Grids",
     subtitle: "Audit logs at enterprise scale",
     reason:
-      "Legacy logs were slow and difficult to scan. Leveraging core Design System patterns, we introduced virtualized scrolling and multi-column filtering, transforming raw data dumps into an intuitive troubleshooting surface built for scale.",
+      "Legacy logs were slow and difficult to scan. Using core Design System patterns, we introduced virtualized scrolling and multi-column filtering, transforming raw data dumps into an intuitive troubleshooting surface built for scale.",
     beforeLabel: "BEFORE (PAIN)",
     beforeBody: "Slow, unfiltered tables with poor scanability at scale.",
     afterLabel: "AFTER (SOLUTION)",
@@ -99,6 +98,12 @@ export default function CaseStudyDevHub() {
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
+  const [startingLightbox, setStartingLightbox] = useState(null);
+  const isStartingLightboxOpen = startingLightbox !== null;
+  const startingPrev = () =>
+    setStartingLightbox((prev) => (prev - 1 + STARTING_POINT_IMAGES.length) % STARTING_POINT_IMAGES.length);
+  const startingNext = () =>
+    setStartingLightbox((prev) => (prev + 1) % STARTING_POINT_IMAGES.length);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -214,7 +219,63 @@ export default function CaseStudyDevHub() {
       </div>
 
       {/* ── The Starting Point ── */}
-      <StartingPointSection images={STARTING_POINT_IMAGES} />
+      <section className="w-full py-14 md:py-20 bg-[#111827]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          {/* Same layout as User Creation: text left, 2×2 screens right (shared cs-split grid) */}
+          <div className="cs-split items-center">
+            <motion.div {...fadeUp}>
+              <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
+                The Starting Point: The Legacy Tool
+              </h2>
+              <div className="space-y-4 max-w-xl">
+                <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                  Tipalti’s legacy DevHub was originally built for a simple "single-app, single-user" model.
+                </p>
+                <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                  As enterprise customers scaled, engineering teams needed to collaborate across sandboxes and production environments. Instead, the legacy tool locked them into isolated setups with shared credentials, no hierarchy, and heavy reliance on internal support just to run baseline checks.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div {...fadeUp} className="relative w-full">
+              {/* 2×2 grid of the original screens, filling the right column. Click to see one full size.
+                  On desktop the caption hangs below the grid (absolute), so the text on the left
+                  is centred on the images themselves, not on images + caption. */}
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                {STARTING_POINT_IMAGES.map((img, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setStartingLightbox(i)}
+                    className="min-w-0 rounded-lg overflow-hidden cursor-zoom-in hover:opacity-90 transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] block"
+                    aria-label={`Expand ${img.alt}`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-auto object-contain block rounded-lg"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </button>
+                ))}
+              </div>
+              <p className="font-body text-sm text-[#94A3B8] text-center mt-4 lg:absolute lg:inset-x-0 lg:top-full">
+                The original DevHub screens · click to expand
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        <ImageLightbox
+          src={STARTING_POINT_IMAGES[startingLightbox]?.src || ""}
+          alt={STARTING_POINT_IMAGES[startingLightbox]?.alt || ""}
+          isOpen={isStartingLightboxOpen}
+          onClose={() => setStartingLightbox(null)}
+          onPrev={startingPrev}
+          onNext={startingNext}
+        />
+      </section>
 
       {/* ── The Problem: pure editorial, no cards ── */}
       <section className="w-full my-0 py-16 md:py-24">
@@ -227,11 +288,8 @@ export default function CaseStudyDevHub() {
               <h3 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.15] tracking-[-0.02em] mb-7">
                 Scaling Beyond Single-Developer Limits
               </h3>
-              <p className="font-body text-[#94A3B8] text-base leading-relaxed mb-6">
-                The original DevHub assumed a single developer managing a single application in isolation. That model collapsed as Tipalti&rsquo;s enterprise customer base matured and engineering teams scaled.
-              </p>
               <p className="font-body text-[#94A3B8] text-base leading-relaxed">
-                Organizations needed multiple engineers collaborating across sandboxes and production environments. Instead, they hit rigid walls: shared credentials, disconnected flows, and a heavy dependence on internal support just to run baseline API checks.
+                As enterprise engineering teams grew, the single-user architecture created immediate operational bottlenecks across environments.
               </p>
             </motion.div>
 
@@ -239,16 +297,16 @@ export default function CaseStudyDevHub() {
               <div className="divide-y divide-white/10">
                 {[
                   {
-                    title: "Multi-Tenant Complexity",
-                    body: "Organizations had to coordinate multiple apps across diverse environments, but the architecture lacked workspace hierarchy.",
+                    title: "Multi-Tenant Friction",
+                    body: "No workspace hierarchy to manage multiple apps or switch between environments.",
                   },
                   {
                     title: "High Support Overhead",
-                    body: "External developers relied on internal engineering teams for basic troubleshooting and sandbox testing, stalling integration velocity.",
+                    body: "External developers relied on internal teams for basic testing and troubleshooting, stalling integrations.",
                   },
                   {
                     title: "Strict MVP Constraints",
-                    body: "Business urgency required a fast phased delivery: solving immediate multi-app friction today while structuring the interface for future multi-user governance.",
+                    body: "Needed to deliver multi-app support immediately, while structuring the foundation for future team governance.",
                   },
                 ].map((item, i) => (
                   <motion.div
