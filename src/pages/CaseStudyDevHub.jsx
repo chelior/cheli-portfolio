@@ -10,6 +10,8 @@ import DevHubPrototype from "@/components/portfolio/DevHubPrototype";
 import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
+import devhubPlusUrl from "@/assets/devhub-proto/plus.svg";
+import devhubEllipsisUrl from "@/assets/devhub-proto/ellipsis.svg";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
 const FADE_UP = {
@@ -492,51 +494,56 @@ export default function CaseStudyDevHub() {
             ))}
           </div>
 
-          {/* Quantifiable ROI — compact closing stat */}
+          {/* Quantifiable ROI — same card style as Sdarim's Quantitative Findings */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
-            <div className="bg-[#FF4E7E] rounded-xl p-5 md:p-6 text-white max-w-[420px]">
-              <p className="font-label text-[11px] text-white/70 uppercase mb-2">
-                Quantifiable ROI
-              </p>
-              <p className="font-heading text-3xl leading-none tracking-[-0.02em] tabular-nums">
-                <AnimatedCounter value={27} suffix="%" duration={1350} />
-              </p>
-              <p className="font-body text-white/80 text-xs mt-1.5">
-                Reduction in engineering effort
-              </p>
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <p className="font-body text-white/80 text-xs leading-relaxed">
-                  We saved{" "}
-                  <span className="text-white font-normal">35 dev days</span>{" "}
-                  (from 168 down to 133).
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-[#111827] border border-[#f1f5f9] rounded-2xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
+                style={{
+                  padding: "32px 28px",
+                  boxShadow: "0 4px 20px -2px rgba(0, 0, 0, 0.04)",
+                }}
+              >
+                <span className="inline-block font-label text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 text-[#FF4E7E] bg-[#FF4E7E]/10 border border-[#FF4E7E]/20">
+                  Quantifiable ROI
+                </span>
+                <motion.span
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="block text-5xl font-bold tracking-tight text-[#E2E8F0] mb-3 tabular-nums"
+                >
+                  <AnimatedCounter value={27} suffix="%" duration={1350} />
+                </motion.span>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "27%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-full"
+                  style={{
+                    height: "5px",
+                    background: "linear-gradient(90deg, #FF4E7E, #FF8FAB)",
+                    borderRadius: "9999px",
+                    marginBottom: "16px",
+                  }}
+                />
+                <p className="text-[14px] leading-[1.5] text-[#94A3B8]">
+                  Reduction in engineering effort: we saved{" "}
+                  <span className="text-[#E2E8F0]">35 dev days</span> (from 168 down to 133).
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       <ImageLightbox src={lightbox?.src} alt={lightbox?.alt || ""} isOpen={!!lightbox} onClose={() => setLightbox(null)} />
-
-      {/* ── Before & After ── */}
-      <section className="py-14 md:py-20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
-            <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
-              Before & After
-            </h2>
-            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
-              Drag to compare before and after
-            </span>
-          </motion.div>
-          <motion.div {...fadeUp}>
-            <BeforeAfterSlider
-              beforeImage={{ src: "images/devhub/f8a9b2071_Appdetails-Editmode52.png", alt: "Before — Legacy DevHub portal" }}
-              afterImage={{ src: "images/devhub/devhub.after.mockup.svg", alt: "After — Modern DevHub" }}
-            />
-          </motion.div>
-        </div>
-      </section>
 
       {/* ── Detailed Design: 3-column component craft showcase ── */}
       <section className="w-full py-16 md:py-24">
@@ -606,12 +613,55 @@ export default function CaseStudyDevHub() {
 
       {/* ── Live Prototype Experience ── */}
       <PrototypeSection
-        title="Live Prototype Experience"
+        title="The Developer Portal: Built for Autonomy and Scale"
         subtitle="Interactive flow: create an app, edit its details, or delete it"
+        instructions={
+          <>
+            This is a fully interactive prototype: click the{" "}
+            {/* Visual replica of the prototype's yellow "Create app" button */}
+            <span
+              aria-label="Create app button"
+              className="inline-flex items-center gap-1 h-8 pl-2 pr-3 mx-0.5 align-middle rounded-[4px] bg-[#FFBC00] text-[14px] text-[#021D2D] leading-none whitespace-nowrap"
+              style={{ fontFamily: "Lato, system-ui, sans-serif" }}
+            >
+              <img src={devhubPlusUrl} alt="" width={20} height={20} className="block w-5 h-5" />
+              Create app
+            </span>{" "}
+            button to set up a new app, or open an app card's{" "}
+            {/* Visual replica of the app card's "more" menu button */}
+            <span
+              aria-label="More actions menu button"
+              className="inline-flex items-center justify-center w-8 h-8 mx-0.5 align-middle rounded-[4px] bg-white border border-[#E1E7EA]"
+            >
+              <img src={devhubEllipsisUrl} alt="" width={16} height={16} className="block w-4 h-4" />
+            </span>{" "}
+            menu to view, edit or delete it.
+          </>
+        }
         expandable
       >
         <DevHubPrototype />
       </PrototypeSection>
+
+      {/* ── Before & After ── */}
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <motion.div {...fadeUp} className="mb-12">
+            <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
+              Before & After
+            </h2>
+            <span className="font-label text-xs text-[#F8FAFC]/50 mt-2 block">
+              Drag to compare before and after
+            </span>
+          </motion.div>
+          <motion.div {...fadeUp}>
+            <BeforeAfterSlider
+              beforeImage={{ src: "images/devhub/f8a9b2071_Appdetails-Editmode52.png", alt: "Before — Legacy DevHub portal" }}
+              afterImage={{ src: "images/devhub/devhub.after.mockup.svg", alt: "After — Modern DevHub" }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── Key Takeaways ── */}
       <section className="py-14 md:py-20">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ZoomableImage from "@/components/portfolio/ZoomableImage";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
+import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ExternalLink, Search, Compass, Layers, Layout, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 import BeforeAfterSlider from "@/components/portfolio/BeforeAfterSlider";
@@ -104,7 +104,7 @@ const SURVEY_SCREENS = [
     category: "Workflow Friction",
     hebrew: "הוספת פרטים ושינוי הגדרות לאברכים קיימים (שצריך לעשות אחד אחד ואין אפשרות לבחירת אברכים ולסמן על כולם את ההגדרה הנצרכת)",
     bg: "bg-[#F3E8FF]/60",
-    border: "border-[#3B82F6]/20/40",
+    border: "border-purple-200/40",
     accent: "bg-[#F59E0B]",
   },
   {
@@ -237,7 +237,7 @@ export default function CaseStudySdarim() {
           <Link
             to="/"
             state={{ scrollTo: "work" }}
-            className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
+            className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#4DA3FF] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FF] rounded"
           >
             <ArrowLeft size={15} />
             Back to Work
@@ -444,7 +444,7 @@ export default function CaseStudySdarim() {
 
           <div className="relative max-w-[900px] mx-auto">
             {/* Continuous center spine — bold vertical behind nodes */}
-            <div className="absolute left-[22px] md:left-1/2 md:-translate-x-1/2 top-[22px] bottom-[22px] w-0.5 bg-slate-200 md:bg-gradient-to-b md:from-[#FF4D7F]/25 md:via-[#3B82F6]/25 md:to-[#10B981]/20" />
+            <div className="absolute left-[22px] md:left-1/2 md:-translate-x-1/2 top-[22px] bottom-[22px] w-0.5 bg-slate-200 md:bg-gradient-to-b md:from-[#0077FF]/30 md:via-[#0077FF]/20 md:to-[#0077FF]/10" />
 
             <div className="space-y-10 md:space-y-6">
               {[
@@ -453,40 +453,40 @@ export default function CaseStudySdarim() {
                   title: "Research & Discovery",
                   desc: "Ran 10 stakeholder sessions and surveys, mapped workflows and pain points, and built a competitive research and inspiration board.",
                   Icon: Search,
-                  color: "#FF4D7F",
-                  badgeBg: "bg-[#FF4D7F]/10 border border-[#FF4D7F]/20",
-                  border: "border-[#FF4D7F]/20",
-                  glow: "rgba(255,77,127,0.25)",
+                  color: "#0077FF",
+                  badgeBg: "bg-[#0077FF]/10 border border-[#0077FF]/20",
+                  border: "border-[#0077FF]/20",
+                  glow: "rgba(0,119,255,0.25)",
                 },
                 {
                   num: "02",
                   title: "Wireframing & Prototyping",
                   desc: "Designed low fidelity flows and quick sketches to align on requirements.",
                   Icon: LayoutDashboard,
-                  color: "#3B82F6",
-                  badgeBg: "bg-[#3B82F6]/10 border border-[#3B82F6]/20",
-                  border: "border-[#3B82F6]/20",
-                  glow: "rgba(139,92,246,0.25)",
+                  color: "#0077FF",
+                  badgeBg: "bg-[#0077FF]/10 border border-[#0077FF]/20",
+                  border: "border-[#0077FF]/20",
+                  glow: "rgba(0,119,255,0.25)",
                 },
                 {
                   num: "03",
                   title: "Design Iterations",
                   desc: "Defined visual language, responsive layouts, and accessible components.",
                   Icon: Palette,
-                  color: "#F97316",
-                  badgeBg: "bg-[#F97316]/10 border border-[#F97316]/20",
-                  border: "border-[#F97316]/20",
-                  glow: "rgba(249,115,22,0.25)",
+                  color: "#0077FF",
+                  badgeBg: "bg-[#0077FF]/10 border border-[#0077FF]/20",
+                  border: "border-[#0077FF]/20",
+                  glow: "rgba(0,119,255,0.25)",
                 },
                 {
                   num: "04",
                   title: "Delivery & Handoff",
                   desc: "Ran usability testing and prototyping feedback loops.",
                   Icon: Rocket,
-                  color: "#0EA5E9",
-                  badgeBg: "bg-[#0EA5E9]/10 border border-[#0EA5E9]/20",
-                  border: "border-[#0EA5E9]/20",
-                  glow: "rgba(14,165,233,0.25)",
+                  color: "#0077FF",
+                  badgeBg: "bg-[#0077FF]/10 border border-[#0077FF]/20",
+                  border: "border-[#0077FF]/20",
+                  glow: "rgba(0,119,255,0.25)",
                 },
               ].map((phase, i) => {
                 const isLeft = i % 2 === 0;
@@ -534,7 +534,7 @@ export default function CaseStudySdarim() {
                           boxShadow: `0 2px 8px ${phase.glow}`,
                         }}
                       >
-                        <phase.Icon size={20} className={phase.Icon === LayoutDashboard ? "text-blue-400" : undefined} style={{ color: phase.Icon === LayoutDashboard ? undefined : phase.color }} />
+                        <phase.Icon size={20} className={phase.Icon === LayoutDashboard ? "text-[#4DA3FF]" : undefined} style={{ color: phase.Icon === LayoutDashboard ? undefined : phase.color }} />
                       </div>
                     </div>
 
@@ -598,7 +598,7 @@ export default function CaseStudySdarim() {
             }}
           >
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
-              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">User Survey - Pain Points</span>
+              <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">User Survey - Pain Points</span>
               <span className="font-label text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
             </div>
 
@@ -685,7 +685,7 @@ export default function CaseStudySdarim() {
           {/* Quantitative research findings — metric visualization */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
+              <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">
                 Quantitative Findings
               </span>
               <span className="font-label text-xs text-[#F8FAFC]/50">Survey results, pain-point prevalence</span>
@@ -696,24 +696,24 @@ export default function CaseStudySdarim() {
                   value: 83,
                   label: 'reported difficulty finding core actions in the main menu',
                   badge: 'DISCOVERABILITY',
-                  badgeClass: 'text-[#FF4D7F] bg-[#FF4D7F]/10 border border-[#FF4D7F]/20',
-                  bar: 'linear-gradient(90deg, #FF4D7F, #FF8FAB)',
+                  badgeClass: 'text-[#4DA3FF] bg-[#0077FF]/10 border border-[#0077FF]/20',
+                  bar: 'linear-gradient(90deg, #0077FF, #4DA3FF)',
                   width: '83%',
                 },
                 {
                   value: 76,
                   label: 'felt the system was "overloaded with unnecessary information"',
                   badge: 'COGNITIVE LOAD',
-                  badgeClass: 'text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20',
-                  bar: 'linear-gradient(90deg, #3B82F6, #60A5FA)',
+                  badgeClass: 'text-[#4DA3FF] bg-[#0077FF]/10 border border-[#0077FF]/20',
+                  bar: 'linear-gradient(90deg, #0077FF, #4DA3FF)',
                   width: '76%',
                 },
                 {
                   value: 64,
                   label: 'expressed a lack of confidence when performing new actions',
                   badge: 'CONFIDENCE',
-                  badgeClass: 'text-amber-400 bg-amber-500/10 border border-amber-500/200/10 border border-amber-500/20',
-                  bar: 'linear-gradient(90deg, #F97316, #FB923C)',
+                  badgeClass: 'text-[#4DA3FF] bg-[#0077FF]/10 border border-[#0077FF]/20',
+                  bar: 'linear-gradient(90deg, #0077FF, #4DA3FF)',
                   width: '64%',
                 },
               ].map((item, i) => (
@@ -766,7 +766,7 @@ export default function CaseStudySdarim() {
           {/* Competitive Research */}
           <motion.div {...fadeUp} className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
+              <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">
                 Competitive Research
               </span>
               <span className="font-label text-xs text-[#F8FAFC]/50">Inspiration board, competitor breakdown</span>
@@ -792,7 +792,7 @@ export default function CaseStudySdarim() {
                 <ul className="space-y-2.5">
                   {["Heavy text-based interface", "Minimal, outdated design", "Focus on function, not UX"].map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-[1.6]">
-                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#3B82F6]/70 border border-[#3B82F6]/20 shrink-0" />
+                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#0077FF]/70 border border-[#0077FF]/20 shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -818,32 +818,13 @@ export default function CaseStudySdarim() {
                 <ul className="space-y-2.5">
                   {["Basic dashboard with icon grid", "Practical but cluttered", "Lacks visual hierarchy"].map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-[1.6]">
-                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#3B82F6]/70 shrink-0" />
+                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#0077FF]/70 shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
               </motion.div>
             </div>
-
-            {/* Key Insight — elevated light callout */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 md:mt-10 rounded-2xl border border-[#3B82F6]/20/60 p-8 md:p-10 flex items-start gap-4 bg-gradient-to-r from-blue-500/10/70 via-blue-500/5/50 to-blue-500/5/50 border-l-4 border-l-blue-400 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
-            >
-              <div className="w-9 h-9 rounded-full bg-[#111827] border border-[#3B82F6]/20 shadow-[0_8px_32px_rgba(0,0,0,0.35)] flex items-center justify-center shrink-0 mt-0.5">
-                <Sparkles size={16} className="text-blue-400" />
-              </div>
-              <div>
-                <p className="font-label text-xs font-medium tracking-wider text-blue-400 mb-2">KEY INSIGHT</p>
-                <p className="text-base md:text-lg font-medium text-[#E2E8F0] leading-[1.6]">
-                  Competitors focus on function and skip UX.
-                </p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -863,7 +844,7 @@ export default function CaseStudySdarim() {
             {/* Reused expand button — identical to WizardStepsMockup image preview expand */}
             <button
               onClick={() => setSurveyLightbox({ src: "images/sdarim/old system mapping2.svg", alt: "Old System Mapping" })}
-              className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] shrink-0 shadow-sm"
+              className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FF] shrink-0 shadow-sm"
               aria-label="Expand Old System Mapping diagram"
             >
               <Maximize2 size={14} className="text-[#0A0F1D]" />
@@ -903,7 +884,7 @@ export default function CaseStudySdarim() {
 
           <motion.div {...fadeUp} className="mb-16 md:mb-20">
             <div className="inline-flex items-center gap-2 bg-[#111827] rounded-full px-4 py-2 border border-white/[0.08]">
-              <span className="font-label text-xs text-[#3B82F6] uppercase tracking-wide">
+              <span className="font-label text-xs text-[#4DA3FF] uppercase tracking-wide">
                 Client Constraint
               </span>
               <span className="font-body text-sm text-[#E2E8F0]">
@@ -954,8 +935,8 @@ export default function CaseStudySdarim() {
                               {solution.beforeBody || solution.painPoint}
                             </p>
                           </div>
-                          <div className="bg-[#3B82F6]/10 backdrop-blur-sm border border-[#3B82F6]/20 rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-                            <p className="text-[11px] font-label uppercase tracking-wider text-blue-400 font-bold mb-2">
+                          <div className="bg-[#0077FF]/10 backdrop-blur-sm border border-[#0077FF]/20 rounded-2xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+                            <p className="text-[11px] font-label uppercase tracking-wider text-[#4DA3FF] font-bold mb-2">
                               {solution.afterLabel || "AFTER (SOLUTION)"}
                             </p>
                             <p className="text-sm font-medium text-[#E2E8F0] leading-relaxed">
@@ -974,7 +955,7 @@ export default function CaseStudySdarim() {
                           href={solution.prototypeUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-[#3B82F6] hover:bg-[#2563EB] text-white border border-[#3B82F6] hover:border-[#2563EB] hover:shadow-[0_0_20px_rgba(59,130,246,0.35)] text-xs font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all mt-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2"
+                          className="bg-[#0077FF] hover:bg-[#0062D1] text-white border border-[#0077FF] hover:border-[#0062D1] hover:shadow-[0_0_20px_rgba(0,119,255,0.35)] text-xs font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all mt-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0077FF] focus-visible:ring-offset-2"
                         >
                           {solution.prototypeLabel || "View Interactive Prototype"}
                           <span className="text-[11px] leading-none">↗</span>
@@ -1008,7 +989,7 @@ export default function CaseStudySdarim() {
                         <div className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-6 md:gap-8 items-start">
                           {/* UI TRIGGER — offset to sit beside Start area, not jammed top-left */}
                           <div className="flex flex-col md:pt-10">
-                            <span className="font-label text-[10px] text-blue-400 font-semibold uppercase tracking-wider mb-2">
+                            <span className="font-label text-[10px] text-[#4DA3FF] font-semibold uppercase tracking-wider mb-2">
                               [ UI TRIGGER ]
                             </span>
                             <div
@@ -1083,13 +1064,16 @@ export default function CaseStudySdarim() {
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
               Clarity Over Decoration
             </h2>
+            {/* Both paragraphs stacked in the left column of the shared grid */}
             <div className="cs-split">
+              <div className="space-y-4">
               <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
                 With almost no existing brand guidelines and a requirement to keep the old logo, the focus was purely on functional clarity.
               </p>
               <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
                 We relied on a simple blue palette, clean typography, and plenty of whitespace to make dense screens easy to read and keep key actions obvious.
               </p>
+              </div>
             </div>
           </motion.div>
 
@@ -1134,7 +1118,7 @@ export default function CaseStudySdarim() {
 
           <div className="cs-split mt-16 md:mt-20">
             <motion.div {...fadeUp} className="flex flex-col">
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase mb-6">
                 Typography
               </h3>
               <div className="flex-1 rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
@@ -1150,7 +1134,7 @@ export default function CaseStudySdarim() {
                   ].map((item) => (
                     <div key={item.label} className="py-5 first:pt-0 last:pb-0">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="font-label text-[11px] font-normal text-[#3B82F6] uppercase tracking-wide">
+                        <span className="font-label text-[11px] font-normal text-[#4DA3FF] uppercase tracking-wide">
                           {item.label}
                         </span>
                         <span className="font-label text-[11px] text-[#F8FAFC]/30">•</span>
@@ -1168,7 +1152,7 @@ export default function CaseStudySdarim() {
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col">
-              <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
+              <h3 className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase mb-6">
                 Color Palette
               </h3>
               <div className="flex-1 rounded-xl border border-white/[0.08] p-6 md:p-8 bg-[#111827] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">

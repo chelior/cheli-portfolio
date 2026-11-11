@@ -26,6 +26,7 @@ export default function PrototypeSection({
   videoSrc,
   children,
   expandable = false,
+  instructions,
 }) {
   const reducedMotion = useReducedMotion();
   const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
@@ -61,9 +62,19 @@ export default function PrototypeSection({
         </motion.div>
 
         {subtitle && (
-          <motion.p {...fadeUp} className={`font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] ${children ? "mb-6" : "mb-12"}`}>
+          <motion.p {...fadeUp} className={`font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] ${instructions ? "mb-5" : children ? "mb-6" : "mb-12"}`}>
             {subtitle}
           </motion.p>
+        )}
+
+        {/* "Try it yourself:" block — same style as User Creation */}
+        {instructions && (
+          <motion.div {...fadeUp} className="max-w-[760px] mb-6">
+            <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[26px] leading-tight tracking-[-0.02em] mb-2">
+              Try it yourself:
+            </p>
+            <p className="font-body text-sm text-[#94A3B8] leading-[2.1]">{instructions}</p>
+          </motion.div>
         )}
 
         {/* Expand button — same style and position as User Creation: right-aligned, just above the prototype */}
