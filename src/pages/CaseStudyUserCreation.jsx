@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ChevronRight, ChevronDown, Users, LayoutGrid, Eye, Check, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ChevronDown, Users, LayoutGrid, Eye, Check, Maximize2, X } from "lucide-react";
 import ddUserPlusUrl from "@/assets/dd-menu/user-round-plus.svg";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
@@ -116,12 +116,12 @@ const TAKEAWAYS = [
   {
     icon: <Eye size={18} />,
     title: "Use Progressive Disclosure",
-    body: "It is not just about hiding fields. Knowing exactly when to reveal advanced settings is what keeps the screen clean.",
+    body: "It's not just hiding fields. Knowing when to reveal advanced settings keeps the screen clean.",
   },
   {
     icon: <Users size={18} />,
     title: "Test Early",
-    body: "Reviewing concepts with the design team saved time by dropping flawed directions before development started.",
+    body: "Early design reviews saved time by catching issues before development started.",
   },
 ];
 
@@ -377,44 +377,50 @@ export default function CaseStudyUserCreation() {
       {/* ── 2. The Starting Point — full-width dark: text left, original wizard steps right ── */}
       <section className="w-full py-14 md:py-20 bg-[#111827]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-[1fr_1.7fr] gap-10 lg:gap-16 items-center">
-              <div>
-                <h2 className="font-heading text-[#E2E8F0] text-[32px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
-                  The Starting Point
+          {/* Same 12-column grid as "The Problem" below (7 + 5, 64px gap), so the
+              images start on the same vertical line as that section's right column. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7">
+                <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
+                  The Starting Point: The Road to V1
                 </h2>
-                <p className="font-body text-[#94A3B8] text-base leading-[1.7] max-w-lg">
-                  At Tipalti, adding a new team member meant navigating a rigid 4-step wizard. Each step was siloed, forcing admins out of their main table context just to configure basic access.
-                </p>
+                <div className="space-y-4 max-w-xl">
+                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                    When I joined Tipalti, the user creation flow was an in-progress 2-step wizard. We needed to add an Approver role with a few extra fields, so the initial plan was to add a third step that only opened when that role was selected.
+                  </p>
+                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                    To prevent the wizard from feeling like it cut off at step 2 when the Approver step was skipped, we added a fourth step for a summary. Designing it in Figma made the problem obvious: patching the flow with a summary created a completely unnecessary step, turning a simple task into a bloated 4-screen process.
+                  </p>
+                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                    I raised a flag, but with tight delivery deadlines, we moved forward with V1. Soon after, the pushback was immediate: the flow created too much friction. That reaction gave us the clear backing we needed to scrap the wizard and redesign the entire flow from scratch.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <div className="flex items-center justify-center gap-1.5 md:gap-3">
+              <div className="lg:col-span-5 w-full max-w-[360px] mx-auto lg:mx-0">
+                {/* 2×2 grid of the original wizard steps, each shown at the size it had
+                    in the old single row (~170px wide). Click to see it full size. */}
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
                   {STARTING_POINT_IMAGES.map((img, i) => (
-                    <React.Fragment key={i}>
-                      <button
-                        type="button"
-                        onClick={() => setStartingLightbox(i)}
-                        className="flex-1 min-w-0 rounded-lg overflow-hidden cursor-zoom-in hover:opacity-90 transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] block"
-                        aria-label={`Expand ${img.alt}`}
-                      >
-                        <img
-                          src={img.src}
-                          alt={img.alt}
-                          className="w-full h-auto object-contain block rounded-lg"
-                          loading="lazy"
-                          draggable={false}
-                        />
-                      </button>
-                      {i < STARTING_POINT_IMAGES.length - 1 && (
-                        <span className="shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-md bg-[#1E2533] border border-white/[0.08] flex items-center justify-center">
-                          <ChevronRight size={14} className="text-[#94A3B8]" />
-                        </span>
-                      )}
-                    </React.Fragment>
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setStartingLightbox(i)}
+                      className="min-w-0 rounded-lg overflow-hidden cursor-zoom-in hover:opacity-90 transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] block"
+                      aria-label={`Expand ${img.alt}`}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-auto object-contain block rounded-lg"
+                        loading="lazy"
+                        draggable={false}
+                      />
+                    </button>
                   ))}
                 </div>
                 <p className="font-body text-sm text-[#94A3B8] text-center mt-4">
-                  The original 4-step wizard flow
+                  The original 4-step wizard flow · click to expand
                 </p>
               </div>
             </div>
@@ -819,7 +825,7 @@ export default function CaseStudyUserCreation() {
 
           <motion.div {...fadeUp} className="max-w-[760px] mb-6">
             <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[26px] leading-tight tracking-[-0.02em] mb-2">
-              Try it yourself.
+              Try it yourself:
             </p>
             <p className="font-body text-sm text-[#94A3B8] leading-[2.1]">
               This is a fully interactive prototype: click the{" "}

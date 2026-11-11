@@ -38,7 +38,7 @@ export default function ContactSection() {
           className="text-center"
         >
           <p className="font-label text-sm text-[#F8FAFC]/60 tracking-wide mb-6 md:mb-8">
-            Open to my next role. Let's connect.
+            Open for my next role. Let's connect.
           </p>
 
           {/* Magnetic email button */}
