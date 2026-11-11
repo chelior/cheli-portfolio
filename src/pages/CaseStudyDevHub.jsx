@@ -292,14 +292,12 @@ export default function CaseStudyDevHub() {
       {/* ── Research & Business ROI ── */}
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
-            <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
-              Research & Business ROI
-            </h2>
-          </motion.div>
-
           <div className="cs-split items-center mb-0">
             <motion.div {...fadeUp}>
+              {/* Heading sits directly above the text, same 24px gap as the other sections */}
+              <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
+                Research & Business ROI
+              </h2>
               <div className="space-y-6 max-w-[450px]">
                 {[
                   {
