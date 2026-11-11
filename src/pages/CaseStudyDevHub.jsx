@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Rocket, TrendingUp, LifeBuoy } from "lucide-react";
 import { Link } from "react-router-dom";
 import StartingPointSection from "@/components/portfolio/StartingPointSection";
@@ -13,11 +13,20 @@ import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 const SOLUTIONS = [
@@ -85,6 +94,8 @@ const STARTING_POINT_IMAGES = [
 ];
 
 export default function CaseStudyDevHub() {
+  const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
@@ -107,7 +118,8 @@ export default function CaseStudyDevHub() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
-            to="/#work"
+            to="/"
+            state={{ scrollTo: "work" }}
             className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#FF4E7E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4E7E] rounded"
           >
             <ArrowLeft size={15} />
@@ -124,13 +136,13 @@ export default function CaseStudyDevHub() {
         {/* Background Watermark — DEVHUB */}
         <div
           aria-hidden="true"
-          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-16 md:top-20 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
         >
           DEVHUB
         </div>
 
-        <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-20">
+          <div className="cs-split items-center">
             {/* Left Column */}
             <div>
               <motion.p
@@ -207,8 +219,8 @@ export default function CaseStudyDevHub() {
       {/* ── The Problem: pure editorial, no cards ── */}
       <section className="w-full my-0 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <motion.div {...fadeUp} className="lg:col-span-7">
+          <div className="cs-split items-start">
+            <motion.div {...fadeUp}>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -223,7 +235,7 @@ export default function CaseStudyDevHub() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="lg:col-span-5">
+            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -286,7 +298,7 @@ export default function CaseStudyDevHub() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-0">
+          <div className="cs-split items-center mb-0">
             <motion.div {...fadeUp}>
               <div className="space-y-6 max-w-[450px]">
                 {[
@@ -358,14 +370,14 @@ export default function CaseStudyDevHub() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+                <div className="cs-split items-center">
                   {/* Content — text hierarchy like Sdarim */}
                   <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "md:order-2" : ""} self-center`}
+                    className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}
                   >
                     <div>
                       <span className="inline-flex items-center font-label text-xs text-[#FF4E7E] bg-[#FF4E7E]/10 px-2.5 py-1 rounded-md border border-[#FF4E7E]/20 mb-3">
@@ -396,19 +408,6 @@ export default function CaseStudyDevHub() {
                         </div>
                       </div>
                       <div className="flex md:hidden justify-center mt-3 text-white/20 text-sm leading-none">→</div>
-
-                      {sol.bullets && (
-                        <ul className="mt-4 space-y-2">
-                          {sol.bullets.map((b) => (
-                            <li key={b} className="flex items-start gap-2.5">
-                              <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#FF4E7E] shrink-0" />
-                              <span className="font-body text-sm text-[#94A3B8] leading-relaxed">{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      <p className="font-body text-sm leading-relaxed text-[#94A3B8] mt-4">{sol.reason}</p>
                     </div>
                   </motion.div>
 
@@ -418,7 +417,7 @@ export default function CaseStudyDevHub() {
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "md:order-1" : ""} self-center w-full`}
+                    className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}
                   >
                     <div
                       className="rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer group hover:border-[#FF4E7E]/30 transition-colors duration-300"
@@ -498,7 +497,7 @@ export default function CaseStudyDevHub() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <div className="cs-split mt-12">
             {[
               {
                 image: "images/devhub/Edit application - Client credentials flow.svg",

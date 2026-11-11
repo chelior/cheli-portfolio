@@ -1,13 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 export default function StartingPointSection({
@@ -18,6 +27,8 @@ export default function StartingPointSection({
   showArchitecturalBlock = false,
   compact = false,
 }) {
+  const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [index, setIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
@@ -64,7 +75,7 @@ export default function StartingPointSection({
       )}
 
       {showArchitecturalBlock && (
-        <motion.div {...fadeUp} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start mb-12">
+        <motion.div {...fadeUp} className="cs-split items-start mb-12">
           {/* Column 1 — title outside card */}
           <div>
             <h3 className="font-heading text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
@@ -262,7 +273,7 @@ export default function StartingPointSection({
 
   return (
     <section className={`w-full px-6 md:px-12 ${compact ? "py-10 md:py-16" : "py-14 md:py-20"}`} style={{ boxSizing: "border-box" }}>
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1304px] mx-auto">
         {innerContent}
       </div>
       <ImageLightbox

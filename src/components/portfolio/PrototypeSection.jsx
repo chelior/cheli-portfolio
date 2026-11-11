@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 export default function PrototypeSection({
@@ -16,12 +25,14 @@ export default function PrototypeSection({
   children,
   expandable = false,
 }) {
+  const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [fullscreen, setFullscreen] = useState(false);
   const expandableContent = expandable && !!children;
 
   return (
     <section className="w-full px-6 md:px-12 py-14 md:py-20">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1304px] mx-auto">
         <motion.div {...fadeUp} className={expandableContent ? "flex items-start justify-between gap-6" : ""}>
           <div>
             <h2 className="font-subheading text-[#F1F5F9] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">

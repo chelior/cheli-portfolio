@@ -1,4 +1,5 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import PageNotFound from './lib/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Home from '@/pages/Home';
@@ -11,20 +12,22 @@ import Resume from '@/pages/Resume';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/case-study/user-creation" element={<CaseStudyUserCreation />} />
-        <Route path="/case-study/dev-hub" element={<CaseStudyDevHub />} />
-        <Route path="/case-study/sdarim" element={<CaseStudySdarim />} />
-        <Route path="/case-study/insightec" element={<CaseStudyInSightec />} />
-        <Route path="/design-system" element={<DesignSystem />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/cv" element={<Resume />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </Router>
+    <MotionConfig reducedMotion="user">
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/case-study/user-creation" element={<CaseStudyUserCreation />} />
+          <Route path="/case-study/dev-hub" element={<CaseStudyDevHub />} />
+          <Route path="/case-study/sdarim" element={<CaseStudySdarim />} />
+          <Route path="/case-study/insightec" element={<CaseStudyInSightec />} />
+          <Route path="/design-system" element={<DesignSystem />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/cv" element={<Resume />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    </MotionConfig>
   );
 }
 

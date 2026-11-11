@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ZoomableImage from "@/components/portfolio/ZoomableImage";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ExternalLink, Search, Compass, Layers, Layout, Sparkles, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
@@ -10,11 +10,20 @@ import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 const CHALLENGES = [
@@ -202,6 +211,8 @@ function ImagePlaceholder({ alt, className = "" }) {
 }
 
 export default function CaseStudySdarim() {
+  const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [scrolled, setScrolled] = useState(false);
   const [surveyLightbox, setSurveyLightbox] = useState(null);
   const [contactOpen, setContactOpen] = useState(false);
@@ -224,7 +235,8 @@ export default function CaseStudySdarim() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
-            to="/#work"
+            to="/"
+            state={{ scrollTo: "work" }}
             className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
@@ -241,13 +253,13 @@ export default function CaseStudySdarim() {
         {/* Background Watermark — SDARIM */}
         <div
           aria-hidden="true"
-          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-16 md:top-20 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
         >
           SDARIM
         </div>
 
-        <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-20">
+          <div className="cs-split items-center">
             {/* Left Column */}
             <div>
               <motion.p
@@ -329,7 +341,7 @@ export default function CaseStudySdarim() {
             </span>
           </motion.div>
 
-          <motion.div {...fadeUp} className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <motion.div {...fadeUp} className="cs-split items-center">
             <div>
               <h3 className="font-heading text-[#E2E8F0] text-[26px] md:text-[30px] leading-[1.25] tracking-[-0.02em] mb-5">
                 The Legacy State: 4 Years of Organic Tech Debt
@@ -353,8 +365,8 @@ export default function CaseStudySdarim() {
       {/* ── The Problem: pure editorial, no cards ── */}
       <section className="w-full my-0 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <motion.div {...fadeUp} className="lg:col-span-7">
+          <div className="cs-split items-start">
+            <motion.div {...fadeUp}>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -366,7 +378,7 @@ export default function CaseStudySdarim() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="lg:col-span-5">
+            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -539,8 +551,8 @@ export default function CaseStudySdarim() {
       {/* ── Research & Discovery ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            <div className="lg:col-span-6">
+          <div className="cs-split items-start">
+            <div>
               <motion.div {...fadeUp}>
                 <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
                   Research & Discovery
@@ -578,7 +590,7 @@ export default function CaseStudySdarim() {
             {/* Research Synthesis / Affinity Board — interactive sticky notes */}
             <motion.div
               {...fadeUp}
-              className="lg:col-span-6 rounded-2xl border border-white/[0.08] p-4 md:p-5"
+              className="rounded-2xl border border-white/[0.08] p-4 md:p-5"
             style={{
               backgroundColor: "#fcfcfd",
               backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)",
@@ -760,7 +772,7 @@ export default function CaseStudySdarim() {
               <span className="font-label text-xs text-[#F8FAFC]/50">Inspiration board, competitor breakdown</span>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+            <div className="cs-split">
               {/* Mashov */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -776,7 +788,7 @@ export default function CaseStudySdarim() {
                 >
                   <img src="images/sdarim/inspiration/mashov.png" alt="Mashov" className="w-full h-auto object-contain object-top block rounded-lg" style={{ borderRadius: "8px" }} />
                 </div>
-                <h4 className="text-lg font-semibold text-[#E2E8F0] mt-5 mb-3 leading-[1.4]">Mashov</h4>
+                <h4 className="font-heading text-lg text-[#E2E8F0] mt-5 mb-3 leading-[1.4]">Mashov</h4>
                 <ul className="space-y-2.5">
                   {["Heavy text-based interface", "Minimal, outdated design", "Focus on function, not UX"].map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-[1.6]">
@@ -802,7 +814,7 @@ export default function CaseStudySdarim() {
                 >
                   <img src="images/sdarim/inspiration/OpenEduCat.png" alt="OpenEduCat" className="w-full h-auto object-contain object-top block rounded-lg" style={{ borderRadius: "8px" }} />
                 </div>
-                <h4 className="text-lg font-semibold text-[#E2E8F0] mt-5 mb-3 leading-[1.4]">OpenEduCat</h4>
+                <h4 className="font-heading text-lg text-[#E2E8F0] mt-5 mb-3 leading-[1.4]">OpenEduCat</h4>
                 <ul className="space-y-2.5">
                   {["Basic dashboard with icon grid", "Practical but cluttered", "Lacks visual hierarchy"].map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-[1.6]">
@@ -910,14 +922,14 @@ export default function CaseStudySdarim() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+                <div className="cs-split items-center">
                   {/* Text — standardized to Dual-Path Onboarding template for every solution */}
                   <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "md:order-2" : ""} self-center`}
+                    className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}
                   >
                     <div>
                       <span className="inline-flex items-center font-label text-xs text-[#0077FF] bg-[#0077FF]/10 px-2.5 py-1 rounded-md border border-[#0077FF]/20 mb-3">
@@ -977,7 +989,7 @@ export default function CaseStudySdarim() {
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "md:order-1" : ""} self-center w-full`}
+                    className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}
                   >
                     {solution.title === "Text-First Navigation & Decluttering" ? (
                       <div
@@ -1071,7 +1083,7 @@ export default function CaseStudySdarim() {
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
               Clarity Over Decoration
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[1040px]">
+            <div className="cs-split">
               <p className="font-body text-[#94A3B8] text-[16px] leading-[1.7]">
                 With almost no existing brand guidelines and a requirement to keep the old logo, the focus was purely on functional clarity.
               </p>
@@ -1097,7 +1109,7 @@ export default function CaseStudySdarim() {
           </motion.div>
 
           {/* Secondary workflows — 2-column grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div className="cs-split mt-12">
             {[
               { src: "images/sdarim/2.2.1 Abrechim List - Default@1x (3).png", alt: "Avrechim management deep list view", caption: "Avrechim Management: deep list view with inline search & filters" },
               { src: "images/sdarim/2.3.1 Avrechim List - Edit Avrech t Tab1@1x (4).png", alt: "Avrechim onboarding detail form", caption: "Avrechim Onboarding: guided step-by-step form with progressive disclosure" },
@@ -1120,7 +1132,7 @@ export default function CaseStudySdarim() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-20">
+          <div className="cs-split mt-16 md:mt-20">
             <motion.div {...fadeUp} className="flex flex-col">
               <h3 className="font-label text-xs text-[#3B82F6] tracking-wide uppercase mb-6">
                 Typography
@@ -1278,7 +1290,7 @@ export default function CaseStudySdarim() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="cs-split">
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}

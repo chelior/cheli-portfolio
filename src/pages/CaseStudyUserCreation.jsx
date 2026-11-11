@@ -11,11 +11,20 @@ import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 const STARTING_POINT_IMAGES = [
@@ -246,6 +255,7 @@ export default function CaseStudyUserCreation() {
   const spreadRef = useRef(null);
   const spreadInView = useInView(spreadRef, { once: true, amount: 0.3 });
   const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
   );
@@ -281,7 +291,8 @@ export default function CaseStudyUserCreation() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
-            to="/#work"
+            to="/"
+            state={{ scrollTo: "work" }}
             className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
@@ -298,13 +309,13 @@ export default function CaseStudyUserCreation() {
         {/* Background Graphic Watermark — soft elegant texture */}
         <div
           aria-hidden="true"
-          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
+          className="text-[120px] font-black tracking-tighter text-[#F8FAFC]/[0.04] select-none pointer-events-none absolute top-16 md:top-20 left-1/2 -translate-x-1/2 whitespace-nowrap leading-none"
         >
           USER CREATION
         </div>
 
-        <div className="relative max-w-[1400px] mx-auto px-6 pt-16 md:pt-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-20">
+          <div className="cs-split items-center">
             {/* Left Column */}
             <div>
               <motion.p
@@ -377,27 +388,39 @@ export default function CaseStudyUserCreation() {
       {/* ── 2. The Starting Point — full-width dark: text left, original wizard steps right ── */}
       <section className="w-full py-14 md:py-20 bg-[#111827]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          {/* Same 12-column grid as "The Problem" below (7 + 5, 64px gap), so the
-              images start on the same vertical line as that section's right column. */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-              <div className="lg:col-span-7">
+          {/* Shared two-column grid (cs-split), so the images start on the same
+              vertical line as every other section's right column. */}
+          <div className="cs-split items-center">
+              <div>
                 <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
                   The Starting Point: The Road to V1
                 </h2>
-                <div className="space-y-4 max-w-xl">
-                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                    When I joined Tipalti, the user creation flow was an in-progress 2-step wizard. We needed to add an Approver role with a few extra fields, so the initial plan was to add a third step that only opened when that role was selected.
-                  </p>
-                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                    To prevent the wizard from feeling like it cut off at step 2 when the Approver step was skipped, we added a fourth step for a summary. Designing it in Figma made the problem obvious: patching the flow with a summary created a completely unnecessary step, turning a simple task into a bloated 4-screen process.
-                  </p>
-                  <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
-                    I raised a flag, but with tight delivery deadlines, we moved forward with V1. Soon after, the pushback was immediate: the flow created too much friction. That reaction gave us the clear backing we needed to scrap the wizard and redesign the entire flow from scratch.
-                  </p>
-                </div>
+                <ul className="space-y-5 max-w-xl">
+                  {[
+                    {
+                      label: "Inherited Scope",
+                      body: "When I joined Tipalti, the user creation flow was an in-progress 2-step wizard. We needed to support a new Approver role with extra fields, so the team planned a 3rd step that only opened when that role was selected.",
+                    },
+                    {
+                      label: "The V1 Compromise",
+                      body: "To keep the wizard from feeling cut off when step 3 was skipped, we patched it with a 4th summary step. I flagged early on that this bloated a simple task into 4 screens, but tight deadlines pushed V1 forward.",
+                    },
+                    {
+                      label: "The Pushback & Pivot",
+                      body: "Soon after release, the flow faced immediate friction and got rejected. That pushback gave our team the clear backing to scrap the wizard and rethink the solution from scratch.",
+                    },
+                  ].map((item) => (
+                    <li key={item.label} className="flex items-start gap-3">
+                      <span className="mt-[10px] w-1.5 h-1.5 rounded-full bg-[#F17E63] shrink-0" aria-hidden="true" />
+                      <p className="font-body text-[#94A3B8] text-base leading-[1.7]">
+                        <span className="text-[#E2E8F0] font-medium">{item.label}:</span> {item.body}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="lg:col-span-5 w-full max-w-[360px] mx-auto lg:mx-0">
+              <div className="w-full max-w-[360px] mx-auto lg:mx-0">
                 {/* 2×2 grid of the original wizard steps, each shown at the size it had
                     in the old single row (~170px wide). Click to see it full size. */}
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -439,8 +462,8 @@ export default function CaseStudyUserCreation() {
       {/* ── 3. The Problem: pure editorial 2-column story, no cards ── */}
       <section className="w-full py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <motion.div {...fadeUp} className="lg:col-span-7">
+          <div className="cs-split items-start">
+            <motion.div {...fadeUp}>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -452,7 +475,7 @@ export default function CaseStudyUserCreation() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="lg:col-span-5">
+            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -630,22 +653,6 @@ export default function CaseStudyUserCreation() {
                       </span>
                     )}
 
-                    {/* Trade-off badge — revealed on hover for considered directions */}
-                    {!iter.isWinner && (
-                      <motion.span
-                        className={`absolute top-3 right-3 z-10 text-[10px] font-label uppercase tracking-wide px-2.5 py-1 rounded-full border backdrop-blur-sm ${
-                          i === 0
-                            ? "bg-red-500/10 text-red-300/90 border-red-400/30"
-                            : "bg-slate-400/10 text-slate-300/90 border-slate-400/30"
-                        }`}
-                        variants={{
-                          rest: { opacity: 0, y: -6, scale: 0.96 },
-                          hover: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.28, ease: "easeOut" } },
-                        }}
-                      >
-                        {iter.tradeOff}
-                      </motion.span>
-                    )}
                   </motion.div>
                 </motion.div>
               );
@@ -676,7 +683,7 @@ export default function CaseStudyUserCreation() {
                 transition={{ duration: 0.6 }}
               >
                 {sol.preview ? (
-                  <div className="grid gap-8 md:gap-10 items-center md:grid-cols-[1.3fr_1fr]">
+                  <div className="cs-split items-center">
                     <div className="self-center">
                       <SolutionTabbedPreview
                         preview={sol.preview}
@@ -719,15 +726,11 @@ export default function CaseStudyUserCreation() {
                         </div>
                       </div>
                       <div className="flex md:hidden justify-center mt-3 text-white/20 text-sm leading-none">→</div>
-
-                      <p className="font-body text-sm text-[#94A3B8] leading-relaxed mt-4">
-                        {sol.body}
-                      </p>
                     </div>
                   </div>
                 ) : (
-                <div className={`grid gap-8 md:gap-10 items-center ${i % 2 === 1 ? "md:grid-cols-[1.25fr_1fr]" : "md:grid-cols-[1fr_1.25fr]"}`}>
-                  <div className={`${i % 2 === 1 ? "md:order-2" : ""} self-center`}>
+                <div className="cs-split items-center">
+                  <div className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}>
                     <span className="inline-flex items-center font-mono text-xs text-[#F17E63] bg-[#F17E63]/10 px-2.5 py-1 rounded-md border border-[#F17E63]/20 mb-3">
                       {sol.num}
                     </span>
@@ -762,14 +765,10 @@ export default function CaseStudyUserCreation() {
                       </div>
                     </div>
                     <div className="flex md:hidden justify-center mt-3 text-white/20 text-sm leading-none">→</div>
-
-                    <p className="font-body text-sm text-[#94A3B8] leading-relaxed mt-4">
-                      {sol.body}
-                    </p>
                   </div>
 
                   <div
-                    className={`${i % 2 === 1 ? "md:order-1" : ""} self-center w-full rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer group hover:border-[#F17E63]/30 transition-colors duration-300 flex items-center justify-center`}
+                    className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer group hover:border-[#F17E63]/30 transition-colors duration-300 flex items-center justify-center`}
                     onClick={() => setSolutionsLightbox({ src: sol.image, alt: sol.label })}
                   >
                     <img

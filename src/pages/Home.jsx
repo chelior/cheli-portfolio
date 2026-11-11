@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/portfolio/Navbar";
 import HeroSection from "@/components/portfolio/HeroSection";
 import WorkSection from "@/components/portfolio/WorkSection";
@@ -64,6 +65,16 @@ const PROJECTS = [
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const location = useLocation();
+
+  // Case study pages navigate back here with state={{ scrollTo: "work" }} instead of
+  // a literal "/#work" link, which HashRouter can't resolve (it would double up the hash).
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+    if (!id) return;
+    const target = document.getElementById(id);
+    target?.scrollIntoView({ behavior: "smooth" });
+  }, [location.state]);
 
   return (
     <main className="bg-[#090D16] min-h-screen">

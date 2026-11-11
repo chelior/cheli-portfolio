@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const ALL_PROJECTS = [
@@ -39,15 +39,16 @@ const ALL_PROJECTS = [
 
 export default function MoreProjects({ currentSlug }) {
   const projects = ALL_PROJECTS.filter((p) => p.slug !== currentSlug).slice(0, 2);
+  const reducedMotion = useReducedMotion();
 
   return (
     <section className="w-full px-6 md:px-12 py-14 md:py-20 bg-[#0F172A] border-t border-white/[0.06]">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1304px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 md:mb-10"
         >
           <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
@@ -58,14 +59,14 @@ export default function MoreProjects({ currentSlug }) {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-[980px] mx-auto">
+        <div className="cs-split">
           {projects.map((proj, i) => (
             <motion.div
               key={proj.slug}
-              initial={{ opacity: 0, y: 24 }}
+              initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link
                 to={proj.slug}

@@ -47,10 +47,10 @@ export default function CaseStudyHero({
         "--project-accent": accent,
         background: `linear-gradient(to bottom, ${hexToRgba(accent, 0.12)} 0%, #090D16 75%)`,
       }}
-      className="lg:min-h-[743px] xl:min-h-[647px] relative pt-28 md:pt-32 pb-16 px-6 md:px-12 overflow-hidden bg-gradient-to-b"
+      className="lg:min-h-[743px] xl:min-h-[647px] relative pt-28 md:pt-32 pb-16 overflow-hidden bg-gradient-to-b"
     >
 
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 xl:gap-16 items-center">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 cs-split items-center">
         {/* ── Left ── */}
         <div className="relative min-w-0">
           {overline && (

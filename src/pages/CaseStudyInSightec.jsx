@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Split, TrendingDown, Layers, Compass, Users, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import CaseStudyHero from "@/components/portfolio/CaseStudyHero";
@@ -10,11 +10,20 @@ import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 
-const fadeUp = {
+const FADE_UP = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.7 },
+};
+
+// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
+// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
+const FADE_UP_REDUCED = {
+  initial: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0 },
 };
 
 const CHALLENGES = [
@@ -91,6 +100,8 @@ const TAKEAWAYS = [
 ];
 
 export default function CaseStudyInSightec() {
+  const reducedMotion = useReducedMotion();
+  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -112,7 +123,8 @@ export default function CaseStudyInSightec() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <Link
-            to="/#work"
+            to="/"
+            state={{ scrollTo: "work" }}
             className="flex items-center gap-2 font-body text-[14px] font-normal uppercase tracking-[0.06em] text-[#F8FAFC]/50 hover:text-[#3B82F6] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] rounded"
           >
             <ArrowLeft size={15} />
@@ -245,7 +257,7 @@ export default function CaseStudyInSightec() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div className="cs-split">
             {SOLUTIONS.map((solution, i) => (
               <motion.div
                 key={i}
@@ -286,7 +298,7 @@ export default function CaseStudyInSightec() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="cs-split">
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}

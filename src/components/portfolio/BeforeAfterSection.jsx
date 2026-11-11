@@ -16,8 +16,8 @@ export default function BeforeAfterSection({ before, after }) {
   return (
     <>
       <motion.div {...fadeUp} className="px-6 md:px-12 mb-24 md:mb-36">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="max-w-[1304px] mx-auto">
+          <div className="cs-split">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="font-label text-xs text-[#3B82F6] tracking-wide uppercase">
