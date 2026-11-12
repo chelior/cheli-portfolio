@@ -11,22 +11,6 @@ import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
-
 const STARTING_POINT_IMAGES = [
   { src: "images/user-creation/starting point/1.svg", alt: "Step 1 — Profile" },
   { src: "images/user-creation/starting point/2.svg", alt: "Step 2 — Roles" },
@@ -255,7 +239,6 @@ export default function CaseStudyUserCreation() {
   const spreadRef = useRef(null);
   const spreadInView = useInView(spreadRef, { once: true, amount: 0.3 });
   const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
   );
@@ -463,7 +446,7 @@ export default function CaseStudyUserCreation() {
       <section className="w-full py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="cs-split items-start">
-            <motion.div {...fadeUp}>
+            <motion.div>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -475,7 +458,7 @@ export default function CaseStudyUserCreation() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+            <motion.div>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -493,10 +476,6 @@ export default function CaseStudyUserCreation() {
                 ].map((item, i) => (
                   <motion.div
                     key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
                     className="py-7 first:pt-0 last:pb-0"
                   >
                     <h4 className="font-heading text-[#E2E8F0] text-[17px] leading-[1.3] tracking-[-0.01em] mb-2.5">
@@ -514,7 +493,7 @@ export default function CaseStudyUserCreation() {
       {/* ── 4. The Challenge — full-width orange banner: the "How might we" mission ── */}
       <section className="w-full py-20 md:py-28 min-h-[50vh] flex flex-col justify-center" style={{ backgroundColor: "#F17E63" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <p className="font-heading text-white/80 text-[22px] md:text-[24px] tracking-[-0.02em] mt-0 mb-6">
               The Challenge
             </p>
@@ -528,7 +507,7 @@ export default function CaseStudyUserCreation() {
       {/* ── 4. Design Explorations & Trade-offs ── */}
       <section className="w-full py-14 md:py-20 overflow-x-clip">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Design Explorations & Trade-offs
             </h2>
@@ -664,7 +643,7 @@ export default function CaseStudyUserCreation() {
       {/* ── 5. Key Solutions ── */}
       <section className="w-full py-14 md:py-20 bg-[#0F172A] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Key Solutions & Features
             </h2>
@@ -675,13 +654,7 @@ export default function CaseStudyUserCreation() {
 
           <div className="space-y-20 md:space-y-28">
             {USER_CREATION_SOLUTIONS.map((sol, i) => (
-              <motion.div
-                key={sol.num}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-              >
+              <motion.div key={sol.num}>
                 {sol.preview ? (
                   <div className="cs-split items-center">
                     <div className="self-center">
@@ -796,7 +769,7 @@ export default function CaseStudyUserCreation() {
       {/* ── 6. Final Experience: narrative merged into the live prototype showcase ── */}
       <section className="w-full py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="flex items-start justify-between gap-6">
+          <motion.div className="flex items-start justify-between gap-6">
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-5">
                 <span className="font-label text-[11px] tracking-widest uppercase text-[#F8FAFC]/45">
@@ -818,11 +791,11 @@ export default function CaseStudyUserCreation() {
             </div>
           </motion.div>
 
-          <motion.p {...fadeUp} className="font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] mb-5">
+          <motion.p className="font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] mb-5">
             We combined the entire setup into one continuous screen instead of a rigid wizard. Complex settings only appear when relevant, cutting admin setup time down to 30 seconds.
           </motion.p>
 
-          <motion.div {...fadeUp} className="max-w-[760px] mb-6">
+          <motion.div className="max-w-[760px] mb-6">
             <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[26px] leading-tight tracking-[-0.02em] mb-2">
               Try it yourself:
             </p>
@@ -850,7 +823,7 @@ export default function CaseStudyUserCreation() {
             </p>
           </motion.div>
 
-          <motion.div {...fadeUp} className="flex justify-end mb-3">
+          <motion.div className="flex justify-end mb-3">
             <button
               onClick={() => setPrototypeFullscreen(true)}
               className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-label text-sm text-[#0A0F1D] shadow-sm hover:bg-white/85 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
@@ -861,7 +834,7 @@ export default function CaseStudyUserCreation() {
             </button>
           </motion.div>
 
-          <motion.div {...fadeUp} className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+          <motion.div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
             <UserCreationPrototype />
           </motion.div>
         </div>
@@ -901,7 +874,7 @@ export default function CaseStudyUserCreation() {
       {/* ── 7. Before & After ── */}
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               Before & After
             </h2>
@@ -909,7 +882,7 @@ export default function CaseStudyUserCreation() {
               Drag to compare before and after
             </p>
           </motion.div>
-          <motion.div {...fadeUp} className="mb-0">
+          <motion.div className="mb-0">
             <BeforeAfterSlider
               beforeImage={{ src: "images/user-creation/0ea01fb79_AddnewuserTM4.png", alt: "Before — 4-Step Wizard user creation flow" }}
               afterImage={{ src: "images/user-creation/202bc23cf_Addnewusercollapes.svg", alt: "After — single-screen dynamic modal" }}
@@ -931,7 +904,7 @@ export default function CaseStudyUserCreation() {
       {/* ── Key Takeaways ── */}
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
+          <motion.div className="flex items-center gap-6 mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0">
               Key Takeaways
             </h2>
@@ -942,10 +915,6 @@ export default function CaseStudyUserCreation() {
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#F17E63] group-hover:bg-[#F17E63]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#F17E63]">

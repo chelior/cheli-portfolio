@@ -28,47 +28,23 @@ export default function AboutSection() {
     <section id="about" className="relative px-6 md:px-12 py-24 md:py-32 bg-[#0F172A] border-t border-white/[0.06]">
       <div className="max-w-[1000px] mx-auto">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 md:mb-10"
-        >
+        <motion.div className="mb-8 md:mb-10">
           <h2 className="font-subheading text-[#F8FAFC] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
             About
           </h2>
         </motion.div>
 
         {/* Short bio — the section's primary statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-10 md:mb-14"
-        >
+        <motion.div className="mb-10 md:mb-14">
           <p style={{ textWrap: "balance" }} className="font-body text-[#F8FAFC]/90 text-[18px] md:text-[20px] leading-[1.6] max-w-[744px]">
             {BIO}
           </p>
         </motion.div>
 
         {/* Interest grid — photographs, not cards: no hover affordance, nothing is clickable */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
-        >
+        <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {INTERESTS.map((interest, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-            >
+            <motion.div key={i}>
               <div className="aspect-square overflow-hidden rounded-lg bg-[#111827] border border-white/[0.08]">
                 <img
                   src={interest.image}
@@ -86,13 +62,7 @@ export default function AboutSection() {
         </motion.div>
 
         {/* Current Thinking ticker — the one bold element in the section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 md:mt-24 border-t border-white/[0.08] pt-6 md:pt-8 overflow-hidden"
-        >
+        <motion.div className="mt-16 md:mt-24 border-t border-white/[0.08] pt-6 md:pt-8 overflow-hidden">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-2 h-2 rounded-full bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.35)] animate-pulse" />
             <span className="font-label text-xs text-[#F8FAFC]/50 tracking-wide uppercase">

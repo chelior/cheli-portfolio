@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ZoomableImage from "@/components/portfolio/ZoomableImage";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Type, Split, Columns, Palette, Lightbulb, Scale, ExternalLink, Search, Compass, Layers, Layout, Rocket, CheckCircle, PlayCircle, Play, Workflow, GitFork, Route, LayoutTemplate, LayoutDashboard, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
@@ -10,21 +10,6 @@ import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
 
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
 
 const CHALLENGES = [
   {
@@ -211,8 +196,7 @@ function ImagePlaceholder({ alt, className = "" }) {
 }
 
 export default function CaseStudySdarim() {
-  const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
+
   const [scrolled, setScrolled] = useState(false);
   const [surveyLightbox, setSurveyLightbox] = useState(null);
   const [contactOpen, setContactOpen] = useState(false);
@@ -332,7 +316,7 @@ export default function CaseStudySdarim() {
       {/* ── How It Started — narrative legacy-state block ── */}
       <section className="py-14 md:py-20 overflow-hidden" style={{ boxSizing: "border-box" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 overflow-hidden">
-          <motion.div {...fadeUp} className="mb-12 relative z-10">
+          <motion.div className="mb-12 relative z-10">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               How It Started
             </h2>
@@ -341,7 +325,7 @@ export default function CaseStudySdarim() {
             </span>
           </motion.div>
 
-          <motion.div {...fadeUp} className="cs-split items-center">
+          <motion.div className="cs-split items-center">
             <div>
               <h3 className="font-heading text-[#E2E8F0] text-[26px] md:text-[30px] leading-[1.25] tracking-[-0.02em] mb-5">
                 The Legacy State: 4 Years of Organic Tech Debt
@@ -366,7 +350,7 @@ export default function CaseStudySdarim() {
       <section className="w-full my-0 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="cs-split items-start">
-            <motion.div {...fadeUp}>
+            <motion.div>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -378,7 +362,7 @@ export default function CaseStudySdarim() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+            <motion.div>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -396,10 +380,6 @@ export default function CaseStudySdarim() {
                 ].map((item, i) => (
                   <motion.div
                     key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
                     className="py-7 first:pt-0 last:pb-0"
                   >
                     <h4 className="font-heading text-[#E2E8F0] text-[17px] leading-[1.3] tracking-[-0.01em] mb-2.5">
@@ -417,7 +397,7 @@ export default function CaseStudySdarim() {
       {/* ── The Challenge — Top Hero (solid Sdarim blue) ── */}
       <section className="w-full my-0 py-20 md:py-28 min-h-[50vh] flex flex-col justify-center bg-[#0077FF]" style={{ backgroundColor: "#0077FF" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <h2 className="font-subheading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
@@ -425,7 +405,7 @@ export default function CaseStudySdarim() {
               Feature Bloat, Hidden Features, Rigid Flows
             </p>
           </motion.div>
-          <motion.div {...fadeUp} className="w-full max-w-full mb-0">
+          <motion.div className="w-full max-w-full mb-0">
             <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
               How might we make a complex admin system intuitive for non-technical users?
             </p>
@@ -436,7 +416,7 @@ export default function CaseStudySdarim() {
       {/* ── Design Process — Alternating Timeline ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Design Process
             </h2>
@@ -498,10 +478,6 @@ export default function CaseStudySdarim() {
                     {/* Card side */}
                     <div className={`flex-1 ml-[54px] md:ml-0 ${isLeft ? "md:mr-[64px]" : "md:ml-[64px]"}`}>
                       <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: i * 0.1 }}
                         className="bg-[#111827] border border-white/[0.08] rounded-xl p-5 md:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.35)] group-hover:shadow-md group-hover:-translate-y-0.5 transition-all duration-200"
                       >
                         <span
@@ -553,7 +529,7 @@ export default function CaseStudySdarim() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="cs-split items-start">
             <div>
-              <motion.div {...fadeUp}>
+              <motion.div>
                 <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
                   Research & Discovery
                 </h2>
@@ -563,10 +539,6 @@ export default function CaseStudySdarim() {
             {RESEARCH.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="flex gap-5"
               >
                 <div className="w-8 h-8 rounded-full bg-[#0077FF]/15 border border-[#0077FF]/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -589,14 +561,9 @@ export default function CaseStudySdarim() {
 
             {/* Research Synthesis / Affinity Board — interactive sticky notes */}
             <motion.div
-              {...fadeUp}
               className="rounded-2xl border border-white/[0.08] p-4 md:p-5"
-            style={{
-              backgroundColor: "#fcfcfd",
-              backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)",
-              backgroundSize: "20px 20px",
-            }}
-          >
+              style={{ backgroundColor: "#fcfcfd", backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)", backgroundSize: "20px 20px", }}
+            >
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
               <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">User Survey - Pain Points</span>
               <span className="font-label text-xs text-[#F8FAFC]/50">Direct quotes from users</span>
@@ -608,10 +575,6 @@ export default function CaseStudySdarim() {
                 return (
                   <motion.div
                     key={screen.src}
-                    initial={{ opacity: 0, y: 20, rotate: rotations[i] }}
-                    whileInView={{ opacity: 1, y: 0, rotate: rotations[i] }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.07 }}
                     whileHover={{ rotate: 0, scale: 1.02, y: -4 }}
                     className="cursor-pointer"
                     style={{ transformOrigin: "center", transition: "transform 0.25s ease-out" }}
@@ -683,7 +646,7 @@ export default function CaseStudySdarim() {
           </div>
 
           {/* Quantitative research findings — metric visualization */}
-          <motion.div {...fadeUp} className="mt-16 md:mt-20">
+          <motion.div className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
               <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">
                 Quantitative Findings
@@ -719,43 +682,21 @@ export default function CaseStudySdarim() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="bg-[#111827] border border-[#f1f5f9] rounded-2xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
-                  style={{
-                    padding: '32px 28px',
-                    boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04)',
-                  }}
+                  style={{ padding: '32px 28px', boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04)', }}
                 >
                   <span
                     className={`inline-block font-label text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 ${item.badgeClass}`}
                   >
                     {item.badge}
                   </span>
-                  <motion.span
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-                    className="block text-5xl font-bold tracking-tight text-[#E2E8F0] mb-3 tabular-nums"
-                  >
+                  <motion.span className="block text-5xl font-bold tracking-tight text-[#E2E8F0] mb-3 tabular-nums">
                     <AnimatedCounter value={item.value} suffix="%" duration={1350} />
                   </motion.span>
                   <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: item.width }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.4 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
                     className="rounded-full"
-                    style={{
-                      height: '5px',
-                      background: item.bar,
-                      borderRadius: '9999px',
-                      marginBottom: '16px',
-                    }}
-                  />
+                    style={{ height: '5px', background: item.bar, borderRadius: '9999px', marginBottom: '16px', }}
+                   />
                   <p className="text-[14px] leading-[1.5] text-[#94A3B8]">{item.label}</p>
                 </motion.div>
               ))}
@@ -764,7 +705,7 @@ export default function CaseStudySdarim() {
           </motion.div>
 
           {/* Competitive Research */}
-          <motion.div {...fadeUp} className="mt-16 md:mt-20">
+          <motion.div className="mt-16 md:mt-20">
             <div className="flex items-center gap-3 mb-8">
               <span className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase">
                 Competitive Research
@@ -775,10 +716,6 @@ export default function CaseStudySdarim() {
             <div className="cs-split">
               {/* Mashov */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
                 className="bg-[#111827] rounded-2xl border border-white/[0.08] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:shadow-md transition-all"
               >
                 <div
@@ -801,10 +738,6 @@ export default function CaseStudySdarim() {
 
               {/* OpenEduCat */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
                 className="bg-[#111827] rounded-2xl border border-white/[0.08] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:shadow-md transition-all"
               >
                 <div
@@ -832,7 +765,7 @@ export default function CaseStudySdarim() {
       {/* ── Old System Mapping ── */}
       <section className="py-14 md:py-20">
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="flex items-start justify-between gap-6 mb-12">
+          <motion.div className="flex items-start justify-between gap-6 mb-12">
             <div>
               <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
                 Old System Mapping
@@ -851,17 +784,11 @@ export default function CaseStudySdarim() {
             </button>
           </motion.div>
           <motion.div
-            {...fadeUp}
             className="relative group w-full cursor-pointer rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             onClick={() => setSurveyLightbox({ src: "images/sdarim/old system mapping2.svg", alt: "Old System Mapping" })}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setSurveyLightbox({ src: "images/sdarim/old system mapping2.svg", alt: "Old System Mapping" });
-              }
-            }}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSurveyLightbox({ src: "images/sdarim/old system mapping2.svg", alt: "Old System Mapping" }); } }}
             aria-label="Expand Old System Mapping diagram"
           >
             <img
@@ -876,13 +803,13 @@ export default function CaseStudySdarim() {
       {/* ── Key Solutions & Design Decisions ── */}
       <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
           </motion.div>
 
-          <motion.div {...fadeUp} className="mb-16 md:mb-20">
+          <motion.div className="mb-16 md:mb-20">
             <div className="inline-flex items-center gap-2 bg-[#111827] rounded-full px-4 py-2 border border-white/[0.08]">
               <span className="font-label text-xs text-[#4DA3FF] uppercase tracking-wide">
                 Client Constraint
@@ -896,22 +823,10 @@ export default function CaseStudySdarim() {
           {/* Alternating text + mockup rows — refined like Chaachie: tight grid, caption above image, staggered scroll animations */}
           <div className="space-y-20 md:space-y-28">
             {SOLUTIONS.map((solution, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-              >
+              <motion.div key={i}>
                 <div className="cs-split items-center">
                   {/* Text — standardized to Dual-Path Onboarding template for every solution */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}
-                  >
+                  <motion.div className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}>
                     <div>
                       <span className="inline-flex items-center font-label text-xs text-[#0077FF] bg-[#0077FF]/10 px-2.5 py-1 rounded-md border border-[#0077FF]/20 mb-3">
                         {String(i + 1).padStart(2, "0")}
@@ -965,13 +880,7 @@ export default function CaseStudySdarim() {
                   </motion.div>
 
                   {/* Mockup — subtle scale + y, like Chaachie’s image reveal */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 28, scale: 0.98 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}
-                  >
+                  <motion.div className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}>
                     {solution.title === "Text-First Navigation & Decluttering" ? (
                       <div
                         className="bg-white/[0.06]/70 border border-white/[0.08] rounded-2xl p-6 shadow-xs cursor-pointer group"
@@ -1060,7 +969,7 @@ export default function CaseStudySdarim() {
       {/* ── Visual Architecture ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-10">
+          <motion.div className="mb-10">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
               Clarity Over Decoration
             </h2>
@@ -1078,7 +987,7 @@ export default function CaseStudySdarim() {
           </motion.div>
 
           {/* Primary screen — full-width anchor */}
-          <motion.div {...fadeUp} className="mt-14 md:mt-16">
+          <motion.div className="mt-14 md:mt-16">
             <div className="w-full rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
               <ZoomableImage
                 src="images/sdarim/1.1 Home Page_1x.png"
@@ -1100,10 +1009,6 @@ export default function CaseStudySdarim() {
             ].map((screen, i) => (
               <motion.figure
                 key={screen.src}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col"
               >
                 <div className="rounded-xl border border-white/10 shadow-xl overflow-hidden bg-[#111827]">
@@ -1117,7 +1022,7 @@ export default function CaseStudySdarim() {
           </div>
 
           <div className="cs-split mt-16 md:mt-20">
-            <motion.div {...fadeUp} className="flex flex-col">
+            <motion.div className="flex flex-col">
               <h3 className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase mb-6">
                 Typography
               </h3>
@@ -1151,7 +1056,7 @@ export default function CaseStudySdarim() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="flex flex-col">
+            <motion.div className="flex flex-col">
               <h3 className="font-label text-xs text-[#4DA3FF] tracking-wide uppercase mb-6">
                 Color Palette
               </h3>
@@ -1247,7 +1152,7 @@ export default function CaseStudySdarim() {
       {/* ── Before & After ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
@@ -1256,7 +1161,7 @@ export default function CaseStudySdarim() {
             </span>
           </motion.div>
 
-          <motion.div {...fadeUp}>
+          <motion.div>
             <BeforeAfterSlider
               beforeImage={{ src: "images/sdarim/771c2c716_Oldsystem-HomePage.png", alt: "Before — Old System Home Page" }}
               afterImage={{ src: "images/sdarim/3d0fd9abf_11HomePage_1x.png", alt: "After — Redesigned Home Page" }}
@@ -1268,7 +1173,7 @@ export default function CaseStudySdarim() {
       {/* ── Key Takeaways ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -1278,10 +1183,6 @@ export default function CaseStudySdarim() {
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#0077FF] group-hover:bg-[#0077FF]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#0077FF]">

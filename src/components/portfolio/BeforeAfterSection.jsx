@@ -1,21 +1,13 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import MonitorMockup from "@/components/portfolio/MonitorMockup";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
 
 export default function BeforeAfterSection({ before, after }) {
   const [lightboxImage, setLightboxImage] = useState(null);
 
   return (
     <>
-      <motion.div {...fadeUp} className="px-6 md:px-12 mb-24 md:mb-36">
+      <div className="px-6 md:px-12 mb-24 md:mb-36">
         <div className="max-w-[1304px] mx-auto">
           <div className="cs-split">
             <div>
@@ -54,7 +46,7 @@ export default function BeforeAfterSection({ before, after }) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
       <ImageLightbox
         src={lightboxImage?.src}
         alt={lightboxImage?.alt}

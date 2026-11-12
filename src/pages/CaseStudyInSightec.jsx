@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowLeft, Split, TrendingDown, Layers, Compass, Users, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import CaseStudyHero from "@/components/portfolio/CaseStudyHero";
@@ -10,21 +10,6 @@ import ContactModal from "@/components/portfolio/ContactModal";
 import MoreProjects from "@/components/portfolio/MoreProjects";
 import SiteFooter from "@/components/portfolio/SiteFooter";
 
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
 
 const CHALLENGES = [
   {
@@ -100,8 +85,7 @@ const TAKEAWAYS = [
 ];
 
 export default function CaseStudyInSightec() {
-  const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
+
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -149,7 +133,7 @@ export default function CaseStudyInSightec() {
       {/* ── Before & After ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
@@ -157,7 +141,7 @@ export default function CaseStudyInSightec() {
               Drag to compare before and after
             </span>
           </motion.div>
-          <motion.div {...fadeUp}>
+          <motion.div>
             <BeforeAfterSlider
               beforeImage={{ src: "images/insightec/e970e184d_INSIGHTCHDESKTOPMOCKUP.png", alt: "Before — Legacy analytics dashboard" }}
               afterImage={{ src: "images/insightec/05f6d6da5_insightechiphoneMOCKUP.png", alt: "After — Redesigned dual-audience dashboard" }}
@@ -169,7 +153,7 @@ export default function CaseStudyInSightec() {
       {/* ── The Starting Point & The Problem ── */}
       <section className="py-14 md:py-20 bg-[#0A0F1D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-heading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               The Starting Point & The Problem
             </h2>
@@ -183,7 +167,7 @@ export default function CaseStudyInSightec() {
             question="How might we surface hidden revenue leaks, give executives instant clarity, and give analysts the tools to explore in depth?"
           />
 
-          <motion.p {...fadeUp} className="font-body text-white/80 text-[16px] leading-[1.6] max-w-[600px] mb-12">
+          <motion.p className="font-body text-white/80 text-[16px] leading-[1.6] max-w-[600px] mb-12">
             The company had a working sales model with real data, but the existing
             dashboard had several bottlenecks.
           </motion.p>
@@ -192,10 +176,6 @@ export default function CaseStudyInSightec() {
             {CHALLENGES.map((challenge, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="border-l-2 border-[#3B82F6]/40 pl-5"
               >
                 <h4 className="font-heading text-white text-base mb-2">
@@ -213,7 +193,7 @@ export default function CaseStudyInSightec() {
       {/* ── Research & Discovery ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Research & Discovery
             </h2>
@@ -223,10 +203,6 @@ export default function CaseStudyInSightec() {
             {RESEARCH.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="flex gap-5"
               >
                 <div className="w-8 h-8 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -251,7 +227,7 @@ export default function CaseStudyInSightec() {
       {/* ── Key Solutions & Design Decisions ── */}
       <section className="py-14 md:py-20 bg-[#111827] border-y border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Design Decisions
             </h2>
@@ -261,10 +237,6 @@ export default function CaseStudyInSightec() {
             {SOLUTIONS.map((solution, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="bg-[#111827] rounded-lg border border-white/[0.08] p-6 md:p-8"
               >
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] flex items-center justify-center mb-5 text-[#F8FAFC]/60">
@@ -292,7 +264,7 @@ export default function CaseStudyInSightec() {
       {/* ── Key Takeaways ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -302,10 +274,6 @@ export default function CaseStudyInSightec() {
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#B47AFF] group-hover:bg-[#B47AFF]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#B47AFF]">

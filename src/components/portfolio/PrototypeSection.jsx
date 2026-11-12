@@ -2,22 +2,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
 
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
-
 export default function PrototypeSection({
   eyebrow = "Final Experience",
   live = true,
@@ -29,7 +13,6 @@ export default function PrototypeSection({
   instructions,
 }) {
   const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [fullscreen, setFullscreen] = useState(false);
   const expandableContent = expandable && !!children;
 
@@ -37,7 +20,7 @@ export default function PrototypeSection({
     <section className="w-full px-6 md:px-12 py-14 md:py-20">
       <div className="max-w-[1304px] mx-auto">
         {/* Header — same layout as the User Creation "Final Experience" section */}
-        <motion.div {...fadeUp}>
+        <motion.div>
           <div className="flex flex-wrap items-center gap-3 mb-5">
             <span className="font-label text-[11px] tracking-widest uppercase text-[#F8FAFC]/45">
               {eyebrow}
@@ -62,14 +45,16 @@ export default function PrototypeSection({
         </motion.div>
 
         {subtitle && (
-          <motion.p {...fadeUp} className={`font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] ${instructions ? "mb-5" : children ? "mb-6" : "mb-12"}`}>
+          <motion.p
+            className={`font-body text-[#94A3B8] text-base leading-[1.75] max-w-[760px] ${instructions ? "mb-5" : children ? "mb-6" : "mb-12"}`}
+          >
             {subtitle}
           </motion.p>
         )}
 
         {/* "Try it yourself:" block — same style as User Creation */}
         {instructions && (
-          <motion.div {...fadeUp} className="max-w-[760px] mb-6">
+          <motion.div className="max-w-[760px] mb-6">
             <p className="font-heading text-[#F8FAFC] text-[22px] md:text-[26px] leading-tight tracking-[-0.02em] mb-2">
               Try it yourself:
             </p>
@@ -79,7 +64,7 @@ export default function PrototypeSection({
 
         {/* Expand button — same style and position as User Creation: right-aligned, just above the prototype */}
         {expandableContent && (
-          <motion.div {...fadeUp} className="flex justify-end mb-3">
+          <motion.div className="flex justify-end mb-3">
             <button
               onClick={() => setFullscreen(true)}
               className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-label text-sm text-[#0A0F1D] shadow-sm hover:bg-white/85 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
@@ -91,7 +76,7 @@ export default function PrototypeSection({
           </motion.div>
         )}
 
-        <motion.div {...fadeUp}>
+        <motion.div>
           {children ? (
             <div className="rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-[#111827]">{children}</div>
           ) : videoSrc ? (

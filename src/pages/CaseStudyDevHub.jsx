@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowLeft, Rocket, TrendingUp, LifeBuoy } from "lucide-react";
 import { Link } from "react-router-dom";
 import ZoomableImage from "@/components/portfolio/ZoomableImage";
@@ -13,22 +13,6 @@ import SiteFooter from "@/components/portfolio/SiteFooter";
 import devhubPlusUrl from "@/assets/devhub-proto/plus.svg";
 import devhubEllipsisUrl from "@/assets/devhub-proto/ellipsis.svg";
 import AnimatedCounter from "@/components/portfolio/AnimatedCounter";
-
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
 
 const SOLUTIONS = [
   {
@@ -95,8 +79,7 @@ const STARTING_POINT_IMAGES = [
 ];
 
 export default function CaseStudyDevHub() {
-  const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
+
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
@@ -225,7 +208,7 @@ export default function CaseStudyDevHub() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           {/* Same layout as User Creation: text left, 2×2 screens right (shared cs-split grid) */}
           <div className="cs-split items-center">
-            <motion.div {...fadeUp}>
+            <motion.div>
               <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[36px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
                 The Starting Point: The Legacy Tool
               </h2>
@@ -239,7 +222,7 @@ export default function CaseStudyDevHub() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeUp} className="relative w-full">
+            <motion.div className="relative w-full">
               {/* 2×2 grid of the original screens, filling the right column. Click to see one full size.
                   On desktop the caption hangs below the grid (absolute), so the text on the left
                   is centred on the images themselves, not on images + caption. */}
@@ -283,7 +266,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full my-0 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="cs-split items-start">
-            <motion.div {...fadeUp}>
+            <motion.div>
               <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
                 The Problem
               </span>
@@ -295,7 +278,7 @@ export default function CaseStudyDevHub() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }}>
+            <motion.div>
               <div className="divide-y divide-white/10">
                 {[
                   {
@@ -313,10 +296,6 @@ export default function CaseStudyDevHub() {
                 ].map((item, i) => (
                   <motion.div
                     key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
                     className="py-7 first:pt-0 last:pb-0"
                   >
                     <h4 className="font-heading text-[#E2E8F0] text-[17px] leading-[1.3] tracking-[-0.01em] mb-2.5">
@@ -334,7 +313,7 @@ export default function CaseStudyDevHub() {
       {/* ── The Challenge — Top Hero (solid DevHub pink) ── */}
       <section className="w-full my-0 py-20 md:py-28 min-h-[50vh] flex flex-col justify-center bg-[#FF4E7E]" style={{ backgroundColor: "#FF4E7E" }}>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <h2 className="font-subheading text-white text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
               The Challenge
             </h2>
@@ -342,7 +321,7 @@ export default function CaseStudyDevHub() {
               A Rigid, Legacy Single-App & Single-User Tool
             </p>
           </motion.div>
-          <motion.div {...fadeUp} className="w-full max-w-full mb-0">
+          <motion.div className="w-full max-w-full mb-0">
             <p className="font-sans text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight leading-snug w-full max-w-full mb-0">
               How might we evolve a rigid single-app, single-user tool into a scalable, multi-tenant<br className="hidden md:block" />developer portal without missing our tight MVP deadline?
             </p>
@@ -353,7 +332,7 @@ export default function CaseStudyDevHub() {
       <section className="w-full py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="cs-split items-center mb-0">
-            <motion.div {...fadeUp}>
+            <motion.div>
               {/* Heading sits directly above the text, same 24px gap as the other sections */}
               <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-6">
                 Research & Business ROI
@@ -388,7 +367,7 @@ export default function CaseStudyDevHub() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15 }}>
+            <motion.div>
               <div className="rounded-2xl overflow-hidden">
                 <img
                   src="images/devhub/Research & Business ROI.svg"
@@ -405,15 +384,12 @@ export default function CaseStudyDevHub() {
       {/* ── Key Solutions & Features — rich alternating with mockups like Sdarim ── */}
       <section className="py-14 md:py-20 bg-[#090D16]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-subheading text-[#F1F5F9] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Solutions & Features
             </h2>
           </motion.div>
-          <motion.p
-            {...fadeUp}
-            className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-16 md:mb-20"
-          >
+          <motion.p className="font-body text-[#94A3B8] text-[16px] leading-relaxed max-w-[640px] mb-16 md:mb-20">
             I built the new developer portal around three solutions, each
             addressing a bottleneck from the legacy system and preparing it for
             future scale.
@@ -421,22 +397,10 @@ export default function CaseStudyDevHub() {
 
           <div className="space-y-20 md:space-y-28">
             {SOLUTIONS.map((sol, i) => (
-              <motion.div
-                key={sol.num}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-              >
+              <motion.div key={sol.num}>
                 <div className="cs-split items-center">
                   {/* Content — text hierarchy like Sdarim */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}
-                  >
+                  <motion.div className={`${i % 2 === 1 ? "lg:order-2" : ""} self-center`}>
                     <div>
                       <span className="inline-flex items-center font-label text-xs text-[#FF4E7E] bg-[#FF4E7E]/10 px-2.5 py-1 rounded-md border border-[#FF4E7E]/20 mb-3">
                         {sol.num}
@@ -470,13 +434,7 @@ export default function CaseStudyDevHub() {
                   </motion.div>
 
                   {/* Visual — mockup with dark translucent framing, contain, no cropping */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 28, scale: 0.98 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                    className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}
-                  >
+                  <motion.div className={`${i % 2 === 1 ? "lg:order-1" : ""} self-center w-full`}>
                     <div
                       className="rounded-2xl overflow-hidden border border-white/[0.07] bg-slate-900/40 backdrop-blur-sm p-4 md:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer group hover:border-[#FF4E7E]/30 transition-colors duration-300"
                       onClick={() => sol.image && setLightbox({ src: sol.image, alt: sol.label })}
@@ -495,44 +453,22 @@ export default function CaseStudyDevHub() {
           </div>
 
           {/* Quantifiable ROI — same card style as Sdarim's Quantitative Findings */}
-          <motion.div {...fadeUp} className="mt-16 md:mt-20">
+          <motion.div className="mt-16 md:mt-20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
                 className="bg-[#111827] border border-[#f1f5f9] rounded-2xl transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
-                style={{
-                  padding: "32px 28px",
-                  boxShadow: "0 4px 20px -2px rgba(0, 0, 0, 0.04)",
-                }}
+                style={{ padding: "32px 28px", boxShadow: "0 4px 20px -2px rgba(0, 0, 0, 0.04)", }}
               >
                 <span className="inline-block font-label text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-md mb-3 text-[#FF4E7E] bg-[#FF4E7E]/10 border border-[#FF4E7E]/20">
                   Quantifiable ROI
                 </span>
-                <motion.span
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="block text-5xl font-bold tracking-tight text-[#E2E8F0] mb-3 tabular-nums"
-                >
+                <motion.span className="block text-5xl font-bold tracking-tight text-[#E2E8F0] mb-3 tabular-nums">
                   <AnimatedCounter value={27} suffix="%" duration={1350} />
                 </motion.span>
                 <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "27%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="rounded-full"
-                  style={{
-                    height: "5px",
-                    background: "linear-gradient(90deg, #FF4E7E, #FF8FAB)",
-                    borderRadius: "9999px",
-                    marginBottom: "16px",
-                  }}
-                />
+                  style={{ height: "5px", background: "linear-gradient(90deg, #FF4E7E, #FF8FAB)", borderRadius: "9999px", marginBottom: "16px", }}
+                 />
                 <p className="text-[14px] leading-[1.5] text-[#94A3B8]">
                   Reduction in engineering effort: we saved{" "}
                   <span className="text-[#E2E8F0]">35 dev days</span> (from 168 down to 133).
@@ -548,7 +484,7 @@ export default function CaseStudyDevHub() {
       {/* ── Detailed Design: 3-column component craft showcase ── */}
       <section className="w-full py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp}>
+          <motion.div>
             <span className="font-label text-[11px] tracking-widest uppercase block mb-5 text-[#F8FAFC]/45">
               Component Craft &amp; Edge Cases
             </span>
@@ -584,13 +520,7 @@ export default function CaseStudyDevHub() {
                 body: "Explicit environment badges ensuring developers never trigger live production actions while testing in sandboxes.",
               },
             ].map((item, i) => (
-              <motion.div
-                key={item.tag}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-              >
+              <motion.div key={item.tag}>
                 <div className="border border-white/10 rounded-xl bg-[#0B0F17] shadow-xl p-4">
                   <ZoomableImage
                     src={item.image}
@@ -646,7 +576,7 @@ export default function CaseStudyDevHub() {
       {/* ── Before & After ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="mb-12">
+          <motion.div className="mb-12">
             <h2 className="font-heading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Before & After
             </h2>
@@ -654,7 +584,7 @@ export default function CaseStudyDevHub() {
               Drag to compare before and after
             </span>
           </motion.div>
-          <motion.div {...fadeUp}>
+          <motion.div>
             <BeforeAfterSlider
               beforeImage={{ src: "images/devhub/f8a9b2071_Appdetails-Editmode52.png", alt: "Before — Legacy DevHub portal" }}
               afterImage={{ src: "images/devhub/devhub.after.mockup.svg", alt: "After — Modern DevHub" }}
@@ -666,7 +596,7 @@ export default function CaseStudyDevHub() {
       {/* ── Key Takeaways ── */}
       <section className="py-14 md:py-20">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div {...fadeUp} className="flex items-center gap-6 mb-12">
+          <motion.div className="flex items-center gap-6 mb-12">
             <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
               Key Takeaways
             </h2>
@@ -676,10 +606,6 @@ export default function CaseStudyDevHub() {
             {TAKEAWAYS.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
                 <div className="w-10 h-10 rounded-full border border-white/[0.08] group-hover:border-[#FF4E7E] group-hover:bg-[#FF4E7E]/10 flex items-center justify-center mb-5 transition-all duration-300 text-[#F8FAFC]/60 group-hover:text-[#FF4E7E]">

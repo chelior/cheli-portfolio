@@ -97,13 +97,6 @@ const EDUCATION = [
   },
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-40px" },
-  transition: { duration: 0.6 },
-};
-
 export default function Resume() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -241,7 +234,7 @@ export default function Resume() {
         </motion.section>
 
         {/* ── Section header — outside grid so cards align flush ── */}
-        <motion.div {...fadeUp} className="flex items-center gap-3 print-section mb-6">
+        <motion.div className="flex items-center gap-3 print-section mb-6">
           <div className="w-8 h-8 rounded-full bg-[#3B82F6] shadow-[0_0_20px_rgba(59,130,246,0.25)] flex items-center justify-center text-white shadow-[0_0_12px_rgba(59,130,246,0.3)]">
             <Briefcase size={14} />
           </div>
@@ -257,10 +250,6 @@ export default function Resume() {
             {EXPERIENCE.map((job, idx) => (
               <motion.article
                 key={job.company}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className="print-card bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-6 md:p-8"
                 style={{ breakInside: "avoid" }}
               >
@@ -316,7 +305,6 @@ export default function Resume() {
 function SkillsCard() {
   return (
     <motion.section
-      {...fadeUp}
       className="print-card bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-4"
       style={{ breakInside: "avoid" }}
     >
@@ -343,8 +331,6 @@ function SkillsCard() {
 function EducationCard() {
   return (
     <motion.section
-      {...fadeUp}
-      transition={{ duration: 0.6, delay: 0.1 }}
       className="print-card bg-[#111827] rounded-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-4"
       style={{ breakInside: "avoid" }}
     >

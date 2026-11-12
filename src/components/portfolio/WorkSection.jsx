@@ -9,13 +9,7 @@ export default function WorkSection({ projects, onOpenProject }) {
     <section id="work" className="relative px-6 md:px-12 py-16 md:py-20 bg-[#090D16]">
       <div className="max-w-[1400px] mx-auto">
         {/* Section header — aligned with project grid tracks */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 md:mb-10"
-        >
+        <motion.div className="mb-8 md:mb-10">
           <h2 className="font-subheading text-[#F8FAFC] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em]">
             Work
           </h2>

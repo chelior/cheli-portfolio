@@ -38,13 +38,6 @@ const DEFAULT_SLIDES = [
   },
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
-
 export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -82,7 +75,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
     <section className="w-full px-6 md:px-12 py-14 md:py-20">
       <div className="max-w-[1304px] mx-auto">
         {/* Header */}
-        <motion.div {...fadeUp}>
+        <motion.div>
           <h2 className="font-subheading text-[#0A0F1D] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             Detailed Design
           </h2>
@@ -92,7 +85,7 @@ export default function DesignGallery({ slides = DEFAULT_SLIDES }) {
         </motion.div>
 
         {/* Carousel */}
-        <motion.div {...fadeUp} className="relative">
+        <motion.div className="relative">
           <div className="relative overflow-hidden rounded-lg bg-[#111827] border border-white/[0.08]">
             {/* Sizer — maintains container height to prevent layout shifts */}
             <img src={slides[index].image} alt="" aria-hidden="true" className="block w-full h-auto opacity-0" />

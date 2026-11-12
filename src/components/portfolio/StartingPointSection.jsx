@@ -1,23 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ImageLightbox from "@/components/portfolio/ImageLightbox";
-
-const FADE_UP = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7 },
-};
-
-// Same shape as FADE_UP but already at rest, so content bound to prefers-reduced-motion
-// never sits at opacity: 0 waiting on a scroll trigger that may not fire for that user.
-const FADE_UP_REDUCED = {
-  initial: { opacity: 1, y: 0 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0 },
-};
 
 export default function StartingPointSection({
   images = [],
@@ -27,8 +11,6 @@ export default function StartingPointSection({
   showArchitecturalBlock = false,
   compact = false,
 }) {
-  const reducedMotion = useReducedMotion();
-  const fadeUp = reducedMotion ? FADE_UP_REDUCED : FADE_UP;
   const [index, setIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
@@ -64,7 +46,7 @@ export default function StartingPointSection({
   const innerContent = (
     <>
         {title && (
-        <motion.div {...fadeUp}>
+        <motion.div>
           <h2 className="font-subheading text-[#E2E8F0] text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] mt-0 mb-2">
             {title}
           </h2>
@@ -75,7 +57,7 @@ export default function StartingPointSection({
       )}
 
       {showArchitecturalBlock && (
-        <motion.div {...fadeUp} className="cs-split items-start mb-12">
+        <motion.div className="cs-split items-start mb-12">
           {/* Column 1 — title outside card */}
           <div>
             <h3 className="font-heading text-[#94A3B8] text-[16px] tracking-[-0.02em] mb-4">
@@ -136,7 +118,10 @@ export default function StartingPointSection({
       )}
 
         {/* Coverflow — How It Started: center-focused, peeking sides, fixed height, no layout shift — constrained frame below header */}
-        <motion.div {...fadeUp} className="relative overflow-hidden rounded-xl" style={{ boxSizing: "border-box" }}>
+        <motion.div
+          className="relative overflow-hidden rounded-xl"
+          style={{ boxSizing: "border-box" }}
+        >
           <div
             className="relative w-full h-[280px] sm:h-[340px] md:h-[420px] lg:h-[460px] overflow-visible select-none"
             style={{ boxSizing: "border-box" }}

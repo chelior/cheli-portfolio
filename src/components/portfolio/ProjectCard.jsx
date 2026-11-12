@@ -26,11 +26,8 @@ export default function ProjectCard({ project, index, onOpen, isDimmed, isActive
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
       animate={{ opacity: dimmed ? 0.3 : 1 }}
+      transition={{ duration: 0.3 }}
       className="group relative h-full flex flex-col transition-opacity duration-300"
     >
       <button

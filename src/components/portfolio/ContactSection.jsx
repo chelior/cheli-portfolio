@@ -30,13 +30,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative px-6 md:px-12 py-24 md:py-40 bg-[#090D16] border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center"
-        >
+        <motion.div className="text-center">
           <p className="font-label text-sm text-[#F8FAFC]/60 tracking-wide mb-6 md:mb-8">
             Open for my next role. Let's connect.
           </p>

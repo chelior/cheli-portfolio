@@ -70,13 +70,7 @@ export default function WizardStepsMockup() {
 
 function StepCard({ step, index, className, onOpen }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
-      className={`flex flex-col ${className || ""}`}
-    >
+    <motion.div className={`flex flex-col ${className || ""}`}>
       <div className="flex items-center gap-3 mb-3">
         <span className="font-label text-xs text-[#3B82F6] font-normal">{step.num}</span>
         <span className="font-label text-xs text-[#0A0F1D]/50 uppercase tracking-wide">{step.name}</span>
@@ -102,13 +96,7 @@ function FlowArrow({ direction, delay, className }) {
   const icons = { right: ArrowRight, down: ArrowDown, left: ArrowLeft };
   const Icon = icons[direction];
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.3 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay }}
-      className={`flex items-center justify-center ${className || ""}`}
-    >
+    <motion.div className={`flex items-center justify-center ${className || ""}`}>
       <motion.div
         animate={{ scale: [1, 1.15, 1] }}
         transition={{ duration: 2, repeat: Infinity, delay: delay + 0.5 }}
